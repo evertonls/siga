@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:sec="http://www.springframework.org/security/tags">
+<body>
+	<ui:composition>
+		<h:form id="menu"
+			onsubmit="this.action='#{request.contextPath}/logout';">
+			<p:menubar autoDisplay="false" styleClass="barramenu">
+
+				<sec:authorize access="isAuthenticated()">
+					<p:menuitem disabled="false" containerStyleClass="logado"
+						id="logado" value="Olá,
+						#{adminMenuBean.nome}">
+					</p:menuitem>
+				</sec:authorize>
+
+				<sec:authorize access="hasAnyRole('ADMIN','SUBADMIN','CADCONTR')">
+					<p:submenu label="Cadastrar" icon="pi pi-save">
+						<p:menuitem value="Empresa"
+							url="#{request.contextPath}/usuarios/cadastro/cadastroempresa.xhtml" />
+						<p:menuitem value="Contrato"
+							url="#{request.contextPath}/usuarios/cadastro/cadastrocontrato.xhtml" />
+						<p:menuitem value="Responsáveis"
+							url="#{request.contextPath}/usuarios/cadastro/cadastrostaff.xhtml" />
+						<p:menuitem value="Aditivos"
+							url="#{request.contextPath}/usuarios/cadastro/cadastroaditivo.xhtml" />
+						<p:menuitem value="Apostilas"
+							url="#{request.contextPath}/usuarios/cadastro/cadastroapostila.xhtml" />
+					</p:submenu>
+				</sec:authorize>
+				
+				<sec:authorize access="hasAnyRole('ADMIN','SUBADMIN','CADCONTR')">
+					<p:submenu label="Atribuir" styleClass="menuFirst"
+						icon="pi pi-table">
+						<p:menuitem value="Responsável"
+							url="#{request.contextPath}/usuarios/cadastro/atribuirresponsavel.xhtml"></p:menuitem>
+						<p:menuitem value="Portaria"
+							url="#{request.contextPath}/usuarios/cadastro/atribuirportaria.xhtml"></p:menuitem>
+					</p:submenu>
+				</sec:authorize>
+				
+				<p:submenu label="Visualizar" icon="pi pi-table">
+					<p:menuitem value="Alunos"
+						url="#{request.contextPath}/usuarios/listaalunos.xhtml"></p:menuitem>
+					<p:menuitem value="Inscrições"
+						url="#{request.contextPath}/usuarios/listainscricoes.xhtml"></p:menuitem>
+					<sec:authorize access="hasAnyRole('ADMIN','SUBADMIN')">
+						<p:menuitem value="Alunos Cadastrados"
+							url="#{request.contextPath}/subadmin/listaalunoscadastrados.xhtml"></p:menuitem>
+						<p:menuitem value="Inscrições Cadastradas"
+							url="#{request.contextPath}/subadmin/listainscricoescadastradas.xhtml"></p:menuitem>
+						<p:menuitem value="Escolas Cadastradas"
+							url="#{request.contextPath}/subadmin/listaescolascadastradas.xhtml"></p:menuitem>
+					</sec:authorize>
+				</p:submenu>
+				<sec:authorize access="hasAnyRole('ADMIN','SUBADMIN')">
+					<p:submenu label="Administração" styleClass="menuFirst"
+						icon="pi pi-lock">
+						<sec:authorize access="hasAnyRole('ADMIN')">
+							<p:menuitem value="Usuários OnLine"
+								url="#{request.contextPath}/admin/usuarioslogados.xhtml" />
+						</sec:authorize>
+						<p:submenu label="Cadastrar">
+							<p:menuitem value="Usuário"
+								url="#{request.contextPath}/subadmin/cadastrousuario.xhtml" />
+							<sec:authorize access="hasRole('ADMIN')">
+								<p:menuitem value="Funções(Roles)" url="#"></p:menuitem>
+							</sec:authorize>
+						</p:submenu>
+						<sec:authorize access="hasRole('ADMIN')">
+							<p:submenu label="Atribuir">
+								<p:menuitem value="Funções(Roles)" url="#"></p:menuitem>
+							</p:submenu>
+						</sec:authorize>
+						<sec:authorize access="hasAnyRole('ADMIN','SUBADMIN')">
+							<p:menuitem value="Relatórios"
+								url="#{request.contextPath}/subadmin/relatorios.xhtml" />
+						</sec:authorize>
+					</p:submenu>
+				</sec:authorize>
+				<f:facet name="options">
+					<p:commandButton value="Sair" icon="pi pi-power-off" ajax="false" />
+				</f:facet>
+			</p:menubar>
+		</h:form>
+	</ui:composition>
+</body>
+</html>

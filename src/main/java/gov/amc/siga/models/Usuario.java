@@ -19,7 +19,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Usuario implements UserDetails, Serializable, Comparable<Usuario> {
+public class Usuario implements UserDetails, Comparable<Usuario>, Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private Long id;

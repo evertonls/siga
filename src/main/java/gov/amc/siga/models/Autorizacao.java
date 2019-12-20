@@ -4,12 +4,18 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.stereotype.Component;
 
-public class Autorizacao implements GrantedAuthority, Serializable {
+@Component
+public class Autorizacao implements GrantedAuthority, Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private String authority;
 	private String descricao;
+	
+	public Autorizacao() {
+		// Uso do Framework
+	}
 
 	public Autorizacao(String nome) {
 		super();
@@ -24,7 +30,7 @@ public class Autorizacao implements GrantedAuthority, Serializable {
 
 	@Override
 	public String getAuthority() {
-		return null;
+		return authority;
 	}
 	
 	public void setAuthority(String authority) {

@@ -11,7 +11,7 @@ import org.hibernate.validator.constraints.Length;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Setor implements Serializable, Comparable<Setor>{
+public class Setor implements  Comparable<Setor>, Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private Long id;
