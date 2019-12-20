@@ -1,0 +1,242 @@
+@charset "ISO-8859-1";
+
+* {
+	box-sizing: border-box;
+}
+
+
+html {
+	height: 100%;
+	width: 100%;
+}
+
+/*body {
+	min-height: 100%;
+	display: grid;
+	grid-template-rows: 1fr auto;
+	margin: 0;
+	padding: 0;
+}*/
+
+h1 {
+	text-align: center;
+}
+
+.red {
+	color: red;
+}
+
+.centeredText {
+	text-align: center
+}
+
+.bolderText {
+	font-weight: bolder;
+}
+
+.panelGridCenterCadastro {
+	position: relative;
+	top: 0;
+	width: 50%;
+	margin-left: 25%;
+	margin-right: 25%;
+	align-content: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+#cadForm {
+	position: relative;
+	height: 100%;
+	top: auto;
+}
+
+
+/*body .ui-panelgrid .ui-panelgrid-cell {
+	background-color: lightgray;
+}*/
+
+.input {
+	width: 96%;
+}
+
+.fontBolder {
+	font-weight: bolder;
+}
+
+.container {
+	position: relative;
+	width: 0%;
+	float: none;
+}
+
+/*#content {
+	position: relative;
+	bottom: 3%;
+}*/
+
+#header {
+	position: relative;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: fit-content;
+}
+
+/*#footer {
+	position: relative;
+	width: 100%;
+	background-color: #64a9a4;
+	height: fit-content;
+	float: left;
+	background-color: #64a9a4;
+	color: white;
+	}
+
+
+#footer h2 {
+	color: white;
+	font-size: 15px;
+	margin-left: 1%;
+}
+
+#footer #autarquia {
+	color: white;
+	font-size: 15px;
+	clear: left;
+	margin-left: 1%;
+	font-family: "Open Sans","Helvetica Neue",sans-serif;
+}
+
+#footer img {
+	float: left;
+	margin-left: 1%;
+	padding-top: 15px;
+	clear: right
+}*/
+
+body .ui-button {
+	background-color: #64a9a4;
+	border: 1px solid #64a9a4;
+}
+
+.imageCentered {
+	text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+	
+	#cadForm {
+		position: relative;
+		width: 100%;
+		left: 0;
+	}
+	
+	.panelGridCenterCadastro {
+		position: relative;
+		margin-top: 6%;
+		width: 100%;
+		margin-left: 0%;
+		margin-right: 0%;
+		align-content: center;
+	}
+	
+	#content {
+		position: relative;
+		bottom: 1%;
+	}
+	/*#footer {
+		position: relative;
+		width: 100%;
+		background-color: #64a9a4;
+		margin-top: 16%;
+		float: left;
+		background-color: #64a9a4;
+		color: white;
+		background-color: #64a9a4;
+	}*/
+	
+	
+}
+
+@media only screen and (max-width: 800px) {
+	
+	#cadForm {
+		position: relative;
+		width: 100%;
+		margin-top: 0;
+		left: 0;
+	}
+	
+	.panelGridCenterCadastro {
+		position: relative;
+		margin-top: 6%;
+		width: 100%;
+		margin-left: 0%;
+		margin-right: 0%;
+		align-content: center;
+	}
+	
+	
+	.container {
+		position: relative;
+	}
+	
+	/*#footer {
+		position: relative;
+		width: 100%;
+		background-color: #64a9a4;
+		height: fit-content;
+		float: left;
+		color: white;
+		background-color: #64a9a4;
+	}*/
+	
+	
+	
+}
+
+@media only screen and (max-width: 1024px) {
+	
+	* {
+		box-sizing: border-box !important;
+	}
+	
+	html {
+		height: 0px;
+		width: 100%;
+	}
+	
+	#cadForm {
+		position: relative;
+		width: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		margin-top: 0;
+	}
+	
+	.panelGridCenterCadastro {
+		position: relative;
+		margin-top: 3%;
+		top: 0;
+		width: 100%;
+		margin-left: 0%;
+		margin-right: 0%;
+		align-content: center;
+	}
+	
+	
+	
+	/*#footer {
+		position: relative;
+		width: 100%;
+		height: fit-content;
+		float: left;
+		color: white;
+		background-color: #64a9a4;
+	}*/
+	
+	
+	
+}

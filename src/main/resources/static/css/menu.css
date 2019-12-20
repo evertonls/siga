@@ -1,0 +1,153 @@
+@charset "ISO-8859-1";
+
+@font-face {
+	font-family: 'Lato';
+	font-style: italic;
+	font-weight: 400;
+	src: local('Lato Italic'), local('../fontes/Lato-Italic');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+		U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin-ext */
+@font-face {
+	font-family: 'Lato';
+	font-style: italic;
+	font-weight: 700;
+	src: local('Lato Bold Italic'), local('../fontes/Lato-BoldItalic');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+		U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin-ext */
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Lato Regular'), local('../fontes/Lato-Regular');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+		U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin-ext */
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Lato Bold'), local('../fontes/Lato-Bold');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+		U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+* {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+body {
+	font-family: Lato, Times, serif;
+	font-weight: 400;
+	margin : 0;
+	padding: 0;
+	margin: 0;
+}
+
+.container {
+	position: relative;
+	width: 100%;
+	float: left;
+}
+
+div#header {
+	height: 2rem;
+}
+
+/* .ui-menu {
+	top: 25px;
+} */
+.ui-menu-list {
+	background-color: #64a9a4;
+	/* background-color: #0099cc; */
+}
+
+.ui-menuitem {
+	/* background-color: #0099cc; */
+	background-color: #64a9a4;
+}
+
+.ui-helper-reset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	line-height: 1.3;
+	text-decoration: none;
+	font-size: .99rem;
+	list-style: none;
+}
+
+body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link .ui-menuitem-text
+	{
+	vertical-align: middle;
+	float: none;
+	color: white;
+}
+
+body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link.ui-state-hover
+	{
+	background-color: white;
+}
+
+body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link .ui-menuitem-icon
+	{
+	color: white;
+}
+
+body .ui-button {
+	background-color: #64a9a4;
+	border: 1px solid #64a9a4;
+}
+
+body .ui-menu {
+	background-color: #64a9a4;
+}
+
+#menu\:logado{
+	background-color: #64a9a4;
+	color: white;
+}
+
+#menu\:logado:hover{
+	background-color: #64a9a4;
+	color: white;
+}
+
+#menu\:logado span{
+	color: white;
+}
+
+
+@media only screen and (max-width: 600px) {
+		/*.menuFirst{
+			text-align: left !important;
+			width: 100% !important;
+		}*/
+		
+		/*body .ui-menu .ui-menu-list .ui-menu-child.ui-shadow{
+			width: 100% !important;
+		}*/
+		
+
+}
+
+/*@media only screen and (max-width: 800px) {
+		#menu\:menuFirst{
+			
+		}
+	
+}
+
+@media only screen and (max-width: 1024px) {
+		#menu\:menuFirst{
+			
+		}
+	
+}*/
+

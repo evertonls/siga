@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+<ui:composition template="/WEB-INF/templates/_loginTemplate.xhtml">
+	<ui:define name="title">Login SIGA</ui:define>
+	<ui:define name="extraCss">
+		<link href="#{request.contextPath}/css/login.css" rel="stylesheet" />
+	</ui:define>
+	<ui:define name="extraJS">
+	</ui:define>
+	<ui:define name="contentLogin">
+		<h:form prependId="false">
+			<p:growl styleClass="messages" id="messages" closable="true">
+				<p:autoUpdate />
+			</p:growl>
+
+			<p:panelGrid id="pnl" columns="1" layout="grid"
+				styleClass="ui-fluid center  panelGridCenterLogin">
+				<p:panelGrid columns="1" layout="grid"
+					styleClass="ui-noborder ui-fluid center imageCentered">
+					<p:graphicImage value="../imagens/brasao_de_fortaleza.svg.png"
+						height="200" width="220" />
+				</p:panelGrid>
+				<p:panelGrid columns="1" layout="grid"
+					styleClass="ui-noborder ui-fluid center centeredText">
+					<p:staticMessage severity="error" summary="ERROR!"
+						detail="Usuário ou senha incorretos!"
+						rendered="${!empty param['error']}" />
+					<p:outputLabel styleClass="bolderText">SISTEMA DE INFORMAÇÃO<br />GERENCIAMENTO E APOIO</p:outputLabel>
+				</p:panelGrid>
+				<p:inputText styleClass="input" id="usuario"
+					placeholder="CPF - Somente Números" required="true"
+					requiredMessage="campo usuário obrigatório" maxlength="11"
+					autocomplete="off" />
+				<p:password id="senha" placeholder="Senha" required="true"
+					requiredMessage="campo senha obrigatório" autocomplete="off" />
+				<p:panelGrid columns="2" layout="grid" styleClass="ui-noborder ui-fluid">
+					<h:outputLink
+						value="#{request.contextPath}/login/recuperarsenha.xhtml">
+						<h:outputText value="Esqueceu sua senha?"></h:outputText>
+					</h:outputLink>
+				</p:panelGrid>
+				<p:panelGrid columns="1" styleClass="ui-noborder ui-fluid center"
+					layout="grid">
+					<p:commandButton value="Login" ajax="false" />
+					<!-- <p:button outcome="/login/cadastrousuario" value="Cadastro"></p:button> -->
+				</p:panelGrid>
+			</p:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
+<!-- <a href="#{request.contextPath}/bcrypt.html">Encrypt</a> -->
+<!-- <a href="#{request.contextPath}/removeMask.html">removeMask</a> -->
+</html>
