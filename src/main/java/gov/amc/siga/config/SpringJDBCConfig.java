@@ -31,10 +31,9 @@ public class SpringJDBCConfig {
 	@Bean(value = "sigadb")
 	public DataSource postgresqlDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		/* configuração do banco de homologação */
 
 		dataSource.setDriverClassName("org.postgresql.Driver");
-		dataSource.setUrl("jdbc:postgresql://localhost/sigadb");
+		dataSource.setUrl("jdbc:postgresql://localhost:5432/sigadb");
 		dataSource.setUsername("siga_user");
 		dataSource.setPassword("123456789");
 

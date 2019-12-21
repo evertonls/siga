@@ -231,3 +231,6 @@ CREATE TABLE IF NOT EXISTS permissoes (
 	CONSTRAINT permi_id_code UNIQUE(usuario_id, autoriza_cod)
 );
 COMMENT ON TABLE permissoes IS 'relação de permissões de cada usuario';
+
+SELECT * FROM usuarios u;
+

@@ -36,9 +36,9 @@ public class JdbcUsuarioDaoImpl implements JdbcUsuarioDao, Serializable {
 	private JdbcTemplate template;
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	private final String query = "SELECT u.usuario_id, u.usuario_nm, u.cpf_num, u.mat_num, u.email, u.senha, u.mail_warn, "
-			+ "p.autoriza_cod, u.setor_id, s.setor_cod, s.setor_desc  " + "FROM usuarios u "
-			+ "LEFT JOIN permissoes p ON u.usuario_id = p.usuario_id "
-			+ "LEFT JOIN setores s ON u.setor_id = s.setor_id";
+			+ "p.autoriza_cod, u.setor_id, s.setor_cod, s.setor_desc  " + "FROM siga.usuarios u "
+			+ "LEFT JOIN siga.permissoes p ON u.usuario_id = p.usuario_id "
+			+ "LEFT JOIN siga.setores s ON u.setor_id = s.setor_id";
 
 	@Autowired
 	public JdbcUsuarioDaoImpl(DataSource ds) {
@@ -52,7 +52,7 @@ public class JdbcUsuarioDaoImpl implements JdbcUsuarioDao, Serializable {
 
 	@Override
 	public void updatePassword(String senha, String cpf) {
-		template.update("UPDATE Usuarios SET senha = ? WHERE cpf_num = ?", BCrypt.hashpw(senha, BCrypt.gensalt()), cpf);
+		template.update("UPDATE siga.usuarios SET senha = ? WHERE cpf_num = ?", BCrypt.hashpw(senha, BCrypt.gensalt()), cpf);
 	}
 
 	@Override

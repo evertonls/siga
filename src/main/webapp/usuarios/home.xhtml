@@ -5,40 +5,9 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:sec="http://www.springframework.org/security/tags"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-<ui:composition template="/WEB-INF/templates/_siteTemplate.xhtml">
-	<ui:define name="title">Home</ui:define>
-	<ui:define name="extraCss">
-		<!-- for css -->
-		<link href="#{request.contextPath}/css/home.css" rel="stylesheet" />
-	</ui:define>
-	<ui:define name="extraJS">
-		<!-- for js -->
-	</ui:define>
-	<ui:define name="content">
-		<p:growl id="growl" sticky="true">
-			<p:autoUpdate />
-		</p:growl>
-		<p:panel id="introducao" header="Informações sobre os cadastros"
-			footer="Detalhes sobre os cadastros e inscrição"
-			style="margin-bottom:20px">
-			<p:panelGrid columns="2" layout="grid" styleClass="ui-noborder ui-fluid" cellpadding="10"
-			columnClasses="ui-g-12 ui-md-4 ui-lg-4, ui-g-12 ui-md-8 ui-lg-8">
-				<p:graphicImage id="imgIntroducao" value="/imagens/introducao.png" />
-				<p:panelGrid id="passos" columns="1">
-						Para realizar a inscrição do respectivo aluno siga os seguintes passos:<br /><br />
-						1 - Clique em <b>Cadastro</b> no <b>canto superior esquerdo</b> da tela selecione <b>Novo</b>.<br />
-						2 - Você verá várias opções. Ex: Professor, Responsável, Diretor.<br />
-					    3 - Você deverá entrar em cada uma dessas opções.<br />
-					    4 - Realize o cadastro do Professor, do Responsável, do diretor e finalmente do Aluno.<br />
-						5 - Após os cadastros, você poderá realizar a inscrição no mesmo menu.<br />
-						6 - Ocorrendo algum erro entrar em contato com nosso suporte <b>Tel:(85)3433-9728</b><br />
-				</p:panelGrid>
-			</p:panelGrid>
-		</p:panel>
-	</ui:define>
-
-</ui:composition>
+<body>
+	<h1>Aqiu fica a pagina inicial.</h1>
+</body>
 </html>
