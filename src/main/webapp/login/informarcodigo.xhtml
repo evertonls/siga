@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+<ui:composition template="/WEB-INF/templates/_cadastroTemplate.xhtml">
+	<ui:define name="title">Mudança de Senha</ui:define>
+	<ui:define name="extraCss">
+		<link href="#{request.contextPath}/css/informarcodigo.css"
+			rel="stylesheet" />
+		<link href="#{request.contextPath}/css/default.css" rel="stylesheet"
+			media="screen" />
+	</ui:define>
+	<ui:define name="extraJS">
+		<!-- js extras -->
+	</ui:define>
+	<ui:define name="content">
+		<h:form>
+			<p:growl id="growl" sticky="true">
+				<p:autoUpdate />
+			</p:growl>
+			<p:panelGrid layout="grid" columns="1"
+				styleClass="panelGridCodigo">
+				<p:panelGrid columns="1" layout="grid"
+					styleClass="ui-noborder ui-fluid center imageCentered">
+					<p:graphicImage value="../imagens/brasao_de_fortaleza.svg.png"
+						height="200" width="220" />
+				</p:panelGrid>
+				<p:panelGrid columns="1" layout="grid"
+					styleClass="ui-noborder ui-fluid center centeredText">
+					<p:outputLabel styleClass="bolderText">Mudança de Senha</p:outputLabel>
+				</p:panelGrid>
+				<h:outputText rendered="#{not mudaSenhaBean.correto}" for="cpf" value="CPF:*" />
+				<p:inputMask rendered="#{not mudaSenhaBean.correto}" styleClass="input" id="cpf"
+					value="#{mudaSenhaBean.usuario.cpf}" mask="999.999.999-99"
+					autocomplete="off">
+				</p:inputMask>
+				
+				<h:outputText rendered="#{not mudaSenhaBean.correto}" for="codigo" value="Código:*"></h:outputText>
+				<p:inputText rendered="#{not mudaSenhaBean.correto}" 
+				styleClass="input" value="#{mudaSenhaBean.usuario.codRecuperacao}" maxlength="20" placeholder="Digite o código enviado"></p:inputText>
+
+				<h:outputText rendered="#{mudaSenhaBean.correto}" for="senha" value="Senha:*" />
+				<p:password rendered="#{mudaSenhaBean.correto}" styleClass="input" id="senha"
+					value="#{mudaSenhaBean.usuario.senha}"
+					placeholder="6 a 10 caracteres"></p:password>
+
+				<h:outputText rendered="#{mudaSenhaBean.correto}" for="confSenha" value="Confirmação de Senha:*" />
+				<p:password rendered="#{mudaSenhaBean.correto}" styleClass="input" id="confSenha"
+					value="#{mudaSenhaBean.usuario.confSenha}"
+					placeholder="6 a 10 caracteres"></p:password>
+
+				<p:commandButton rendered="#{not mudaSenhaBean.correto}" icon="pi pi-eye" value="Verificar"
+					action="#{mudaSenhaBean.verificaCodigo}" ajax="false" />
+				<p:commandButton rendered="#{mudaSenhaBean.correto}" icon="pi pi-save" value="Salvar"
+					action="#{mudaSenhaBean.mudarSenha}" ajax="false" />
+			</p:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

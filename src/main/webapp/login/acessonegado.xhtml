@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<h:head>
+<title>404 Não Encontrado</title>
+<link href="#{request.contextPath}/css/erros.css" rel="stylesheet" />
+</h:head>
+<body>
+
+		<div id="message" class="ui-g">
+			<div id="message-sub" class="ui-g-12 ui-md-3 ui-g-12">
+				<p:staticMessage id="message-static" severity="error" summary="ERRO!"
+					detail="Desculpe, Você não tem acesso a página solicitada!" />
+			</div>
+		</div>
+
+</body>
+</html>

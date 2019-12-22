@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+<ui:composition template="/WEB-INF/templates/_cadastroTemplate.xhtml">
+	<ui:define name="title">Recuperação de Senha</ui:define>
+	<ui:define name="extraCss">
+		<link href="#{request.contextPath}/css/recuperarsenha.css"
+			rel="stylesheet" />
+		<link href="#{request.contextPath}/css/default.css" rel="stylesheet"
+			media="screen" />
+	</ui:define>
+	<ui:define name="extraJS">
+		<!-- js extras -->
+	</ui:define>
+	<ui:define name="content">
+		<h:form prependId="false">
+			<p:growl id="growl" sticky="true">
+				<p:autoUpdate />
+			</p:growl>
+			<p:panelGrid layout="grid" columns="1"
+				styleClass="panelGridEmail">
+				<p:panelGrid columns="1" layout="grid"
+					styleClass="ui-noborder ui-fluid center imageCentered">
+					<p:graphicImage value="../imagens/brasao_de_fortaleza.svg.png"
+						height="200" width="220" />
+				</p:panelGrid>
+				<p:panelGrid columns="1" layout="grid"
+					styleClass="ui-noborder ui-fluid center centeredText">
+					<p:outputLabel styleClass="bolderText">Recuperação de Senha</p:outputLabel>
+				</p:panelGrid>
+				<p:staticMessage severity="warn" summary="Aviso:" detail="Será enviado um código ao seu email. Ao obter o código clique no link abaixo!"></p:staticMessage>
+				<h:outputText for="email" value="Email:*" />
+				<p:inputText styleClass="input" id="email"
+					value="#{recuperaSenhaBean.usuario.email}" autocomplete="off" />
+				<h:outputLink value="#{request.contextPath}/login/informarcodigo.xhtml"><h:outputText value="Informar código"></h:outputText></h:outputLink>
+				<p:commandButton icon="pi pi-envelope" value="Enviar"
+					action="#{recuperaSenhaBean.enviar}" ajax="false" />
+			</p:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
