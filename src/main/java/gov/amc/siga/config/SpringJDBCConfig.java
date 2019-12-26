@@ -15,30 +15,30 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ComponentScan("gov.amc.siga.config")
 public class SpringJDBCConfig {	
 	
-//	@Bean(value = "sigadb")
-//	public DataSource postgresqlDataSource() {
-//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//		/* configuração do banco de homologação */
-//
-//		dataSource.setDriverClassName("org.postgresql.Driver");
-//		dataSource.setUrl("jdbc:postgresql://pmfamcs34/sigadb");
-//		dataSource.setUsername("siga_user");
-//		dataSource.setPassword("123456789");
-//
-//		return dataSource;
-//	}
-	
 	@Bean(value = "sigadb")
 	public DataSource postgresqlDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		/* configuração do banco de homologação */
 
 		dataSource.setDriverClassName("org.postgresql.Driver");
-		dataSource.setUrl("jdbc:postgresql://localhost:5432/sigadb");
+		dataSource.setUrl("jdbc:postgresql://pmfamcs34/sigadb");
 		dataSource.setUsername("siga_user");
 		dataSource.setPassword("123456789");
 
 		return dataSource;
 	}
+	
+//	@Bean(value = "sigadb")
+//	public DataSource postgresqlDataSource() {
+//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//
+//		dataSource.setDriverClassName("org.postgresql.Driver");
+//		dataSource.setUrl("jdbc:postgresql://localhost:5432/sigadb");
+//		dataSource.setUsername("siga_user");
+//		dataSource.setPassword("123456789");
+//
+//		return dataSource;
+//	}
 	 
 
 	@Bean
