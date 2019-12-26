@@ -6,7 +6,7 @@
 	xmlns:pe="http://primefaces.org/ui/extensions"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:sec="http://www.springframework.org/security/tags">
+	xmlns:sec="https://joinfaces.org/security">
 <body>
 	<ui:composition>
 		<h:form id="menu"
@@ -21,44 +21,67 @@
 				</sec:authorize>
 
 				<sec:authorize access="hasAnyRole('ADMIN','SUBADMIN','CADCONTR')">
-					<p:submenu label="Cadastrar" icon="pi pi-save">
-						<p:menuitem value="Empresa"
-							url="#{request.contextPath}/usuarios/cadastro/cadastroempresa.xhtml" />
-						<p:menuitem value="Contrato"
-							url="#{request.contextPath}/usuarios/cadastro/cadastrocontrato.xhtml" />
-						<p:menuitem value="Responsáveis"
-							url="#{request.contextPath}/usuarios/cadastro/cadastrostaff.xhtml" />
-						<p:menuitem value="Aditivos"
-							url="#{request.contextPath}/usuarios/cadastro/cadastroaditivo.xhtml" />
-						<p:menuitem value="Apostilas"
-							url="#{request.contextPath}/usuarios/cadastro/cadastroapostila.xhtml" />
+					<p:submenu label="Projeto" icon="pi pi-save">
+						<p:menuitem value="Cadastrar"
+							url="#{request.contextPath}/usuarios/cadastrar-projeto.xhtml" />
+						<p:menuitem value="Atualizar"
+							url="#{request.contextPath}/usuarios/atualizar-projeto.xhtml" />
+						<p:menuitem value="Consultar"
+							url="#{request.contextPath}/usuarios/consultar-projeto.xhtml" />
 					</p:submenu>
 				</sec:authorize>
-				
-				<sec:authorize access="hasAnyRole('ADMIN','SUBADMIN','CADCONTR')">
-					<p:submenu label="Atribuir" styleClass="menuFirst"
-						icon="pi pi-table">
-						<p:menuitem value="Responsável"
-							url="#{request.contextPath}/usuarios/cadastro/atribuirresponsavel.xhtml"></p:menuitem>
-						<p:menuitem value="Portaria"
-							url="#{request.contextPath}/usuarios/cadastro/atribuirportaria.xhtml"></p:menuitem>
-					</p:submenu>
-				</sec:authorize>
-				
-				<p:submenu label="Visualizar" icon="pi pi-table">
-					<p:menuitem value="Alunos"
-						url="#{request.contextPath}/usuarios/listaalunos.xhtml"></p:menuitem>
-					<p:menuitem value="Inscrições"
-						url="#{request.contextPath}/usuarios/listainscricoes.xhtml"></p:menuitem>
+
+				<p:submenu label="Relatórios" icon="pi pi-table">
 					<sec:authorize access="hasAnyRole('ADMIN','SUBADMIN')">
-						<p:menuitem value="Alunos Cadastrados"
-							url="#{request.contextPath}/subadmin/listaalunoscadastrados.xhtml"></p:menuitem>
-						<p:menuitem value="Inscrições Cadastradas"
-							url="#{request.contextPath}/subadmin/listainscricoescadastradas.xhtml"></p:menuitem>
-						<p:menuitem value="Escolas Cadastradas"
-							url="#{request.contextPath}/subadmin/listaescolascadastradas.xhtml"></p:menuitem>
+						<p:menuitem value="GCE"
+							url="#{request.contextPath}/subadmin/listaalunoscadastrados.xhtml">
+						</p:menuitem>
+						<p:menuitem value="Contratada"
+							url="#{request.contextPath}/subadmin/listainscricoescadastradas.xhtml">
+						</p:menuitem>
+						<p:menuitem value="Equipe AMC"
+							url="#{request.contextPath}/subadmin/listaescolascadastradas.xhtml">
+						</p:menuitem>
+						<p:menuitem value="Em andamento"
+							url="#{request.contextPath}/subadmin/listaescolascadastradas.xhtml">
+						</p:menuitem>
+						<p:menuitem value="Vistoria contratada"
+							url="#{request.contextPath}/subadmin/listaescolascadastradas.xhtml">
+						</p:menuitem>
+						<p:menuitem value="Vistoria AMC"
+							url="#{request.contextPath}/subadmin/listaescolascadastradas.xhtml">
+						</p:menuitem>
+						<p:menuitem value="Concluído"
+							url="#{request.contextPath}/subadmin/listaescolascadastradas.xhtml">
+						</p:menuitem>
+						<p:menuitem value="Pendência"
+							url="#{request.contextPath}/subadmin/listaescolascadastradas.xhtml">
+						</p:menuitem>
+						<p:menuitem value="Vistoria de retirada de pendência"
+							url="#{request.contextPath}/subadmin/listaescolascadastradas.xhtml">
+						</p:menuitem>
+						<p:menuitem value="Aguardando"
+							url="#{request.contextPath}/subadmin/listaescolascadastradas.xhtml">
+						</p:menuitem>
+						<p:menuitem value="Atrasado"
+							url="#{request.contextPath}/subadmin/listaescolascadastradas.xhtml">
+						</p:menuitem>
+						<p:menuitem value="Cancelado"
+							url="#{request.contextPath}/subadmin/listaescolascadastradas.xhtml">
+						</p:menuitem>
+						<p:menuitem value="Suspenso"
+							url="#{request.contextPath}/subadmin/listaescolascadastradas.xhtml">
+						</p:menuitem>
 					</sec:authorize>
 				</p:submenu>
+				
+				<sec:authorize access="hasAnyRole('ADMIN','SUBADMIN','CADCONTR')">
+					<p:submenu label="BDRV" icon="pi pi-table">
+						<p:menuitem value=""
+							url="#{request.contextPath}/usuarios/cadastro/cadastrostaff.xhtml" />
+					</p:submenu>
+				</sec:authorize>
+
 				<sec:authorize access="hasAnyRole('ADMIN','SUBADMIN')">
 					<p:submenu label="Administração" styleClass="menuFirst"
 						icon="pi pi-lock">
@@ -70,17 +93,13 @@
 							<p:menuitem value="Usuário"
 								url="#{request.contextPath}/subadmin/cadastrousuario.xhtml" />
 							<sec:authorize access="hasRole('ADMIN')">
-								<p:menuitem value="Funções(Roles)" url="#"></p:menuitem>
+								<p:menuitem value="Funções" url="#"></p:menuitem>
 							</sec:authorize>
 						</p:submenu>
 						<sec:authorize access="hasRole('ADMIN')">
 							<p:submenu label="Atribuir">
-								<p:menuitem value="Funções(Roles)" url="#"></p:menuitem>
+								<p:menuitem value="Funções" url="#"></p:menuitem>
 							</p:submenu>
-						</sec:authorize>
-						<sec:authorize access="hasAnyRole('ADMIN','SUBADMIN')">
-							<p:menuitem value="Relatórios"
-								url="#{request.contextPath}/subadmin/relatorios.xhtml" />
 						</sec:authorize>
 					</p:submenu>
 				</sec:authorize>

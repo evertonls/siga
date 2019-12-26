@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+<ui:composition template="/WEB-INF/templates/_siteTemplate.xhtml">
+	<ui:define name="title">SIGA</ui:define>
+
+	<ui:define name="extraCss">
+		<link href="#{request.contextPath}/css/cadastrocontrato"
+			rel="stylesheet" />
+	</ui:define>
+
+	<ui:define name="extraJS">
+		<script type="text/javascript"
+			src="#{request.contextPath}/js/cadContrato.js" />
+	</ui:define>
+
+	<ui:define name="content">
+
+		<h:form id="formProjeto">
+			<p:growl id="growl" sticky="true">
+				<p:autoUpdate />
+			</p:growl>
+			<p:panel>
+				<p:panelGrid columns="1" layout="grid"
+					styleClass="ui-noborder ui-fluid ui-panelgrid-blank center centeredText">
+					<p:outputLabel styleClass="bolderText">Cadastro de Contratos</p:outputLabel>
+					<p:inputText type="hidden" value="#{adminContratoBean.contrato.id}"></p:inputText>
+				</p:panelGrid>
+
+				<p:panelGrid styleClass="ui-noborder ui-fluid ui-panelgrid-blank"
+					layout="grid" columns="4"
+					columnClasses="ui-g-12 ui-md-4 ui-lg-4, ui-g-12 ui-md-8 ui-lg-8, ui-g-12 ui-md-4 ui-lg-4, ui-g-12 ui-md-8 ui-lg-8">
+					<p:panelGrid>
+						<h:outputText for="projeto" value="Número do Projeto:*" />
+						<p:inputText styleClass="input" id="projeto" value="" autocomplete="off" placeholder="00.00.000">
+							<p:ajax event="blur" onstart="PF('bui').show()" oncomplete="PF('bui').hide()"
+								listener="#{adminContratoBean.verificaNumeroProjeto}"
+								process="projeto" update="@form" />
+						</p:inputText>
+
+						<h:outputText for="prancha" value="Número da Prancha:*" />
+						<p:inputText styleClass="input" id="prancha" value="" autocomplete="off" placeholder="00/00"></p:inputText>
+						
+						<h:outputText for="revisao" value="Revisão:*" />
+						<p:inputText styleClass="input" id="revisao" value="" autocomplete="off" placeholder="R00"></p:inputText>
+						
+						<h:outputText for="contrato" value="Nº Contrato:*" />
+						<p:inputText styleClass="input" id="conrato" value="" autocomplete="off" placeholder="000/00"></p:inputText>
+						
+						<h:outputText for="local" value="Local" />
+						
+						
+						
+
+
+						<h:outputText for="observacao" value="Observação:*" />
+						<br />
+						<h:outputText id="display" />
+						<p:inputTextarea id="observacao" rows="8" cols="50"
+							counter="display" maxlength="255"
+							value="#{adminContratoBean.contrato.observacao}"
+							counterTemplate="Restando {0} Caracteres." autoResize="false"
+							placeholder="Observações do projeto" />
+
+					</p:panelGrid>
+
+				</p:panelGrid>
+			</p:panel>
+
+
+			<h1>tela de cadastro de projetos</h1>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

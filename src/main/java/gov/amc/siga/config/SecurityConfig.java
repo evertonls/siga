@@ -32,18 +32,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.csrf().disable().requiresChannel().antMatchers("/**").requiresSecure().and().headers()
+		http.csrf().disable()
+		.requiresChannel().antMatchers("/**").requiresSecure()
+		.and().headers()
 				.addHeaderWriter(
 						new StaticHeadersWriter("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate"))
-				.frameOptions().disable().xssProtection().disable().and().authorizeRequests().antMatchers("/admin/**")
-				.hasRole("ADMIN").antMatchers("/subadmin/**").permitAll() // .hasAnyRole("ADMIN", "SUBADMIN")
+				.frameOptions().disable()
+				.xssProtection().disable()
+				.and()
+				.authorizeRequests()
+				.antMatchers("/admin/**")
+				.hasRole("ADMIN").antMatchers("/subadmin/**").hasAnyRole("ADMIN", "SUBADMIN")
 				.antMatchers("/login/**").permitAll()
 				.antMatchers("/css/**", "/imagens/**", "/js/**", "/fontes/**", "/docs/**").permitAll()
-				.antMatchers("/javax.faces.resource/**").permitAll().antMatchers("usuarios/**")
+				.antMatchers("/javax.faces.resource/**").permitAll()
+				.antMatchers("usuarios/**")
 				.hasAnyRole("ADMIN", "SUBADMIN", "USUARIO").antMatchers("usuarios/cadastro/**")
-				.hasAnyRole("ADMIN", "SUBADMIN").anyRequest().authenticated().and().formLogin()
+				.hasAnyRole("ADMIN", "SUBADMIN").anyRequest().authenticated()
+				.and()
+				.formLogin()
 				.loginPage("/login/login.xhtml").usernameParameter("usuario").passwordParameter("senha")
-				.defaultSuccessUrl("/usuarios/home.xhtml").failureUrl("/login/login.xhtml?error=true")
+				.defaultSuccessUrl("/usuarios/cadastro/cadastroprojetos.xhtml").failureUrl("/login/login.xhtml?error=true")
 
 				.and().logout().invalidateHttpSession(true).deleteCookies("JSESSIONID")
 				.logoutSuccessUrl("/login/login.xhtml").and().exceptionHandling()

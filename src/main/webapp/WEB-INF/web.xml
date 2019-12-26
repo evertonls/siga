@@ -36,6 +36,6 @@
 		<param-value>true</param-value>
 	</context-param>
 	<welcome-file-list>
-		<welcome-file>usuarios/cadastro-projetos.xhtml</welcome-file>
+		<welcome-file>usuarios/cadastrar-projeto.xhtml</welcome-file>
 	</welcome-file-list>
 </web-app>
