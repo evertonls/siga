@@ -52,8 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 				.formLogin()
 				.loginPage("/login/login.xhtml").usernameParameter("usuario").passwordParameter("senha")
-				.defaultSuccessUrl("/usuarios/cadastro-projeto.xhtml").failureUrl("/login/login.xhtml?error=true")
-
+				.defaultSuccessUrl("/usuarios/cadastrar-projeto.xhtml").failureUrl("/login/login.xhtml?error=true")
 				.and().logout().invalidateHttpSession(true).deleteCookies("JSESSIONID")
 				.logoutSuccessUrl("/login/login.xhtml").and().exceptionHandling()
 				.accessDeniedPage("/login/acessonegado.xhtml");

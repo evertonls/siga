@@ -24,59 +24,205 @@
 
 	<ui:define name="content">
 
-		<h:form id="formProjeto">
+		<h:form id="formContrato">
 			<p:growl id="growl" sticky="true">
 				<p:autoUpdate />
 			</p:growl>
-			<p:panel>
-				<p:panelGrid columns="1" layout="grid"
-					styleClass="ui-noborder ui-fluid ui-panelgrid-blank center centeredText">
-					<p:outputLabel styleClass="bolderText">Cadastro de Contratos</p:outputLabel>
-					<p:inputText type="hidden" value="#{adminContratoBean.contrato.id}"></p:inputText>
-				</p:panelGrid>
 
+			<br />
+			<p:fieldset legend="Cadastro de Projetos">
 				<p:panelGrid styleClass="ui-noborder ui-fluid ui-panelgrid-blank"
-					layout="grid" columns="4"
-					columnClasses="ui-g-12 ui-md-4 ui-lg-4, ui-g-12 ui-md-8 ui-lg-8, ui-g-12 ui-md-4 ui-lg-4, ui-g-12 ui-md-8 ui-lg-8">
-					<p:panelGrid>
+					columns="2" layout="grid">
+
+					<p:panelGrid styleClass="ui-noborder ui-fluid ui-panelgrid-blank"
+						columns="2" layout="grid"
+						columnClasses="ui-g-12 ui-md-4 ui-lg-4, ui-g-12 ui-md-8 ui-lg-8, ui-g-12 ui-md-4 ui-lg-4, ui-g-12 ui-md-8 ui-lg-8">
 						<h:outputText for="projeto" value="Número do Projeto:*" />
-						<p:inputText styleClass="input" id="projeto" value="" autocomplete="off" placeholder="00.00.000">
-							<p:ajax event="blur" onstart="PF('bui').show()" oncomplete="PF('bui').hide()"
+						<p:inputText styleClass="input" id="projeto" value=""
+							autocomplete="off" placeholder="00.00.000">
+							<p:ajax event="blur" onstart="PF('bui').show()"
+								oncomplete="PF('bui').hide()"
 								listener="#{adminContratoBean.verificaNumeroProjeto}"
 								process="projeto" update="@form" />
 						</p:inputText>
 
 						<h:outputText for="prancha" value="Número da Prancha:*" />
-						<p:inputText styleClass="input" id="prancha" value="" autocomplete="off" placeholder="00/00"></p:inputText>
-						
-						<h:outputText for="revisao" value="Revisão:*" />
-						<p:inputText styleClass="input" id="revisao" value="" autocomplete="off" placeholder="R00"></p:inputText>
-						
-						<h:outputText for="contrato" value="Nº Contrato:*" />
-						<p:inputText styleClass="input" id="conrato" value="" autocomplete="off" placeholder="000/00"></p:inputText>
-						
-						<h:outputText for="local" value="Local" />
-						
-						
-						
+						<p:inputText styleClass="input" id="prancha" value=""
+							autocomplete="off" placeholder="00/00"></p:inputText>
 
+						<h:outputText for="revisao" value="Revisão:*" />
+						<p:inputText styleClass="input" id="revisao" value=""
+							autocomplete="off" placeholder="R00"></p:inputText>
+
+						<h:outputText for="contrato" value="Nº Contrato:*" />
+						<p:inputText styleClass="input" id="conrato" value=""
+							autocomplete="off" placeholder="000/00"></p:inputText>
+
+						<p:outputLabel for="contratada" value="Contratada:*" />
+						<p:selectOneMenu id="contratada">
+							<!-- Criar uma iteração para cada item select -->
+							<f:selectItem itemLabel="contratada 1" itemValue="contrarada 1"></f:selectItem>
+						</p:selectOneMenu>
+
+						<p:outputLabel for="local" value="Longradouro:*" />
+						<p:selectOneMenu id="local">
+							<!-- Criar uma iteração para cada item select -->
+							<f:selectItem itemLabel="endereco" itemValue="Endereço"></f:selectItem>
+						</p:selectOneMenu>
+
+						<p:outputLabel for="cruzamento " value="Cruzamento:" />
+						<p:selectOneMenu id="cruzamento">
+							<!-- Criar uma iteração para cada item select -->
+							<f:selectItem itemLabel="endereco" itemValue="Endereço"></f:selectItem>
+						</p:selectOneMenu>
+
+						<p:outputLabel for="bairro " value="Bairro:*" />
+						<p:selectOneMenu id="bairro">
+							<!-- Criar uma iteração para cada item select -->
+							<f:selectItem itemLabel="bairro" itemValue="bairro"></f:selectItem>
+						</p:selectOneMenu>
+
+						<p:outputLabel for="regional " value="Regional:*" />
+						<p:selectOneMenu id="regional">
+							<!-- Criar uma iteração para cada item select -->
+							<f:selectItem itemLabel="Regional I" itemValue="Regional I"></f:selectItem>
+						</p:selectOneMenu>
+
+						<p:outputLabel for="area" value="Área:*" />
+						<p:selectOneMenu id="area">
+							<!-- Criar uma iteração para cada item select -->
+							<f:selectItem itemLabel="Área" itemValue="Área"></f:selectItem>
+						</p:selectOneMenu>
+
+						<p:outputLabel for="descricao" value="Descrição:*" />
+						<p:selectOneMenu id="descricao">
+							<!-- Criar uma iteração para cada item select -->
+							<f:selectItem itemLabel="Descricao" itemValue="Descrição"></f:selectItem>
+						</p:selectOneMenu>
+
+						<p:outputLabel for="tipoProjeto" value="Tipo de Projeto:*" />
+						<p:selectOneMenu id="tipoProjeto">
+							<!-- Criar uma iteração para cada item select -->
+							<f:selectItem itemLabel="Tipo de Projeto" itemValue="Descrição"></f:selectItem>
+						</p:selectOneMenu>
+					</p:panelGrid>
+
+					<p:panelGrid styleClass="ui-noborder ui-fluid ui-panelgrid-blank"
+						columns="2" layout="grid"
+						columnClasses="ui-g-12 ui-md-4 ui-lg-4, ui-g-12 ui-md-8 ui-lg-8, ui-g-12 ui-md-4 ui-lg-4, ui-g-12 ui-md-8 ui-lg-8">
+						<p:outputLabel for="classificacao" value="Classificação:*" />
+						<p:selectOneMenu id="classificacao">
+							<!-- Criar uma iteração para cada item select -->
+							<f:selectItem itemLabel="Classificação:*"
+								itemValue="Classificação:*"></f:selectItem>
+						</p:selectOneMenu>
+
+						<p:outputLabel for="obra" value="Projeto Obra:*" />
+						<p:selectOneMenu id="obra">
+							<!-- Criar uma iteração para cada item select -->
+							<f:selectItem itemLabel="Pós Obra" itemValue="posobra"></f:selectItem>
+						</p:selectOneMenu>
+
+						<h:outputText for="extencao" value="Extenção:" />
+						<p:inputText styleClass="input" id="extencao" value=""
+							autocomplete="off" placeholder="0m"></p:inputText>
+
+						<p:outputLabel for="prioridade" value="Prioriadade:*" />
+						<p:selectOneMenu id="prioridade">
+							<!-- Criar uma iteração para cada item select -->
+							<f:selectItem itemLabel="Alta" itemValue="Alta"></f:selectItem>
+						</p:selectOneMenu>
+
+						<p:outputLabel for="motivo" value="Motivo:*" />
+						<p:selectOneMenu id="motivo">
+							<!-- Criar uma iteração para cada item select -->
+							<f:selectItem itemLabel="Motivo 1" itemValue="motivo1"></f:selectItem>
+						</p:selectOneMenu>
+
+						<p:outputLabel for="dataProjeto" value="Data do Projeto GCE:*" />
+						<p:inputText id="dataProjeto" type="date"></p:inputText>
+
+						<p:outputLabel for="dataPrevista"
+							value="Data prevista de execução:*" />
+						<p:inputText id="dataPrevista" type="date"></p:inputText>
+
+						<p:outputLabel for="dataContratada" value="Data Contratada:*" />
+						<p:inputText id="dataContratada" type="date"></p:inputText>
+
+						<p:outputLabel for="situacao" value="Situação:*" />
+						<p:selectOneMenu id="situacao">
+							<!-- Criar uma iteração para cada item select -->
+							<f:selectItem itemLabel="Concluído" itemValue="concluido"></f:selectItem>
+						</p:selectOneMenu>
+
+						<p:outputLabel for="inicioOperacao" value="Inicio Operação:*" />
+						<p:inputText id="inicioOperacao" type="date"></p:inputText>
 
 						<h:outputText for="observacao" value="Observação:*" />
-						<br />
-						<h:outputText id="display" />
 						<p:inputTextarea id="observacao" rows="8" cols="50"
 							counter="display" maxlength="255"
 							value="#{adminContratoBean.contrato.observacao}"
 							counterTemplate="Restando {0} Caracteres." autoResize="false"
 							placeholder="Observações do projeto" />
+						<br />
+						<h:outputText id="display" />
+					</p:panelGrid>
+				</p:panelGrid>
 
+			</p:fieldset>
+			<br />
+			<p:fieldset legend="Aparelhamento">
+				<p:panelGrid styleClass="ui-noborder ui-fluid ui-panelgrid-blank"
+					columns="2" layout="grid">
+
+					<p:panelGrid styleClass="ui-noborder ui-fluid ui-panelgrid-blank"
+					columns="4" layout="grid"
+					columnClasses="ui-g-12 ui-md-4 ui-lg-4, ui-g-12 ui-md-8 ui-lg-8, ui-g-12 ui-md-4 ui-lg-4, ui-g-12 ui-md-8 ui-lg-8">
+						<p:outputLabel for="sinaHoriMec"
+							value="Sinalizacao Horizontal Mecanica" />
+						<p:inputNumber styleClass="input" id="sinaHoriMec" value="" symbol=" m²"
+							symbolPosition="s" decimalSeparator="," thousandSeparator="." />
+
+						<p:outputLabel for="sinaHoriMan"
+							value="Sinalizacao Horizontal Manual" />
+						<p:inputNumber styleClass="input" id="sinaHoriMan" value="" symbol=" m²"
+							symbolPosition="s" decimalSeparator="," thousandSeparator="." />
+
+						<p:outputLabel for="sinaVertical" value="Sinalizacao Vertical" />
+						<p:inputNumber styleClass="input" id="sinaVertical" value="" symbol=" m²"
+							symbolPosition="s" decimalSeparator="," thousandSeparator="." />
+
+						<p:outputLabel for="placa" value="Placa" />
+						<p:inputNumber styleClass="input" id="placa" value="" />
 					</p:panelGrid>
 
+					<p:panelGrid styleClass="ui-noborder ui-fluid ui-panelgrid-blank"
+					columns="4" layout="grid"
+					columnClasses="ui-g-12 ui-md-4 ui-lg-4, ui-g-12 ui-md-8 ui-lg-8, ui-g-12 ui-md-4 ui-lg-4, ui-g-12 ui-md-8 ui-lg-8">
+						<p:outputLabel for="colunaSimples" value="Coluna Simples" />
+						<p:inputNumber id="colunaSimples" value="" />
+
+						<p:outputLabel for="colunaCilinBP"
+							value="Coluna Cilindríca Braço Projetado" />
+						<p:inputNumber id="colunaCilinBP" value="" />
+
+						<p:outputLabel for="colunaConiBP"
+							value="Coluna Cônica Braço Projetado" />
+						<p:inputNumber id="colunaConiBP" value="" />
+
+						<p:outputLabel for="bPPPoste" value="Braço Projetado p/ Poste" />
+						<p:inputNumber id="bPPPoste" value="" />
+					</p:panelGrid>
 				</p:panelGrid>
-			</p:panel>
+			</p:fieldset>
+			<br />
+			<p:fieldset legend="Intervenções">
+				<p:panelGrid>
 
 
-			<h1>tela de cadastro de projetos</h1>
+
+				</p:panelGrid>
+			</p:fieldset>
 
 		</h:form>
 	</ui:define>
