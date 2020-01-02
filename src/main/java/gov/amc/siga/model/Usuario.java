@@ -1,4 +1,4 @@
-package gov.amc.siga.models;
+package gov.amc.siga.model;
 
 import java.io.Serializable;
 import java.text.Collator;
@@ -19,7 +19,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 @Component
-
 public class Usuario implements UserDetails, Comparable<Usuario>, Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -43,7 +42,6 @@ public class Usuario implements UserDetails, Comparable<Usuario>, Serializable{
 	private String codRecuperacao;
 	private Setor setor;
 	private List<Autorizacao> roles;
-
 	@NotBlank
 	private String confSenha;
 	@Email

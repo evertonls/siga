@@ -1,4 +1,4 @@
-package gov.amc.siga.services;
+package gov.amc.siga.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +9,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import gov.amc.siga.daos.JdbcUsuarioDao;
-import gov.amc.siga.models.Usuario;
+import gov.amc.siga.dao.JdbcUsuarioDao;
+import gov.amc.siga.model.Usuario;
 
 @Service("userDetailsService")
 public class UsuarioDetailsService implements UserDetailsService{

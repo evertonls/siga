@@ -22,13 +22,11 @@
 			</p:growl>
 
 			<p:panel styleClass="panelGridCadContrato" id="pnl">
-
 				<p:fieldset legend="Cadastro de Projetos">
 						<p:panelGrid styleClass="ui-noborder ui-fluid ui-panelgrid-blank" layout="grid" columns="4">
 							<p:panelGrid>
 								<h:outputText for="projeto" value="Número do Projeto:*" />
-								<p:inputText styleClass="input" id="projeto" value="" autocomplete="off" placeholder="00.00.000">
-								</p:inputText>
+								<p:inputText styleClass="input" id="projeto" value="" autocomplete="off" placeholder="00.00.000"></p:inputText>
 	
 								<h:outputText for="prancha" value="Número da Prancha:*" />
 								<p:inputText styleClass="input" id="prancha" value="" autocomplete="off" placeholder="00/00"></p:inputText>
@@ -61,7 +59,9 @@
 	
 								<p:outputLabel for="bairro " value="Bairro:*" />
 								<p:selectOneMenu id="bairro">
-									<!-- Criar uma iteração para cada item select -->
+									<p:dataTable var="bairro" value=#{bairroBean.bairros}>
+										
+									</p:dataTable>
 									<f:selectItem itemLabel="bairro" itemValue="bairro"></f:selectItem>
 								</p:selectOneMenu>
 								
@@ -148,13 +148,11 @@
 									placeholder="Observações do projeto" />
 								<h:outputText id="display" />
 							</p:panelGrid>
-							
 						</p:panelGrid>
 				</p:fieldset>
 				<br />
 				<p:fieldset legend="Aparelhamento">
 						<p:panelGrid styleClass="ui-noborder ui-fluid ui-panelgrid-blank" layout="grid" columns="4">
-						
 							<p:panelGrid>
 								<p:outputLabel for="sinaHoriMec" value="Sinalização Horizontal Mecânica:" />
 								<p:inputNumber styleClass="input" id="sinaHoriMec" value="" symbol=" m²" symbolPosition="s" decimalSeparator="," thousandSeparator="." />
@@ -186,17 +184,16 @@
 								<p:outputLabel for="bPPPoste" value="Braço Projetado p/ Poste:" />
 								<p:inputNumber id="bPPPoste" value="" />
 							</p:panelGrid>
-							
 						</p:panelGrid>
 				</p:fieldset>
 				<br />
 				<p:fieldset legend="Intervenções">
 					<p:panel>
-					<p:panelGrid>
-
-
-
-					</p:panelGrid>
+						<p:panelGrid>
+	
+	
+	
+						</p:panelGrid>
 					</p:panel>
 				</p:fieldset>
 

@@ -1,4 +1,4 @@
-package gov.amc.siga.models;
+package gov.amc.siga.model;
 
 import java.io.Serializable;
 import java.text.Collator;

@@ -1,4 +1,4 @@
-package gov.amc.siga.daos;
+package gov.amc.siga.dao;
 
 import java.io.Serializable;
 import java.sql.ResultSet;
@@ -25,9 +25,9 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Repository;
 
-import gov.amc.siga.models.Autorizacao;
-import gov.amc.siga.models.Setor;
-import gov.amc.siga.models.Usuario;
+import gov.amc.siga.model.Autorizacao;
+import gov.amc.siga.model.Setor;
+import gov.amc.siga.model.Usuario;
 
 @Repository
 public class JdbcUsuarioDaoImpl implements JdbcUsuarioDao, Serializable {

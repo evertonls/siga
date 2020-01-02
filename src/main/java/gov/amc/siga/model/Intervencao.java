@@ -1,8 +1,11 @@
-package gov.amc.siga.models;
+package gov.amc.siga.model;
 
 import java.io.Serializable;
 
-public class TProjeto implements Comparable<TProjeto>, Serializable {
+import org.springframework.stereotype.Component;
+
+@Component
+public class Intervencao implements Comparable<Intervencao>, Serializable {
 
 	/**
 	 * 
@@ -12,11 +15,11 @@ public class TProjeto implements Comparable<TProjeto>, Serializable {
 	private String code;
 	private String especificacao;
 
-	public TProjeto() {
+	public Intervencao() {
 
 	}
 
-	public TProjeto(String code, String especificacao) {
+	public Intervencao(String code, String especificacao) {
 		super();
 		this.code = code;
 		this.especificacao = especificacao;
@@ -39,8 +42,7 @@ public class TProjeto implements Comparable<TProjeto>, Serializable {
 	}
 
 	@Override
-	public int compareTo(TProjeto arg0) {
-		// TODO Auto-generated method stub
+	public int compareTo(Intervencao arg0) {
 		return 0;
 	}
 

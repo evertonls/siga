@@ -1,7 +1,10 @@
-package gov.amc.siga.models;
+package gov.amc.siga.model;
 
 import java.io.Serializable;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Classificacao implements Comparable<Classificacao>, Serializable {
 
 	private static final long serialVersionUID = 1L;

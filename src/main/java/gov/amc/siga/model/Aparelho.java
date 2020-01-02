@@ -1,30 +1,27 @@
-package gov.amc.siga.models;
+package gov.amc.siga.model;
 
 import java.io.Serializable;
 
-public class Motivo implements Comparable<Motivo>, Serializable {
+import org.springframework.stereotype.Component;
+
+@Component
+public class Aparelho implements Comparable<Aparelho>, Serializable {
 
 	/**
 	 * 
 	 */
-	
 	private static final long serialVersionUID = 1L;
 	private String code;
 	private String especificacao;
 
-	public Motivo() {
+	public Aparelho() {
 
 	}
 
-	public Motivo(String code, String especificacao) {
+	public Aparelho(String code, String especificacao) {
 		super();
 		this.code = code;
 		this.especificacao = especificacao;
-	}
-
-	@Override
-	public int compareTo(Motivo arg0) {
-		return 0;
 	}
 
 	public String getCode() {
@@ -43,8 +40,9 @@ public class Motivo implements Comparable<Motivo>, Serializable {
 		this.especificacao = especificacao;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	@Override
+	public int compareTo(Aparelho arg0) {
+		return 0;
 	}
 
 }
