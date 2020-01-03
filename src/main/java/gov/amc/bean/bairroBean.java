@@ -1,4 +1,4 @@
-package bean;
+package gov.amc.bean;
 
 import org.springframework.stereotype.Component;
 
