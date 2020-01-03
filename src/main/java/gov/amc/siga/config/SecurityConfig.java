@@ -32,11 +32,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.csrf().disable()
-		.requiresChannel().antMatchers("/**").requiresSecure()
-		.and().headers()
-				.addHeaderWriter(
-						new StaticHeadersWriter("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate"))
+				http.csrf().disable()
+				.requiresChannel().antMatchers("/**").requiresSecure()
+				.and().headers().addHeaderWriter(new StaticHeadersWriter("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate"))
 				.frameOptions().disable()
 				.xssProtection().disable()
 				.and()

@@ -11,25 +11,35 @@
 
 <ui:composition template="/WEB-INF/templates/_siteTemplate.xhtml">
 	<ui:define name="title">SIGA</ui:define>
-	
+
 	<ui:define name="extraCss">
 		<link href="#{request.contextPath}/css/cadastrocontrato"
 			rel="stylesheet" />
 	</ui:define>
-	
+
 	<ui:define name="extraJS">
 		<script type="text/javascript"
 			src="#{request.contextPath}/js/cadContrato.js" />
 	</ui:define>
-	
+
 	<ui:define name="content">
-	
+
 		<h:form id="formProjeto">
 			<p:growl id="growl" sticky="true">
 				<p:autoUpdate />
-				
-				<h1> tela de consulta de projetos</h1>
-				
+
+				<p:panel styleClass="panelGridCadContrato" id="pnl">
+					<p:fieldset legend="Consultar de Projetos">
+						<p:panelGrid>
+							<p:panelGrid>
+								<h:outputText for="projeto" value="Número do Projeto: " />
+								<p:inputText styleClass="input" id="projeto" value=""
+									autocomplete="off" placeholder="00.00.000"></p:inputText>
+							</p:panelGrid>
+						</p:panelGrid>
+					</p:fieldset>
+				</p:panel>
+
 			</p:growl>
 
 		</h:form>
