@@ -13,7 +13,7 @@ public class Motivo implements Comparable<Motivo>, Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	private String code;
-	private String especificacao;
+	private String descricao;
 
 	public Motivo() {
 
@@ -22,7 +22,7 @@ public class Motivo implements Comparable<Motivo>, Serializable {
 	public Motivo(String code, String especificacao) {
 		super();
 		this.code = code;
-		this.especificacao = especificacao;
+		this.descricao = especificacao;
 	}
 
 	@Override
@@ -39,11 +39,11 @@ public class Motivo implements Comparable<Motivo>, Serializable {
 	}
 
 	public String getEspecificacao() {
-		return especificacao;
+		return descricao;
 	}
 
 	public void setEspecificacao(String especificacao) {
-		this.especificacao = especificacao;
+		this.descricao = especificacao;
 	}
 
 	public static long getSerialversionuid() {

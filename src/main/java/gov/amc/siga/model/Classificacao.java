@@ -10,7 +10,7 @@ public class Classificacao implements Comparable<Classificacao>, Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String code;
-	private String especificacoes;
+	private String descricao;
 
 	public Classificacao() {
 	}
@@ -18,7 +18,7 @@ public class Classificacao implements Comparable<Classificacao>, Serializable {
 	public Classificacao(String code, String especificacoes) {
 		super();
 		this.code = code;
-		this.especificacoes = especificacoes;
+		this.descricao = especificacoes;
 	}
 
 	public String getCode() {
@@ -30,11 +30,11 @@ public class Classificacao implements Comparable<Classificacao>, Serializable {
 	}
 
 	public String getEspecificacoes() {
-		return especificacoes;
+		return descricao;
 	}
 
 	public void setEspecificacoes(String especificacoes) {
-		this.especificacoes = especificacoes;
+		this.descricao = especificacoes;
 	}
 
 	@Override

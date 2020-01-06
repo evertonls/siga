@@ -13,7 +13,7 @@ public class Intervencao implements Comparable<Intervencao>, Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	private String code;
-	private String especificacao;
+	private String descricao;
 
 	public Intervencao() {
 
@@ -22,7 +22,7 @@ public class Intervencao implements Comparable<Intervencao>, Serializable {
 	public Intervencao(String code, String especificacao) {
 		super();
 		this.code = code;
-		this.especificacao = especificacao;
+		this.descricao = especificacao;
 	}
 
 	public String getCode() {
@@ -34,11 +34,11 @@ public class Intervencao implements Comparable<Intervencao>, Serializable {
 	}
 
 	public String getEspecificacao() {
-		return especificacao;
+		return descricao;
 	}
 
 	public void setEspecificacao(String especificacao) {
-		this.especificacao = especificacao;
+		this.descricao = especificacao;
 	}
 
 	@Override

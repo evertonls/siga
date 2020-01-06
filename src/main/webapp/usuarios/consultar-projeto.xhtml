@@ -39,10 +39,17 @@
 						</p:panelGrid>
 					</p:fieldset>
 				</p:panel>
-
 			</p:growl>
-
 		</h:form>
+
+		<h:form id="form">
+			<p:dataList value="#{aparelho.aparelhos}" var="apar" type="ordered">
+				<f:facet name="header">Aparelhos</f:facet>
+        			#{apar.aparelho_cod}, #{apar.aparelho_desc}
+   			 </p:dataList>
+		</h:form>
+
+
 	</ui:define>
 </ui:composition>
 </html>

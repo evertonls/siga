@@ -5,7 +5,7 @@ import java.io.Serializable;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TProjeto implements Comparable<TProjeto>, Serializable {
+public class TipoProjeto implements Comparable<TipoProjeto>, Serializable {
 
 	/**
 	 * 
@@ -13,16 +13,16 @@ public class TProjeto implements Comparable<TProjeto>, Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	private String code;
-	private String especificacao;
+	private String descricao;
 
-	public TProjeto() {
+	public TipoProjeto() {
 
 	}
 
-	public TProjeto(String code, String especificacao) {
+	public TipoProjeto(String code, String especificacao) {
 		super();
 		this.code = code;
-		this.especificacao = especificacao;
+		this.descricao = especificacao;
 	}
 
 	public String getCode() {
@@ -34,15 +34,15 @@ public class TProjeto implements Comparable<TProjeto>, Serializable {
 	}
 
 	public String getEspecificacao() {
-		return especificacao;
+		return descricao;
 	}
 
 	public void setEspecificacao(String especificacao) {
-		this.especificacao = especificacao;
+		this.descricao = especificacao;
 	}
 
 	@Override
-	public int compareTo(TProjeto arg0) {
+	public int compareTo(TipoProjeto arg0) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
