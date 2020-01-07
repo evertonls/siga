@@ -1,6 +1,7 @@
 package gov.amc.siga.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -17,9 +18,10 @@ public class Longradouro implements Comparable<Aparelho>, Serializable {
 	private String tipo;
 	private String titulo;
 	private String jurisdicao;
+	private List<Longradouro> longradouros;
+	
 
 	public Longradouro() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Longradouro(long id, String longradouro, String tipo, String titulo, String jurisdicao) {
@@ -79,6 +81,14 @@ public class Longradouro implements Comparable<Aparelho>, Serializable {
 	public int compareTo(Aparelho o) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	public List<Longradouro> getLongradouros() {
+		return longradouros;
+	}
+
+	public void setLongradouros(List<Longradouro> longradouros) {
+		this.longradouros = longradouros;
 	}
 
 }

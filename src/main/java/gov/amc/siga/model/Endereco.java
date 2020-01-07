@@ -21,7 +21,6 @@ public class Endereco implements Comparable<Classificacao>, Serializable {
 	private Projeto projeto;
 	
 	public Endereco() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	

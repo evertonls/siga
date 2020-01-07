@@ -1,6 +1,7 @@
 package gov.amc.siga.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -13,9 +14,9 @@ public class Bairro implements Comparable<Aparelho>, Serializable{
 	private static final long serialVersionUID = 1L;
 	private long id;
 	private String bairro;
+	private List<Bairro> bairros;
 	
 	public Bairro() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Bairro(long id, String bairro) {
@@ -42,8 +43,15 @@ public class Bairro implements Comparable<Aparelho>, Serializable{
 
 	@Override
 	public int compareTo(Aparelho o) {
-		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	public List<Bairro> getBairros() {
+		return bairros;
+	}
+
+	public void setBairros(List<Bairro> bairros) {
+		this.bairros = bairros;
 	}
 	
 	

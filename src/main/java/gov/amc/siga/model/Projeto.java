@@ -1,7 +1,11 @@
 package gov.amc.siga.model;
 
 import java.io.Serializable;
+import java.text.Collator;
 import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
 
 import org.springframework.stereotype.Component;
 
@@ -15,7 +19,7 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private long id;
-	private int numero;
+	private String numero;
 	private String prancha;
 	private String revisao;
 	private String contrato;
@@ -29,6 +33,7 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 	private String localRecape;
 	private boolean execucaoRecape;
 	private Date dataExecucaorecape;
+	private List<Projeto> projetos;
 
 	/*
 	 * Falta referenciar outras listas de objetos
@@ -38,7 +43,7 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 
 	}
 
-	public Projeto(long id, int numero, String prancha, String revisao, String contrato, Date dataCricao,
+	public Projeto(long id, String numero, String prancha, String revisao, String contrato, Date dataCricao,
 			String observacao, String obra, Date dataPrevista, Date dataContratada, Date dataInicial, boolean recape,
 			String localRecape, boolean execucaoRecape, Date dataExecucaorecape) {
 		super();
@@ -67,11 +72,11 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 		this.id = id;
 	}
 
-	public int getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 
@@ -180,13 +185,37 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 	}
 
 	@Override
+	public boolean equals(Object obj) {
+
+		if (obj == this)
+			return true;
+
+		if (!(obj instanceof Projeto))
+			return false;
+
+		Projeto projeto = (Projeto) obj;
+
+		return projeto.numero.equals(numero);
+	}
+	
+	public int hasCode() {
+		return Objects.hash(numero);
+	}
+	
+	@Override
 	public int compareTo(Projeto o) {
-		return 0;
+		Collator brCollator = Collator.getInstance(new Locale("pt", "BR"));
+		brCollator.setStrength(Collator.PRIMARY);
+		return brCollator.compare(numero, o.getNumero());
 	}
 
-	/*
-	 * Falta implementar um metodo
-	 */
+	public List<Projeto> getProjetos() {
+		return projetos;
+	}
+
+	public void setProjetos(List<Projeto> projetos) {
+		this.projetos = projetos;
+	}
 
 }
 

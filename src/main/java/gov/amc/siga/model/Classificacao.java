@@ -1,6 +1,7 @@
 package gov.amc.siga.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -11,6 +12,7 @@ public class Classificacao implements Comparable<Classificacao>, Serializable {
 
 	private String code;
 	private String descricao;
+	private List<Classificacao> classificacoes;
 
 	public Classificacao() {
 	}
@@ -39,11 +41,18 @@ public class Classificacao implements Comparable<Classificacao>, Serializable {
 
 	@Override
 	public int compareTo(Classificacao o) {
-		// TODO Auto-generated method stub
 		/*
 		 * implementar usando colator
 		 */
 		return 0;
+	}
+
+	public List<Classificacao> getClassificacoes() {
+		return classificacoes;
+	}
+
+	public void setClassificacoes(List<Classificacao> classificacoes) {
+		this.classificacoes = classificacoes;
 	}
 
 	/*

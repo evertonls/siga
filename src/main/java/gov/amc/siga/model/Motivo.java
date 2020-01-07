@@ -1,6 +1,7 @@
 package gov.amc.siga.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -14,6 +15,7 @@ public class Motivo implements Comparable<Motivo>, Serializable {
 	private static final long serialVersionUID = 1L;
 	private String code;
 	private String descricao;
+	private List<Motivo> motivos;
 
 	public Motivo() {
 
@@ -48,6 +50,14 @@ public class Motivo implements Comparable<Motivo>, Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public List<Motivo> getMotivos() {
+		return motivos;
+	}
+
+	public void setMotivos(List<Motivo> motivos) {
+		this.motivos = motivos;
 	}
 
 }
