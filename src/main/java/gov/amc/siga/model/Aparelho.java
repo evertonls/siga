@@ -20,7 +20,6 @@ public class Aparelho implements Comparable<Aparelho>, Serializable {
 	private String aparelho_cod;
 	
 	private String aparelho_desc;
-	private List<Aparelho> aparelhos;
 	private Projeto projeto;
 
 	public Aparelho() {
@@ -55,14 +54,7 @@ public class Aparelho implements Comparable<Aparelho>, Serializable {
 	public void setProjeto(Projeto projeto) {
 		this.projeto = projeto;
 	}
-	
-	public List<Aparelho> getAparelhos() {
-		return aparelhos;
-	}
 
-	public void setAparelhos(List<Aparelho> aparelhos) {
-		this.aparelhos = aparelhos;
-	}
 
 	@Override
 	public int compareTo(Aparelho o) {

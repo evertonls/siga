@@ -8,20 +8,6 @@
 	xmlns:pe="http://primefaces.org/ui/extensions"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-<style type="text/css">
-    .ui-datalist ul {
-        padding: 0px 10px 0 20px;
-        margin: 5px 0;
-    }
- 
-    .ui-datalist {
-        margin-bottom: 10px
-    }
- 
-    .ui-noborder tr.ui-widget-content {
-        background: none;
-    }
-</style>
 
 <ui:composition template="/WEB-INF/templates/_siteTemplate.xhtml">
 	<ui:define name="title">SIGA</ui:define>
@@ -204,9 +190,11 @@
 				<p:fieldset legend="Intervenções">
 					<p:panel>
 						<p:panelGrid>
-	
-
-	
+						    <p:selectManyCheckbox layout="grid" columns="3">
+					        	<f:selectItems value="CHV" var="intervencao" itemLabel="" itemValue="" />
+					    	</p:selectManyCheckbox>
+						<h:message for="selectedMenuChecked" />
+						<hr />
 						</p:panelGrid>
 					</p:panel>
 				</p:fieldset>

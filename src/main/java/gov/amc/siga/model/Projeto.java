@@ -3,7 +3,6 @@ package gov.amc.siga.model;
 import java.io.Serializable;
 import java.text.Collator;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -33,11 +32,6 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 	private String localRecape;
 	private boolean execucaoRecape;
 	private Date dataExecucaorecape;
-	private List<Projeto> projetos;
-
-	/*
-	 * Falta referenciar outras listas de objetos
-	 */
 
 	public Projeto() {
 
@@ -68,116 +62,116 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 		return id;
 	}
 
-	public void setId(long id) {
-		this.id = id;
-	}
-
 	public String getNumero() {
 		return numero;
-	}
-
-	public void setNumero(String numero) {
-		this.numero = numero;
 	}
 
 	public String getPrancha() {
 		return prancha;
 	}
 
-	public void setPrancha(String prancha) {
-		this.prancha = prancha;
-	}
-
 	public String getRevisao() {
 		return revisao;
-	}
-
-	public void setRevisao(String revisao) {
-		this.revisao = revisao;
 	}
 
 	public String getContrato() {
 		return contrato;
 	}
 
-	public void setContrato(String contrato) {
-		this.contrato = contrato;
-	}
-
 	public Date getDataCricao() {
 		return dataCricao;
-	}
-
-	public void setDataCricao(Date dataCricao) {
-		this.dataCricao = dataCricao;
 	}
 
 	public String getObservacao() {
 		return observacao;
 	}
 
-	public void setObservacao(String observacao) {
-		this.observacao = observacao;
-	}
-
 	public String getObra() {
 		return obra;
-	}
-
-	public void setObra(String obra) {
-		this.obra = obra;
 	}
 
 	public Date getDataPrevista() {
 		return dataPrevista;
 	}
 
-	public void setDataPrevista(Date dataPrevista) {
-		this.dataPrevista = dataPrevista;
-	}
-
 	public Date getDataContratada() {
 		return dataContratada;
-	}
-
-	public void setDataContratada(Date dataContratada) {
-		this.dataContratada = dataContratada;
 	}
 
 	public Date getDataInicial() {
 		return dataInicial;
 	}
 
-	public void setDataInicial(Date dataInicial) {
-		this.dataInicial = dataInicial;
-	}
-
 	public boolean isRecape() {
 		return recape;
-	}
-
-	public void setRecape(boolean recape) {
-		this.recape = recape;
 	}
 
 	public String getLocalRecape() {
 		return localRecape;
 	}
 
-	public void setLocalRecape(String localRecape) {
-		this.localRecape = localRecape;
-	}
-
 	public boolean isExecucaoRecape() {
 		return execucaoRecape;
 	}
 
-	public void setExecucaoRecape(boolean execucaoRecape) {
-		this.execucaoRecape = execucaoRecape;
-	}
-
 	public Date getDataExecucaorecape() {
 		return dataExecucaorecape;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public void setPrancha(String prancha) {
+		this.prancha = prancha;
+	}
+
+	public void setRevisao(String revisao) {
+		this.revisao = revisao;
+	}
+
+	public void setContrato(String contrato) {
+		this.contrato = contrato;
+	}
+
+	public void setDataCricao(Date dataCricao) {
+		this.dataCricao = dataCricao;
+	}
+
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
+	}
+
+	public void setObra(String obra) {
+		this.obra = obra;
+	}
+
+	public void setDataPrevista(Date dataPrevista) {
+		this.dataPrevista = dataPrevista;
+	}
+
+	public void setDataContratada(Date dataContratada) {
+		this.dataContratada = dataContratada;
+	}
+
+	public void setDataInicial(Date dataInicial) {
+		this.dataInicial = dataInicial;
+	}
+
+	public void setRecape(boolean recape) {
+		this.recape = recape;
+	}
+
+	public void setLocalRecape(String localRecape) {
+		this.localRecape = localRecape;
+	}
+
+	public void setExecucaoRecape(boolean execucaoRecape) {
+		this.execucaoRecape = execucaoRecape;
 	}
 
 	public void setDataExecucaorecape(Date dataExecucaorecape) {
@@ -197,11 +191,11 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 
 		return projeto.numero.equals(numero);
 	}
-	
+
 	public int hasCode() {
 		return Objects.hash(numero);
 	}
-	
+
 	@Override
 	public int compareTo(Projeto o) {
 		Collator brCollator = Collator.getInstance(new Locale("pt", "BR"));
@@ -209,13 +203,4 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 		return brCollator.compare(numero, o.getNumero());
 	}
 
-	public List<Projeto> getProjetos() {
-		return projetos;
-	}
-
-	public void setProjetos(List<Projeto> projetos) {
-		this.projetos = projetos;
-	}
-
 }
-
