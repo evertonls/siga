@@ -3,7 +3,7 @@ package gov.amc.siga.JDBCTemplate;
 import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -44,9 +44,8 @@ public class BairroJDBCTemplate implements BairroDao, Serializable {
 		return new Bairro(rs.getLong("bairro_id"), rs.getString("bairro"));
 	}
 
-
 	@Override
-	public HashMap<String, Bairro> getAll() {
+	public List<Bairro> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}

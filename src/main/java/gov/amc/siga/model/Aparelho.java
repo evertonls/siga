@@ -1,7 +1,6 @@
 package gov.amc.siga.model;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.validation.constraints.NotBlank;
 
@@ -9,18 +8,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Aparelho implements Comparable<Aparelho>, Serializable {
-
-	/**
-	 * 
-	 */
 	
 	private static final long serialVersionUID = 1L;
 	
 	@NotBlank
 	private String aparelho_cod;
-	
+	@NotBlank
 	private String aparelho_desc;
-	private Projeto projeto;
 
 	public Aparelho() {
 	}
@@ -39,10 +33,6 @@ public class Aparelho implements Comparable<Aparelho>, Serializable {
 		return aparelho_desc;
 	}
 
-	public Projeto getProjeto() {
-		return projeto;
-	}
-
 	public void setAparelho_cod(String aparelho_cod) {
 		this.aparelho_cod = aparelho_cod;
 	}
@@ -50,11 +40,6 @@ public class Aparelho implements Comparable<Aparelho>, Serializable {
 	public void setAparelho_desc(String aparelho_desc) {
 		this.aparelho_desc = aparelho_desc;
 	}
-
-	public void setProjeto(Projeto projeto) {
-		this.projeto = projeto;
-	}
-
 
 	@Override
 	public int compareTo(Aparelho o) {

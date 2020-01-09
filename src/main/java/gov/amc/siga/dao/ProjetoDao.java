@@ -2,7 +2,7 @@ package gov.amc.siga.dao;
 
 import java.time.LocalDate;
 import java.util.Date;
-import java.util.HashMap;
+import java.util.List;
 
 import gov.amc.siga.model.Projeto;
 
@@ -22,9 +22,9 @@ public interface ProjetoDao {
 
 	public Projeto getByRecape(Boolean recape);
 
-	public HashMap<String, Projeto> getAll();
+	public List<Projeto> getAll();
 
-	public HashMap<String, Projeto> getAllByDateInterval(LocalDate dataInicial, LocalDate dataFinal);
+	public List<Projeto> getAllByDateInterval(LocalDate dataInicial, LocalDate dataFinal);
 
 	public long gravar(Projeto projeto);
 

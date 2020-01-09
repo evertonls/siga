@@ -1,9 +1,7 @@
 package gov.amc.siga.JDBCTemplate;
 
 import java.io.Serializable;
-import java.util.HashMap;
-
-import javax.sql.DataSource;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -15,29 +13,31 @@ import gov.amc.siga.model.Aparelho;
 @Repository
 public class AparelhoJBDCTemplate implements AparelhoDao, Serializable {
 
-	/**
-	 * 
-	 */
-
 	private static final long serialVersionUID = 1L;
-	private JdbcTemplate template;
-	private final String query = "SELECT aparelho_cod, aparelho_desc FROM aparelho_tipo";
 
 	@Autowired
-	public void AparelhoJDBCTemplate(DataSource ds) {
-		this.template = new JdbcTemplate(ds);
+	private JdbcTemplate jdbcTemplate;
+
+	@Override
+	public int salvarAparelho(Aparelho aparelho) {
+		return jdbcTemplate.update("insert into aparelho_tipo (aparelho_cod, aparelho_desc) values (?, ?)",
+				aparelho.getAparelho_cod(), aparelho.getAparelho_desc());
 	}
 
 	@Override
-	public Aparelho getByCode(String aparelho_cod) {
-		final String sql = query + "WHERE aparelho_cod = ?";
-		return template.queryForObject(sql, this::mapAparelhoRow, aparelho_cod);
+	public int atualizarAparelho(Aparelho aparelho) {
+		return jdbcTemplate.update("update aparelho_tipo set aparelho_desc = ? where aparelho_cod = ?",
+				aparelho.getAparelho_cod(), aparelho.getAparelho_desc());
 	}
 
 	@Override
-	public HashMap<String, Aparelho> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public int excluirAparelho(Aparelho aparelho) {
+		return jdbcTemplate.update("delet aparelho where aparelho_cod = ?", aparelho.getAparelho_cod());
 	}
 
+	@Override
+	public List<Aparelho> procurarTodos() {
+		return jdbcTemplate.query("select * from aparelho_tipo",
+				(rs, rowNum) -> new Aparelho(rs.getString("aparelho_cod"), rs.getString("aparelho_desc")));
+	}
 }

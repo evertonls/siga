@@ -1,14 +1,17 @@
 package gov.amc.siga.dao;
 
-import java.util.HashMap;
+import java.util.List;
 
 import gov.amc.siga.model.Aparelho;
 
 public interface AparelhoDao {
-	
-	public Aparelho getByCode(String aparelho_cod);
-	public HashMap<String, Aparelho> getAll();
-	
-	
+
+	int salvarAparelho(Aparelho aparelho);
+
+	int atualizarAparelho(Aparelho aparelho);
+
+	int excluirAparelho(Aparelho aparelho);
+
+	List<Aparelho> procurarTodos();
 
 }

@@ -1,6 +1,8 @@
 package gov.amc.siga.JDBCTemplate;
 
 import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
@@ -10,22 +12,16 @@ import org.springframework.stereotype.Repository;
 import gov.amc.siga.dao.SetorDao;
 import gov.amc.siga.model.Setor;
 
-@Repository
-public class SetorJDBCTemplate implements SetorDao, Serializable {
+@Repository(value = "setorDao")
+public class SetorJDBCTemplate implements Serializable, SetorDao {
 
-	/**
-	 * 
-	 */
-	
 	private static final long serialVersionUID = 1L;
 	private JdbcTemplate template;
 	private final String query = "SELECT setor_id, setor_cod, setor_desc FROM setores";
-	
+
 	public SetorJDBCTemplate(DataSource ds) {
 		this.template = new JdbcTemplate(ds);
 	}
-	
-	
 
 	@Override
 	public Setor getByID(long id) {
@@ -35,14 +31,17 @@ public class SetorJDBCTemplate implements SetorDao, Serializable {
 
 	@Override
 	public Setor getByCode(String code) {
-		// TODO Auto-generated method stub
-		return null;
+		final String sql = query + " WHERE setor_cod = ?";
+		return template.queryForObject(sql, this::mapSetorRow, code);
 	}
-
+	
 	@Override
 	public Iterable<Setor> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return template.query(query, this::mapSetorRow);
+	}
+	
+	private Setor mapSetorRow (ResultSet rs, int numRow) throws SQLException {
+		return new Setor(rs.getLong("setor_id"), rs.getString("setor_cod"), rs.getString("setor_desc"));
 	}
 
 }

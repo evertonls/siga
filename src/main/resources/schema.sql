@@ -1,10 +1,10 @@
 
-CREATE TABLE IF NOT EXISTS classificac_tipo (
-	classificac_cod varchar(100) NOT NULL,
-	classificac_desc varchar(255) NOT NULL,
-	CONSTRAINT class_cod PRIMARY KEY(classificac_cod)
+CREATE TABLE IF NOT EXISTS classificacao_tipo (
+	classificacao_cod varchar(100) NOT NULL,
+	classificacao_desc varchar(255) NOT NULL,
+	CONSTRAINT class_cod PRIMARY KEY(classificacao_cod)
 );
-COMMENT ON TABLE classificac_tipo IS 'tabela com código e descrição de cada aparelhamento';
+COMMENT ON TABLE classificacao_tipo IS 'tabela com código e descrição de cada aparelhamento';
 
 CREATE TABLE IF NOT EXISTS descricao_tipo (
 	descricao_cod varchar(100) NOT NULL,
@@ -48,12 +48,12 @@ CREATE TABLE IF NOT EXISTS projetos_tipo (
 );
 COMMENT ON TABLE projetos_tipo IS 'tabela com código e descrição de cada tipo de projeto';
 
-CREATE TABLE IF NOT EXISTS contratada_tipo(
-	contratada_cod varchar(100) NOT NULL,
-	contratada_desc varchar(255) NOT NULL,
-	CONSTRAINT contra_code PRIMARY KEY(contratada_cod)
+CREATE TABLE IF NOT EXISTS equipe_tipo(
+	equipe_cod varchar(100) NOT NULL,
+	equipe_desc varchar(255) NOT NULL,
+	CONSTRAINT equi_code PRIMARY KEY(equipe_cod)
 );
-COMMENT ON TABLE contratada_tipo IS 'tabela com código e descrição de cada tipo de contratada';
+COMMENT ON TABLE equipe_tipo IS 'tabela com código e descrição de cada tipo de contratada';
 
 CREATE TABLE IF NOT EXISTS bairros (
 	bairro_id bigint NOT NULL,
@@ -124,9 +124,9 @@ CREATE TABLE IF NOT EXISTS ordemservico (
 COMMENT ON TABLE ordemservico IS 'tabela com as Ordens de servico dos projetos';
 
 CREATE TABLE IF NOT EXISTS classificacoes (
-	classificac_cod varchar(100) NOT NULL,
+	classificacao_cod varchar(100) NOT NULL,
 	projeto_id bigint NOT NULL,
-	CONSTRAINT classi_id FOREIGN KEY (classificac_cod) REFERENCES classificac_tipo (classificac_cod),
+	CONSTRAINT classi_id FOREIGN KEY (classificacao_cod) REFERENCES classificacao_tipo (classificacao_cod),
 	CONSTRAINT clas_proj_id FOREIGN KEY (projeto_id) REFERENCES projetos (projeto_id)
 );
 COMMENT ON TABLE classificacoes IS 'tabela de classificações de projetos';
@@ -181,13 +181,13 @@ CREATE TABLE IF NOT EXISTS tipificacoes (
 );
 COMMENT ON TABLE tipificacoes IS 'tabela de códigos referentes a cada tipo de projeto';
 
-CREATE TABLE IF NOT EXISTS contratadas (
-	contratada_cod varchar(100) NOT NULL,
+CREATE TABLE IF NOT EXISTS equipes (
+	equipe_cod varchar(100) NOT NULL,
 	projeto_id bigint NOT NULL,
-	CONSTRAINT contr_id FOREIGN KEY (contratada_cod) REFERENCES contratada_tipo(contratada_cod),
+	CONSTRAINT equi_id FOREIGN KEY (equipe_cod) REFERENCES equipe_tipo(equipe_cod),
 	CONSTRAINT cont_proj_id FOREIGN KEY (projeto_id) REFERENCES projetos (projeto_id)
 );
-COMMENT ON TABLE contratadas IS 'tabela com a empresa contratada de cada projeto.';
+COMMENT ON TABLE equipes IS 'tabela com a empresa contratada de cada projeto.';
 
 CREATE TABLE IF NOT EXISTS enderecos (
 	longradouro_id bigint NOT NULL,
