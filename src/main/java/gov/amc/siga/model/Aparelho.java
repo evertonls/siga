@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Aparelho implements Comparable<Aparelho>, Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@NotBlank
 	private String aparelho_cod;
 	@NotBlank
@@ -46,7 +46,5 @@ public class Aparelho implements Comparable<Aparelho>, Serializable {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	
-	
 
 }

@@ -7,12 +7,12 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Autorizacao implements GrantedAuthority, Serializable{
+public class Autorizacao implements GrantedAuthority, Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private String authority;
 	private String descricao;
-	
+
 	public Autorizacao() {
 		// Uso do Framework
 	}
@@ -32,7 +32,7 @@ public class Autorizacao implements GrantedAuthority, Serializable{
 	public String getAuthority() {
 		return authority;
 	}
-	
+
 	public void setAuthority(String authority) {
 		this.authority = authority;
 	}

@@ -3,6 +3,7 @@ package gov.amc.siga.model;
 import java.io.Serializable;
 import java.text.Collator;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -32,6 +33,17 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 	private String localRecape;
 	private boolean execucaoRecape;
 	private Date dataExecucaorecape;
+	private List<Aparelho> aparelhos;
+	private Endereco endereco;
+	private Classificacao classificacao;
+	private Contratada contratada;
+	private Descricao descricao;
+	private List<Intervencao> intervencao;
+	private Motivo motivo;
+	private Setor setor;
+	private TipoProjeto tipoProjeto;
+	private TipoSituacao tipoSituacao;
+	private Usuario usuario;
 
 	public Projeto() {
 
@@ -39,7 +51,10 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 
 	public Projeto(long id, String numero, String prancha, String revisao, String contrato, Date dataCricao,
 			String observacao, String obra, Date dataPrevista, Date dataContratada, Date dataInicial, boolean recape,
-			String localRecape, boolean execucaoRecape, Date dataExecucaorecape) {
+			String localRecape, boolean execucaoRecape, Date dataExecucaorecape, List<Aparelho> aparelhos,
+			Endereco endereco, Classificacao classificacao, Contratada contratada, Descricao descricao,
+			List<Intervencao> intervencao, Motivo motivo, Setor setor, TipoProjeto tipoProjeto,
+			TipoSituacao tipoSituacao, Usuario usuario) {
 		super();
 		this.id = id;
 		this.numero = numero;
@@ -56,6 +71,17 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 		this.localRecape = localRecape;
 		this.execucaoRecape = execucaoRecape;
 		this.dataExecucaorecape = dataExecucaorecape;
+		this.aparelhos = aparelhos;
+		this.endereco = endereco;
+		this.classificacao = classificacao;
+		this.contratada = contratada;
+		this.descricao = descricao;
+		this.intervencao = intervencao;
+		this.motivo = motivo;
+		this.setor = setor;
+		this.tipoProjeto = tipoProjeto;
+		this.tipoSituacao = tipoSituacao;
+		this.usuario = usuario;
 	}
 
 	public long getId() {
@@ -118,6 +144,50 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 		return dataExecucaorecape;
 	}
 
+	public List<Aparelho> getAparelhos() {
+		return aparelhos;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public Classificacao getClassificacao() {
+		return classificacao;
+	}
+
+	public Contratada getContratada() {
+		return contratada;
+	}
+
+	public Descricao getDescricao() {
+		return descricao;
+	}
+
+	public List<Intervencao> getIntervencao() {
+		return intervencao;
+	}
+
+	public Motivo getMotivo() {
+		return motivo;
+	}
+
+	public Setor getSetor() {
+		return setor;
+	}
+
+	public TipoProjeto getTipoProjeto() {
+		return tipoProjeto;
+	}
+
+	public TipoSituacao getTipoSituacao() {
+		return tipoSituacao;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
@@ -176,6 +246,50 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 
 	public void setDataExecucaorecape(Date dataExecucaorecape) {
 		this.dataExecucaorecape = dataExecucaorecape;
+	}
+
+	public void setAparelhos(List<Aparelho> aparelhos) {
+		this.aparelhos = aparelhos;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public void setClassificacao(Classificacao classificacao) {
+		this.classificacao = classificacao;
+	}
+
+	public void setContratada(Contratada contratada) {
+		this.contratada = contratada;
+	}
+
+	public void setDescricao(Descricao descricao) {
+		this.descricao = descricao;
+	}
+
+	public void setIntervencao(List<Intervencao> intervencao) {
+		this.intervencao = intervencao;
+	}
+
+	public void setMotivo(Motivo motivo) {
+		this.motivo = motivo;
+	}
+
+	public void setSetor(Setor setor) {
+		this.setor = setor;
+	}
+
+	public void setTipoProjeto(TipoProjeto tipoProjeto) {
+		this.tipoProjeto = tipoProjeto;
+	}
+
+	public void setTipoSituacao(TipoSituacao tipoSituacao) {
+		this.tipoSituacao = tipoSituacao;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	@Override

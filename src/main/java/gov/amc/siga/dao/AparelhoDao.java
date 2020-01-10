@@ -6,12 +6,13 @@ import gov.amc.siga.model.Aparelho;
 
 public interface AparelhoDao {
 
-	int salvarAparelho(Aparelho aparelho);
+	public int salvarAparelho(Aparelho aparelho);
 
-	int atualizarAparelho(Aparelho aparelho);
+	public int atualizarAparelho(Aparelho aparelho);
 
-	int excluirAparelho(Aparelho aparelho);
+	public int excluirAparelho(Aparelho aparelho);
 
-	List<Aparelho> procurarTodos();
+	public List<Aparelho> procurarTodos();
+
 
 }

@@ -6,16 +6,13 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Bairro implements Comparable<Aparelho>, Serializable{
+public class Bairro implements Comparable<Aparelho>, Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private long id;
 	private String bairro;
 	private List<Bairro> bairros;
-	
+
 	public Bairro() {
 	}
 
@@ -53,6 +50,5 @@ public class Bairro implements Comparable<Aparelho>, Serializable{
 	public void setBairros(List<Bairro> bairros) {
 		this.bairros = bairros;
 	}
-	
-	
+
 }

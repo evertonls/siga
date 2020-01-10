@@ -1,4 +1,3 @@
-
 CREATE TABLE IF NOT EXISTS classificacao_tipo (
 	classificacao_cod varchar(100) NOT NULL,
 	classificacao_desc varchar(255) NOT NULL,
