@@ -1,4 +1,4 @@
-package gov.amc.siga.JDBCTemplate;
+package gov.amc.siga.repository;
 
 import java.io.Serializable;
 import java.sql.PreparedStatement;
@@ -18,7 +18,7 @@ import gov.amc.siga.model.Autorizacao;
 import gov.amc.siga.model.Usuario;
 
 @Repository
-public class AutorizacaoJDBCTemplate implements AutorizacaoDao, Serializable {
+public class AutorizacaoRepository implements AutorizacaoDao, Serializable {
 
 	/**
 	 * 
@@ -27,7 +27,7 @@ public class AutorizacaoJDBCTemplate implements AutorizacaoDao, Serializable {
 	private JdbcTemplate template;
 
 	@Autowired
-	public AutorizacaoJDBCTemplate(DataSource ds) {
+	public AutorizacaoRepository(DataSource ds) {
 		super();
 		this.template = new JdbcTemplate(ds);
 	}

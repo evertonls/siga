@@ -7,8 +7,8 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import gov.amc.siga.JDBCTemplate.AparelhoJBDCTemplate;
 import gov.amc.siga.model.Aparelho;
+import gov.amc.siga.repository.AparelhoRepository;
 
 @Named
 @ViewScoped
@@ -19,7 +19,7 @@ public class AparelhoBean implements Serializable {
 	private Aparelho aparelhoSelecionado;
 
 	@Inject
-	private AparelhoJBDCTemplate aparelhoJBDCTemplate;
+	private AparelhoRepository aparelhoJBDCTemplate;
 	
 	
 
@@ -29,7 +29,7 @@ public class AparelhoBean implements Serializable {
 
 
 
-	public AparelhoJBDCTemplate getAparelhoJBDCTemplate() {
+	public AparelhoRepository getAparelhoJBDCTemplate() {
 		return aparelhoJBDCTemplate;
 	}
 
@@ -41,7 +41,7 @@ public class AparelhoBean implements Serializable {
 
 
 
-	public void setAparelhoJBDCTemplate(AparelhoJBDCTemplate aparelhoJBDCTemplate) {
+	public void setAparelhoJBDCTemplate(AparelhoRepository aparelhoJBDCTemplate) {
 		this.aparelhoJBDCTemplate = aparelhoJBDCTemplate;
 	}
 

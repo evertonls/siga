@@ -1,4 +1,4 @@
-package gov.amc.siga.JDBCTemplate;
+package gov.amc.siga.repository;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -11,10 +11,10 @@ import org.springframework.stereotype.Repository;
 
 import gov.amc.siga.dao.AparelhoDao;
 import gov.amc.siga.model.Aparelho;
-import rowmapper.AparelhoRowMapper;
+import gov.amc.siga.rowmapper.AparelhoRowMapper;
 
 @Repository
-public class AparelhoJBDCTemplate implements AparelhoDao, Serializable {
+public class AparelhoRepository implements AparelhoDao, Serializable {
 
 	private static final long serialVersionUID = 1L;
 	

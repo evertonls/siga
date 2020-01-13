@@ -1,4 +1,4 @@
-package rowmapper;
+package gov.amc.siga.rowmapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -1,4 +1,4 @@
-package gov.amc.siga.config;
+package gov.amc.siga.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -16,12 +16,12 @@ import org.springframework.security.web.header.writers.StaticHeadersWriter;
 @Configuration
 @EnableWebSecurity
 @ComponentScan
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	private UserDetailsService users;
 
 	@Autowired
-	public SecurityConfig(UserDetailsService users) {
+	public SecurityConfiguration(UserDetailsService users) {
 		this.users = users;
 
 	}
