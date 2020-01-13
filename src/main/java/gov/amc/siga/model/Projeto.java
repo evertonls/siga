@@ -12,10 +12,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class Projeto implements Comparable<Projeto>, Serializable {
 
-	/**
-	 * 
-	 */
-
 	private static final long serialVersionUID = 1L;
 
 	private long id;

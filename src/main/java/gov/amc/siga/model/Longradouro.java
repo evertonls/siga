@@ -8,9 +8,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class Longradouro implements Comparable<Aparelho>, Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private long id;

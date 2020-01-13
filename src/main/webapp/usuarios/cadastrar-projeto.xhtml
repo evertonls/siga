@@ -8,169 +8,79 @@
 	xmlns:pe="http://primefaces.org/ui/extensions"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
+<head></head>
 
 <ui:composition template="/WEB-INF/templates/_siteTemplate.xhtml">
 	<ui:define name="title">SIGA</ui:define>
-
-
-
 	<ui:define name="content">
 
-		<h:form id="formContrato">
-			<p:growl id="growl" sticky="true">
-				<p:autoUpdate />
-			</p:growl>
+		<ui:insert name="extraCss" />
+		<ui:insert name="extraJS" />
 
-				<p:fieldset legend="Cadastro de Projetos">
-					<p:panelGrid columns="1" layout="grid"> 
+		<h:outputScript library="js" name="cadastrar-projeto.js" />
 
-							<h:outputText for="projeto" value="Número do Projeto:*" />
-							<p:inputText styleClass="input" id="projeto" value=""
-								autocomplete="off" placeholder="00.00.000"></p:inputText>
-
-							<h:outputText for="prancha" value="Número da Prancha:*" />
-							<p:inputText styleClass="input" id="prancha" value=""
-								autocomplete="off" placeholder="00/00"></p:inputText>
-
-							<h:outputText for="revisao" value="Revisão:*" />
-							<p:inputText styleClass="input" id="revisao" value=""
-								autocomplete="off" placeholder="R00"></p:inputText>
-
-							<h:outputText for="contrato" value="Nº Contrato:*" />
-							<p:inputText styleClass="input" id="conrato" value=""
-								autocomplete="off" placeholder="000/00"></p:inputText>
-
-							<p:outputLabel for="contratada" value="Contratada:*" />
-							<p:selectOneMenu id="contratada">
-								<!-- Criar uma iteração para cada item select -->
-								<f:selectItem itemLabel="contratada 1" itemValue="contrarada 1"></f:selectItem>
-							</p:selectOneMenu>
-
-							<p:outputLabel for="local" value="Longradouro:*" />
-							<p:selectOneMenu id="local">
-								<!-- Criar uma iteração para cada item select -->
-								<f:selectItem itemLabel="endereco" itemValue="Endereço"></f:selectItem>
-							</p:selectOneMenu>
-		
-							<p:outputLabel for="cruzamento " value="Cruzamento:" />
-							<p:selectOneMenu id="cruzamento">
-								<!-- Criar uma iteração para cada item select -->
-								<f:selectItem itemLabel="endereco" itemValue="Endereço"></f:selectItem>
-							</p:selectOneMenu>
-
-							<p:outputLabel for="bairro " value="Bairro:*" />
-							<p:selectOneMenu id="bairro">
-								<!-- <p:dataTable var="bairro" value=#{bairroBean.bairros}>
-										
-									</p:dataTable> -->
-								<f:selectItem itemLabel="bairro" itemValue="bairro"></f:selectItem>
-							</p:selectOneMenu>
-
-							<p:outputLabel for="regional " value="Regional:*" />
-							<p:selectOneMenu id="regional">
-								<!-- Criar uma iteração para cada item select -->
-								<f:selectItem itemLabel="Regional I" itemValue="Regional I"></f:selectItem>
-							</p:selectOneMenu>
-
-							<p:outputLabel for="area" value="Área:*" />
-							<p:selectOneMenu id="area">
-								<!-- Criar uma iteração para cada item select -->
-								<f:selectItem itemLabel="Área" itemValue="Área"></f:selectItem>
-							</p:selectOneMenu>
-
-							<p:outputLabel for="descricao" value="Descrição:*" />
-							<p:selectOneMenu id="descricao">
-								<!-- Criar uma iteração para cada item select -->
-								<f:selectItem itemLabel="Descricao" itemValue="Descrição"></f:selectItem>
-							</p:selectOneMenu>
-							<p:outputLabel for="tipoProjeto" value="Tipo de Projeto:*" />
-							<p:selectOneMenu id="tipoProjeto">
-								<!-- Criar uma iteração para cada item select -->
-								<f:selectItem itemLabel="Tipo de Projeto" itemValue="Descrição"></f:selectItem>
-							</p:selectOneMenu>
-
-							<p:outputLabel for="classificacao" value="Classificação:*" />
-							<p:selectOneMenu id="classificacao">
-								<!-- Criar uma iteração para cada item select -->
-								<f:selectItem itemLabel="Classificação:*"
-									itemValue="Classificação:*"></f:selectItem>
-							</p:selectOneMenu>
-
-							<p:outputLabel for="obra" value="Projeto Obra:*" />
-							<p:selectOneMenu id="obra">
-								<!-- Criar uma iteração para cada item select -->
-								<f:selectItem itemLabel="Pós Obra" itemValue="posobra"></f:selectItem>
-							</p:selectOneMenu>
-
-							<h:outputText for="extencao" value="Extenção:" />
-							<p:inputText styleClass="input" id="extencao" value=""
-								autocomplete="off" placeholder="0m"></p:inputText>
-							<p:outputLabel for="prioridade" value="Prioriadade:*" />
-
-							<p:selectOneMenu id="prioridade">
-								<!-- Criar uma iteração para cada item select -->
-								<f:selectItem itemLabel="Alta" itemValue="Alta"></f:selectItem>
-							</p:selectOneMenu>
-
-							<p:outputLabel for="motivo" value="Motivo:*" />
-							<p:selectOneMenu id="motivo">
-								<!-- Criar uma iteração para cada item select -->
-								<f:selectItem itemLabel="Motivo 1" itemValue="motivo1"></f:selectItem>
-							</p:selectOneMenu>
-
-							<p:outputLabel for="dataProjeto" value="Data do Projeto GCE:*" />
-							<p:inputText id="dataProjeto" type="date"></p:inputText>
-							
-							<p:outputLabel for="dataPrevista"
-								value="Data prevista de execução:*" />
-							<p:inputText id="dataPrevista" type="date"></p:inputText>
-
-							<p:outputLabel for="dataContratada" value="Data Contratada:*" />
-							<p:inputText id="dataContratada" type="date"></p:inputText>
-
-							<p:outputLabel for="situacao" value="Situação:*" />
-							<p:selectOneMenu id="situacao">
-								<!-- Criar uma iteração para cada item select -->
-								<f:selectItem itemLabel="Concluído" itemValue="concluido"></f:selectItem>
-							</p:selectOneMenu>
-
-							<p:outputLabel for="inicioOperacao" value="Inicio Operação:*" />
-							<p:inputText id="inicioOperacao" type="date"></p:inputText>
-
-							<h:outputText for="observacao" value="Observação:" />
-							<p:inputTextarea id="observacao" rows="8" cols="50"
-								counter="display" maxlength="255"
-								value="#{adminContratoBean.contrato.observacao}"
-								counterTemplate="Restando {0} Caracteres." autoResize="false"
-								placeholder="Observações do projeto" />
-							<h:outputText id="display" />
+		<link href="#{request.contextPath}/css/cadastrar-projeto.css"
+			rel="stylesheet" type="text/css" media="screen" />
+		<script type="text/javascript"
+			src="#{request.contextPath}/js/cadastrar-projeto.js"></script>
 
 
-					</p:panelGrid>
-				</p:fieldset>
-				<br />
-				<h:form>
-					<p:growl>
-						<p:autoUpdate />
-					</p:growl>
-					<h:panelGrid columns="2" cellpadding="5">
-					<p:fieldset legend="Aparelhamento">
-						<h:outputLabel for="aparelho" value="Aparelho: " />
-						<p:selectCheckboxMenu id="aparelho" value="#{aparelhoBean.aparelhos}" label="Aparelhos"
-							multiple="true" filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
-							<!--  <p:ajax event="itemUnselect" listener="#{AparelhoBean.onItemUnselect}" />-->
-							<f:selectItems value="#{AparelhoBean.aparelhos}" />
-						</p:selectCheckboxMenu>
-					</p:fieldset>
+		<h:form>
+			<p:panel id="panel" header="Cadastro" style="margin-bottom:10px;">
+				<p:messages id="messages" />
+				<p:fieldset legend="Projeto" toggleable="true" toggleSpeed="500">
+
+					<h:panelGrid columns="6" cellpadding="2">
+						<h:outputLabel for="projeto" value="Numero Projeto:" />
+						<p:inputMask id="projeto" required="true" mask="00.00.003"
+							placeholder="00.00.000" />
+
+						<p:outputLabel for="prancha" value="Prancha:" />
+						<p:inputMask id="prancha" required="true" mask="00/00"
+							placeholder="00/00" />
+
+						<p:outputLabel for="revisao" value="Revisao:" />
+						<p:inputMask id="revisao" required="true" mask="R00"
+							placeholder="R00" />
+
+						<p:outputLabel for="numeroContrato" value="Nº Contrato:" />
+						<p:inputMask id="numeroContrato" required="true" mask="000/00"
+							placeholder="000/00" />
+
+
+						<p:outputLabel for="descricao" value="Descrição" />
+						<p:autoComplete id="descricao" dropdown="true" value="#{autoCompleteView.txt6}"
+							completeMethod="#{autoCompleteView.completeText}" />
+
+
+						<p:outputLabel for="dataPrevistaExecucao"
+							value="Data Prevista de execução:" />
+						<p:datePicker id="dataPrevistaExecucao"
+							value="#{calendarView.date5}" dateTemplate="dateTemplateFunc" />
+
 					</h:panelGrid>
-				</h:form>
-				<br />
-				<p:fieldset legend="Intervenções">
-						<p:panelGrid>
-
-							<hr />
-						</p:panelGrid>
 				</p:fieldset>
+
+				<br />
+
+				<p:fieldset legend="Endereço" toggleable="true" toggleSpeed="500">
+
+				</p:fieldset>
+
+				<br />
+
+				<p:fieldset legend="Intervençoes" toggleable="true" toggleSpeed="500">
+
+				</p:fieldset>
+
+				<br />
+
+				<p:fieldset legend="Recape" toggleable="true" toggleSpeed="500">
+
+				</p:fieldset>
+			</p:panel>
+
+			<p:commandButton value="Submit" update="panel" />
 		</h:form>
 	</ui:define>
 </ui:composition>

@@ -23,7 +23,6 @@ public class Setor implements  Comparable<Setor>, Serializable{
 	private String descricao;
 
 	public Setor() {
-		// Para uso do framework
 	}
 
 	public Setor(Long id, String codigo, String descricao) {

@@ -8,9 +8,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class Motivo implements Comparable<Motivo>, Serializable {
 
-	/**
-	 * 
-	 */
 	
 	private static final long serialVersionUID = 1L;
 	private String code;

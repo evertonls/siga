@@ -7,10 +7,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TipoProjeto implements Comparable<TipoProjeto>, Serializable {
-
-	/**
-	 * 
-	 */
 	
 	private static final long serialVersionUID = 1L;
 	private String code;

@@ -35,7 +35,7 @@
 			<dependency>
 				<groupId>org.primefaces</groupId>
 				<artifactId>primefaces</artifactId>
-				<version>${primefaces.version}</version>
+				<version>7.0<!-- ${primefaces.version} --></version>
 			</dependency>
 			<dependency>
 				<groupId>org.jboss.weld.servlet</groupId>
