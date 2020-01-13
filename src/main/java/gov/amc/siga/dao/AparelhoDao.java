@@ -11,6 +11,8 @@ public interface AparelhoDao {
 	public int atualizarAparelho(Aparelho aparelho);
 
 	public int excluirAparelho(Aparelho aparelho);
+	
+	public Aparelho procurarPorCodigo(String codigo);
 
 	public List<Aparelho> procurarTodos();
 

@@ -49,7 +49,8 @@
 
 
 						<p:outputLabel for="descricao" value="Descrição" />
-						<p:autoComplete id="descricao" dropdown="true" value="#{autoCompleteView.txt6}"
+						<p:autoComplete id="descricao" dropdown="true"
+							value="#{autoCompleteView.txt6}"
 							completeMethod="#{autoCompleteView.completeText}" />
 
 
@@ -69,7 +70,8 @@
 
 				<br />
 
-				<p:fieldset legend="Intervençoes" toggleable="true" toggleSpeed="500">
+				<p:fieldset legend="Intervençoes" toggleable="true"
+					toggleSpeed="500">
 
 				</p:fieldset>
 
@@ -77,6 +79,19 @@
 
 				<p:fieldset legend="Recape" toggleable="true" toggleSpeed="500">
 
+				</p:fieldset>
+
+				<br />
+
+				<p:fieldset legend="Teste" toggleable="true" toggleSpeed="500">
+					<h:form id="form">
+						<p:dataList value="#{AparelhoBean.getAparelhos()}" var="aparelho" type="ordered">
+							<f:facet name="header">
+				            Aparelhos
+				        </f:facet>
+				        #{aparelho.aparelho_cod}, #{aparelho.aparelho_desc}
+				    </p:dataList>
+					</h:form>
 				</p:fieldset>
 			</p:panel>
 
