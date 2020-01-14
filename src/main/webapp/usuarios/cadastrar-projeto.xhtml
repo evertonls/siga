@@ -82,18 +82,18 @@
 				</p:fieldset>
 
 				<br />
-
-				<p:fieldset legend="Teste" toggleable="true" toggleSpeed="500">
-					<h:dataTable value="#{aparelhoBean.getAparelhos()}" var="aparelho">
-						
-						<h:column>
-							<f:facet name="header">Código do Aparelho: </f:facet>
-							<h:outputText value="#{aparelho}"></h:outputText>
-						</h:column>
-											
-					</h:dataTable>
-
+				
+				<p:fieldset>
+					    <p:dataList value="#{.cars1}" var="car" type="ordered">
+					        <f:facet name="header">
+					            Basic
+					        </f:facet>
+					        
+					        #{car.brand}, #{car.year}
+					    </p:dataList>
+				
 				</p:fieldset>
+
 			</p:panel>
 
 			<p:commandButton value="Submit" update="panel" />

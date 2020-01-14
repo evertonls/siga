@@ -1,21 +1,20 @@
 package gov.amc.siga.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Autorizacao implements GrantedAuthority {
+public class Autorizacao implements GrantedAuthority, Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private String authority;
 	private String descricao;
-
+	
 	public Autorizacao() {
+		
 	}
 
 	public Autorizacao(String nome) {

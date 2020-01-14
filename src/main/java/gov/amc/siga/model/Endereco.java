@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Endereco implements Comparable<Endereco>,  Serializable {
+public class Endereco implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -89,11 +89,5 @@ public class Endereco implements Comparable<Endereco>,  Serializable {
 	public void setLongradouros(List<Longradouro> longradouros) {
 		this.longradouros = longradouros;
 	}
-
-	@Override
-	public int compareTo(Endereco arg0) {
-		// TODO Auto-generated method stub
-		return 0;
-	}	
 	
 }

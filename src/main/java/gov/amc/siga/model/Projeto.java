@@ -307,10 +307,10 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 	}
 
 	@Override
-	public int compareTo(Projeto o) {
+	public int compareTo(Projeto projeto) {
 		Collator brCollator = Collator.getInstance(new Locale("pt", "BR"));
 		brCollator.setStrength(Collator.PRIMARY);
-		return brCollator.compare(numero, o.getNumero());
+		return brCollator.compare(numero, projeto.getNumero());
 	}
 
 }

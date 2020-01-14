@@ -34,5 +34,12 @@ public class Aparelho implements Serializable {
 	public void setAparelho_desc(String aparelho_desc) {
 		this.aparelho_desc = aparelho_desc;
 	}
+	
+	@Override
+	public String toString() {
+		return "Aparelho{" + 
+				"Codigo: " + aparelho_cod + 
+				", Descrição: " + aparelho_desc + "}";
+	}
 
 }

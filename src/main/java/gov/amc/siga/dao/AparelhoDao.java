@@ -6,18 +6,16 @@ import gov.amc.siga.model.Aparelho;
 
 public interface AparelhoDao {
 
-	public int contadorAparelho();
+	public int count();
 	
-	public int salvarAparelho(Aparelho aparelho);
+	public int save(Aparelho aparelho);
 	
-	public int atualizarAparelho(Aparelho aparelho);
+	public int update(Aparelho aparelho);
 	
-	public int deletarAparelho(Aparelho aparelho);
+	public int deleteByCode(String code);
 	
-	public List<Aparelho> procurarTodosAparelhos();
+	public List<Aparelho> findAll();
 	
-	public List<Aparelho> procurarPeloCodigo(String aparelho_cod);
-	
-
+	public String getNameByCode(String code);
 
 }

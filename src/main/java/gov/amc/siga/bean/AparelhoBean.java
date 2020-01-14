@@ -1,28 +1,30 @@
 package gov.amc.siga.bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.ManagedBean;
 import javax.inject.Named;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import gov.amc.siga.model.Aparelho;
-import gov.amc.siga.repository.AparelhoRepository;
 
 @Named
+@Component
+@ManagedBean
 public class AparelhoBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	@Autowired
-	private AparelhoRepository aparelhoRepository;
-
-	public List<Aparelho> getAparelhos() {
+	private List<Aparelho> aparelhos;
+	
+	public List<Aparelho> getAparelho(){
+		List<Aparelho> aparelhos = new ArrayList<>();
 		
-		System.out.println("getAparelhos foi chamado...");
-
-		return aparelhoRepository.procurarTodosAparelhos();
+		return aparelhos; 
 	}
-
+	
+	
 }

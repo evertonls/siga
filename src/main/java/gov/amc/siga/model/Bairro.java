@@ -1,23 +1,30 @@
 package gov.amc.siga.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class Bairro{
+public class Bairro implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	private long id;
 	private String bairro;
-	private List<Bairro> bairros;
+	private List<Longradouro> longradouros;
 
 	public Bairro() {
 	}
 
 	public Bairro(long id, String bairro) {
-		super();
 		this.id = id;
 		this.bairro = bairro;
+	}
+	
+	public Bairro(long id, String bairro, List<Longradouro> longradouros) {
+		this.id = id;
+		this.bairro = bairro;
+		this.longradouros = longradouros;
 	}
 
 	public long getId() {
@@ -36,12 +43,13 @@ public class Bairro{
 		this.bairro = bairro;
 	}
 
-	public List<Bairro> getBairros() {
-		return bairros;
+	public List<Longradouro> getLongradouros() {
+		return longradouros;
 	}
 
-	public void setBairros(List<Bairro> bairros) {
-		this.bairros = bairros;
+	public void setLongradouros(List<Longradouro> longradouros) {
+		this.longradouros = longradouros;
 	}
-
+	
+	
 }
