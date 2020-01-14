@@ -84,14 +84,15 @@
 				<br />
 
 				<p:fieldset legend="Teste" toggleable="true" toggleSpeed="500">
-					<h:form id="form">
-						<p:dataList value="#{AparelhoBean.getAparelhos()}" var="aparelho" type="ordered">
-							<f:facet name="header">
-				            Aparelhos
-				        </f:facet>
-				        #{aparelho.aparelho_cod}, #{aparelho.aparelho_desc}
-				    </p:dataList>
-					</h:form>
+					<h:dataTable value="#{aparelhoBean.getAparelhos()}" var="aparelho">
+						
+						<h:column>
+							<f:facet name="header">Código do Aparelho: </f:facet>
+							<h:outputText value="#{aparelho}"></h:outputText>
+						</h:column>
+											
+					</h:dataTable>
+
 				</p:fieldset>
 			</p:panel>
 

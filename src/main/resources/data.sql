@@ -188,3 +188,8 @@ INSERT INTO usuarios (usuario_nm, cpf_num, setor_id, email, senha, mail_warn) VA
 	'$2y$10$fSFQKUwqrGc4oSS8AIe/6.xQZ4Phhoo1un4DTigHmQ3JHomP1S09S', true)
 ON CONFLICT (cpf_num) DO NOTHING;
 INSERT INTO permissoes (usuario_id, autoriza_cod) SELECT 1, 'ROLE_ADMIN';
+
+
+
+
+select count(*) from siga.aparelho_tipo

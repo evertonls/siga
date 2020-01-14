@@ -231,4 +231,3 @@ CREATE TABLE IF NOT EXISTS permissoes (
 );
 COMMENT ON TABLE permissoes IS 'relação de permissões de cada usuario';
 
-
