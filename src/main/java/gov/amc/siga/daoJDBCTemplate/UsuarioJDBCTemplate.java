@@ -1,4 +1,4 @@
-package gov.amc.siga.repository;
+package gov.amc.siga.daoJDBCTemplate;
 
 import java.io.Serializable;
 import java.sql.ResultSet;
@@ -25,13 +25,13 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Repository;
 
-import gov.amc.siga.dao.UsuarioDao;
+import gov.amc.siga.dao.UsuarioDAO;
 import gov.amc.siga.model.Autorizacao;
 import gov.amc.siga.model.Setor;
 import gov.amc.siga.model.Usuario;
 
 @Repository
-public class UsuarioRepository implements UsuarioDao, Serializable {
+public class UsuarioJDBCTemplate implements UsuarioDAO, Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private JdbcTemplate template;
@@ -42,7 +42,7 @@ public class UsuarioRepository implements UsuarioDao, Serializable {
 			+ "LEFT JOIN siga.setores s ON u.setor_id = s.setor_id";
 
 	@Autowired
-	public UsuarioRepository(DataSource ds) {
+	public UsuarioJDBCTemplate(DataSource ds) {
 		this.template = new JdbcTemplate(ds);
 	}
 

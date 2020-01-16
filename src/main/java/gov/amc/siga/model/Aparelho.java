@@ -11,14 +11,6 @@ public class Aparelho implements Serializable {
 	private String aparelho_cod;
 	private String aparelho_desc;
 
-	public Aparelho() {
-	}
-
-	public Aparelho(String aparelho_cod, String aparelho_desc) {
-		this.aparelho_cod = aparelho_cod;
-		this.aparelho_desc = aparelho_desc;
-	}
-
 	public String getAparelho_cod() {
 		return aparelho_cod;
 	}
@@ -34,12 +26,10 @@ public class Aparelho implements Serializable {
 	public void setAparelho_desc(String aparelho_desc) {
 		this.aparelho_desc = aparelho_desc;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Aparelho{" + 
-				"Codigo: " + aparelho_cod + 
-				", Descrição: " + aparelho_desc + "}";
+		return "Aparelho{" + "Codigo: " + aparelho_cod + ", Descrição: " + aparelho_desc + "}";
 	}
 
 }

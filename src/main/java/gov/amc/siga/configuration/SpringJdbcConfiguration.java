@@ -16,9 +16,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class SpringJdbcConfiguration {	
 	
 	@Bean(value = "sigadb")
-	public DataSource postgresqlDataSource() {
+	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		/* configuração do banco de homologação */
 
 		dataSource.setDriverClassName("org.postgresql.Driver");
 		dataSource.setUrl("jdbc:postgresql://pmfamcs34/sigadb");
@@ -43,7 +42,7 @@ public class SpringJdbcConfiguration {
 
 	@Bean
 	public PlatformTransactionManager txSigeconManager() {
-		return new DataSourceTransactionManager(postgresqlDataSource());
+		return new DataSourceTransactionManager(dataSource());
 	} 
 
 }
