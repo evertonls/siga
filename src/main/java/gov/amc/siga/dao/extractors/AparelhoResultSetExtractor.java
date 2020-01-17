@@ -18,4 +18,5 @@ public class AparelhoResultSetExtractor implements ResultSetExtractor<Aparelho>{
 		return aparelho;
 	}
 
+	
 }

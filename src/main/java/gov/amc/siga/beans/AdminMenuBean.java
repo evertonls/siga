@@ -32,6 +32,7 @@ public class AdminMenuBean implements Serializable {
 		this.authFacade = authFacade;
 	}
 
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
