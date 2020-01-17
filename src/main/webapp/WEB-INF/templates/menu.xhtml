@@ -15,8 +15,7 @@
 
 				<sec:authorize access="isAuthenticated()">
 					<p:menuitem disabled="false" containerStyleClass="logado"
-						id="logado" value="Olá,
-						#{adminMenuBean.nome}">
+						id="logado" value="Olá"> <!-- value="Olá, #{adminMenuBean.nome}" -->
 					</p:menuitem>
 				</sec:authorize>
 

@@ -2,13 +2,12 @@ package gov.amc.siga.teste;
 
 import java.util.List;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-import gov.amc.siga.daoJDBCTemplate.AparelhoJDBCTemplate;
-import gov.amc.siga.model.Aparelho;
+import gov.amc.siga.dao.templates.AparelhoJDBCTemplate;
+import gov.amc.siga.models.Aparelho;
 
-@SpringBootApplication
+//@SpringBootApplication
 public final class Main {
 	private Main() {};
 	
@@ -25,11 +24,13 @@ public final class Main {
 		
 		dao.setDataSource(dataSource);
 		
-		List<Aparelho> list = dao.select("TCH-BI");
+		List<Aparelho> list = dao.listAparelhos();
 		
 		for (Aparelho aparelho : list) {
-			System.out.println("Codigo: " + aparelho.getAparelho_cod() + "Descrição: " + aparelho.getAparelho_desc());
+			System.out.println("Codigo: " + aparelho.getAparelho_cod() + ", Descrição: " + aparelho.getAparelho_desc());
 		}
+		
+	
 		
 	}
 
