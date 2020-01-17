@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-import gov.amc.siga.dao.templates.AparelhoJDBCTemplate;
+import gov.amc.siga.daos.templates.AparelhoJDBCTemplate;
 import gov.amc.siga.models.Aparelho;
 
 //@SpringBootApplication

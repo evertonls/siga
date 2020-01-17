@@ -1,4 +1,4 @@
-package gov.amc.siga.dao.templates;
+package gov.amc.siga.daos.templates;
 
 import java.io.Serializable;
 import java.util.List;
