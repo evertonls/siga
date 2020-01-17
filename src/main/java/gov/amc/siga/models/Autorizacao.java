@@ -18,7 +18,6 @@ public class Autorizacao implements GrantedAuthority, Serializable {
 	}
 
 	public Autorizacao(String nome) {
-		super();
 		this.authority = nome;
 	}
 
