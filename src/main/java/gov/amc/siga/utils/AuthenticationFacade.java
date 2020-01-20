@@ -6,7 +6,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
-import gov.amc.siga.daos.UsuarioDAO;
+import gov.amc.siga.daos.interfaces.UsuarioDAO;
 import gov.amc.siga.models.Usuario;
 
 @Component

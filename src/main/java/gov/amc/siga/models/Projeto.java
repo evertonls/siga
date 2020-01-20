@@ -3,7 +3,6 @@ package gov.amc.siga.models;
 import java.io.Serializable;
 import java.text.Collator;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -14,303 +13,196 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private long id;
-	private String numero;
+	private Integer idProjeto;
+	private int numeroProjeto;
 	private String prancha;
 	private String revisao;
 	private String contrato;
-	private Date dataCricao;
-	private String observacao;
-	private String obra;
+	private Date dataCriacaoProjeto;
+	private String obsevacao;
+	private String projetoObra;
+	private String prioridade;
 	private Date dataPrevista;
-	private Date dataContratada;
+	private Date dataEquipe;
 	private Date dataInicial;
-	private boolean recape;
+	private Boolean isRecape;
+	private String ciRecape;
 	private String localRecape;
-	private boolean execucaoRecape;
-	private Date dataExecucaorecape;
-	private List<Aparelho> aparelhos;
-	private Endereco endereco;
-	private Classificacao classificacao;
-	private Contratada contratada;
-	private Descricao descricao;
-	private List<Intervencao> intervencao;
-	private Motivo motivo;
-	private Setor setor;
-	private TipoProjeto tipoProjeto;
-	private TipoSituacao tipoSituacao;
-	private Usuario usuario;
+	private Boolean isRecapeExecutado;
+	private Date dataExecucaoRecape;
 
 	public Projeto() {
-
 	}
 
-	public Projeto(long id, String numero, String prancha, String revisao, String contrato, Date dataCricao,
-			String observacao, String obra, Date dataPrevista, Date dataContratada, Date dataInicial, boolean recape,
-			String localRecape, boolean execucaoRecape, Date dataExecucaorecape, List<Aparelho> aparelhos,
-			Endereco endereco, Classificacao classificacao, Contratada contratada, Descricao descricao,
-			List<Intervencao> intervencao, Motivo motivo, Setor setor, TipoProjeto tipoProjeto,
-			TipoSituacao tipoSituacao, Usuario usuario) {
+	public Projeto(Long idProjeto, int numeroProjeto, String prancha, String revisao, String contrato,
+			Date dataCriacaoProjeto, String obsevacao, String projetoObra, String prioridade, Date dataPrevista,
+			Date dataEquipe, Date dataInicial, Boolean isRecape, String ciRecape, String localRecape,
+			Boolean isRecapeExecutado, Date dataExecucaoRecape) {
 		super();
-		this.id = id;
-		this.numero = numero;
+		this.idProjeto = idProjeto;
+		this.numeroProjeto = numeroProjeto;
 		this.prancha = prancha;
 		this.revisao = revisao;
 		this.contrato = contrato;
-		this.dataCricao = dataCricao;
-		this.observacao = observacao;
-		this.obra = obra;
+		this.dataCriacaoProjeto = dataCriacaoProjeto;
+		this.obsevacao = obsevacao;
+		this.projetoObra = projetoObra;
+		this.prioridade = prioridade;
 		this.dataPrevista = dataPrevista;
-		this.dataContratada = dataContratada;
+		this.dataEquipe = dataEquipe;
 		this.dataInicial = dataInicial;
-		this.recape = recape;
+		this.isRecape = isRecape;
+		this.ciRecape = ciRecape;
 		this.localRecape = localRecape;
-		this.execucaoRecape = execucaoRecape;
-		this.dataExecucaorecape = dataExecucaorecape;
-		this.aparelhos = aparelhos;
-		this.endereco = endereco;
-		this.classificacao = classificacao;
-		this.contratada = contratada;
-		this.descricao = descricao;
-		this.intervencao = intervencao;
-		this.motivo = motivo;
-		this.setor = setor;
-		this.tipoProjeto = tipoProjeto;
-		this.tipoSituacao = tipoSituacao;
-		this.usuario = usuario;
+		this.isRecapeExecutado = isRecapeExecutado;
+		this.dataExecucaoRecape = dataExecucaoRecape;
 	}
 
-	public long getId() {
-		return id;
+	public Long getIdProjeto() {
+		return idProjeto;
 	}
 
-	public String getNumero() {
-		return numero;
+	public void setIdProjeto(Long idProjeto) {
+		this.idProjeto = idProjeto;
+	}
+
+	public int getNumeroProjeto() {
+		return numeroProjeto;
+	}
+
+	public void setNumeroProjeto(int numero) {
+		this.numeroProjeto = numero;
 	}
 
 	public String getPrancha() {
 		return prancha;
 	}
 
-	public String getRevisao() {
-		return revisao;
-	}
-
-	public String getContrato() {
-		return contrato;
-	}
-
-	public Date getDataCricao() {
-		return dataCricao;
-	}
-
-	public String getObservacao() {
-		return observacao;
-	}
-
-	public String getObra() {
-		return obra;
-	}
-
-	public Date getDataPrevista() {
-		return dataPrevista;
-	}
-
-	public Date getDataContratada() {
-		return dataContratada;
-	}
-
-	public Date getDataInicial() {
-		return dataInicial;
-	}
-
-	public boolean isRecape() {
-		return recape;
-	}
-
-	public String getLocalRecape() {
-		return localRecape;
-	}
-
-	public boolean isExecucaoRecape() {
-		return execucaoRecape;
-	}
-
-	public Date getDataExecucaorecape() {
-		return dataExecucaorecape;
-	}
-
-	public List<Aparelho> getAparelhos() {
-		return aparelhos;
-	}
-
-	public Endereco getEndereco() {
-		return endereco;
-	}
-
-	public Classificacao getClassificacao() {
-		return classificacao;
-	}
-
-	public Contratada getContratada() {
-		return contratada;
-	}
-
-	public Descricao getDescricao() {
-		return descricao;
-	}
-
-	public List<Intervencao> getIntervencao() {
-		return intervencao;
-	}
-
-	public Motivo getMotivo() {
-		return motivo;
-	}
-
-	public Setor getSetor() {
-		return setor;
-	}
-
-	public TipoProjeto getTipoProjeto() {
-		return tipoProjeto;
-	}
-
-	public TipoSituacao getTipoSituacao() {
-		return tipoSituacao;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
-
 	public void setPrancha(String prancha) {
 		this.prancha = prancha;
+	}
+
+	public String getRevisao() {
+		return revisao;
 	}
 
 	public void setRevisao(String revisao) {
 		this.revisao = revisao;
 	}
 
+	public String getContrato() {
+		return contrato;
+	}
+
 	public void setContrato(String contrato) {
 		this.contrato = contrato;
 	}
 
-	public void setDataCricao(Date dataCricao) {
-		this.dataCricao = dataCricao;
+	public Date getDataCriacaoProjeto() {
+		return dataCriacaoProjeto;
 	}
 
-	public void setObservacao(String observacao) {
-		this.observacao = observacao;
+	public void setDataCriacaoProjeto(Date dataCriacaoProjeto) {
+		this.dataCriacaoProjeto = dataCriacaoProjeto;
 	}
 
-	public void setObra(String obra) {
-		this.obra = obra;
+	public String getObsevacao() {
+		return obsevacao;
+	}
+
+	public void setObsevacao(String obsevacao) {
+		this.obsevacao = obsevacao;
+	}
+
+	public String getProjetoObra() {
+		return projetoObra;
+	}
+
+	public void setProjetoObra(String projetoObra) {
+		this.projetoObra = projetoObra;
+	}
+
+	public String getPrioridade() {
+		return prioridade;
+	}
+
+	public void setPrioridade(String prioridade) {
+		this.prioridade = prioridade;
+	}
+
+	public Date getDataPrevista() {
+		return dataPrevista;
 	}
 
 	public void setDataPrevista(Date dataPrevista) {
 		this.dataPrevista = dataPrevista;
 	}
 
-	public void setDataContratada(Date dataContratada) {
-		this.dataContratada = dataContratada;
+	public Date getDataEquipe() {
+		return dataEquipe;
+	}
+
+	public void setDataEquipe(Date dataEquipe) {
+		this.dataEquipe = dataEquipe;
+	}
+
+	public Date getDataInicial() {
+		return dataInicial;
 	}
 
 	public void setDataInicial(Date dataInicial) {
 		this.dataInicial = dataInicial;
 	}
 
-	public void setRecape(boolean recape) {
-		this.recape = recape;
+	public Boolean getIsRecape() {
+		return isRecape;
+	}
+
+	public void setIsRecape(Boolean isRecape) {
+		this.isRecape = isRecape;
+	}
+
+	public String getCiRecape() {
+		return ciRecape;
+	}
+
+	public void setCiRecape(String ciRecape) {
+		this.ciRecape = ciRecape;
+	}
+
+	public String getLocalRecape() {
+		return localRecape;
 	}
 
 	public void setLocalRecape(String localRecape) {
 		this.localRecape = localRecape;
 	}
 
-	public void setExecucaoRecape(boolean execucaoRecape) {
-		this.execucaoRecape = execucaoRecape;
+	public Boolean getIsRecapeExecutado() {
+		return isRecapeExecutado;
 	}
 
-	public void setDataExecucaorecape(Date dataExecucaorecape) {
-		this.dataExecucaorecape = dataExecucaorecape;
+	public void setIsRecapeExecutado(Boolean isRecapeExecutado) {
+		this.isRecapeExecutado = isRecapeExecutado;
 	}
 
-	public void setAparelhos(List<Aparelho> aparelhos) {
-		this.aparelhos = aparelhos;
+	public Date getDataExecucaoRecape() {
+		return dataExecucaoRecape;
 	}
 
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-
-	public void setClassificacao(Classificacao classificacao) {
-		this.classificacao = classificacao;
-	}
-
-	public void setContratada(Contratada contratada) {
-		this.contratada = contratada;
-	}
-
-	public void setDescricao(Descricao descricao) {
-		this.descricao = descricao;
-	}
-
-	public void setIntervencao(List<Intervencao> intervencao) {
-		this.intervencao = intervencao;
-	}
-
-	public void setMotivo(Motivo motivo) {
-		this.motivo = motivo;
-	}
-
-	public void setSetor(Setor setor) {
-		this.setor = setor;
-	}
-
-	public void setTipoProjeto(TipoProjeto tipoProjeto) {
-		this.tipoProjeto = tipoProjeto;
-	}
-
-	public void setTipoSituacao(TipoSituacao tipoSituacao) {
-		this.tipoSituacao = tipoSituacao;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-
-		if (obj == this)
-			return true;
-
-		if (!(obj instanceof Projeto))
-			return false;
-
-		Projeto projeto = (Projeto) obj;
-
-		return projeto.numero.equals(numero);
+	public void setDataExecucaoRecape(Date dataExecucaoRecape) {
+		this.dataExecucaoRecape = dataExecucaoRecape;
 	}
 
 	public int hasCode() {
-		return Objects.hash(numero);
+		return Objects.hash(numeroProjeto);
 	}
 
 	@Override
 	public int compareTo(Projeto projeto) {
 		Collator brCollator = Collator.getInstance(new Locale("pt", "BR"));
 		brCollator.setStrength(Collator.PRIMARY);
-		return brCollator.compare(numero, projeto.getNumero());
+		return brCollator.compare(numeroProjeto, projeto.getNumeroProjeto());
 	}
 
 }

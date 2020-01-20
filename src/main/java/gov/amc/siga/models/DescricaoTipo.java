@@ -5,18 +5,18 @@ import java.io.Serializable;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Descricoes implements Serializable {
+public class DescricaoTipo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private String descricaoCodigo;
-	private Long projetoId;
+	private String descricaoDescricao;
 
-	public Descricoes() {
+	public DescricaoTipo() {
 	}
 
-	public Descricoes(String descricaoCodigo, Long projetoId) {
+	public DescricaoTipo(String descricaoCodigo, String descricaoDescricao) {
 		this.descricaoCodigo = descricaoCodigo;
-		this.projetoId = projetoId;
+		this.descricaoDescricao = descricaoDescricao;
 	}
 
 	public String getDescricaoCodigo() {
@@ -27,12 +27,12 @@ public class Descricoes implements Serializable {
 		this.descricaoCodigo = descricaoCodigo;
 	}
 
-	public Long getProjetoId() {
-		return projetoId;
+	public String getDescricaoDescricao() {
+		return descricaoDescricao;
 	}
 
-	public void setProjetoId(Long projetoId) {
-		this.projetoId = projetoId;
+	public void setDescricaoDescricao(String descricaoDescricao) {
+		this.descricaoDescricao = descricaoDescricao;
 	}
 
 }

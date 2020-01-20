@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import gov.amc.siga.daos.AutorizacaoDAO;
-import gov.amc.siga.daos.UsuarioDAO;
+import gov.amc.siga.daos.interfaces.AutorizacaoDAO;
+import gov.amc.siga.daos.interfaces.UsuarioDAO;
 import gov.amc.siga.models.Usuario;
 
 @Service

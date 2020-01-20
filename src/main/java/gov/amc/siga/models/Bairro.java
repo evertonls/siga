@@ -9,34 +9,34 @@ import org.springframework.stereotype.Component;
 public class Bairro implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	private long id;
+	private long bairroId;
 	private String bairro;
 	private List<Longradouro> longradouros;
 
 	public Bairro() {
 	}
 
-	public Bairro(long id, String bairro) {
-		this.id = id;
+	public Bairro(long bairroId, String bairro) {
+		this.bairroId = bairroId;
 		this.bairro = bairro;
 	}
 	
-	public Bairro(long id, String bairro, List<Longradouro> longradouros) {
-		this.id = id;
+	public Bairro(long bairroId, String bairro, List<Longradouro> longradouros) {
+		this.bairroId = bairroId;
 		this.bairro = bairro;
 		this.longradouros = longradouros;
 	}
 
-	public long getId() {
-		return id;
+	public long getBairroId() {
+		return bairroId;
 	}
 
 	public String getBairro() {
 		return bairro;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setbairroId(long bairroId) {
+		this.bairroId = bairroId;
 	}
 
 	public void setBairro(String bairro) {

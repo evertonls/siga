@@ -1,4 +1,4 @@
-package gov.amc.siga.daos;
+package gov.amc.siga.daos.interfaces;
 
 import gov.amc.siga.models.Setor;
 

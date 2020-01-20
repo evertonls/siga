@@ -5,25 +5,29 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import gov.amc.siga.daos.AparelhoDAO;
+import gov.amc.siga.daos.interfaces.AparelhoDAO;
 import gov.amc.siga.mappers.AparelhoRowMapper;
-import gov.amc.siga.models.Aparelho;
+import gov.amc.siga.models.AparelhoTipo;
 
 @Component
 public class AparelhoJDBCTemplate implements AparelhoDAO, Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private final String sqlCreate = "INSERT INTO SIGA.APARELHO_TIPO (APARELHO_COD, APARELHO_DESC) VALUES(?, ?) ON CONFLICT (APARELHO_COD) DO NOTHING";
-	private final String sqlListAll = "SELECT APARELHO_COD, APARELHO_DESC FROM SIGA.APARELHO_TIPO";
-	private final String sqlDelete = "DELETE FROM SIGA.APARELHO_TIPO WHERE APARELHO_COD = ?";
-	private final String sqlUpdate = "UPDATE SIGA.APARELHO_TIPO SET APARELHO_DESC = ? WHERE APARELHO_COD = ?";
-	// private final String sqlSelect = "SELECT APARELHO_COD, APARELHO_DESC FROM
+	private final String sqlSalvar = "INSERT INTO SIGA.APARELHO_TIPO (APARELHO_COD, APARELHO_DESC) VALUES(?, ?) ON CONFLICT (APARELHO_COD) DO NOTHING";
+	private final String sqlListarTodos = "SELECT APARELHO_COD, APARELHO_DESC FROM SIGA.APARELHO_TIPO";
+	private final String sqlDeletar = "DELETE FROM SIGA.APARELHO_TIPO WHERE APARELHO_COD = ?";
+	private final String sqlAtualizar = "UPDATE SIGA.APARELHO_TIPO SET APARELHO_DESC = ? WHERE APARELHO_COD = ?";
 
+	@Autowired
 	private DataSource dataSource;
+
+	@SuppressWarnings("unused")
+	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
 	public void setDataSource(DataSource dataSource) {
@@ -32,29 +36,29 @@ public class AparelhoJDBCTemplate implements AparelhoDAO, Serializable {
 	}
 
 	@Override
-	public void create(String aparelho_cod, String aparelho_desc) {
+	public void salvar(String aparelhoCodigo, String aparelhoDescricao) {
 		JdbcTemplate insert = new JdbcTemplate(dataSource);
-		insert.update(sqlCreate, new Object[] { aparelho_cod, aparelho_desc });
+		insert.update(sqlSalvar, new Object[] { aparelhoCodigo, aparelhoDescricao });
 
 	}
 
 	@Override
-	public void delete(String aparelho_cod) {
-		JdbcTemplate delete = new JdbcTemplate(dataSource);
-		delete.update(sqlDelete, new Object[] { aparelho_cod });
+	public void deletar(String aparelhoCodigo) {
+		JdbcTemplate deletar = new JdbcTemplate(dataSource);
+		deletar.update(sqlDeletar, new Object[] { aparelhoCodigo });
 	}
 
 	@Override
-	public void update(String aparelho_code, String aparelho_desc) {
+	public void atualizar(String aparelhoCodigo, String aparelhoDescricao) {
 		JdbcTemplate select = new JdbcTemplate(dataSource);
-		select.update(sqlUpdate, new Object[] { aparelho_code, aparelho_desc });
+		select.update(sqlAtualizar, new Object[] { aparelhoCodigo, aparelhoDescricao });
 
 	}
 
 	@Override
-	public List<Aparelho> listAparelhos() {
+	public List<AparelhoTipo> listarAparelhos() {
 		JdbcTemplate select = new JdbcTemplate(dataSource);
-		return select.query(sqlListAll, new AparelhoRowMapper());
+		return select.query(sqlListarTodos, new AparelhoRowMapper());
 	}
 
 }

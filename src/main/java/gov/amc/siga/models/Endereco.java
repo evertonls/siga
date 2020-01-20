@@ -1,7 +1,6 @@
 package gov.amc.siga.models;
 
 import java.io.Serializable;
-import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -16,78 +15,54 @@ public class Endereco implements Serializable {
 	private Bairro bairro;
 	private Projeto projeto;
 
-	private List<Bairro> bairros;
-	private List<Longradouro> longradouros;
+	public Endereco() { 	}
 
-	public Endereco() {
-	}
-
-	public Endereco(Longradouro longradouro, String regional, String divisao, Bairro bairro, Projeto projeto,
-			List<Bairro> bairros, List<Longradouro> longradouros) {
-		super();
+	public Endereco(Longradouro longradouro, String regional, String divisao, Bairro bairro, Projeto projeto) {
 		this.longradouro = longradouro;
 		this.regional = regional;
 		this.divisao = divisao;
 		this.bairro = bairro;
 		this.projeto = projeto;
-		this.bairros = bairros;
-		this.longradouros = longradouros;
 	}
 
 	public Longradouro getLongradouro() {
 		return longradouro;
 	}
 
-	public String getRegional() {
-		return regional;
-	}
-
-	public String getDivisao() {
-		return divisao;
-	}
-
-	public Bairro getBairro() {
-		return bairro;
-	}
-
-	public Projeto getProjeto() {
-		return projeto;
-	}
-
-	public List<Bairro> getBairros() {
-		return bairros;
-	}
-
-	public List<Longradouro> getLongradouros() {
-		return longradouros;
-	}
-
 	public void setLongradouro(Longradouro longradouro) {
 		this.longradouro = longradouro;
+	}
+
+	public String getRegional() {
+		return regional;
 	}
 
 	public void setRegional(String regional) {
 		this.regional = regional;
 	}
 
+	public String getDivisao() {
+		return divisao;
+	}
+
 	public void setDivisao(String divisao) {
 		this.divisao = divisao;
+	}
+
+	public Bairro getBairro() {
+		return bairro;
 	}
 
 	public void setBairro(Bairro bairro) {
 		this.bairro = bairro;
 	}
 
+	public Projeto getProjeto() {
+		return projeto;
+	}
+
 	public void setProjeto(Projeto projeto) {
 		this.projeto = projeto;
-	}
-
-	public void setBairros(List<Bairro> bairros) {
-		this.bairros = bairros;
-	}
-
-	public void setLongradouros(List<Longradouro> longradouros) {
-		this.longradouros = longradouros;
 	}
 	
 }

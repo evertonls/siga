@@ -6,15 +6,15 @@ import java.sql.SQLException;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
-import gov.amc.siga.models.Aparelho;
+import gov.amc.siga.models.AparelhoTipo;
 
-public class AparelhoResultSetExtractor implements ResultSetExtractor<Aparelho>{
+public class AparelhoResultSetExtractor implements ResultSetExtractor<AparelhoTipo>{
 
 	@Override
-	public Aparelho extractData(ResultSet rs) throws SQLException, DataAccessException {
-		Aparelho aparelho = new Aparelho();
-		aparelho.setAparelho_cod(rs.getString(1));
-		aparelho.setAparelho_desc(rs.getString(2));
+	public AparelhoTipo extractData(ResultSet rs) throws SQLException, DataAccessException {
+		AparelhoTipo aparelho = new AparelhoTipo();
+		aparelho.setAparelhoCodigo(rs.getString(1));
+		aparelho.setAparelhoDescricao(rs.getString(2));
 		return aparelho;
 	}
 

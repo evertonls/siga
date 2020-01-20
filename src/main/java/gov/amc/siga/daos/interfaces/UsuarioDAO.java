@@ -1,4 +1,4 @@
-package gov.amc.siga.daos;
+package gov.amc.siga.daos.interfaces;
 
 import java.util.List;
 

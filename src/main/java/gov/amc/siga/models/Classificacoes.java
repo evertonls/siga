@@ -8,34 +8,33 @@ import org.springframework.stereotype.Component;
 public class Classificacoes implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	private String classificacao_cod;
-	private Long projeto_id;
+	private String classificacaoCodigo;
+	private Long projetoId;
 	
-	public Classificacoes() {
+	public Classificacoes() {	}
+
+	public Classificacoes(String classificacaoCodigo, Long projetoId) {
+		this.classificacaoCodigo = classificacaoCodigo;
+		this.projetoId = projetoId;
 	}
 
-	public Classificacoes(String classificacao_cod, Long projeto_id) {
-		super();
-		this.classificacao_cod = classificacao_cod;
-		this.projeto_id = projeto_id;
+	public String getClassificacaoCodigo() {
+		return classificacaoCodigo;
 	}
 
-	public String getClassificacao_cod() {
-		return classificacao_cod;
+	public void setClassificacaoCod(String classificacaoCodigo) {
+		this.classificacaoCodigo = classificacaoCodigo;
 	}
 
-	public void setClassificacao_cod(String classificacao_cod) {
-		this.classificacao_cod = classificacao_cod;
+	public Long getProjetoId() {
+		return projetoId;
 	}
 
-	public Long getProjeto_id() {
-		return projeto_id;
-	}
-
-	public void setProjeto_id(Long projeto_id) {
-		this.projeto_id = projeto_id;
+	public void setProjetoId(Long projetoId) {
+		this.projetoId = projetoId;
 	}
 	
 	
-	
+
+		
 }

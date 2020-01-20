@@ -25,7 +25,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Repository;
 
-import gov.amc.siga.daos.UsuarioDAO;
+import gov.amc.siga.daos.interfaces.UsuarioDAO;
 import gov.amc.siga.models.Autorizacao;
 import gov.amc.siga.models.Setor;
 import gov.amc.siga.models.Usuario;
