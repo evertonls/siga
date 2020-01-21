@@ -182,7 +182,7 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 	public Boolean getIsRecapeExecutado() {
 		return isRecapeExecutado;
 	}
-
+	
 	public void setIsRecapeExecutado(Boolean isRecapeExecutado) {
 		this.isRecapeExecutado = isRecapeExecutado;
 	}
