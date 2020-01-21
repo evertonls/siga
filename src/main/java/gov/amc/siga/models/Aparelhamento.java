@@ -2,29 +2,30 @@ package gov.amc.siga.models;
 
 import java.io.Serializable;
 
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Aparelhamentos implements Serializable{
+public class Aparelhamento implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	private Long projetoId;
+	private long projetoId;
 	private String aparelhamentoCodigo;
 	private Double quantidade;
 	
-	public Aparelhamentos() {	}
+	public Aparelhamento() {	}
 
-	public Aparelhamentos(Long projetoId, String aparelhamentoCodigo, Double quantidade) {
+	public Aparelhamento(long projetoId, String aparelhamentoCodigo, Double quantidade) {
 		this.projetoId = projetoId;
 		this.aparelhamentoCodigo = aparelhamentoCodigo;
 		this.quantidade = quantidade;
 	}
 
-	public Long getProjetoId() {
+    public Long getProjetoId() {
 		return projetoId;
 	}
 
-	public void setProjetoId(Long projetoId) {
+	public void setProjetoId(long projetoId) {
 		this.projetoId = projetoId;
 	}
 

@@ -1,4 +1,4 @@
-package gov.amc.siga.daos.interfaces;
+package gov.amc.siga.utils;
 
 public interface ICallEntitybyNumber {
 	public Object getbyNumber(String number);

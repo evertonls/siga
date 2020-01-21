@@ -20,13 +20,9 @@ import gov.amc.siga.models.Usuario;
 @Repository
 public class AutorizacaoJDBCTemplate implements AutorizacaoDAO, Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JdbcTemplate template;
 
-	@Autowired
 	public AutorizacaoJDBCTemplate(DataSource ds) {
 		super();
 		this.template = new JdbcTemplate(ds);
@@ -77,11 +73,10 @@ public class AutorizacaoJDBCTemplate implements AutorizacaoDAO, Serializable {
 			}
 		});
 	}
-	
+
 	private Autorizacao mapRowPapel(ResultSet rs, int rowNum) throws SQLException {
 
-		return new Autorizacao(rs.getString("autoriza_cod"),
-				rs.getString("autoriza_desc"));
+		return new Autorizacao(rs.getString("autoriza_cod"), rs.getString("autoriza_desc"));
 
 	}
 

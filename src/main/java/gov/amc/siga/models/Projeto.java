@@ -2,7 +2,8 @@ package gov.amc.siga.models;
 
 import java.io.Serializable;
 import java.text.Collator;
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -13,31 +14,31 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Integer idProjeto;
+	private long idProjeto;
 	private int numeroProjeto;
 	private String prancha;
 	private String revisao;
 	private String contrato;
-	private Date dataCriacaoProjeto;
+	private Calendar dataCriacaoProjeto;
 	private String obsevacao;
 	private String projetoObra;
 	private String prioridade;
-	private Date dataPrevista;
-	private Date dataEquipe;
-	private Date dataInicial;
+	private Calendar dataPrevista;
+	private Calendar dataEquipe;
+	private Calendar dataInicial;
 	private Boolean isRecape;
 	private String ciRecape;
 	private String localRecape;
 	private Boolean isRecapeExecutado;
-	private Date dataExecucaoRecape;
+	private Calendar dataExecucaoRecape;
 
 	public Projeto() {
 	}
 
-	public Projeto(Long idProjeto, int numeroProjeto, String prancha, String revisao, String contrato,
-			Date dataCriacaoProjeto, String obsevacao, String projetoObra, String prioridade, Date dataPrevista,
-			Date dataEquipe, Date dataInicial, Boolean isRecape, String ciRecape, String localRecape,
-			Boolean isRecapeExecutado, Date dataExecucaoRecape) {
+	public Projeto(long idProjeto, int numeroProjeto, String prancha, String revisao, String contrato,
+			Calendar dataCriacaoProjeto, String obsevacao, String projetoObra, String prioridade,
+			Calendar dataPrevista, Calendar dataEquipe, Calendar dataInicial, Boolean isRecape, String ciRecape,
+			String localRecape, Boolean isRecapeExecutado, Calendar dataExecucaoRecape) {
 		super();
 		this.idProjeto = idProjeto;
 		this.numeroProjeto = numeroProjeto;
@@ -58,11 +59,11 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 		this.dataExecucaoRecape = dataExecucaoRecape;
 	}
 
-	public Long getIdProjeto() {
+	public long getIdProjeto() {
 		return idProjeto;
 	}
 
-	public void setIdProjeto(Long idProjeto) {
+	public void setIdProjeto(long idProjeto) {
 		this.idProjeto = idProjeto;
 	}
 
@@ -70,8 +71,8 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 		return numeroProjeto;
 	}
 
-	public void setNumeroProjeto(int numero) {
-		this.numeroProjeto = numero;
+	public void setNumeroProjeto(int numeroProjeto) {
+		this.numeroProjeto = numeroProjeto;
 	}
 
 	public String getPrancha() {
@@ -98,11 +99,11 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 		this.contrato = contrato;
 	}
 
-	public Date getDataCriacaoProjeto() {
+	public Calendar getDataCriacaoProjeto() {
 		return dataCriacaoProjeto;
 	}
 
-	public void setDataCriacaoProjeto(Date dataCriacaoProjeto) {
+	public void setDataCriacaoProjeto(Calendar dataCriacaoProjeto) {
 		this.dataCriacaoProjeto = dataCriacaoProjeto;
 	}
 
@@ -130,27 +131,27 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 		this.prioridade = prioridade;
 	}
 
-	public Date getDataPrevista() {
+	public Calendar getDataPrevista() {
 		return dataPrevista;
 	}
 
-	public void setDataPrevista(Date dataPrevista) {
+	public void setDataPrevista(Calendar dataPrevista) {
 		this.dataPrevista = dataPrevista;
 	}
 
-	public Date getDataEquipe() {
+	public Calendar getDataEquipe() {
 		return dataEquipe;
 	}
 
-	public void setDataEquipe(Date dataEquipe) {
+	public void setDataEquipe(Calendar dataEquipe) {
 		this.dataEquipe = dataEquipe;
 	}
 
-	public Date getDataInicial() {
+	public Calendar getDataInicial() {
 		return dataInicial;
 	}
 
-	public void setDataInicial(Date dataInicial) {
+	public void setDataInicial(Calendar dataInicial) {
 		this.dataInicial = dataInicial;
 	}
 
@@ -186,11 +187,11 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 		this.isRecapeExecutado = isRecapeExecutado;
 	}
 
-	public Date getDataExecucaoRecape() {
+	public Calendar getDataExecucaoRecape() {
 		return dataExecucaoRecape;
 	}
 
-	public void setDataExecucaoRecape(Date dataExecucaoRecape) {
+	public void setDataExecucaoRecape(Calendar dataExecucaoRecape) {
 		this.dataExecucaoRecape = dataExecucaoRecape;
 	}
 

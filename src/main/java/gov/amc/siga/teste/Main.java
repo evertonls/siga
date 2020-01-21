@@ -1,13 +1,10 @@
 package gov.amc.siga.teste;
 
-import java.util.List;
-
-import gov.amc.siga.daos.templates.AparelhamentosJDBCTemplate;
-import gov.amc.siga.models.Aparelhamentos;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+import gov.amc.siga.daos.templates.AparelhamentoJDBCTemplate;
 import gov.amc.siga.daos.templates.AparelhoJDBCTemplate;
-import gov.amc.siga.models.AparelhoTipo;
+import gov.amc.siga.daos.templates.ProjetoJDBCTemplate;
 
 //@SpringBootApplication
 public final class Main {
@@ -16,7 +13,8 @@ public final class Main {
 	public static void main(String[] args) {
 		
 		AparelhoJDBCTemplate aparelho = new AparelhoJDBCTemplate();
-		AparelhamentosJDBCTemplate aparelhamento = new AparelhamentosJDBCTemplate();
+		AparelhamentoJDBCTemplate aparelhamento = new AparelhamentoJDBCTemplate();
+		ProjetoJDBCTemplate projeto = new ProjetoJDBCTemplate();
 
 		
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -25,18 +23,13 @@ public final class Main {
 		dataSource.setUrl("jdbc:postgresql://pmfamcs34/sigadb");
 		dataSource.setUsername("siga_user");
 		dataSource.setPassword("123456789");
-		
-		aparelhamento.setDataSource(dataSource);
 
-		aparelhamento.salvar(1, "SH-MEC", 2);
-		
-		List<Aparelhamentos> list = aparelhamento.listarAparelhamentos();
-		
-		for (Aparelhamentos aparelhamentos : list) {
-			System.out.println();
-		}
-		
-	
+		aparelho.setDataSource(dataSource);
+		aparelhamento.setDataSource(dataSource);
+		projeto.setDataSource(dataSource);
+
+		projeto.salvar(1010, "prancha", "Revisao", "Contrato", 2019-01-21, "Sem Observação", "Pré-Obra", "Alta", 2020-01-21, 2020-01-21, 2020-01-21,
+				true, "Recape", "LocalRecape", true, 2020-01-21);
 		
 	}
 

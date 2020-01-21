@@ -1,4 +1,6 @@
-package gov.amc.siga.daos.interfaces;
+package gov.amc.siga.utils;
+
+import gov.amc.siga.daos.interfaces.UsuarioDAO;
 
 public class EntityByNumberDao {
 	

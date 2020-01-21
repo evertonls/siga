@@ -5,34 +5,26 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import gov.amc.siga.daos.interfaces.AparelhoDAO;
-import gov.amc.siga.mappers.AparelhoRowMapper;
+import gov.amc.siga.daos.mappers.AparelhoRowMapper;
 import gov.amc.siga.models.AparelhoTipo;
 
-@Component
+@Repository
 public class AparelhoJDBCTemplate implements AparelhoDAO, Serializable {
 
 	private static final long serialVersionUID = 1L;
-
 	private final String sqlSalvar = "INSERT INTO SIGA.APARELHO_TIPO (APARELHO_COD, APARELHO_DESC) VALUES(?, ?) ON CONFLICT (APARELHO_COD) DO NOTHING";
 	private final String sqlListarTodos = "SELECT APARELHO_COD, APARELHO_DESC FROM SIGA.APARELHO_TIPO";
 	private final String sqlDeletar = "DELETE FROM SIGA.APARELHO_TIPO WHERE APARELHO_COD = ?";
 	private final String sqlAtualizar = "UPDATE SIGA.APARELHO_TIPO SET APARELHO_DESC = ? WHERE APARELHO_COD = ?";
-
-	@Autowired
 	private DataSource dataSource;
 
-	@SuppressWarnings("unused")
-	@Autowired
-	private JdbcTemplate jdbcTemplate;
 
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
-		this.jdbcTemplate = new JdbcTemplate(dataSource);
+	public void setDataSource(DataSource ds) {
+		this.dataSource = ds;
 	}
 
 	@Override
