@@ -1,4 +1,4 @@
-package gov.amc.siga.mapper;
+package gov.amc.siga.dao.extractor;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

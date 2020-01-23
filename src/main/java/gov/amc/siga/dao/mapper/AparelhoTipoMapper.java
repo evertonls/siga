@@ -1,13 +1,14 @@
-package gov.amc.siga.mapper;
+package gov.amc.siga.dao.mapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
+import gov.amc.siga.dao.extractor.AparelhoTipoResultSetExtractor;
 import gov.amc.siga.model.AparelhoTipo;
 
-public class AparelhoMapper implements RowMapper<AparelhoTipo>{
+public class AparelhoTipoMapper implements RowMapper<AparelhoTipo>{
 
 	@Override
 	public AparelhoTipo mapRow(ResultSet rs, int line) throws SQLException {

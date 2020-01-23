@@ -21,8 +21,8 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
-import gov.amc.siga.dao.SetorDAO;
-import gov.amc.siga.dao.UsuarioDAO;
+import gov.amc.siga.dao.SetorDao;
+import gov.amc.siga.dao.UsuarioDao;
 import gov.amc.siga.enums.BasicRole;
 import gov.amc.siga.model.Autorizacao;
 import gov.amc.siga.model.Setor;
@@ -38,8 +38,8 @@ import gov.amc.siga.util.MessageHelper;
 public class AdminUserBean {
 
     private Usuario usuario;
-    private UsuarioDAO usuarioDao;
-    private SetorDAO setorDao;
+    private UsuarioDao usuarioDao;
+    private SetorDao setorDao;
     private MessageHelper mh;
     private final Logger logger;
     private Validator validator;
@@ -47,8 +47,8 @@ public class AdminUserBean {
     private UserPersistenceService ups;
 
     @Autowired
-    public AdminUserBean(UsuarioDAO usuarioDAO, MessageHelper messageHelper, final Logger logger,
-                         Validator validator, UserPersistenceService ups, SetorDAO setorDao) {
+    public AdminUserBean(UsuarioDao usuarioDAO, MessageHelper messageHelper, final Logger logger,
+                         Validator validator, UserPersistenceService ups, SetorDao setorDao) {
         this.usuarioDao = usuarioDAO;
         this.mh = messageHelper;
         this.logger = logger;

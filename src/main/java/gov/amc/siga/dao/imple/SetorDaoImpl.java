@@ -1,4 +1,4 @@
-package gov.amc.siga.dao;
+package gov.amc.siga.dao.imple;
 
 import java.io.Serializable;
 import java.sql.ResultSet;
@@ -9,16 +9,17 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import gov.amc.siga.dao.SetorDao;
 import gov.amc.siga.model.Setor;
 
 @Repository
-public class SetorDAOImpl implements Serializable, SetorDAO {
+public class SetorDaoImpl implements Serializable, SetorDao {
 
 	private static final long serialVersionUID = 1L;
 	private JdbcTemplate template;
 	private final String query = "SELECT setor_id, setor_cod, setor_desc FROM setores";
 
-	public SetorDAOImpl(DataSource ds) {
+	public SetorDaoImpl(DataSource ds) {
 		this.template = new JdbcTemplate(ds);
 	}
 

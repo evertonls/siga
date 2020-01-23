@@ -13,18 +13,18 @@ import org.springframework.transaction.PlatformTransactionManager;
 @ComponentScan("gov.amc.siga")
 public class SpringJdbcConfiguration {
 
-	private final String URLAMC = "jdbc:postgresql://pmfamcs34/sigadb";
-	private final String URL = "jdbc:postgresql://localhost/sigadb";
+	//private final String URL = "jdbc:postgresql://localhost/sigadb";
+	private final String URL= "jdbc:postgresql://pmfamcs34/sigadb";
 	private final String USER = "siga_user";
 	private final String DRIVER = "org.postgresql.Driver";
 	private final String PASSWORD = "123456789";
 
-	@Bean(value = "sigadb")
+	@Bean//(value = "sigadb")
 	DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
 		dataSource.setDriverClassName(DRIVER);
-		dataSource.setUrl(URLAMC);
+		dataSource.setUrl(URL);
 		dataSource.setUsername(USER);
 		dataSource.setPassword(PASSWORD);
 

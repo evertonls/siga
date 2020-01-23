@@ -2,17 +2,19 @@ package gov.amc.siga.dao;
 
 import java.util.List;
 
+import javax.sql.DataSource;
+
 import gov.amc.siga.model.AparelhoTipo;
 
 public interface AparelhoTipoDao {
 	
-	AparelhoTipo buscarPeloCodigo(String aparelhoCodigo);
-	
+	void setDataSource(DataSource dataSource);
+
+	void salvar(String aparelhoCodigo, String aparelhoDescricao);
+
+	void deletar(String aparlehoCodigo);
+
+	void atualizar(String aparelhoCodigo, String aparelhoDescricao);
+			
 	List<AparelhoTipo> listarTodos();
-	
-	boolean deletarAparelho(AparelhoTipo aparelhoTipo);
-	
-	boolean atualizarAparelho(AparelhoTipo aparelhoTipo);
-	
-	boolean salvarAparelho(AparelhoTipo aparelhoTipo);
 }

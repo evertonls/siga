@@ -9,16 +9,16 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import gov.amc.siga.dao.UsuarioDAO;
+import gov.amc.siga.dao.UsuarioDao;
 import gov.amc.siga.model.Usuario;
 
 @Service("userDetailsService")
 public class UsuarioDetailsService implements UserDetailsService{
 	
-	private UsuarioDAO jdbcUsuarioDAO;
+	private UsuarioDao jdbcUsuarioDAO;
 	
 	@Autowired
-	public UsuarioDetailsService(UsuarioDAO jdbcUsuarioDAO) {
+	public UsuarioDetailsService(UsuarioDao jdbcUsuarioDAO) {
 		super();
 		this.jdbcUsuarioDAO = jdbcUsuarioDAO;
 	}

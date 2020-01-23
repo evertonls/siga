@@ -1,6 +1,6 @@
 package gov.amc.siga.util;
 
-import gov.amc.siga.dao.UsuarioDAO;
+import gov.amc.siga.dao.UsuarioDao;
 
 public class EntityByNumberDao {
 	
@@ -12,7 +12,7 @@ public class EntityByNumberDao {
 		}
 	}
 
-	public Object getEntity(UsuarioDAO usuarioDao, String number) {
+	public Object getEntity(UsuarioDao usuarioDao, String number) {
 		try {
 			return usuarioDao.getbyNumber(number);
 		} catch (Exception e) {

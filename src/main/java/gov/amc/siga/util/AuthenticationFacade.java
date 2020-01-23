@@ -6,14 +6,14 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
-import gov.amc.siga.dao.UsuarioDAO;
+import gov.amc.siga.dao.UsuarioDao;
 import gov.amc.siga.model.Usuario;
 
 @Component
 public class AuthenticationFacade implements IAuthenticationFacade {
 
 	@Autowired
-	private UsuarioDAO udao;
+	private UsuarioDao udao;
 
 	@Override
 	public Usuario getAuthenticatedUser() {

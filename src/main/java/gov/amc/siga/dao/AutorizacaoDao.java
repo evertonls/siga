@@ -5,7 +5,7 @@ import java.util.List;
 import gov.amc.siga.model.Autorizacao;
 import gov.amc.siga.model.Usuario;
 
-public interface AutorizacaoDAO {
+public interface AutorizacaoDao {
 
 	public List<Autorizacao> getAutorizacoesFromUserId(Long id);
 

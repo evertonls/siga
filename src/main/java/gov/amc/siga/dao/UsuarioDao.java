@@ -4,7 +4,7 @@ import java.util.List;
 
 import gov.amc.siga.model.Usuario;
 
-public interface UsuarioDAO {
+public interface UsuarioDao {
 
 	public Usuario getByEmail(String username);
 

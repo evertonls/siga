@@ -2,7 +2,6 @@ package gov.amc.siga.model;
 
 import java.io.Serializable;
 
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Component;
 
 @Component

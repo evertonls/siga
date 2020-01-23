@@ -1,4 +1,4 @@
-package gov.amc.siga.dao;
+package gov.amc.siga.dao.imple;
 
 import java.io.Serializable;
 import java.sql.PreparedStatement;
@@ -13,16 +13,17 @@ import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import gov.amc.siga.dao.AutorizacaoDao;
 import gov.amc.siga.model.Autorizacao;
 import gov.amc.siga.model.Usuario;
 
 @Repository
-public class AutorizacaoDAOImpl implements AutorizacaoDAO, Serializable {
+public class AutorizacaoDaoImpl implements AutorizacaoDao, Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private JdbcTemplate template;
 
-	public AutorizacaoDAOImpl(DataSource ds) {
+	public AutorizacaoDaoImpl(DataSource ds) {
 		super();
 		this.template = new JdbcTemplate(ds);
 	}

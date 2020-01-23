@@ -9,5 +9,4 @@ public class SigaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SigaApplication.class, args);
 	}
-
 }
