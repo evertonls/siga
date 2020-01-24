@@ -13,8 +13,8 @@ public class DescricaoTipoResultSetExtractor implements ResultSetExtractor<Descr
 	@Override
 	public DescricaoTipo extractData(ResultSet rs) throws SQLException, DataAccessException {
 		DescricaoTipo descricaoTipo = new DescricaoTipo();
-		descricaoTipo.setDescricaoCodigo(rs.getString(1));
-		descricaoTipo.setDescricaoDescricao(rs.getString(2));
+		descricaoTipo.setDescricaoCodigo(rs.getString("descricao_cod"));
+		descricaoTipo.setDescricaoDescricao(rs.getString("descricao_desc"));
 		return descricaoTipo;
 	}
 

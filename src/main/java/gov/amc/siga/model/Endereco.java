@@ -6,31 +6,32 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Endereco implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 
-	private Longradouro longradouro;
+	private long longradouroId;
 	private String regional;
 	private String divisao;
-	private Bairro bairro;
-	private Projeto projeto;
+	private long bairroId;
+	private long projetoId;
 
-	public Endereco() { 	}
+	public Endereco() {
+	}
 
-	public Endereco(Longradouro longradouro, String regional, String divisao, Bairro bairro, Projeto projeto) {
-		this.longradouro = longradouro;
+	public Endereco(long longradouroId, String regional, String divisao, long bairroId, long projetoId) {
+		this.longradouroId = longradouroId;
 		this.regional = regional;
 		this.divisao = divisao;
-		this.bairro = bairro;
-		this.projeto = projeto;
+		this.bairroId = bairroId;
+		this.projetoId = projetoId;
 	}
 
-	public Longradouro getLongradouro() {
-		return longradouro;
+	public long getLongradouroId() {
+		return longradouroId;
 	}
 
-	public void setLongradouro(Object object) {
-		this.longradouro = (Longradouro) object;
+	public void setLongradouroId(long longradouroId) {
+		this.longradouroId = longradouroId;
 	}
 
 	public String getRegional() {
@@ -49,20 +50,20 @@ public class Endereco implements Serializable {
 		this.divisao = divisao;
 	}
 
-	public Bairro getBairro() {
-		return bairro;
+	public long getBairroId() {
+		return bairroId;
 	}
 
-	public void setBairro(Object object) {
-		this.bairro = (Bairro) object;
+	public void setBairroId(long bairroId) {
+		this.bairroId = bairroId;
 	}
 
-	public Projeto getProjeto() {
-		return projeto;
+	public long getProjetoId() {
+		return projetoId;
 	}
 
-	public void setProjeto(Object object) {
-		this.projeto = (Projeto) object;
+	public void setProjetoId(long projetoId) {
+		this.projetoId = projetoId;
 	}
-	
+
 }

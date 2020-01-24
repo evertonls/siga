@@ -13,8 +13,8 @@ public class EquipeResultSetExtractor implements ResultSetExtractor<Equipe>{
 	@Override
 	public Equipe extractData(ResultSet rs) throws SQLException, DataAccessException {
 		Equipe equipe = new Equipe();
-		equipe.setProjetoId(rs.getLong(1));
-		equipe.setEquipeCod(rs.getString(2));
+		equipe.setProjetoId(rs.getLong("projeto_id"));
+		equipe.setEquipeCod(rs.getString("equipe_cod"));
 		return equipe;
 	}
 

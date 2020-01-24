@@ -10,11 +10,11 @@ public class Equipe implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String equipeCodigo;
-	private Long projetoId;
+	private long projetoId;
 
 	public Equipe() { 	}
 
-	public Equipe(String equipeCodigo, Long projetoId) {
+	public Equipe(String equipeCodigo, long projetoId) {
 		this.equipeCodigo = equipeCodigo;
 		this.projetoId = projetoId;
 	}
@@ -27,11 +27,11 @@ public class Equipe implements Serializable {
 		this.equipeCodigo = equipeCodigo;
 	}
 
-	public Long getProjetoId() {
+	public long getProjetoId() {
 		return projetoId;
 	}
 
-	public void setProjetoId(Long projetoId) {
+	public void setProjetoId(long projetoId) {
 		this.projetoId = projetoId;
 	}
 }

@@ -13,8 +13,8 @@ public class AparelhoTipoResultSetExtractor implements ResultSetExtractor<Aparel
 	@Override
 	public AparelhoTipo extractData(ResultSet rs) throws SQLException, DataAccessException {
 		AparelhoTipo aparelhoTipo = new AparelhoTipo();
-		aparelhoTipo.setAparelhoCodigo(rs.getString(1));
-		aparelhoTipo.setAparelhoDescricao(rs.getString(2));
+		aparelhoTipo.setAparelhoCodigo(rs.getString("aparelho_cod"));
+		aparelhoTipo.setAparelhoDescricao(rs.getString("aparelho_desc"));
 		return aparelhoTipo;
 	}
 

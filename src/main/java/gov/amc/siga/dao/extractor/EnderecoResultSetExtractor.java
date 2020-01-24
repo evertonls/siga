@@ -13,11 +13,11 @@ public class EnderecoResultSetExtractor implements ResultSetExtractor<Endereco>{
 	@Override
 	public Endereco extractData(ResultSet rs) throws SQLException, DataAccessException {
 		Endereco endereco = new Endereco();
-		endereco.setBairro(rs.getObject(1));
-		endereco.setDivisao(rs.getString(2));
-		endereco.setLongradouro(rs.getObject(3));
-		endereco.setProjeto(rs.getObject(4));
-		endereco.setRegional(rs.getString(5));
+		endereco.setBairroId(rs.getLong("bairro_id"));
+		endereco.setDivisao(rs.getString("divisao"));
+		endereco.setLongradouroId(rs.getLong("longradouro_id"));
+		endereco.setProjetoId(rs.getLong("projeto_id"));
+		endereco.setRegional(rs.getString("regional"));
 		return endereco;
 	}
 

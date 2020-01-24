@@ -13,7 +13,7 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private long idProjeto;
+	private long projetoId;
 	private int numeroProjeto;
 	private String prancha;
 	private String revisao;
@@ -21,10 +21,10 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 	private String obsevacao;
 	private String projetoObra;
 	private String prioridade;
-	private Boolean isRecape;
 	private String ciRecape;
+	private Boolean isRecape;
 	private Boolean isRecapeExecutado;
-	private LocalDate localRecape;
+	private String localRecape;
 	private LocalDate dataCriacaoProjeto;
 	private LocalDate dataPrevista;
 	private LocalDate dataEquipe;
@@ -36,10 +36,10 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 
 	public Projeto(long idProjeto, int numeroProjeto, String prancha, String revisao, String contrato, String obsevacao,
 			String projetoObra, String prioridade, Boolean isRecape, String ciRecape, Boolean isRecapeExecutado,
-			LocalDate localRecape, LocalDate dataCriacaoProjeto, LocalDate dataPrevista, LocalDate dataEquipe,
+			String localRecape, LocalDate dataCriacaoProjeto, LocalDate dataPrevista, LocalDate dataEquipe,
 			LocalDate dataInicial, LocalDate dataExecucaoRecape) {
 		super();
-		this.idProjeto = idProjeto;
+		this.projetoId = idProjeto;
 		this.numeroProjeto = numeroProjeto;
 		this.prancha = prancha;
 		this.revisao = revisao;
@@ -58,12 +58,12 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 		this.dataExecucaoRecape = dataExecucaoRecape;
 	}
 
-	public long getIdProjeto() {
-		return idProjeto;
+	public long getProjetoId() {
+		return projetoId;
 	}
 
-	public void setIdProjeto(long idProjeto) {
-		this.idProjeto = idProjeto;
+	public void setProjetoId(long idProjeto) {
+		this.projetoId = idProjeto;
 	}
 
 	public int getNumeroProjeto() {
@@ -146,11 +146,11 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 		this.isRecapeExecutado = isRecapeExecutado;
 	}
 
-	public LocalDate getLocalRecape() {
+	public String getLocalRecape() {
 		return localRecape;
 	}
 
-	public void setLocalRecape(LocalDate localRecape) {
+	public void setLocalRecape(String localRecape) {
 		this.localRecape = localRecape;
 	}
 

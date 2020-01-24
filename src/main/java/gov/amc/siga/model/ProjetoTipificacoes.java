@@ -10,12 +10,12 @@ public class ProjetoTipificacoes implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String projetoTipoCodigo;
-	private Long projetoId;
+	private long projetoId;
 
 	public ProjetoTipificacoes() {
 	}
 
-	public ProjetoTipificacoes(String projetoTipoCodigo, Long projetoId) {
+	public ProjetoTipificacoes(String projetoTipoCodigo, long projetoId) {
 		this.projetoTipoCodigo = projetoTipoCodigo;
 		this.projetoId = projetoId;
 	}
@@ -28,11 +28,11 @@ public class ProjetoTipificacoes implements Serializable {
 		this.projetoTipoCodigo = projetoTipoCodigo;
 	}
 
-	public Long getProjetoId() {
+	public long getProjetoId() {
 		return projetoId;
 	}
 
-	public void setProjetoId(Long projetoId) {
+	public void setProjetoId(long projetoId) {
 		this.projetoId = projetoId;
 	}
 

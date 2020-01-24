@@ -13,9 +13,9 @@ public class AparelhamentoResultSetExtractor implements ResultSetExtractor<Apare
 	@Override
 	public Aparelho extractData(ResultSet rs) throws SQLException, DataAccessException {
 		Aparelho aparelhamento = new Aparelho();
-		aparelhamento.setAparelhamentoCodigo(rs.getString(1));
-		aparelhamento.setProjetoId(rs.getLong(2));
-		aparelhamento.setQuantidade(rs.getDouble(2));
+		aparelhamento.setAparelhamentoCodigo(rs.getString("aparelho_cod"));
+		aparelhamento.setProjetoId(rs.getLong("projeto_id"));
+		aparelhamento.setQuantidade(rs.getDouble("quantidade"));
 		return aparelhamento;
 	}
 

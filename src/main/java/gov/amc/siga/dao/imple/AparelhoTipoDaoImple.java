@@ -15,7 +15,6 @@ import gov.amc.siga.model.AparelhoTipo;
 @Repository
 public class AparelhoTipoDaoImple implements AparelhoTipoDao {
 
-	
 	private final String sqlListarTodos = "SELECT aparelho_cod, aparelho_desc FROM siga.aparelho_tipo";
 	private final String sqlDeletarAparelho = "DELETE FROM siga.aparelho_tipo WHERE aparelho_cod = ?";
 	private final String sqlAtualizarAparelho = "UPDATE siga.aparelho_tipo SET aparelho_desc = ? WHERE aparelho_cod = ?";

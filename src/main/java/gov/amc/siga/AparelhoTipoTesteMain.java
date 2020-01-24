@@ -13,8 +13,8 @@ public class AparelhoTipoTesteMain {
 
 	public static void main(String[] args) {
 
-		final String URL = "jdbc:postgresql://localhost/sigadb";
-		//final String URL = "jdbc:postgresql://pmfamcs34/sigadb";
+		//final String URL = "jdbc:postgresql://localhost/sigadb";
+		final String URL = "jdbc:postgresql://pmfamcs34/sigadb";
 		final String USER = "siga_user";
 		final String DRIVER = "org.postgresql.Driver";
 		final String PASSWORD = "123456789";

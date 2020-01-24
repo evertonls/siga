@@ -13,8 +13,8 @@ public class CLassificacaoTipoResultSetExtractor implements ResultSetExtractor<C
 	@Override
 	public ClassificacaoTipo extractData(ResultSet rs) throws SQLException, DataAccessException {
 		ClassificacaoTipo classificacaoTipo = new ClassificacaoTipo();
-		classificacaoTipo.setClassificacaoCodigo(rs.getString(1));
-		classificacaoTipo.setClassificacaoDescricao(rs.getString(2));
+		classificacaoTipo.setClassificacaoCodigo(rs.getString("classificacao_cod"));
+		classificacaoTipo.setClassificacaoDescricao(rs.getString("classificacao_desc"));
 		return classificacaoTipo;
 	}
 

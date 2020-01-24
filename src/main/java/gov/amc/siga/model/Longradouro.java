@@ -9,37 +9,29 @@ public class Longradouro implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private long id;
-	private String Longradouro;
+	private long longradouroId;
+	private String longradouro;
 	private String tipo;
 	private String titulo;
 	private String jurisdicao;
-	
 
 	public Longradouro() {
 	}
 
-
-	public Longradouro(long id, String longradouro, String tipo, String titulo, String jurisdicao) {
-		super();
-		this.id = id;
-		Longradouro = longradouro;
+	public Longradouro(long longradouroId, String longradouro, String tipo, String titulo, String jurisdicao) {
+		this.longradouroId = longradouroId;
+		this.longradouro = longradouro;
 		this.tipo = tipo;
 		this.titulo = titulo;
 		this.jurisdicao = jurisdicao;
 	}
 
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	public long getId() {
-		return id;
+	public long getlongradouroId() {
+		return longradouroId;
 	}
 
 	public String getLongradouro() {
-		return Longradouro;
+		return longradouro;
 	}
 
 	public String getTipo() {
@@ -54,12 +46,12 @@ public class Longradouro implements Serializable {
 		return jurisdicao;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setlongradouroId(long longradouroId) {
+		this.longradouroId = longradouroId;
 	}
 
 	public void setLongradouro(String longradouro) {
-		Longradouro = longradouro;
+		this.longradouro = longradouro;
 	}
 
 	public void setTipo(String tipo) {

@@ -12,8 +12,10 @@ public class EquipeTipoResultSetExtractor implements ResultSetExtractor<EquipeTi
 
 	@Override
 	public EquipeTipo extractData(ResultSet rs) throws SQLException, DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		EquipeTipo equipeTipo = new EquipeTipo();
+		equipeTipo.setEquipeCodigo(rs.getString("equipe_cod"));
+		equipeTipo.setEquipeDescricao(rs.getString("equipe_desc"));
+		return equipeTipo;
 	}
 
 }

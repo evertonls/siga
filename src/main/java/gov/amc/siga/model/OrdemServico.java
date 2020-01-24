@@ -12,14 +12,14 @@ public class OrdemServico implements Serializable {
 	private long ordemServicoId;
 	private int numero;
 	private String medicao;
-	private Long projetoId;
+	private long projetoId;
 	private String observacaoVistoria;
 	private String observacao;
 
 	public OrdemServico() {
 	}
 
-	public OrdemServico(long ordemServicoId, int numero, String medicao, Long projetoId, String observacaoVistoria,
+	public OrdemServico(long ordemServicoId, int numero, String medicao, long projetoId, String observacaoVistoria,
 			String observacao) {
 		this.ordemServicoId = ordemServicoId;
 		this.numero = numero;
@@ -53,7 +53,7 @@ public class OrdemServico implements Serializable {
 		this.medicao = medicao;
 	}
 
-	public Long getProjetoId() {
+	public long getProjetoId() {
 		return projetoId;
 	}
 

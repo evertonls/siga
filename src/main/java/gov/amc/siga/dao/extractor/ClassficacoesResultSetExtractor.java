@@ -13,8 +13,8 @@ public class ClassficacoesResultSetExtractor implements ResultSetExtractor<Class
 	@Override
 	public Classificacao extractData(ResultSet rs) throws SQLException, DataAccessException {
 		Classificacao classificacoes = new Classificacao();
-		classificacoes.setProjetoId(rs.getLong(1));
-		classificacoes.setClassificacaoCod(rs.getString(2));
+		classificacoes.setProjetoId(rs.getLong("projeto_id"));
+		classificacoes.setClassificacaoCod(rs.getString("classificacao_tipo"));
 		return classificacoes;
 	}
 

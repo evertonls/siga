@@ -13,8 +13,8 @@ public class BairroResultSetExtractor implements ResultSetExtractor<Bairro> {
 	@Override
 	public Bairro extractData(ResultSet rs) throws SQLException, DataAccessException {
 		Bairro bairro = new Bairro();
-		bairro.setbairroId(rs.getLong(1));
-		bairro.setBairro(rs.getString(2));
+		bairro.setbairroId(rs.getLong("bairro_id"));
+		bairro.setBairro(rs.getString("bairro"));
 		return bairro;
 	}
 
