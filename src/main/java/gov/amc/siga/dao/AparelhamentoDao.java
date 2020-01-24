@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import gov.amc.siga.model.Aparelhamento;
+import gov.amc.siga.model.Aparelho;
 
 public interface AparelhamentoDao {
 	
@@ -16,5 +16,5 @@ public interface AparelhamentoDao {
 
 	void atualizar(String aparelhoCodigo, Double quantidade);
 			
-	List<Aparelhamento> listarTodos();
+	List<Aparelho> listarTodos();
 }

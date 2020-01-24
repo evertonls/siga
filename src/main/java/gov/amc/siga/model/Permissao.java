@@ -5,17 +5,17 @@ import java.io.Serializable;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Permissoes implements Serializable {
+public class Permissao implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Long usuarioId;
 	private String autorizaCod;
 
-	public Permissoes() {
+	public Permissao() {
 	}
 
-	public Permissoes(Long usuarioId, String autorizaCod) {
+	public Permissao(Long usuarioId, String autorizaCod) {
 		this.usuarioId = usuarioId;
 		this.autorizaCod = autorizaCod;
 	}

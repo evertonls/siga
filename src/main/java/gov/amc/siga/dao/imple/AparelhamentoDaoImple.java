@@ -4,9 +4,12 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import gov.amc.siga.dao.AparelhamentoDao;
-import gov.amc.siga.model.Aparelhamento;
+import org.springframework.stereotype.Repository;
 
+import gov.amc.siga.dao.AparelhamentoDao;
+import gov.amc.siga.model.Aparelho;
+
+@Repository
 public class AparelhamentoDaoImple implements AparelhamentoDao {
 
 	private final String sqlSalvarAparelho = "INSERT INTO siga.aparelho_tipo (aparelho_cod, aparelho_desc) VALUES (?, ?) ON CONFLICT (aparelho_cod) DO NOTHING";
@@ -40,7 +43,7 @@ public class AparelhamentoDaoImple implements AparelhamentoDao {
 	}
 
 	@Override
-	public List<Aparelhamento> listarTodos() {
+	public List<Aparelho> listarTodos() {
 		// TODO Auto-generated method stub
 		return null;
 	}

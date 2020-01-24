@@ -6,17 +6,16 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import gov.amc.siga.dao.AparelhoTipoDao;
 import gov.amc.siga.dao.mapper.AparelhoTipoMapper;
 import gov.amc.siga.model.AparelhoTipo;
 
-@Component
 @Repository
 public class AparelhoTipoDaoImple implements AparelhoTipoDao {
 
+	
 	private final String sqlListarTodos = "SELECT aparelho_cod, aparelho_desc FROM siga.aparelho_tipo";
 	private final String sqlDeletarAparelho = "DELETE FROM siga.aparelho_tipo WHERE aparelho_cod = ?";
 	private final String sqlAtualizarAparelho = "UPDATE siga.aparelho_tipo SET aparelho_desc = ? WHERE aparelho_cod = ?";

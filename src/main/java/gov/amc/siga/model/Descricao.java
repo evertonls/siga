@@ -5,16 +5,16 @@ import java.io.Serializable;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Descricoes implements Serializable {
+public class Descricao implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private String descricaoCodigo;
 	private Long projetoId;
 
-	public Descricoes() {
+	public Descricao() {
 	}
 
-	public Descricoes(String descricaoCodigo, Long projetoId) {
+	public Descricao(String descricaoCodigo, Long projetoId) {
 		this.descricaoCodigo = descricaoCodigo;
 		this.projetoId = projetoId;
 	}

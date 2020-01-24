@@ -11,7 +11,6 @@ public class Bairro implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private long bairroId;
 	private String bairro;
-	private List<Longradouro> longradouros;
 
 	public Bairro() {
 	}
@@ -24,7 +23,6 @@ public class Bairro implements Serializable{
 	public Bairro(long bairroId, String bairro, List<Longradouro> longradouros) {
 		this.bairroId = bairroId;
 		this.bairro = bairro;
-		this.longradouros = longradouros;
 	}
 
 	public long getBairroId() {
@@ -43,13 +41,6 @@ public class Bairro implements Serializable{
 		this.bairro = bairro;
 	}
 
-	public List<Longradouro> getLongradouros() {
-		return longradouros;
-	}
-
-	public void setLongradouros(List<Longradouro> longradouros) {
-		this.longradouros = longradouros;
-	}
 	
 	
 }

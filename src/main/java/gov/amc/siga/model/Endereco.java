@@ -29,8 +29,8 @@ public class Endereco implements Serializable {
 		return longradouro;
 	}
 
-	public void setLongradouro(Longradouro longradouro) {
-		this.longradouro = longradouro;
+	public void setLongradouro(Object object) {
+		this.longradouro = (Longradouro) object;
 	}
 
 	public String getRegional() {
@@ -53,16 +53,16 @@ public class Endereco implements Serializable {
 		return bairro;
 	}
 
-	public void setBairro(Bairro bairro) {
-		this.bairro = bairro;
+	public void setBairro(Object object) {
+		this.bairro = (Bairro) object;
 	}
 
 	public Projeto getProjeto() {
 		return projeto;
 	}
 
-	public void setProjeto(Projeto projeto) {
-		this.projeto = projeto;
+	public void setProjeto(Object object) {
+		this.projeto = (Projeto) object;
 	}
 	
 }
