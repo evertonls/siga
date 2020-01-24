@@ -8,11 +8,11 @@ import gov.amc.siga.model.Aparelho;
 
 public interface AparelhamentoDao {
 	
-	void setDataSource(DataSource dataSource);
+	//void setDataSource(DataSource dataSource);
 
-	void salvar(String aparelhoCodigo, Long projeto_id, Double quantidade);
+	void salvar(String aparelhoCodigo, Long projetoId, Double quantidade);
 
-	void deletar(Long projeto_id);
+	void deletar(Long projetoId);
 
 	void atualizar(String aparelhoCodigo, Double quantidade);
 			
