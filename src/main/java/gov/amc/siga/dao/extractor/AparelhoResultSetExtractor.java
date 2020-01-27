@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 
 import gov.amc.siga.model.Aparelho;
 
-public class AparelhamentoResultSetExtractor implements ResultSetExtractor<Aparelho>{
+public class AparelhoResultSetExtractor implements ResultSetExtractor<Aparelho>{
 
 	@Override
 	public Aparelho extractData(ResultSet rs) throws SQLException, DataAccessException {

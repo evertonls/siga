@@ -35,4 +35,41 @@ public class SituacaoTipo implements Serializable {
 		this.situacaoDescricao = situacaoDescricao;
 	}
 
+	@Override
+	public String toString() {
+		return "SituacaoTipo [situacaoCodigo=" + situacaoCodigo + ", situacaoDescricao=" + situacaoDescricao + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((situacaoCodigo == null) ? 0 : situacaoCodigo.hashCode());
+		result = prime * result + ((situacaoDescricao == null) ? 0 : situacaoDescricao.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SituacaoTipo other = (SituacaoTipo) obj;
+		if (situacaoCodigo == null) {
+			if (other.situacaoCodigo != null)
+				return false;
+		} else if (!situacaoCodigo.equals(other.situacaoCodigo))
+			return false;
+		if (situacaoDescricao == null) {
+			if (other.situacaoDescricao != null)
+				return false;
+		} else if (!situacaoDescricao.equals(other.situacaoDescricao))
+			return false;
+		return true;
+	}
+
+	
 }

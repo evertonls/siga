@@ -34,8 +34,41 @@ public class MotivoTipo implements Serializable {
 	public void setMotivoDescricao(String motivoDescricao) {
 		this.motivoDescricao = motivoDescricao;
 	}
-	
-	
 
-	
+	@Override
+	public String toString() {
+		return "MotivoTipo [motivoCodigo=" + motivoCodigo + ", motivoDescricao=" + motivoDescricao + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((motivoCodigo == null) ? 0 : motivoCodigo.hashCode());
+		result = prime * result + ((motivoDescricao == null) ? 0 : motivoDescricao.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MotivoTipo other = (MotivoTipo) obj;
+		if (motivoCodigo == null) {
+			if (other.motivoCodigo != null)
+				return false;
+		} else if (!motivoCodigo.equals(other.motivoCodigo))
+			return false;
+		if (motivoDescricao == null) {
+			if (other.motivoDescricao != null)
+				return false;
+		} else if (!motivoDescricao.equals(other.motivoDescricao))
+			return false;
+		return true;
+	}
+
 }

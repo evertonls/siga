@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-import gov.amc.siga.dao.imple.AparelhamentoDaoImple;
+import gov.amc.siga.dao.imple.AparelhoDaoImple;
 import gov.amc.siga.dao.imple.AparelhoTipoDaoImple;
-import gov.amc.siga.model.Aparelho;
-import gov.amc.siga.model.AparelhoTipo;
+import gov.amc.siga.dao.imple.BairroDaoImple;
+import gov.amc.siga.model.Bairro;
 
 @SpringBootApplication
 public class Teste {
@@ -28,28 +28,26 @@ public class Teste {
 		dataSource.setUsername(USER);
 		dataSource.setPassword(PASSWORD);
 
+		AparelhoDaoImple aparelhamento = new AparelhoDaoImple();
 		AparelhoTipoDaoImple aparelho = new AparelhoTipoDaoImple();
-
+		BairroDaoImple bairroImple = new BairroDaoImple();
+		Bairro bairro = new Bairro();
+		
 		aparelho.setDataSource(dataSource);
+		aparelhamento.setDataSource(dataSource);
+
+		bairro.setBairro("Teste");
+		bairro.setbairroId(200);
+		
+		bairroImple.salvar(bairro);
+		
+//		List<Bairro> list = bairroImple.listarTodosBairros();
+//		
+//		for (Bairro bairro2 : list) {
+//			System.out.println(bairro2.toString());
+//		}
+
 
 		
-		
-		AparelhamentoDaoImple aparelhamento = new AparelhamentoDaoImple(dataSource);
-		
-		List<Aparelho> listAparelhos = aparelhamento.listarTodos();
-		for (Aparelho aparelhos : listAparelhos) {
-			System.out.println(aparelho.toString());
-			System.out.println();
-		}
-		
-		List<AparelhoTipo> list = aparelho.listarTodos();
-
-		for (AparelhoTipo aparelhoTipo : list) {
-			System.out.println(aparelhoTipo.toString());
-			System.out.println();
-		}
-		
-		
-
 	}
 }

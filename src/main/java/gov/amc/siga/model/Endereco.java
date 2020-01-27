@@ -66,4 +66,52 @@ public class Endereco implements Serializable {
 		this.projetoId = projetoId;
 	}
 
+	@Override
+	public String toString() {
+		return "Endereco [longradouroId=" + longradouroId + ", regional=" + regional + ", divisao=" + divisao
+				+ ", bairroId=" + bairroId + ", projetoId=" + projetoId + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (bairroId ^ (bairroId >>> 32));
+		result = prime * result + ((divisao == null) ? 0 : divisao.hashCode());
+		result = prime * result + (int) (longradouroId ^ (longradouroId >>> 32));
+		result = prime * result + (int) (projetoId ^ (projetoId >>> 32));
+		result = prime * result + ((regional == null) ? 0 : regional.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Endereco other = (Endereco) obj;
+		if (bairroId != other.bairroId)
+			return false;
+		if (divisao == null) {
+			if (other.divisao != null)
+				return false;
+		} else if (!divisao.equals(other.divisao))
+			return false;
+		if (longradouroId != other.longradouroId)
+			return false;
+		if (projetoId != other.projetoId)
+			return false;
+		if (regional == null) {
+			if (other.regional != null)
+				return false;
+		} else if (!regional.equals(other.regional))
+			return false;
+		return true;
+	}
+	
+	
+
 }

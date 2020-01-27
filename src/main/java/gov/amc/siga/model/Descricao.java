@@ -34,5 +34,45 @@ public class Descricao implements Serializable {
 	public void setProjetoId(Long projetoId) {
 		this.projetoId = projetoId;
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Descricao [descricaoCodigo=" + descricaoCodigo + ", projetoId=" + projetoId + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((descricaoCodigo == null) ? 0 : descricaoCodigo.hashCode());
+		result = prime * result + ((projetoId == null) ? 0 : projetoId.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Descricao other = (Descricao) obj;
+		if (descricaoCodigo == null) {
+			if (other.descricaoCodigo != null)
+				return false;
+		} else if (!descricaoCodigo.equals(other.descricaoCodigo))
+			return false;
+		if (projetoId == null) {
+			if (other.projetoId != null)
+				return false;
+		} else if (!projetoId.equals(other.projetoId))
+			return false;
+		return true;
+	}
+	
+	
 
 }

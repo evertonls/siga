@@ -37,6 +37,40 @@ public class Situacao implements Serializable {
 		this.projetoId = projetoId;
 	}
 
+	@Override
+	public String toString() {
+		return "Situacao [situacaoCodigo=" + situacaoCodigo + ", projetoId=" + projetoId + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (projetoId ^ (projetoId >>> 32));
+		result = prime * result + ((situacaoCodigo == null) ? 0 : situacaoCodigo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Situacao other = (Situacao) obj;
+		if (projetoId != other.projetoId)
+			return false;
+		if (situacaoCodigo == null) {
+			if (other.situacaoCodigo != null)
+				return false;
+		} else if (!situacaoCodigo.equals(other.situacaoCodigo))
+			return false;
+		return true;
+	}
+
+	
 	
 
 }

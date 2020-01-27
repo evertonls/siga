@@ -199,10 +199,135 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 	}
 
 	@Override
+	public String toString() {
+		return "Projeto [projetoId=" + projetoId + ", numeroProjeto=" + numeroProjeto + ", prancha=" + prancha
+				+ ", revisao=" + revisao + ", contrato=" + contrato + ", obsevacao=" + obsevacao + ", projetoObra="
+				+ projetoObra + ", prioridade=" + prioridade + ", ciRecape=" + ciRecape + ", isRecape=" + isRecape
+				+ ", isRecapeExecutado=" + isRecapeExecutado + ", localRecape=" + localRecape + ", dataCriacaoProjeto="
+				+ dataCriacaoProjeto + ", dataPrevista=" + dataPrevista + ", dataEquipe=" + dataEquipe
+				+ ", dataInicial=" + dataInicial + ", dataExecucaoRecape=" + dataExecucaoRecape + "]";
+	}
+
+	@Override
 	public int compareTo(Projeto projeto) {
 		Collator brCollator = Collator.getInstance(new Locale("pt", "BR"));
 		brCollator.setStrength(Collator.PRIMARY);
 		return brCollator.compare(numeroProjeto, projeto.getNumeroProjeto());
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((ciRecape == null) ? 0 : ciRecape.hashCode());
+		result = prime * result + ((contrato == null) ? 0 : contrato.hashCode());
+		result = prime * result + ((dataCriacaoProjeto == null) ? 0 : dataCriacaoProjeto.hashCode());
+		result = prime * result + ((dataEquipe == null) ? 0 : dataEquipe.hashCode());
+		result = prime * result + ((dataExecucaoRecape == null) ? 0 : dataExecucaoRecape.hashCode());
+		result = prime * result + ((dataInicial == null) ? 0 : dataInicial.hashCode());
+		result = prime * result + ((dataPrevista == null) ? 0 : dataPrevista.hashCode());
+		result = prime * result + ((isRecape == null) ? 0 : isRecape.hashCode());
+		result = prime * result + ((isRecapeExecutado == null) ? 0 : isRecapeExecutado.hashCode());
+		result = prime * result + ((localRecape == null) ? 0 : localRecape.hashCode());
+		result = prime * result + numeroProjeto;
+		result = prime * result + ((obsevacao == null) ? 0 : obsevacao.hashCode());
+		result = prime * result + ((prancha == null) ? 0 : prancha.hashCode());
+		result = prime * result + ((prioridade == null) ? 0 : prioridade.hashCode());
+		result = prime * result + (int) (projetoId ^ (projetoId >>> 32));
+		result = prime * result + ((projetoObra == null) ? 0 : projetoObra.hashCode());
+		result = prime * result + ((revisao == null) ? 0 : revisao.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Projeto other = (Projeto) obj;
+		if (ciRecape == null) {
+			if (other.ciRecape != null)
+				return false;
+		} else if (!ciRecape.equals(other.ciRecape))
+			return false;
+		if (contrato == null) {
+			if (other.contrato != null)
+				return false;
+		} else if (!contrato.equals(other.contrato))
+			return false;
+		if (dataCriacaoProjeto == null) {
+			if (other.dataCriacaoProjeto != null)
+				return false;
+		} else if (!dataCriacaoProjeto.equals(other.dataCriacaoProjeto))
+			return false;
+		if (dataEquipe == null) {
+			if (other.dataEquipe != null)
+				return false;
+		} else if (!dataEquipe.equals(other.dataEquipe))
+			return false;
+		if (dataExecucaoRecape == null) {
+			if (other.dataExecucaoRecape != null)
+				return false;
+		} else if (!dataExecucaoRecape.equals(other.dataExecucaoRecape))
+			return false;
+		if (dataInicial == null) {
+			if (other.dataInicial != null)
+				return false;
+		} else if (!dataInicial.equals(other.dataInicial))
+			return false;
+		if (dataPrevista == null) {
+			if (other.dataPrevista != null)
+				return false;
+		} else if (!dataPrevista.equals(other.dataPrevista))
+			return false;
+		if (isRecape == null) {
+			if (other.isRecape != null)
+				return false;
+		} else if (!isRecape.equals(other.isRecape))
+			return false;
+		if (isRecapeExecutado == null) {
+			if (other.isRecapeExecutado != null)
+				return false;
+		} else if (!isRecapeExecutado.equals(other.isRecapeExecutado))
+			return false;
+		if (localRecape == null) {
+			if (other.localRecape != null)
+				return false;
+		} else if (!localRecape.equals(other.localRecape))
+			return false;
+		if (numeroProjeto != other.numeroProjeto)
+			return false;
+		if (obsevacao == null) {
+			if (other.obsevacao != null)
+				return false;
+		} else if (!obsevacao.equals(other.obsevacao))
+			return false;
+		if (prancha == null) {
+			if (other.prancha != null)
+				return false;
+		} else if (!prancha.equals(other.prancha))
+			return false;
+		if (prioridade == null) {
+			if (other.prioridade != null)
+				return false;
+		} else if (!prioridade.equals(other.prioridade))
+			return false;
+		if (projetoId != other.projetoId)
+			return false;
+		if (projetoObra == null) {
+			if (other.projetoObra != null)
+				return false;
+		} else if (!projetoObra.equals(other.projetoObra))
+			return false;
+		if (revisao == null) {
+			if (other.revisao != null)
+				return false;
+		} else if (!revisao.equals(other.revisao))
+			return false;
+		return true;
 	}
 
 }

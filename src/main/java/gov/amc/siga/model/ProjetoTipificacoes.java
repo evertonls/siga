@@ -36,4 +36,39 @@ public class ProjetoTipificacoes implements Serializable {
 		this.projetoId = projetoId;
 	}
 
+	@Override
+	public String toString() {
+		return "ProjetoTipificacoes [projetoTipoCodigo=" + projetoTipoCodigo + ", projetoId=" + projetoId + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (projetoId ^ (projetoId >>> 32));
+		result = prime * result + ((projetoTipoCodigo == null) ? 0 : projetoTipoCodigo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ProjetoTipificacoes other = (ProjetoTipificacoes) obj;
+		if (projetoId != other.projetoId)
+			return false;
+		if (projetoTipoCodigo == null) {
+			if (other.projetoTipoCodigo != null)
+				return false;
+		} else if (!projetoTipoCodigo.equals(other.projetoTipoCodigo))
+			return false;
+		return true;
+	}
+	
+	
+
 }

@@ -85,6 +85,14 @@
 				
 				<p:fieldset>
 				
+				  <h:dataTable value="#{cadastroBean.getAparelhos}" var="aparelho" cellpadding="15" border="1">
+				  	<f:facet name="header">Lista de Aparelhos</f:facet>
+				  	<h:column style="width:150px;">
+				  	<f:facet name="header">Codigo</f:facet>
+				  	<h:outputText value="#{aparelho.aparelhoCod}"></h:outputText>
+				  	</h:column>
+				  </h:dataTable>
+				
 				</p:fieldset>
 
 			</p:panel>

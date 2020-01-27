@@ -35,5 +35,45 @@ public class ClassificacaoTipo implements Serializable {
 	public void setClassificacaoDescricao(String classificacaoDescricao) {
 		this.classificacaoDescricao = classificacaoDescricao;
 	}
+	
+	
 
+	@Override
+	public String toString() {
+		return "ClassificacaoTipo [classificacaoCodigo=" + classificacaoCodigo + ", classificacaoDescricao="
+				+ classificacaoDescricao + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((classificacaoCodigo == null) ? 0 : classificacaoCodigo.hashCode());
+		result = prime * result + ((classificacaoDescricao == null) ? 0 : classificacaoDescricao.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ClassificacaoTipo other = (ClassificacaoTipo) obj;
+		if (classificacaoCodigo == null) {
+			if (other.classificacaoCodigo != null)
+				return false;
+		} else if (!classificacaoCodigo.equals(other.classificacaoCodigo))
+			return false;
+		if (classificacaoDescricao == null) {
+			if (other.classificacaoDescricao != null)
+				return false;
+		} else if (!classificacaoDescricao.equals(other.classificacaoDescricao))
+			return false;
+		return true;
+	}
+
+	
 }

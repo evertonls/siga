@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 
 import gov.amc.siga.model.Descricao;
 
-public class DescricoesResultSetExtractor implements ResultSetExtractor<Descricao>{
+public class DescricaoResultSetExtractor implements ResultSetExtractor<Descricao>{
 
 	@Override
 	public Descricao extractData(ResultSet rs) throws SQLException, DataAccessException {

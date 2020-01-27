@@ -1,53 +1,34 @@
 package gov.amc.siga.dao.imple;
 
-import java.io.Serializable;
 import java.util.List;
 
-import javax.sql.DataSource;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
 
-import gov.amc.siga.dao.BairroDao;
 import gov.amc.siga.dao.mapper.BairroMapper;
 import gov.amc.siga.model.Bairro;
 
-@Repository
-public class BairroDaoImple implements BairroDao, Serializable {
+public class BairroDaoImple {
 
-	private static final long serialVersionUID = 1L;
-	private JdbcTemplate jdbcTemplate;
-
-	private final String sqlSalvarBairro = "INSERT INTO SIGA.BAIRRO (BAIRRO) VALUES (?)";
-	private final String sqlAtualizarBairro = "UPDATE SIGA.BAIRRO SET BAIRRO = ? WHERE ID = ?";
-	private final String sqlDeletarBairro = "DELETE SIGA.BAIRRO WHERE ID = ?";
-	private final String sqlListarTodosBairros = "SELECT BAIRRO FROM SIGA.BAIRRO";
-
-	@Autowired
-	public BairroDaoImple(DataSource ds) {
-		this.jdbcTemplate = new JdbcTemplate(ds);
+	private String sqlSalvarBairro = "INSERT INTO siga.bairros (bairro_id, bairro) VALUES( ?, ? );";
+	private String sqlAtualizarBairro = "UPDATE siga.bairros SET bairro='' WHERE bairro_id= ?";
+	private String sqlDeletarBairro = "DELETE FROM siga.bairros WHERE bairro_id= ?";
+	private String sqlListarTodosBairros = "SELECT bairro_id, bairro FROM siga.bairros";
+	
+	JdbcTemplate template;
+	
+	public void setTemplate(JdbcTemplate template) {
+		this.template = template;
 	}
-
-	@Override
-	public void salvarBairro(String bairro) {
-		jdbcTemplate.update(sqlSalvarBairro, new Object[] { bairro });
+	
+	public int salvar(Bairro bairro) {
+		String sql = "INSERT INTO siga.bairros (bairro_id, bairro) VALUES(" + bairro.getBairroId() + "," + bairro.getBairro()+")";
+		return template.update(sql);
 	}
-
-	@Override
-	public void atualizarBairro(Long id, String bairro) {
-		jdbcTemplate.update(sqlAtualizarBairro, new Object[] { id, bairro });
+	
+	
+	public List<Bairro> listarTodosBairros(){
+		return template.query(sqlListarTodosBairros, new BairroMapper());
 	}
-
-	@Override
-	public void deletarBairro(Long id) {
-		jdbcTemplate.update(sqlDeletarBairro, new Object[] { id });
-	}
-
-	@Override
-	public List<Bairro> listarTodos() {
-		return jdbcTemplate.query(sqlListarTodosBairros, new BairroMapper());
-
-	}
-
+	
+	
 }
