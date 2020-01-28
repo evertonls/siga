@@ -13,7 +13,7 @@ public class LongradouroResultSetExtractor implements ResultSetExtractor<Longrad
 	@Override
 	public Longradouro extractData(ResultSet rs) throws SQLException, DataAccessException {
 		Longradouro longradouro = new Longradouro();
-		longradouro.setlongradouroId(rs.getLong("longradouro_id"));
+		longradouro.setLongradouroId(rs.getLong("longradouro_id"));
 		longradouro.setJurisdicao(rs.getString("jurisdicao"));
 		longradouro.setLongradouro(rs.getString("longradouro"));
 		longradouro.setTipo(rs.getString("tipo"));

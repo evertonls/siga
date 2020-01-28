@@ -10,13 +10,14 @@ public interface AparelhoDao {
 	
 	void setDataSource(DataSource ds);
 
-	void salvarAparelho(String aparelhoCodigo, long projetoId, double quantidade);
+	void salvarAparelho(String aparelhoCodigo, Long projetoId, Double quantidade);
 
-	void atualizarAparelho(String aparelhoCodigo, double quantidade);
+	void atualizarAparelho(String aparelhoCodigo, Double quantidade);
 
-	void deletarAparelho(long projetoId, String aparelhoCodigo);
+	void deletarAparelho(Long projetoId, String aparelhoCodigo);
 			
 	List<Aparelho> listarTodosAparelhos();
 	
-	List<Aparelho> listarTodosAparelhosPorProjetoId();
+	List<Aparelho> listarTodosAparelhosPorProjetoId(Long projetoId);
+	
 }

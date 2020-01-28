@@ -5,30 +5,32 @@ import java.io.Serializable;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Aparelho implements Serializable{
+public class Aparelho implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private long projetoId;
+	private Long projetoId;
 	private String aparelhamentoCodigo;
-	private double quantidade;
-	
-	public Aparelho() {	}
+	private Double quantidade;
 
-	public Aparelho(long projetoId, String aparelhamentoCodigo, double quantidade) {
+	public Aparelho() {
+	}
+
+	public Aparelho(Long projetoId, String aparelhamentoCodigo, Double quantidade) {
+		super();
 		this.projetoId = projetoId;
 		this.aparelhamentoCodigo = aparelhamentoCodigo;
 		this.quantidade = quantidade;
 	}
 
-    public Long getProjetoId() {
+	public Long getProjetoId() {
 		return projetoId;
 	}
 
-	public void setProjetoId(long projetoId) {
+	public void setProjetoId(Long projetoId) {
 		this.projetoId = projetoId;
 	}
 
-	public String getaAparelhamentoCodigo() {
+	public String getAparelhamentoCodigo() {
 		return aparelhamentoCodigo;
 	}
 
@@ -40,13 +42,14 @@ public class Aparelho implements Serializable{
 		return quantidade;
 	}
 
-	public void setQuantidade(double quantidade) {
+	public void setQuantidade(Double quantidade) {
 		this.quantidade = quantidade;
 	}
 
 	@Override
 	public String toString() {
-		return "Codigo do aparelho: " + aparelhamentoCodigo + ", Quantidade: " + quantidade + ", Projeto: " + projetoId;
+		return "Aparelho [ projetoId:  " + projetoId + ", aparelhamentoCodigo: " + aparelhamentoCodigo + ", quantidade: "
+				+ quantidade + " ]";
 	}
 
 	@Override
@@ -54,10 +57,8 @@ public class Aparelho implements Serializable{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((aparelhamentoCodigo == null) ? 0 : aparelhamentoCodigo.hashCode());
-		result = prime * result + (int) (projetoId ^ (projetoId >>> 32));
-		long temp;
-		temp = Double.doubleToLongBits(quantidade);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((projetoId == null) ? 0 : projetoId.hashCode());
+		result = prime * result + ((quantidade == null) ? 0 : quantidade.hashCode());
 		return result;
 	}
 
@@ -75,13 +76,17 @@ public class Aparelho implements Serializable{
 				return false;
 		} else if (!aparelhamentoCodigo.equals(other.aparelhamentoCodigo))
 			return false;
-		if (projetoId != other.projetoId)
+		if (projetoId == null) {
+			if (other.projetoId != null)
+				return false;
+		} else if (!projetoId.equals(other.projetoId))
 			return false;
-		if (Double.doubleToLongBits(quantidade) != Double.doubleToLongBits(other.quantidade))
+		if (quantidade == null) {
+			if (other.quantidade != null)
+				return false;
+		} else if (!quantidade.equals(other.quantidade))
 			return false;
 		return true;
 	}
-	
-	
-	 
+
 }

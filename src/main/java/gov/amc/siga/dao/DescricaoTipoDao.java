@@ -14,7 +14,8 @@ public interface DescricaoTipoDao {
 	
 	void atualizarDescricaoTipo(String descricaoCodigo, String descricaoDescricao);
 	
-	void deletarDescricaoTipo(String descricaoCodigo, String descricaoDescricao);
+	void deletarDescricaoTipo(String descricaoCodigo);
 	
-	List<DescricaoTipo> listarTodasDescricoestipos();
+	List<DescricaoTipo> listarTodasDescricoesTipos();
+	
 }

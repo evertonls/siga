@@ -16,9 +16,10 @@ import gov.amc.siga.model.Aparelho;
 public class AparelhoDaoImple implements AparelhoDao {
 
 	private final String sqlSalvarAparelho = "INSERT INTO siga.aparelhamentos (aparelho_cod, projeto_id, quantidade) VALUES (?, ?, ?)";
-	private final String sqlDeletarAparelhamento = "DELETE FROM siga.aparelhamentos WHERE projeto_id = ? and aparelho_cod = ?";
+	private final String sqlDeletarAparelhamento = "DELETE FROM siga.aparelhamentos WHERE projeto_id = ? AND aparelho_cod = ?";
 	private final String sqlAtualizarAparelho = "UPDATE siga.aparelhamentos SET quantidade = ? WHERE aparelho_cod = ?";
-	private final String sqlListarTodos = "SELECT aparelho_cod, projeto_id, quantidade FROM siga.aparelhamentos";
+	private final String sqlListarTodosAparelhos = "SELECT aparelho_cod, projeto_id, quantidade FROM siga.aparelhamentos";
+	private final String sqlListarTodosAparelhosPorProjetoId = "SELECT aparelho_cod, projeto_id, quantidade FROM siga.aparelhamentos WHERE projeto_id = ?";
 
 	@Autowired
 	private DataSource dataSource;
@@ -29,19 +30,19 @@ public class AparelhoDaoImple implements AparelhoDao {
 	}
 
 	@Override
-	public void salvarAparelho(String aparelhoCodigo, long projeto_id, double quantidade) {
+	public void salvarAparelho(String aparelhoCodigo, Long projeto_id, Double quantidade) {
 		JdbcTemplate salvar = new JdbcTemplate(dataSource);
 		salvar.update(sqlSalvarAparelho, new Object[] { aparelhoCodigo, projeto_id, quantidade });
 	}
 
 	@Override
-	public void deletarAparelho(long projetoId, String aparelhoCodigo) {
+	public void deletarAparelho(Long projetoId, String aparelhoCodigo) {
 		JdbcTemplate deletar = new JdbcTemplate(dataSource);
-		deletar.update(sqlDeletarAparelhamento, new Object[] { aparelhoCodigo });
+		deletar.update(sqlDeletarAparelhamento, new Object[] { projetoId, aparelhoCodigo });
 	}
 
 	@Override
-	public void atualizarAparelho(String aparelhoCodigo, double quantidade) {
+	public void atualizarAparelho(String aparelhoCodigo, Double quantidade) {
 		JdbcTemplate atualizar = new JdbcTemplate(dataSource);
 		atualizar.update(sqlAtualizarAparelho, new Object[] { quantidade, aparelhoCodigo });
 	}
@@ -49,13 +50,13 @@ public class AparelhoDaoImple implements AparelhoDao {
 	@Override
 	public List<Aparelho> listarTodosAparelhos() {
 		JdbcTemplate listar = new JdbcTemplate(dataSource);
-		return listar.query(sqlListarTodos, new AparelhoMapper());
+		return listar.query(sqlListarTodosAparelhos, new AparelhoMapper());
 	}
 
 	@Override
-	public List<Aparelho> listarTodosAparelhosPorProjetoId() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Aparelho> listarTodosAparelhosPorProjetoId(Long projetoId) {
+		JdbcTemplate listar = new JdbcTemplate(dataSource);
+		return listar.query(sqlListarTodosAparelhosPorProjetoId, new Object[] { projetoId }, new AparelhoMapper());
 	}
 
 }

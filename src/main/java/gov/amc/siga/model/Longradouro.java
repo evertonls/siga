@@ -9,7 +9,7 @@ public class Longradouro implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private long longradouroId;
+	private Long longradouroId;
 	private String longradouro;
 	private String tipo;
 	private String titulo;
@@ -18,7 +18,8 @@ public class Longradouro implements Serializable {
 	public Longradouro() {
 	}
 
-	public Longradouro(long longradouroId, String longradouro, String tipo, String titulo, String jurisdicao) {
+	public Longradouro(Long longradouroId, String longradouro, String tipo, String titulo, String jurisdicao) {
+		super();
 		this.longradouroId = longradouroId;
 		this.longradouro = longradouro;
 		this.tipo = tipo;
@@ -26,40 +27,40 @@ public class Longradouro implements Serializable {
 		this.jurisdicao = jurisdicao;
 	}
 
-	public long getlongradouroId() {
+	public Long getLongradouroId() {
 		return longradouroId;
+	}
+
+	public void setLongradouroId(Long longradouroId) {
+		this.longradouroId = longradouroId;
 	}
 
 	public String getLongradouro() {
 		return longradouro;
 	}
 
-	public String getTipo() {
-		return tipo;
-	}
-
-	public String getTitulo() {
-		return titulo;
-	}
-
-	public String getJurisdicao() {
-		return jurisdicao;
-	}
-
-	public void setlongradouroId(long longradouroId) {
-		this.longradouroId = longradouroId;
-	}
-
 	public void setLongradouro(String longradouro) {
 		this.longradouro = longradouro;
+	}
+
+	public String getTipo() {
+		return tipo;
 	}
 
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 
+	public String getTitulo() {
+		return titulo;
+	}
+
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
+	}
+
+	public String getJurisdicao() {
+		return jurisdicao;
 	}
 
 	public void setJurisdicao(String jurisdicao) {
@@ -78,7 +79,7 @@ public class Longradouro implements Serializable {
 		int result = 1;
 		result = prime * result + ((jurisdicao == null) ? 0 : jurisdicao.hashCode());
 		result = prime * result + ((longradouro == null) ? 0 : longradouro.hashCode());
-		result = prime * result + (int) (longradouroId ^ (longradouroId >>> 32));
+		result = prime * result + ((longradouroId == null) ? 0 : longradouroId.hashCode());
 		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
 		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
 		return result;
@@ -103,7 +104,10 @@ public class Longradouro implements Serializable {
 				return false;
 		} else if (!longradouro.equals(other.longradouro))
 			return false;
-		if (longradouroId != other.longradouroId)
+		if (longradouroId == null) {
+			if (other.longradouroId != null)
+				return false;
+		} else if (!longradouroId.equals(other.longradouroId))
 			return false;
 		if (tipo == null) {
 			if (other.tipo != null)
@@ -117,8 +121,5 @@ public class Longradouro implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
+
 }

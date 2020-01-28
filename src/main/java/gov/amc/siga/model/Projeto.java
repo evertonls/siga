@@ -1,20 +1,17 @@
 package gov.amc.siga.model;
 
 import java.io.Serializable;
-import java.text.Collator;
 import java.time.LocalDate;
-import java.util.Locale;
-import java.util.Objects;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class Projeto implements Comparable<Projeto>, Serializable {
+public class Projeto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private long projetoId;
-	private int numeroProjeto;
+	private Long projetoId;
+	private Integer numeroProjeto;
 	private String prancha;
 	private String revisao;
 	private String contrato;
@@ -34,12 +31,12 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 	public Projeto() {
 	}
 
-	public Projeto(long idProjeto, int numeroProjeto, String prancha, String revisao, String contrato, String obsevacao,
-			String projetoObra, String prioridade, Boolean isRecape, String ciRecape, Boolean isRecapeExecutado,
-			String localRecape, LocalDate dataCriacaoProjeto, LocalDate dataPrevista, LocalDate dataEquipe,
-			LocalDate dataInicial, LocalDate dataExecucaoRecape) {
+	public Projeto(Long projetoId, Integer numeroProjeto, String prancha, String revisao, String contrato,
+			String obsevacao, String projetoObra, String prioridade, String ciRecape, Boolean isRecape,
+			Boolean isRecapeExecutado, String localRecape, LocalDate dataCriacaoProjeto, LocalDate dataPrevista,
+			LocalDate dataEquipe, LocalDate dataInicial, LocalDate dataExecucaoRecape) {
 		super();
-		this.projetoId = idProjeto;
+		this.projetoId = projetoId;
 		this.numeroProjeto = numeroProjeto;
 		this.prancha = prancha;
 		this.revisao = revisao;
@@ -47,8 +44,8 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 		this.obsevacao = obsevacao;
 		this.projetoObra = projetoObra;
 		this.prioridade = prioridade;
-		this.isRecape = isRecape;
 		this.ciRecape = ciRecape;
+		this.isRecape = isRecape;
 		this.isRecapeExecutado = isRecapeExecutado;
 		this.localRecape = localRecape;
 		this.dataCriacaoProjeto = dataCriacaoProjeto;
@@ -58,19 +55,19 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 		this.dataExecucaoRecape = dataExecucaoRecape;
 	}
 
-	public long getProjetoId() {
+	public Long getProjetoId() {
 		return projetoId;
 	}
 
-	public void setProjetoId(long idProjeto) {
-		this.projetoId = idProjeto;
+	public void setProjetoId(Long projetoId) {
+		this.projetoId = projetoId;
 	}
 
-	public int getNumeroProjeto() {
+	public Integer getNumeroProjeto() {
 		return numeroProjeto;
 	}
 
-	public void setNumeroProjeto(int numeroProjeto) {
+	public void setNumeroProjeto(Integer numeroProjeto) {
 		this.numeroProjeto = numeroProjeto;
 	}
 
@@ -122,20 +119,20 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 		this.prioridade = prioridade;
 	}
 
-	public Boolean getIsRecape() {
-		return isRecape;
-	}
-
-	public void setIsRecape(Boolean isRecape) {
-		this.isRecape = isRecape;
-	}
-
 	public String getCiRecape() {
 		return ciRecape;
 	}
 
 	public void setCiRecape(String ciRecape) {
 		this.ciRecape = ciRecape;
+	}
+
+	public Boolean getIsRecape() {
+		return isRecape;
+	}
+
+	public void setIsRecape(Boolean isRecape) {
+		this.isRecape = isRecape;
 	}
 
 	public Boolean getIsRecapeExecutado() {
@@ -194,10 +191,6 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 		this.dataExecucaoRecape = dataExecucaoRecape;
 	}
 
-	public int hasCode() {
-		return Objects.hash(numeroProjeto);
-	}
-
 	@Override
 	public String toString() {
 		return "Projeto [projetoId=" + projetoId + ", numeroProjeto=" + numeroProjeto + ", prancha=" + prancha
@@ -206,13 +199,6 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 				+ ", isRecapeExecutado=" + isRecapeExecutado + ", localRecape=" + localRecape + ", dataCriacaoProjeto="
 				+ dataCriacaoProjeto + ", dataPrevista=" + dataPrevista + ", dataEquipe=" + dataEquipe
 				+ ", dataInicial=" + dataInicial + ", dataExecucaoRecape=" + dataExecucaoRecape + "]";
-	}
-
-	@Override
-	public int compareTo(Projeto projeto) {
-		Collator brCollator = Collator.getInstance(new Locale("pt", "BR"));
-		brCollator.setStrength(Collator.PRIMARY);
-		return brCollator.compare(numeroProjeto, projeto.getNumeroProjeto());
 	}
 
 	@Override
@@ -229,11 +215,11 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 		result = prime * result + ((isRecape == null) ? 0 : isRecape.hashCode());
 		result = prime * result + ((isRecapeExecutado == null) ? 0 : isRecapeExecutado.hashCode());
 		result = prime * result + ((localRecape == null) ? 0 : localRecape.hashCode());
-		result = prime * result + numeroProjeto;
+		result = prime * result + ((numeroProjeto == null) ? 0 : numeroProjeto.hashCode());
 		result = prime * result + ((obsevacao == null) ? 0 : obsevacao.hashCode());
 		result = prime * result + ((prancha == null) ? 0 : prancha.hashCode());
 		result = prime * result + ((prioridade == null) ? 0 : prioridade.hashCode());
-		result = prime * result + (int) (projetoId ^ (projetoId >>> 32));
+		result = prime * result + ((projetoId == null) ? 0 : projetoId.hashCode());
 		result = prime * result + ((projetoObra == null) ? 0 : projetoObra.hashCode());
 		result = prime * result + ((revisao == null) ? 0 : revisao.hashCode());
 		return result;
@@ -298,7 +284,10 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 				return false;
 		} else if (!localRecape.equals(other.localRecape))
 			return false;
-		if (numeroProjeto != other.numeroProjeto)
+		if (numeroProjeto == null) {
+			if (other.numeroProjeto != null)
+				return false;
+		} else if (!numeroProjeto.equals(other.numeroProjeto))
 			return false;
 		if (obsevacao == null) {
 			if (other.obsevacao != null)
@@ -315,7 +304,10 @@ public class Projeto implements Comparable<Projeto>, Serializable {
 				return false;
 		} else if (!prioridade.equals(other.prioridade))
 			return false;
-		if (projetoId != other.projetoId)
+		if (projetoId == null) {
+			if (other.projetoId != null)
+				return false;
+		} else if (!projetoId.equals(other.projetoId))
 			return false;
 		if (projetoObra == null) {
 			if (other.projetoObra != null)

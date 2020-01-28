@@ -9,18 +9,19 @@ public class OrdemServico implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private long ordemServicoId;
-	private int numero;
+	private Long ordemServicoId;
+	private Integer numero;
 	private String medicao;
-	private long projetoId;
+	private Long projetoId;
 	private String observacaoVistoria;
 	private String observacao;
 
 	public OrdemServico() {
 	}
 
-	public OrdemServico(long ordemServicoId, int numero, String medicao, long projetoId, String observacaoVistoria,
+	public OrdemServico(Long ordemServicoId, Integer numero, String medicao, Long projetoId, String observacaoVistoria,
 			String observacao) {
+		super();
 		this.ordemServicoId = ordemServicoId;
 		this.numero = numero;
 		this.medicao = medicao;
@@ -29,19 +30,19 @@ public class OrdemServico implements Serializable {
 		this.observacao = observacao;
 	}
 
-	public long getOrdemServicoId() {
+	public Long getOrdemServicoId() {
 		return ordemServicoId;
 	}
 
-	public void setOrdemServicoId(long ordemServicoId) {
+	public void setOrdemServicoId(Long ordemServicoId) {
 		this.ordemServicoId = ordemServicoId;
 	}
 
-	public int getNumero() {
+	public Integer getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(Integer numero) {
 		this.numero = numero;
 	}
 
@@ -53,7 +54,7 @@ public class OrdemServico implements Serializable {
 		this.medicao = medicao;
 	}
 
-	public long getProjetoId() {
+	public Long getProjetoId() {
 		return projetoId;
 	}
 
@@ -89,11 +90,11 @@ public class OrdemServico implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((medicao == null) ? 0 : medicao.hashCode());
-		result = prime * result + numero;
+		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
 		result = prime * result + ((observacao == null) ? 0 : observacao.hashCode());
 		result = prime * result + ((observacaoVistoria == null) ? 0 : observacaoVistoria.hashCode());
-		result = prime * result + (int) (ordemServicoId ^ (ordemServicoId >>> 32));
-		result = prime * result + (int) (projetoId ^ (projetoId >>> 32));
+		result = prime * result + ((ordemServicoId == null) ? 0 : ordemServicoId.hashCode());
+		result = prime * result + ((projetoId == null) ? 0 : projetoId.hashCode());
 		return result;
 	}
 
@@ -111,7 +112,10 @@ public class OrdemServico implements Serializable {
 				return false;
 		} else if (!medicao.equals(other.medicao))
 			return false;
-		if (numero != other.numero)
+		if (numero == null) {
+			if (other.numero != null)
+				return false;
+		} else if (!numero.equals(other.numero))
 			return false;
 		if (observacao == null) {
 			if (other.observacao != null)
@@ -123,9 +127,15 @@ public class OrdemServico implements Serializable {
 				return false;
 		} else if (!observacaoVistoria.equals(other.observacaoVistoria))
 			return false;
-		if (ordemServicoId != other.ordemServicoId)
+		if (ordemServicoId == null) {
+			if (other.ordemServicoId != null)
+				return false;
+		} else if (!ordemServicoId.equals(other.ordemServicoId))
 			return false;
-		if (projetoId != other.projetoId)
+		if (projetoId == null) {
+			if (other.projetoId != null)
+				return false;
+		} else if (!projetoId.equals(other.projetoId))
 			return false;
 		return true;
 	}

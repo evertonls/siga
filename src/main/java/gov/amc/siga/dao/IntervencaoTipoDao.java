@@ -18,5 +18,4 @@ public interface IntervencaoTipoDao {
 	
 	List<IntervencaoTipo> listarTodasIntervencoes();
 	
-	List<IntervencaoTipo> listarTodasIntervencoesPorProjetoId();
 }

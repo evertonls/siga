@@ -19,6 +19,7 @@ public class AparelhoTipoDaoImple implements AparelhoTipoDao {
 	private final String sqlDeletarAparelho = "DELETE FROM siga.aparelho_tipo WHERE aparelho_cod = ?";
 	private final String sqlAtualizarAparelho = "UPDATE siga.aparelho_tipo SET aparelho_desc = ? WHERE aparelho_cod = ?";
 	private final String sqlSalvarAparelho = "INSERT INTO siga.aparelho_tipo (aparelho_cod, aparelho_desc) VALUES (?, ?) ON CONFLICT (aparelho_cod) DO NOTHING";
+	private final String sqlListarTodosAparelhosProProjetoId = "SELECT aparelho_cod, aparelho_desc FROM siga.aparelho_tipo WHERE projeto_id = ?";
 
 	@Autowired
 	private DataSource dataSource;
@@ -29,25 +30,25 @@ public class AparelhoTipoDaoImple implements AparelhoTipoDao {
 	}
 
 	@Override
-	public void salvar(String aparelhoCodigo, String aparelhoDescricao) {
+	public void salvarAparelhoTipo(String aparelhoCodigo, String aparelhoDescricao) {
 		JdbcTemplate salvar = new JdbcTemplate(dataSource);
 		salvar.update(sqlSalvarAparelho, new Object[] { aparelhoCodigo, aparelhoDescricao });
 	}
 
 	@Override
-	public void deletar(String aparelhoCodigo) {
-		JdbcTemplate deletar = new JdbcTemplate(dataSource);
-		deletar.update(sqlDeletarAparelho, new Object[] { aparelhoCodigo });
-	}
-
-	@Override
-	public void atualizar(String aparelhoCodigo, String aparelhoDescricao) {
+	public void atualizarAparelhoTipo(String aparelhoCodigo, String aparelhoDescricao) {
 		JdbcTemplate atualizar = new JdbcTemplate(dataSource);
 		atualizar.update(sqlAtualizarAparelho, new Object[] { aparelhoDescricao, aparelhoCodigo });
 	}
 
 	@Override
-	public List<AparelhoTipo> listarTodos() {
+	public void deletarAparelhoTipo(String aparelhoCodigo) {
+		JdbcTemplate deletar = new JdbcTemplate(dataSource);
+		deletar.update(sqlDeletarAparelho, new Object[] { aparelhoCodigo });
+	}
+
+	@Override
+	public List<AparelhoTipo> listarTodosAparelhosTipo() {
 		JdbcTemplate listar = new JdbcTemplate(dataSource);
 		return listar.query(sqlListarTodos, new AparelhoTipoMapper());
 	}

@@ -1,47 +1,40 @@
 package gov.amc.siga.model;
 
 import java.io.Serializable;
-import java.util.List;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class Bairro implements Serializable{
+public class Bairro implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private long bairroId;
+	private Long bairroId;
 	private String bairro;
 
 	public Bairro() {
 	}
 
-	public Bairro(long bairroId, String bairro) {
-		this.bairroId = bairroId;
-		this.bairro = bairro;
-	}
-	
-	public Bairro(long bairroId, String bairro, List<Longradouro> longradouros) {
+	public Bairro(Long bairroId, String bairro) {
+		super();
 		this.bairroId = bairroId;
 		this.bairro = bairro;
 	}
 
-	public long getBairroId() {
+	public Long getBairroId() {
 		return bairroId;
+	}
+
+	public void setBairroId(Long bairroId) {
+		this.bairroId = bairroId;
 	}
 
 	public String getBairro() {
 		return bairro;
 	}
 
-	public void setbairroId(long bairroId) {
-		this.bairroId = bairroId;
-	}
-
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
-	
-	
 
 	@Override
 	public String toString() {
@@ -53,7 +46,7 @@ public class Bairro implements Serializable{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((bairro == null) ? 0 : bairro.hashCode());
-		result = prime * result + (int) (bairroId ^ (bairroId >>> 32));
+		result = prime * result + ((bairroId == null) ? 0 : bairroId.hashCode());
 		return result;
 	}
 
@@ -71,12 +64,12 @@ public class Bairro implements Serializable{
 				return false;
 		} else if (!bairro.equals(other.bairro))
 			return false;
-		if (bairroId != other.bairroId)
+		if (bairroId == null) {
+			if (other.bairroId != null)
+				return false;
+		} else if (!bairroId.equals(other.bairroId))
 			return false;
 		return true;
 	}
 
-	
-	
-	
 }

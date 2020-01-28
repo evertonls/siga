@@ -10,12 +10,13 @@ public class ProjetoTipificacoes implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String projetoTipoCodigo;
-	private long projetoId;
+	private Long projetoId;
 
 	public ProjetoTipificacoes() {
 	}
 
-	public ProjetoTipificacoes(String projetoTipoCodigo, long projetoId) {
+	public ProjetoTipificacoes(String projetoTipoCodigo, Long projetoId) {
+		super();
 		this.projetoTipoCodigo = projetoTipoCodigo;
 		this.projetoId = projetoId;
 	}
@@ -28,11 +29,11 @@ public class ProjetoTipificacoes implements Serializable {
 		this.projetoTipoCodigo = projetoTipoCodigo;
 	}
 
-	public long getProjetoId() {
+	public Long getProjetoId() {
 		return projetoId;
 	}
 
-	public void setProjetoId(long projetoId) {
+	public void setProjetoId(Long projetoId) {
 		this.projetoId = projetoId;
 	}
 
@@ -45,7 +46,7 @@ public class ProjetoTipificacoes implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (projetoId ^ (projetoId >>> 32));
+		result = prime * result + ((projetoId == null) ? 0 : projetoId.hashCode());
 		result = prime * result + ((projetoTipoCodigo == null) ? 0 : projetoTipoCodigo.hashCode());
 		return result;
 	}
@@ -59,7 +60,10 @@ public class ProjetoTipificacoes implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		ProjetoTipificacoes other = (ProjetoTipificacoes) obj;
-		if (projetoId != other.projetoId)
+		if (projetoId == null) {
+			if (other.projetoId != null)
+				return false;
+		} else if (!projetoId.equals(other.projetoId))
 			return false;
 		if (projetoTipoCodigo == null) {
 			if (other.projetoTipoCodigo != null)
@@ -68,7 +72,5 @@ public class ProjetoTipificacoes implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
 
 }

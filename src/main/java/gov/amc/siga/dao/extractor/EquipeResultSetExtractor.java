@@ -14,7 +14,7 @@ public class EquipeResultSetExtractor implements ResultSetExtractor<Equipe>{
 	public Equipe extractData(ResultSet rs) throws SQLException, DataAccessException {
 		Equipe equipe = new Equipe();
 		equipe.setProjetoId(rs.getLong("projeto_id"));
-		equipe.setEquipeCod(rs.getString("equipe_cod"));
+		equipe.setEquipeCodigo(rs.getString("equipe_cod"));
 		return equipe;
 	}
 

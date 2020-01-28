@@ -4,15 +4,19 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import gov.amc.siga.model.Endereco;
+
 public interface EnderecoDao {
 
 	void setDataSurce(DataSource ds);
 	
-	void salvarEndereco(long bairroId, String divisao, long longradouroId, long projetoId, String regional);
+	void salvarEndereco(Long bairroId, String divisao, Long longradouroId, Long projetoId, String regional);
 	
-	void atualizarEndereco(long longradouroId, long projetoId);
+	void atualizarEndereco(Long longradouroId, Long projetoId);
 	
-	void deletarEndereco(long longradouroId, long projetoId);
+	void deletarEndereco(Long longradouroId, Long projetoId);
 	
 	List<EnderecoDao> listarTodosEnderecos();
+	
+	Endereco listarTodosEnderecosPorProjetoId(Long projetoId);
 }

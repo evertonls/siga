@@ -10,11 +10,13 @@ public class Equipe implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String equipeCodigo;
-	private long projetoId;
+	private Long projetoId;
 
-	public Equipe() { 	}
+	public Equipe() {
+	}
 
-	public Equipe(String equipeCodigo, long projetoId) {
+	public Equipe(String equipeCodigo, Long projetoId) {
+		super();
 		this.equipeCodigo = equipeCodigo;
 		this.projetoId = projetoId;
 	}
@@ -23,15 +25,15 @@ public class Equipe implements Serializable {
 		return equipeCodigo;
 	}
 
-	public void setEquipeCod(String equipeCodigo) {
+	public void setEquipeCodigo(String equipeCodigo) {
 		this.equipeCodigo = equipeCodigo;
 	}
 
-	public long getProjetoId() {
+	public Long getProjetoId() {
 		return projetoId;
 	}
 
-	public void setProjetoId(long projetoId) {
+	public void setProjetoId(Long projetoId) {
 		this.projetoId = projetoId;
 	}
 
@@ -45,7 +47,7 @@ public class Equipe implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((equipeCodigo == null) ? 0 : equipeCodigo.hashCode());
-		result = prime * result + (int) (projetoId ^ (projetoId >>> 32));
+		result = prime * result + ((projetoId == null) ? 0 : projetoId.hashCode());
 		return result;
 	}
 
@@ -63,12 +65,12 @@ public class Equipe implements Serializable {
 				return false;
 		} else if (!equipeCodigo.equals(other.equipeCodigo))
 			return false;
-		if (projetoId != other.projetoId)
+		if (projetoId == null) {
+			if (other.projetoId != null)
+				return false;
+		} else if (!projetoId.equals(other.projetoId))
 			return false;
 		return true;
 	}
-	
-	
-	
-	
+
 }

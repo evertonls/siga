@@ -10,11 +10,12 @@ public interface BairroDao {
 	
 	void setDataSource(DataSource ds);
 	
-	void salvarBairro(String bairro, long bairroId);
+	void salvarBairro(String bairro, Long bairroId);
 	
-	void atualizarBairro(long bairroId, String bairro);
+	void atualizarBairro(Long bairroId, String bairro);
 
-	void deletarBairro(long bairroId);
+	void deletarBairro(Long bairroId, String bairro);
 	
 	List<Bairro> listarTodosBairros();
+	
 }

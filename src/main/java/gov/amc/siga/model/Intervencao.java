@@ -5,17 +5,19 @@ import java.io.Serializable;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Intervencao implements Serializable{
+public class Intervencao implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private String intervencaoCodigo;
-	private long projetoId;
-	private int quantidade;
-	
-	public Intervencao() {	}
+	private Long projetoId;
+	private Integer quantidade;
 
-	public Intervencao(String intervencaoCodigo, long projetoId, int quantidade) {
+	public Intervencao() {
+	}
+
+	public Intervencao(String intervencaoCodigo, Long projetoId, Integer quantidade) {
+		super();
 		this.intervencaoCodigo = intervencaoCodigo;
 		this.projetoId = projetoId;
 		this.quantidade = quantidade;
@@ -33,15 +35,15 @@ public class Intervencao implements Serializable{
 		return projetoId;
 	}
 
-	public void setProjetoId(long projetoId) {
+	public void setProjetoId(Long projetoId) {
 		this.projetoId = projetoId;
 	}
 
-	public int getQuantidade() {
+	public Integer getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(int quantidade) {
+	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
 	}
 
@@ -56,8 +58,8 @@ public class Intervencao implements Serializable{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((intervencaoCodigo == null) ? 0 : intervencaoCodigo.hashCode());
-		result = prime * result + (int) (projetoId ^ (projetoId >>> 32));
-		result = prime * result + quantidade;
+		result = prime * result + ((projetoId == null) ? 0 : projetoId.hashCode());
+		result = prime * result + ((quantidade == null) ? 0 : quantidade.hashCode());
 		return result;
 	}
 
@@ -75,13 +77,17 @@ public class Intervencao implements Serializable{
 				return false;
 		} else if (!intervencaoCodigo.equals(other.intervencaoCodigo))
 			return false;
-		if (projetoId != other.projetoId)
+		if (projetoId == null) {
+			if (other.projetoId != null)
+				return false;
+		} else if (!projetoId.equals(other.projetoId))
 			return false;
-		if (quantidade != other.quantidade)
+		if (quantidade == null) {
+			if (other.quantidade != null)
+				return false;
+		} else if (!quantidade.equals(other.quantidade))
 			return false;
 		return true;
 	}
-	
-	
 
 }

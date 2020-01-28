@@ -17,4 +17,5 @@ public interface ClassificacaoTipoDao {
 	void deletarClassificacaoTipo(String classificacaoCodigo);
 	
 	List<ClassificacaoTipo> listarTodasClassificacaoTipo();
+	
 }

@@ -10,12 +10,12 @@ public class Situacao implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String situacaoCodigo;
-	private long projetoId;
+	private Long projetoId;
 
 	public Situacao() {
 	}
 
-	public Situacao(String situacaoCodigo, long projetoId) {
+	public Situacao(String situacaoCodigo, Long projetoId) {
 		super();
 		this.situacaoCodigo = situacaoCodigo;
 		this.projetoId = projetoId;
@@ -29,11 +29,11 @@ public class Situacao implements Serializable {
 		this.situacaoCodigo = situacaoCodigo;
 	}
 
-	public long getProjetoId() {
+	public Long getProjetoId() {
 		return projetoId;
 	}
 
-	public void setProjetoId(long projetoId) {
+	public void setProjetoId(Long projetoId) {
 		this.projetoId = projetoId;
 	}
 
@@ -46,7 +46,7 @@ public class Situacao implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (projetoId ^ (projetoId >>> 32));
+		result = prime * result + ((projetoId == null) ? 0 : projetoId.hashCode());
 		result = prime * result + ((situacaoCodigo == null) ? 0 : situacaoCodigo.hashCode());
 		return result;
 	}
@@ -60,7 +60,10 @@ public class Situacao implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Situacao other = (Situacao) obj;
-		if (projetoId != other.projetoId)
+		if (projetoId == null) {
+			if (other.projetoId != null)
+				return false;
+		} else if (!projetoId.equals(other.projetoId))
 			return false;
 		if (situacaoCodigo == null) {
 			if (other.situacaoCodigo != null)
@@ -71,6 +74,4 @@ public class Situacao implements Serializable {
 	}
 
 	
-	
-
 }

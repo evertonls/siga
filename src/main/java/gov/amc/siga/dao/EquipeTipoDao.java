@@ -14,9 +14,8 @@ public interface EquipeTipoDao {
 	
 	void atualizarEquipeTipo(String equipeCodigo, String equipeDescricao);
 	
-	void deletarEquipeCodigo(String equipeCodigo, String equipeDescricao);
+	void deletarEquipeCodigo(String equipeCodigo);
 	
-	List<EquipeTipo> listarTodasEquipes();
+	List<EquipeTipo> listarTodasEquipesTipo();
 	
-	List<EquipeTipo> listarEquipePorProjetoId();
 }

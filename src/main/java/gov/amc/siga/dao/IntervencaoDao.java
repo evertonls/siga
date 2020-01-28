@@ -10,14 +10,14 @@ public interface IntervencaoDao {
 	
 	void setDataSurce(DataSource ds);
 	
-	void salvarIntervencao(String intervencaoCodigo, long projetoId, double quantidade);
+	void salvarIntervencao(String intervencaoCodigo, Long projetoId, Double quantidade);
 	
-	void atualizarIntervencao(String intervencaoCodigo, long projetoId, double quantidade);
+	void atualizarIntervencao(String intervencaoCodigo, Long projetoId, Double quantidade);
 	
-	void deletarIntervencao(String intervencaoCodigo, long projetoId, double quantidade);
+	void deletarIntervencao(String intervencaoCodigo, Long projetoId);
 	
 	List<Intervencao> listarTodasIntervencoes();
 	
-	List<Intervencao> listarTodasIntervencoesPorProjetoId();
+	Intervencao listarTodasIntervencoesPorProjetoId(Long projetoId);
 
 }

@@ -9,16 +9,17 @@ public class Endereco implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private long longradouroId;
+	private Long longradouroId;
 	private String regional;
 	private String divisao;
-	private long bairroId;
-	private long projetoId;
+	private Long bairroId;
+	private Long projetoId;
 
 	public Endereco() {
 	}
 
-	public Endereco(long longradouroId, String regional, String divisao, long bairroId, long projetoId) {
+	public Endereco(Long longradouroId, String regional, String divisao, Long bairroId, Long projetoId) {
+		super();
 		this.longradouroId = longradouroId;
 		this.regional = regional;
 		this.divisao = divisao;
@@ -26,11 +27,11 @@ public class Endereco implements Serializable {
 		this.projetoId = projetoId;
 	}
 
-	public long getLongradouroId() {
+	public Long getLongradouroId() {
 		return longradouroId;
 	}
 
-	public void setLongradouroId(long longradouroId) {
+	public void setLongradouroId(Long longradouroId) {
 		this.longradouroId = longradouroId;
 	}
 
@@ -50,19 +51,19 @@ public class Endereco implements Serializable {
 		this.divisao = divisao;
 	}
 
-	public long getBairroId() {
+	public Long getBairroId() {
 		return bairroId;
 	}
 
-	public void setBairroId(long bairroId) {
+	public void setBairroId(Long bairroId) {
 		this.bairroId = bairroId;
 	}
 
-	public long getProjetoId() {
+	public Long getProjetoId() {
 		return projetoId;
 	}
 
-	public void setProjetoId(long projetoId) {
+	public void setProjetoId(Long projetoId) {
 		this.projetoId = projetoId;
 	}
 
@@ -76,10 +77,10 @@ public class Endereco implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (bairroId ^ (bairroId >>> 32));
+		result = prime * result + ((bairroId == null) ? 0 : bairroId.hashCode());
 		result = prime * result + ((divisao == null) ? 0 : divisao.hashCode());
-		result = prime * result + (int) (longradouroId ^ (longradouroId >>> 32));
-		result = prime * result + (int) (projetoId ^ (projetoId >>> 32));
+		result = prime * result + ((longradouroId == null) ? 0 : longradouroId.hashCode());
+		result = prime * result + ((projetoId == null) ? 0 : projetoId.hashCode());
 		result = prime * result + ((regional == null) ? 0 : regional.hashCode());
 		return result;
 	}
@@ -93,16 +94,25 @@ public class Endereco implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Endereco other = (Endereco) obj;
-		if (bairroId != other.bairroId)
+		if (bairroId == null) {
+			if (other.bairroId != null)
+				return false;
+		} else if (!bairroId.equals(other.bairroId))
 			return false;
 		if (divisao == null) {
 			if (other.divisao != null)
 				return false;
 		} else if (!divisao.equals(other.divisao))
 			return false;
-		if (longradouroId != other.longradouroId)
+		if (longradouroId == null) {
+			if (other.longradouroId != null)
+				return false;
+		} else if (!longradouroId.equals(other.longradouroId))
 			return false;
-		if (projetoId != other.projetoId)
+		if (projetoId == null) {
+			if (other.projetoId != null)
+				return false;
+		} else if (!projetoId.equals(other.projetoId))
 			return false;
 		if (regional == null) {
 			if (other.regional != null)
@@ -111,7 +121,5 @@ public class Endereco implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
 
 }
