@@ -16,43 +16,46 @@ import gov.amc.siga.model.Aparelho;
 public class AparelhoDaoImple implements AparelhoDao {
 
 	private final String sqlSalvarAparelho = "INSERT INTO siga.aparelhamentos (aparelho_cod, projeto_id, quantidade) VALUES (?, ?, ?)";
-	private final String sqlDeletarAparelhamento = "DELETE FROM siga.aparelhamentos WHERE projeto_id = ?";
+	private final String sqlDeletarAparelhamento = "DELETE FROM siga.aparelhamentos WHERE projeto_id = ? and aparelho_cod = ?";
 	private final String sqlAtualizarAparelho = "UPDATE siga.aparelhamentos SET quantidade = ? WHERE aparelho_cod = ?";
 	private final String sqlListarTodos = "SELECT aparelho_cod, projeto_id, quantidade FROM siga.aparelhamentos";
 
-
 	@Autowired
 	private DataSource dataSource;
-		
+
 	@Override
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
+	public void setDataSource(DataSource ds) {
+		this.dataSource = ds;
 	}
-		
+
 	@Override
-	public void salvar(String aparelhoCodigo, long projeto_id, double quantidade) {
+	public void salvarAparelho(String aparelhoCodigo, long projeto_id, double quantidade) {
 		JdbcTemplate salvar = new JdbcTemplate(dataSource);
-		salvar.update(sqlSalvarAparelho, new Object[] {aparelhoCodigo, projeto_id, quantidade});
+		salvar.update(sqlSalvarAparelho, new Object[] { aparelhoCodigo, projeto_id, quantidade });
 	}
 
 	@Override
-	public void deletar(long projetoId) {
+	public void deletarAparelho(long projetoId, String aparelhoCodigo) {
 		JdbcTemplate deletar = new JdbcTemplate(dataSource);
-		deletar.update(sqlDeletarAparelhamento, new Object[] {projetoId});
+		deletar.update(sqlDeletarAparelhamento, new Object[] { aparelhoCodigo });
 	}
 
 	@Override
-	public void atualizar(String aparelhoCodigo, double quantidade ) {
+	public void atualizarAparelho(String aparelhoCodigo, double quantidade) {
 		JdbcTemplate atualizar = new JdbcTemplate(dataSource);
-		atualizar.update(sqlAtualizarAparelho, new Object[] { quantidade, aparelhoCodigo});
+		atualizar.update(sqlAtualizarAparelho, new Object[] { quantidade, aparelhoCodigo });
 	}
 
 	@Override
-	public List<Aparelho> listarTodos() {
+	public List<Aparelho> listarTodosAparelhos() {
 		JdbcTemplate listar = new JdbcTemplate(dataSource);
 		return listar.query(sqlListarTodos, new AparelhoMapper());
 	}
 
-
+	@Override
+	public List<Aparelho> listarTodosAparelhosPorProjetoId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
