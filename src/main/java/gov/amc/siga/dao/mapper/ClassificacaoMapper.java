@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import gov.amc.siga.dao.extractor.ClassificacaoResultSetExtractor;
+import gov.amc.siga.dao.extrator.ClassificacaoResultSetExtractor;
 import gov.amc.siga.model.Classificacao;
 
 public class ClassificacaoMapper implements RowMapper<Classificacao>{

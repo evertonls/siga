@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import gov.amc.siga.dao.extractor.BairroResultSetExtractor;
+import gov.amc.siga.dao.extrator.BairroResultSetExtractor;
 import gov.amc.siga.model.Bairro;
 
 public class BairroMapper implements RowMapper<Bairro>{

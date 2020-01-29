@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import gov.amc.siga.dao.extractor.SituacaoTipoResultSetExtractor;
+import gov.amc.siga.dao.extrator.SituacaoTipoResultSetExtractor;
 import gov.amc.siga.model.SituacaoTipo;
 
 public class SituacaoTipoMapper implements RowMapper<SituacaoTipo>{

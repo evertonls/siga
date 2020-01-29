@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import gov.amc.siga.dao.extractor.LongradouroResultSetExtractor;
+import gov.amc.siga.dao.extrator.LongradouroResultSetExtractor;
 import gov.amc.siga.model.Longradouro;
 
 public class LongradouroMapper implements RowMapper<Longradouro>{
