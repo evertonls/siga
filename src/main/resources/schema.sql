@@ -1,3 +1,13 @@
+-- SCHEMA: siga
+
+	-- DROP SCHEMA siga ;
+
+CREATE SCHEMA siga
+	AUTHORIZATION siga_user;
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA siga
+GRANT ALL ON TABLES TO siga_user;
+
 CREATE TABLE IF NOT EXISTS classificacao_tipo (
 	classificacao_cod varchar(100) NOT NULL,
 	classificacao_desc varchar(255) NOT NULL,
@@ -105,7 +115,7 @@ CREATE TABLE IF NOT EXISTS projetos (
 	local_recape varchar(255) NULL,
 	is_execu_rec boolean NULL,
 	data_exe_rec date NULL,
-	
+
 	CONSTRAINT proj_id PRIMARY KEY (projeto_id)
 );
 COMMENT ON TABLE projetos IS 'tabela com informações sobre os projetos';
@@ -196,7 +206,7 @@ CREATE TABLE IF NOT EXISTS enderecos (
 	divisao varchar(255) NOT NULL,
 	bairro_id bigint NOT NULL,
 	projeto_id bigint NOT NULL,
-	
+
 	CONSTRAINT long1_id FOREIGN KEY (longradouro_id) REFERENCES longradouros(longradouro_id),
 	CONSTRAINT long2_id FOREIGN KEY (longr_cruz) REFERENCES longradouros(longradouro_id),
 	CONSTRAINT long3_id FOREIGN KEY (longr_trecho) REFERENCES longradouros(longradouro_id),
@@ -230,4 +240,3 @@ CREATE TABLE IF NOT EXISTS permissoes (
 	CONSTRAINT permi_id_code UNIQUE(usuario_id, autoriza_cod)
 );
 COMMENT ON TABLE permissoes IS 'relação de permissões de cada usuario';
-
