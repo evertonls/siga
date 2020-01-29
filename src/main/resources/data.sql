@@ -190,10 +190,5 @@ INSERT INTO usuarios (usuario_nm, cpf_num, setor_id, email, senha, mail_warn) VA
 ON CONFLICT (cpf_num) DO NOTHING;
 INSERT INTO permissoes (usuario_id, autoriza_cod) SELECT 1, 'ROLE_ADMIN';
 
-INSERT INTO projetos
-(numero, prancha, revisao, contrato, data_cria_proj, observacao, proj_obra, prioridade, data_prevista, data_equipe, data_inicial, is_recape, ci_recape, local_recape, is_execu_rec, data_exe_rec)
-VALUES(0603084, '01/01', 'R00', '000/00', CURRENT_DATE, 'Restrição de Vaga entre R. Beteu e R. Américo Vespúrcio e R5a no canteiro central', 'Pré-Obra', 'Alta', '2020-01-25', '2020-01-30', '2020-01-30', false, 'CI RECAPE', 'MESMO LOCAL', false, '2020-01-30');
-
-INSERT INTO projetos
-(numero, prancha, revisao, contrato, data_cria_proj, observacao, proj_obra, prioridade, data_prevista, data_equipe, data_inicial, is_recape, ci_recape, local_recape, is_execu_rec, data_exe_rec)
-VALUES(0603083, '01/01', 'R00', '000/00', CURRENT_DATE, 'Restrição de estacionamento entre R. Beteu e R. Américo Vespúrcio e R5a no canteiro central', 'Pos-Obra', 'Alta', '2020-01-25', '2020-01-30', '2020-01-30', false, 'CI RECAPE', 'MESMO LOCAL', false, '2020-01-30');
+INSERT INTO classificacoes (classificacao_cod , projeto_id ) VALUES ('TÍPICO', 1);
+SELECT classificacao_cod, projeto_id FROM siga.classificacoes WHERE projeto_id = 1;

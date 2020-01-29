@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import gov.amc.siga.dao.interfaces.ClassificacaoDao;
+import gov.amc.siga.dao.mapper.ClassificacaoMapper;
 import gov.amc.siga.model.Classificacao;
 
 @Repository
@@ -17,6 +18,7 @@ public class ClassificacaoDaoImplementacao implements ClassificacaoDao {
 	private final String sqlAtualizarClassificacao = "UPDATE siga.classificacoes SET classificacao_cod=?, projeto_id=?";
 	private final String sqlDeletarClassificacao = "DELETE FROM siga.classificacoes WHERE classificacao_cod=? AND projeto_id=?";
 	private final String sqlListarTodasClassificacoes = "SELECT classificacao_cod, projeto_id FROM siga.classificacoes";
+	private final String sqlListarClassificacaoPorProjetoId = "SELECT classificacao_cod, projeto_id FROM siga.classificacoes WHERE projeto_id = ?";
 
 	private DataSource dataSource;
 
@@ -45,14 +47,17 @@ public class ClassificacaoDaoImplementacao implements ClassificacaoDao {
 
 	@Override
 	public List<Classificacao> listarTodasClassificacoes() {
-		// TODO Auto-generated method stub
-		return null;
+		JdbcTemplate listar = new JdbcTemplate();
+		return listar.query(sqlListarTodasClassificacoes, new ClassificacaoMapper());
+		
 	}
 
 	@Override
 	public Classificacao listarTodasClassificacoesPorProjetoId(Long projetoId) {
-		// TODO Auto-generated method stub
+		JdbcTemplate listar = new JdbcTemplate();
+		listar.update(sqlListarClassificacaoPorProjetoId, new Object[] { projetoId });
 		return null;
+		
 	}
 
 }

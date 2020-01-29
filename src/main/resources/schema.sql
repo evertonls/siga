@@ -1,13 +1,3 @@
--- SCHEMA: siga
-
-	-- DROP SCHEMA siga ;
-
-CREATE SCHEMA siga
-	AUTHORIZATION siga_user;
-
-ALTER DEFAULT PRIVILEGES IN SCHEMA siga
-GRANT ALL ON TABLES TO siga_user;
-
 CREATE TABLE IF NOT EXISTS classificacao_tipo (
 	classificacao_cod varchar(100) NOT NULL,
 	classificacao_desc varchar(255) NOT NULL,
