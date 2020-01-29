@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import gov.amc.siga.dao.UsuarioDao;
+import gov.amc.siga.dao.interfaces.UsuarioDao;
 import gov.amc.siga.model.Usuario;
 
 @Service("userDetailsService")

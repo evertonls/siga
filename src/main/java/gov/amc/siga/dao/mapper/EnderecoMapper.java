@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import gov.amc.siga.dao.extractor.EnderecoResultSetExtractor;
+import gov.amc.siga.dao.extrator.EnderecoResultSetExtractor;
 import gov.amc.siga.model.Endereco;
 
 public class EnderecoMapper implements RowMapper<Endereco>{

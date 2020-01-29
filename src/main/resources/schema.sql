@@ -65,14 +65,14 @@ CREATE TABLE IF NOT EXISTS equipe_tipo(
 COMMENT ON TABLE equipe_tipo IS 'tabela com código e descrição de cada tipo de contratada';
 
 CREATE TABLE IF NOT EXISTS bairros (
-	bairro_id bigint NOT NULL,
+	bairro_id bigint NOT NULL GENERATED ALWAYS AS IDENTITY,
 	bairro varchar(255),
 	CONSTRAINT bair_id PRIMARY KEY (bairro_id)
 );
 COMMENT ON TABLE bairros IS 'tabela com a lista de bairros';
 
 CREATE TABLE IF NOT EXISTS longradouros (
-	longradouro_id bigint NOT NULL,
+	longradouro_id bigint NOT NULL GENERATED ALWAYS AS IDENTITY,
 	longradouro varchar(255),
 	tipo varchar(100) NULL,
 	titulo varchar(100) NULL,
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS projetos (
 	proj_obra varchar(255) NULL,
 	prioridade varchar(255) NOT NULL,
 	data_prevista date NULL,
-	data_contrada date NULL,
+	data_equipe date NULL,
 	data_inicial date NULL,
 	is_recape boolean NULL,
 	ci_recape varchar(255) NULL,

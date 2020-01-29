@@ -38,7 +38,7 @@ public class Bairro implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Bairro [bairroId=" + bairroId + ", bairro=" + bairro + "]";
+		return "id: " + bairroId + ", bairro: " + bairro;
 	}
 
 	@Override

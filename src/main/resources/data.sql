@@ -171,10 +171,11 @@ INSERT INTO projetos_tipo (tipo_cod, tipo_desc) VALUES
 ON CONFLICT (tipo_cod) DO NOTHING;
 
 INSERT INTO setores (setor_cod, setor_desc) VALUES
+	('GPE', 'GERÊNCIA DE PROJETOS ESPECIAIS'),
+	('GCO', 'GERÊNCIA DE CONTROLE DE OBRAS'),
 	('GPO1', 'GERÊNCIA DE PROJETOS OPERACIONAIS 1'),
 	('GPO2', 'GERÊNCIA DE PROJETOS OPERACIONAIS 2'),
-	('GCO', 'GERÊNCIA DE CONTROLE DE OBRAS'),
-	('GPE', 'GERÊNCIA DE PROJETOS ESPECIAIS')
+	('NUDAP', 'NÚCLEO DE DESENVOLVIMENTO DE APLICAÇÕES')
 ON CONFLICT (setor_cod) DO NOTHING;
 
 INSERT INTO autorizacoes (autoriza_cod, autoriza_desc) VALUES
@@ -184,7 +185,15 @@ INSERT INTO autorizacoes (autoriza_cod, autoriza_desc) VALUES
 ON CONFLICT (autoriza_cod) DO NOTHING;
 
 INSERT INTO usuarios (usuario_nm, cpf_num, setor_id, email, senha, mail_warn) VALUES
-	('JUNIOR', '03577488328', (SELECT setor_id FROM setores WHERE setor_cod = 'GPE'), 'jose.lima@fortaleza.ce.gov.br', 
+	('JUNIOR', '03577488328', (SELECT setor_id FROM setores WHERE setor_cod = 'NUDAP'), 'jose.lima@fortaleza.ce.gov.br', 
 	'$2y$10$fSFQKUwqrGc4oSS8AIe/6.xQZ4Phhoo1un4DTigHmQ3JHomP1S09S', true)
 ON CONFLICT (cpf_num) DO NOTHING;
 INSERT INTO permissoes (usuario_id, autoriza_cod) SELECT 1, 'ROLE_ADMIN';
+
+INSERT INTO projetos
+(numero, prancha, revisao, contrato, data_cria_proj, observacao, proj_obra, prioridade, data_prevista, data_equipe, data_inicial, is_recape, ci_recape, local_recape, is_execu_rec, data_exe_rec)
+VALUES(0603084, '01/01', 'R00', '000/00', CURRENT_DATE, 'Restrição de Vaga entre R. Beteu e R. Américo Vespúrcio e R5a no canteiro central', 'Pré-Obra', 'Alta', '2020-01-25', '2020-01-30', '2020-01-30', false, 'CI RECAPE', 'MESMO LOCAL', false, '2020-01-30');
+
+INSERT INTO projetos
+(numero, prancha, revisao, contrato, data_cria_proj, observacao, proj_obra, prioridade, data_prevista, data_equipe, data_inicial, is_recape, ci_recape, local_recape, is_execu_rec, data_exe_rec)
+VALUES(0603083, '01/01', 'R00', '000/00', CURRENT_DATE, 'Restrição de estacionamento entre R. Beteu e R. Américo Vespúrcio e R5a no canteiro central', 'Pos-Obra', 'Alta', '2020-01-25', '2020-01-30', '2020-01-30', false, 'CI RECAPE', 'MESMO LOCAL', false, '2020-01-30');

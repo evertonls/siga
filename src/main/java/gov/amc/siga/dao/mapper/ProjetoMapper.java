@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import gov.amc.siga.dao.extractor.ProjetoResultSetExtractor;
+import gov.amc.siga.dao.extrator.ProjetoResultSetExtractor;
 import gov.amc.siga.model.Projeto;
 
 public class ProjetoMapper implements RowMapper<Projeto>{

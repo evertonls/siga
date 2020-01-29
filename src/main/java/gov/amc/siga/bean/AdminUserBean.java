@@ -21,8 +21,8 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
-import gov.amc.siga.dao.SetorDao;
-import gov.amc.siga.dao.UsuarioDao;
+import gov.amc.siga.dao.interfaces.SetorDao;
+import gov.amc.siga.dao.interfaces.UsuarioDao;
 import gov.amc.siga.enums.BasicRole;
 import gov.amc.siga.model.Autorizacao;
 import gov.amc.siga.model.Setor;

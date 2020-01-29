@@ -1,6 +1,6 @@
 package gov.amc.siga.util;
 
-import gov.amc.siga.dao.UsuarioDao;
+import gov.amc.siga.dao.interfaces.UsuarioDao;
 
 public class EntityByNumberDao {
 	
