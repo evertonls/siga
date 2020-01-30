@@ -38,7 +38,7 @@ public class Permissao implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Permissao [usuarioId=" + usuarioId + ", autorizaCod=" + autorizaCod + "]";
+		return "Permissao [usuarioId: " + usuarioId + ", autorizaCod: " + autorizaCod + "]";
 	}
 
 	@Override

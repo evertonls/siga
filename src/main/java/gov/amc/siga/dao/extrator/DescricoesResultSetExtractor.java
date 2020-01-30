@@ -6,13 +6,13 @@ import java.sql.SQLException;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
-import gov.amc.siga.model.Descricao;
+import gov.amc.siga.model.Descricoes;
 
-public class DescricaoResultSetExtractor implements ResultSetExtractor<Descricao>{
+public class DescricoesResultSetExtractor implements ResultSetExtractor<Descricoes>{
 
 	@Override
-	public Descricao extractData(ResultSet rs) throws SQLException, DataAccessException {
-		Descricao descricoes = new Descricao();
+	public Descricoes extractData(ResultSet rs) throws SQLException, DataAccessException {
+		Descricoes descricoes = new Descricoes();
 		descricoes.setProjetoId(rs.getLong("projeto_id"));
 		descricoes.setDescricaoCodigo(rs.getString("descricao_cod"));
 		return descricoes;

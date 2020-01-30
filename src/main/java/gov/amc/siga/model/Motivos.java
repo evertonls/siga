@@ -5,28 +5,19 @@ import java.io.Serializable;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Equipe implements Serializable {
+public class Motivos implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
-	private String equipeCodigo;
 	private Long projetoId;
+	private String motivoCodigo;
 
-	public Equipe() {
+	public Motivos() {
 	}
 
-	public Equipe(String equipeCodigo, Long projetoId) {
+	public Motivos(long projetoId, String motivoCodigo) {
 		super();
-		this.equipeCodigo = equipeCodigo;
 		this.projetoId = projetoId;
-	}
-
-	public String getEquipeCodigo() {
-		return equipeCodigo;
-	}
-
-	public void setEquipeCodigo(String equipeCodigo) {
-		this.equipeCodigo = equipeCodigo;
+		this.motivoCodigo = motivoCodigo;
 	}
 
 	public Long getProjetoId() {
@@ -37,16 +28,24 @@ public class Equipe implements Serializable {
 		this.projetoId = projetoId;
 	}
 
+	public String getMotivoCodigo() {
+		return motivoCodigo;
+	}
+
+	public void setMotivoCodigo(String motivoCodigo) {
+		this.motivoCodigo = motivoCodigo;
+	}
+
 	@Override
 	public String toString() {
-		return "Equipe [equipeCodigo=" + equipeCodigo + ", projetoId=" + projetoId + "]";
+		return "Motivo [projetoId=" + projetoId + ", motivoCodigo=" + motivoCodigo + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((equipeCodigo == null) ? 0 : equipeCodigo.hashCode());
+		result = prime * result + ((motivoCodigo == null) ? 0 : motivoCodigo.hashCode());
 		result = prime * result + ((projetoId == null) ? 0 : projetoId.hashCode());
 		return result;
 	}
@@ -59,11 +58,11 @@ public class Equipe implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Equipe other = (Equipe) obj;
-		if (equipeCodigo == null) {
-			if (other.equipeCodigo != null)
+		Motivos other = (Motivos) obj;
+		if (motivoCodigo == null) {
+			if (other.motivoCodigo != null)
 				return false;
-		} else if (!equipeCodigo.equals(other.equipeCodigo))
+		} else if (!motivoCodigo.equals(other.motivoCodigo))
 			return false;
 		if (projetoId == null) {
 			if (other.projetoId != null)

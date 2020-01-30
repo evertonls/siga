@@ -5,26 +5,25 @@ import java.io.Serializable;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Descricao implements Serializable {
+public class Classificacoes implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	private String descricaoCodigo;
+	private String classificacaoCodigo;
 	private Long projetoId;
+	
+	public Classificacoes() {	}
 
-	public Descricao() {
-	}
-
-	public Descricao(String descricaoCodigo, Long projetoId) {
-		this.descricaoCodigo = descricaoCodigo;
+	public Classificacoes(String classificacaoCodigo, Long projetoId) {
+		this.classificacaoCodigo = classificacaoCodigo;
 		this.projetoId = projetoId;
 	}
 
-	public String getDescricaoCodigo() {
-		return descricaoCodigo;
+	public String getClassificacaoCodigo() {
+		return classificacaoCodigo;
 	}
 
-	public void setDescricaoCodigo(String descricaoCodigo) {
-		this.descricaoCodigo = descricaoCodigo;
+	public void setClassificacaoCod(String classificacaoCodigo) {
+		this.classificacaoCodigo = classificacaoCodigo;
 	}
 
 	public Long getProjetoId() {
@@ -34,19 +33,19 @@ public class Descricao implements Serializable {
 	public void setProjetoId(Long projetoId) {
 		this.projetoId = projetoId;
 	}
-	
-	
 
+	
+	
 	@Override
 	public String toString() {
-		return "Descricao [descricaoCodigo=" + descricaoCodigo + ", projetoId=" + projetoId + "]";
+		return "Classificacao [classificacaoCodigo=" + classificacaoCodigo + ", projetoId=" + projetoId + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((descricaoCodigo == null) ? 0 : descricaoCodigo.hashCode());
+		result = prime * result + ((classificacaoCodigo == null) ? 0 : classificacaoCodigo.hashCode());
 		result = prime * result + ((projetoId == null) ? 0 : projetoId.hashCode());
 		return result;
 	}
@@ -59,11 +58,11 @@ public class Descricao implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Descricao other = (Descricao) obj;
-		if (descricaoCodigo == null) {
-			if (other.descricaoCodigo != null)
+		Classificacoes other = (Classificacoes) obj;
+		if (classificacaoCodigo == null) {
+			if (other.classificacaoCodigo != null)
 				return false;
-		} else if (!descricaoCodigo.equals(other.descricaoCodigo))
+		} else if (!classificacaoCodigo.equals(other.classificacaoCodigo))
 			return false;
 		if (projetoId == null) {
 			if (other.projetoId != null)
@@ -75,4 +74,5 @@ public class Descricao implements Serializable {
 	
 	
 
+		
 }

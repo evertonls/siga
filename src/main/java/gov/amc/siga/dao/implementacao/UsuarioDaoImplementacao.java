@@ -53,7 +53,8 @@ public class UsuarioDaoImplementacao implements UsuarioDao, Serializable {
 
 	@Override
 	public void updatePassword(String senha, String cpf) {
-		template.update("UPDATE siga.usuarios SET senha = ? WHERE cpf_num = ?", BCrypt.hashpw(senha, BCrypt.gensalt()), cpf);
+		template.update("UPDATE siga.usuarios SET senha = ? WHERE cpf_num = ?", BCrypt.hashpw(senha, BCrypt.gensalt()),
+				cpf);
 	}
 
 	@Override

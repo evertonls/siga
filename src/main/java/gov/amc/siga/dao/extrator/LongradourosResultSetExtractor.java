@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 
 import gov.amc.siga.model.Longradouro;
 
-public class LongradouroResultSetExtractor implements ResultSetExtractor<Longradouro>{
+public class LongradourosResultSetExtractor implements ResultSetExtractor<Longradouro>{
 
 	@Override
 	public Longradouro extractData(ResultSet rs) throws SQLException, DataAccessException {

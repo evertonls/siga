@@ -1,10 +1,10 @@
 package gov.amc.siga.dao.implementacao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -13,16 +13,15 @@ import gov.amc.siga.dao.mapper.BairroMapper;
 import gov.amc.siga.model.Bairro;
 
 @Repository
-public class BairroDaoImplementacao implements BairroDao {
+public class BairroDaoImplementacao implements BairroDao, Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private String sqlSalvarBairro = "INSERT INTO siga.bairros ( bairro ) VALUES( ? );";
 	private String sqlAtualizarBairro = "UPDATE siga.bairros SET bairro=? WHERE bairro_id= ?";
 	private String sqlDeletarBairro = "DELETE FROM siga.bairros WHERE bairro_id= ?";
 	private String sqlListarTodosBairros = "SELECT bairro_id, bairro FROM siga.bairros";
-
-	@Autowired
 	private DataSource dataSource;
-	
+
 	@Override
 	public void setDataSource(DataSource ds) {
 		this.dataSource = ds;
@@ -43,12 +42,12 @@ public class BairroDaoImplementacao implements BairroDao {
 	@Override
 	public void deletarBairro(Long bairroId) {
 		JdbcTemplate deletar = new JdbcTemplate(dataSource);
-		deletar.update(sqlDeletarBairro, new Object[] { bairroId});
+		deletar.update(sqlDeletarBairro, new Object[] { bairroId });
 	}
 
 	@Override
 	public List<Bairro> listarTodosBairros() {
-		JdbcTemplate listar = new JdbcTemplate(dataSource);		
+		JdbcTemplate listar = new JdbcTemplate(dataSource);
 		return listar.query(sqlListarTodosBairros, new BairroMapper());
 	}
 }

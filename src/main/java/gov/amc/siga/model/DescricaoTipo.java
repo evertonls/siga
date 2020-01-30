@@ -37,7 +37,7 @@ public class DescricaoTipo implements Serializable {
 
 	@Override
 	public String toString() {
-		return "DescricaoTipo [descricaoCodigo=" + descricaoCodigo + ", descricaoDescricao=" + descricaoDescricao + "]";
+		return "Codigo: " + descricaoCodigo + ", Descricao: " + descricaoDescricao;
 	}
 
 	@Override

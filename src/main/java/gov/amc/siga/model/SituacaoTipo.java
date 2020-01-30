@@ -37,7 +37,7 @@ public class SituacaoTipo implements Serializable {
 
 	@Override
 	public String toString() {
-		return "SituacaoTipo [situacaoCodigo=" + situacaoCodigo + ", situacaoDescricao=" + situacaoDescricao + "]";
+		return "Código: " + situacaoCodigo + ", Descricao: " + situacaoDescricao;
 	}
 
 	@Override

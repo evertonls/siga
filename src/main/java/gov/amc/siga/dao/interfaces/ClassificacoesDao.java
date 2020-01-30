@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import gov.amc.siga.model.Classificacao;
+import gov.amc.siga.model.Classificacoes;
 
-public interface ClassificacaoDao {
+public interface ClassificacoesDao {
 
 	void setDataSource(DataSource ds);
 
@@ -16,7 +16,7 @@ public interface ClassificacaoDao {
 
 	void deletarClassificacao(String classificacaoCodigo, Long projetoId);
 	
-	List<Classificacao> listarTodasClassificacoes();
+	List<Classificacoes> listarTodasClassificacoes();
 	
-	Classificacao listarTodasClassificacoesPorProjetoId(Long projetoId);
+	int listarTodasClassificacoesPorProjetoId(Long projetoId);
 }

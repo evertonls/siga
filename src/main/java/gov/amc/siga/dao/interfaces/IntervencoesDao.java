@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import gov.amc.siga.model.Intervencao;
+import gov.amc.siga.model.Intervencoes;
 
-public interface IntervencaoDao {
+public interface IntervencoesDao {
 	
 	void setDataSurce(DataSource ds);
 	
@@ -16,8 +16,8 @@ public interface IntervencaoDao {
 	
 	void deletarIntervencao(String intervencaoCodigo, Long projetoId);
 	
-	List<Intervencao> listarTodasIntervencoes();
+	List<Intervencoes> listarTodasIntervencoes();
 	
-	Intervencao listarTodasIntervencoesPorProjetoId(Long projetoId);
+	Intervencoes listarTodasIntervencoesPorProjetoId(Long projetoId);
 
 }

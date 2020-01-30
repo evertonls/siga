@@ -37,7 +37,7 @@ public class MotivoTipo implements Serializable {
 
 	@Override
 	public String toString() {
-		return "MotivoTipo [motivoCodigo=" + motivoCodigo + ", motivoDescricao=" + motivoDescricao + "]";
+		return "Código: " + motivoCodigo + ", Descricao: " + motivoDescricao;
 	}
 
 	@Override

@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import gov.amc.siga.model.Equipe;
+import gov.amc.siga.model.Equipes;
 
-public interface EquipeDao {
+public interface EquipesDao {
 	
 	void setDataSurce(DataSource ds);
 	
@@ -16,8 +16,8 @@ public interface EquipeDao {
 	
 	void deletarEquipe(String equipeCodig, Long projetoId);
 	
-	List<EquipeDao> listarTodasEquipes();
+	List<EquipesDao> listarTodasEquipes();
 	
-	Equipe listarTodasEquipesPorProjetoId(Long projetoId);
+	Equipes listarTodasEquipesPorProjetoId(Long projetoId);
 
 }

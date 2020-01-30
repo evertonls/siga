@@ -5,7 +5,7 @@ import java.io.Serializable;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Intervencao implements Serializable {
+public class Intervencoes implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -13,10 +13,10 @@ public class Intervencao implements Serializable {
 	private Long projetoId;
 	private Integer quantidade;
 
-	public Intervencao() {
+	public Intervencoes() {
 	}
 
-	public Intervencao(String intervencaoCodigo, Long projetoId, Integer quantidade) {
+	public Intervencoes(String intervencaoCodigo, Long projetoId, Integer quantidade) {
 		super();
 		this.intervencaoCodigo = intervencaoCodigo;
 		this.projetoId = projetoId;
@@ -71,7 +71,7 @@ public class Intervencao implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Intervencao other = (Intervencao) obj;
+		Intervencoes other = (Intervencoes) obj;
 		if (intervencaoCodigo == null) {
 			if (other.intervencaoCodigo != null)
 				return false;

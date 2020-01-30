@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import gov.amc.siga.model.Motivo;
+import gov.amc.siga.model.Motivos;
 
-public interface MotivoDao {
+public interface MotivosDao {
 
 	void setDataSource(DataSource ds);
 	
@@ -16,7 +16,7 @@ public interface MotivoDao {
 	
 	void deletarMotivo(String motivoCodigo, Long projetoId);
 	
-	List<Motivo> listarTodosMotivos();
+	List<Motivos> listarTodosMotivos();
 	
-	Motivo listarMotivoPorProjetoId(Long projetoId);
+	Motivos listarMotivoPorProjetoId(Long projetoId);
 }

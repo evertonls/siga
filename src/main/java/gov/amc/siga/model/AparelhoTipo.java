@@ -37,7 +37,7 @@ public class AparelhoTipo implements Serializable {
 
 	@Override
 	public String toString() {
-		return " Código do aparelho: " + aparelhoCodigo + ", Descrição: " + aparelhoDescricao;
+		return "Código: " + aparelhoCodigo + ", Descrição: " + aparelhoDescricao;
 	}
 
 	@Override

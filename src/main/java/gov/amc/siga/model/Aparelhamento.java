@@ -5,17 +5,17 @@ import java.io.Serializable;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Aparelho implements Serializable {
+public class Aparelhamento implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Long projetoId;
 	private String aparelhamentoCodigo;
 	private Double quantidade;
 
-	public Aparelho() {
+	public Aparelhamento() {
 	}
 
-	public Aparelho(Long projetoId, String aparelhamentoCodigo, Double quantidade) {
+	public Aparelhamento(Long projetoId, String aparelhamentoCodigo, Double quantidade) {
 		super();
 		this.projetoId = projetoId;
 		this.aparelhamentoCodigo = aparelhamentoCodigo;
@@ -48,8 +48,7 @@ public class Aparelho implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Aparelho [ projetoId:  " + projetoId + ", aparelhamentoCodigo: " + aparelhamentoCodigo + ", quantidade: "
-				+ quantidade + " ]";
+		return "Projeto ID: " + projetoId + ", Codigo Aparelho: " + aparelhamentoCodigo + ", Quantidade: " + quantidade;
 	}
 
 	@Override
@@ -70,7 +69,7 @@ public class Aparelho implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Aparelho other = (Aparelho) obj;
+		Aparelhamento other = (Aparelhamento) obj;
 		if (aparelhamentoCodigo == null) {
 			if (other.aparelhamentoCodigo != null)
 				return false;

@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import gov.amc.siga.model.Situacao;
+import gov.amc.siga.model.Situacoes;
 
-public interface SituacaoDao {
+public interface SituacoesDao {
 
 	void setDataSource(DataSource ds);
 	
@@ -16,7 +16,7 @@ public interface SituacaoDao {
 	
 	void deletarSituacao(String situacaoCodigo);
 	
-	List<Situacao> listarTodasSituacoes();
+	List<Situacoes> listarTodasSituacoes();
 	
-	Situacao listarTodasSituacoesPorProjetoId();
+	Situacoes listarTodasSituacoesPorProjetoId();
 }

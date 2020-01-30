@@ -27,7 +27,7 @@ public class AparelhoTipoTeste {
 		
 		aparelhoTipo.setDataSource(dataSource);
 		
-		aparelhoTipo.salvarAparelhoTipo("TESTE", "Tentativa de teste");
+		//aparelhoTipo.salvarAparelhoTipo("TESTE", "Tentativa de teste");
 		
 		//aparelhoTipo.atualizarAparelhoTipo("TESTE", "segunda tentativa de teste");
 		

@@ -2,11 +2,13 @@ package gov.amc.siga.teste;
 
 import java.util.List;
 
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-import gov.amc.siga.dao.implementacao.AparelhoDaoImplementacao;
-import gov.amc.siga.model.Aparelho;
+import gov.amc.siga.dao.implementacao.AparelhamentoDaoImplementacao;
+import gov.amc.siga.model.Aparelhamento;
 
+@SpringBootApplication
 public class AparelhoTeste {
 
 	public static void main(String[] args) {
@@ -24,9 +26,8 @@ public class AparelhoTeste {
 		dataSource.setUsername(USER);
 		dataSource.setPassword(PASSWORD);
 		
-		AparelhoDaoImplementacao aparelho = new AparelhoDaoImplementacao();
+		AparelhamentoDaoImplementacao aparelho = new AparelhamentoDaoImplementacao();
 		
-		aparelho.setDataSource(dataSource);
 		
 		//aparelho.salvarAparelhamento("SH-MEC", 1L, 5.0);
 		
@@ -40,9 +41,9 @@ public class AparelhoTeste {
 		
 		//aparelho.deletarAparelhamento(1L, "SH-MEC");
 		
-		List<Aparelho> listaAparelho = aparelho.listarTodosAparelhos();
+		List<Aparelhamento> listaAparelho = aparelho.listarTodosAparelhos();
 		
-		for (Aparelho aparelho2 : listaAparelho) {
+		for (Aparelhamento aparelho2 : listaAparelho) {
 			System.out.println(aparelho2.toString());
 		}
 

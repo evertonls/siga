@@ -38,8 +38,7 @@ public class ProjetoTipo implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ProjetoTipo [projetoTipoCodigo=" + projetoTipoCodigo + ", projetoTipoDescricao=" + projetoTipoDescricao
-				+ "]";
+		return "Código: " + projetoTipoCodigo + ", Descricao: " + projetoTipoDescricao;
 	}
 
 	@Override

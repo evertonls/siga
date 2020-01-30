@@ -35,13 +35,10 @@ public class ClassificacaoTipo implements Serializable {
 	public void setClassificacaoDescricao(String classificacaoDescricao) {
 		this.classificacaoDescricao = classificacaoDescricao;
 	}
-	
-	
 
 	@Override
 	public String toString() {
-		return "ClassificacaoTipo [classificacaoCodigo=" + classificacaoCodigo + ", classificacaoDescricao="
-				+ classificacaoDescricao + "]";
+		return "Codigo: " + classificacaoCodigo + ", Descricao: " + classificacaoDescricao;
 	}
 
 	@Override
@@ -75,5 +72,4 @@ public class ClassificacaoTipo implements Serializable {
 		return true;
 	}
 
-	
 }

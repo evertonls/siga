@@ -96,7 +96,7 @@ public class Setor implements  Comparable<Setor>, Serializable{
 
 	@Override
 	public String toString() {
-		return "Setor [id=" + id + ", codigo=" + codigo + ", descricao=" + descricao + "]";
+		return "Setor id: " + id + ", codigo: " + codigo + ", descricao: " + descricao;
 	}
 	
 

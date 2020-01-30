@@ -5,14 +5,14 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import gov.amc.siga.dao.extrator.DescricaoResultSetExtractor;
-import gov.amc.siga.model.Descricao;
+import gov.amc.siga.dao.extrator.DescricoesResultSetExtractor;
+import gov.amc.siga.model.Descricoes;
 
-public class DescricaoMapper implements RowMapper<Descricao>{
+public class DescricaoMapper implements RowMapper<Descricoes>{
 
 	@Override
-	public Descricao mapRow(ResultSet rs, int rowNum) throws SQLException {
-		DescricaoResultSetExtractor extractor = new DescricaoResultSetExtractor();
+	public Descricoes mapRow(ResultSet rs, int rowNum) throws SQLException {
+		DescricoesResultSetExtractor extractor = new DescricoesResultSetExtractor();
 		return extractor.extractData(rs);
 	}
 

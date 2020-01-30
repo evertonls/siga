@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import gov.amc.siga.model.Aparelho;
+import gov.amc.siga.model.Aparelhamento;
 
-public interface AparelhoDao {
+public interface AparelhamentoDao {
 	
 	void setDataSource(DataSource ds);
 
@@ -18,8 +18,8 @@ public interface AparelhoDao {
 	
 	void deletarAparelhamentoEspecifico(String aparelhoCodigo, Long projetoId, Double quantidade );
 			
-	List<Aparelho> listarTodosAparelhos();
+	List<Aparelhamento> listarTodosAparelhos();
 	
-	List<Aparelho> listarTodosAparelhosPorProjetoId(Long projetoId);
+	List<Aparelhamento> listarTodosAparelhosPorProjetoId(Long projetoId);
 	
 }

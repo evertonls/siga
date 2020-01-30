@@ -193,12 +193,12 @@ public class Projeto implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Projeto [projetoId=" + projetoId + ", numeroProjeto=" + numeroProjeto + ", prancha=" + prancha
+		return "Projeto" + "\n" + "[projetoId=" + projetoId + ", numeroProjeto=" + numeroProjeto + ", prancha=" + prancha
 				+ ", revisao=" + revisao + ", contrato=" + contrato + ", obsevacao=" + obsevacao + ", projetoObra="
 				+ projetoObra + ", prioridade=" + prioridade + ", ciRecape=" + ciRecape + ", isRecape=" + isRecape
 				+ ", isRecapeExecutado=" + isRecapeExecutado + ", localRecape=" + localRecape + ", dataCriacaoProjeto="
 				+ dataCriacaoProjeto + ", dataPrevista=" + dataPrevista + ", dataEquipe=" + dataEquipe
-				+ ", dataInicial=" + dataInicial + ", dataExecucaoRecape=" + dataExecucaoRecape + "]";
+				+ ", dataInicial=" + dataInicial + ", dataExecucaoRecape=" + dataExecucaoRecape + "]" + "\n";
 	}
 
 	@Override

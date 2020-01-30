@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import gov.amc.siga.model.Descricao;
+import gov.amc.siga.model.Descricoes;
 
-public interface DescricaoDao {
+public interface DescricoesDao {
 
 	void setDataSource(DataSource ds);
 	
@@ -16,7 +16,7 @@ public interface DescricaoDao {
 	
 	void deletarDescricao(String descricaoCodigo, Long projetoId);
 	
-	List<Descricao> listarTodasDescricoes();
+	List<Descricoes> listarTodasDescricoes();
 	
-	Descricao listarTodasDescricoesProProjetoId(Long projetoId);
+	Descricoes listarTodasDescricoesProProjetoId(Long projetoId);
 }
