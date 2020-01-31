@@ -10,11 +10,11 @@ public interface EquipeTipoDao {
 
 	void setDataSurce(DataSource ds);
 	
-	void salvarEquipeTipo(String equipeCodigo, String equipeDescricao);
+	void salvarEquipeTipo(EquipeTipo equipeTipo);
 	
-	void atualizarEquipeTipo(String equipeCodigo, String equipeDescricao);
+	void atualizarEquipeTipo(EquipeTipo equipeTipo);
 	
-	void deletarEquipeCodigo(String equipeCodigo);
+	void deletarEquipeCodigo(EquipeTipo equipeTipo);
 	
 	List<EquipeTipo> listarTodasEquipesTipo();
 	

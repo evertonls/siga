@@ -10,13 +10,11 @@ public interface MotivosDao {
 
 	void setDataSource(DataSource ds);
 	
-	void salvarMotivo(String motivoCodigo, Long projetoId);
+	void salvarMotivo(Motivos motivos);
 	
-	void atualizarMotivo(String motivoCodigo, Long projetoId);
+	void atualizarMotivo(Motivos motivos);
 	
-	void deletarMotivo(String motivoCodigo, Long projetoId);
+	void deletarMotivo(Motivos motivos);
 	
 	List<Motivos> listarTodosMotivos();
-	
-	Motivos listarMotivoPorProjetoId(Long projetoId);
 }

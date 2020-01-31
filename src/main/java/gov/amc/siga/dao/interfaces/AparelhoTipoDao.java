@@ -10,11 +10,11 @@ public interface AparelhoTipoDao {
 	
 	void setDataSource(DataSource dataSource);
 
-	void salvarAparelhoTipo(String aparelhoCodigo, String aparelhoDescricao);
+	void salvarAparelhoTipo(AparelhoTipo aparelhoTipo);
 
-	void atualizarAparelhoTipo(String aparelhoCodigo, String aparelhoDescricao);
+	void atualizarAparelhoTipo(AparelhoTipo aparelhoTipo);
 
-	void deletarAparelhoTipo(String aparlehoCodigo);
+	void deletarAparelhoTipo(AparelhoTipo aparlehoTipo);
 			
 	List<AparelhoTipo> listarTodosAparelhosTipo();
 	

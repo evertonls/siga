@@ -4,15 +4,17 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import gov.amc.siga.model.MotivoTipo;
+
 public interface MotivoTipoDao {
 
 	void setDataSource(DataSource ds);
 	
-	void salvarMotivoTipo(String motivoCodigo, String motivoDescricao);
+	void salvarMotivoTipo(MotivoTipo motivoTipo);
 	
-	void atualizarMotivoTipo(String motivoCodigo, String motivoDescricao);
+	void atualizarMotivoTipo(MotivoTipo motivoTipo);
 	
-	void deletarMotivoTipo(String motivoCodigo);
+	void deletarMotivoTipo(MotivoTipo motivoTipo);
 	
 	List<MotivoTipoDao> listarTodosMotivosTipos();
 	

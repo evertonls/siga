@@ -10,11 +10,11 @@ public interface ProjetoTipoDao {
 
 	void setDataSource(DataSource ds);
 	
-	void salvarProjetoTipo(String projetoTipoCodigo, String projetoTipoDescricao);
+	void salvarProjetoTipo(ProjetoTipo projetoTipo);
 	
-	void atualizarProjetoTipo(String projetoTipoCodigo, String projetoTipoDescricao);
+	void atualizarProjetoTipo(ProjetoTipo projetoTipo);
 	
-	void deletarProjetoTipo(String projetoTipoCodigo);
+	void deletarProjetoTipo(ProjetoTipo projetoTipo);
 	
 	List<ProjetoTipo> listarTodosProjetosTipos();
 }

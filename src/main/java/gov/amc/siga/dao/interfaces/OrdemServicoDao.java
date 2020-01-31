@@ -10,13 +10,11 @@ public interface OrdemServicoDao {
 
 	void setDataSource(DataSource dataSource);
 	
-	void salvarOrdemServico(Long ordemServicoId, Integer numero, String medicao, Long projetoId, String observacaoVistoria, String observacao);
+	void salvarOrdemServico(OrdemServico ordemServico);
 	
-	void atualizarOrdemServico(Long ordemServicoId, Integer numero, String medicao, Long projetoId, String observacaoVistoria, String observacao);
+	void atualizarOrdemServico(OrdemServico ordemServico);
 	
-	void deletarOrdemServico(Long ordemServicoId);
+	void deletarOrdemServico(OrdemServico ordemServico);
 	
 	List<OrdemServico> listarTodasOrdensServico();
-	
-	OrdemServico listarTodasOrdensServicoPorProjetoId(Long projetoId);
 }

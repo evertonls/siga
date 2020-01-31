@@ -10,11 +10,11 @@ public interface SituacaoTipoDao {
 	
 	void setDataSource(DataSource ds);
 	
-	void salvarSituacaoTipo(String situacaoCodigo, String situacaoDescricao);
+	void salvarSituacaoTipo(SituacaoTipo situacaoTipo);
 	
-	void atualizarSituacaoTipo(String situacaoCodigo, String situacaoDescricao);
+	void atualizarSituacaoTipo(SituacaoTipo situacaoTipo);
 	
-	void deletarSituacaoTipo(String situacaoCodigo);
+	void deletarSituacaoTipo(SituacaoTipo situacaoTipo);
 	
 	List<SituacaoTipo> listarTodasSituacoesTipos();
 

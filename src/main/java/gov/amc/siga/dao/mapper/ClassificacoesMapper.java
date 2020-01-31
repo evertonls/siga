@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.RowMapper;
 import gov.amc.siga.dao.extrator.ClassificacoesResultSetExtractor;
 import gov.amc.siga.model.Classificacoes;
 
-public class ClassificacaoMapper implements RowMapper<Classificacoes>{
+public class ClassificacoesMapper implements RowMapper<Classificacoes>{
 
 	@Override
 	public Classificacoes mapRow(ResultSet rs, int rowNum) throws SQLException {

@@ -10,13 +10,11 @@ public interface ClassificacoesDao {
 
 	void setDataSource(DataSource ds);
 
-	void salvarClassificacao(String classificacaoCodigo, Long projetoId);
+	void salvarClassificacao(Classificacoes classificacoes);
 
-	void atualizarClassificacao(String classificacaoCodigo, Long projetoId);
+	void atualizarClassificacao(Classificacoes classificacoes);
 
-	void deletarClassificacao(String classificacaoCodigo, Long projetoId);
+	void deletarClassificacao(Classificacoes classificacoes);
 	
 	List<Classificacoes> listarTodasClassificacoes();
-	
-	int listarTodasClassificacoesPorProjetoId(Long projetoId);
 }

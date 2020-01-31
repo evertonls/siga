@@ -10,13 +10,11 @@ public interface DescricoesDao {
 
 	void setDataSource(DataSource ds);
 	
-	void salvarDescricao(String descricaoCodigo, Long projetoId);
+	void salvarDescricao(Descricoes descricoes);
 	
-	void atualizarDescricao(String descricaoCodigo, Long projetoId);
+	void atualizarDescricao(Descricoes descricoes);
 	
-	void deletarDescricao(String descricaoCodigo, Long projetoId);
+	void deletarDescricao(Descricoes descricoes);
 	
 	List<Descricoes> listarTodasDescricoes();
-	
-	Descricoes listarTodasDescricoesProProjetoId(Long projetoId);
 }

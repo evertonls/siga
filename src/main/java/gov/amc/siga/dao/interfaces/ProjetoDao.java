@@ -1,6 +1,5 @@
 package gov.amc.siga.dao.interfaces;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -11,19 +10,12 @@ public interface ProjetoDao {
 
 	void setDataSource(DataSource ds);
 
-	void salvarProjeto(Long projetoId, Integer numeroProjeto, String prancha, String revisao, String contrato,
-			String obsevacao, String projetoObra, String prioridade, String ciRecape, Boolean isRecape,
-			Boolean isRecapeExecutado, String localRecape, LocalDate dataCriacaoProjeto, LocalDate dataPrevista,
-			LocalDate dataEquipe, LocalDate dataInicial, LocalDate dataExecucaoRecape);
+	void salvarProjeto(Projeto projeto);
 
-	void atualizarProjeto(Long projetoId, Integer numeroProjeto, String prancha, String revisao, String contrato,
-			String obsevacao, String projetoObra, String prioridade, String ciRecape, Boolean isRecape,
-			Boolean isRecapeExecutado, String localRecape, LocalDate dataCriacaoProjeto, LocalDate dataPrevista,
-			LocalDate dataEquipe, LocalDate dataInicial, LocalDate dataExecucaoRecape);
+	void atualizarProjeto(Projeto projeto);
 	
-	void deletarProejto(Long projetoId);
+	void deletarProejto(Projeto projeto);
 	
 	List<Projeto> listarTodosProjetos();
 	
-	Projeto listarProjetoPorId(Long projetoId);
 }

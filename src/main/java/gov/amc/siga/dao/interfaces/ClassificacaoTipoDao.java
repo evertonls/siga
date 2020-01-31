@@ -10,11 +10,11 @@ public interface ClassificacaoTipoDao {
 
 	void setDataSource(DataSource ds);
 	
-	void salvarClassificacaoTipo(String classificacaoCodigo, String classificacaoDescricao);
+	void salvarClassificacaoTipo(ClassificacaoTipo classificacaoTipo);
 	
-	void atualizarClassificacaoTipo(String classificacaoCodigo, String classificacaoDescricao);
+	void atualizarClassificacaoTipo(ClassificacaoTipo classificacaoTipo);
 	
-	void deletarClassificacaoTipo(String classificacaoCodigo);
+	void deletarClassificacaoTipo(ClassificacaoTipo classificacaoTipo);
 	
 	List<ClassificacaoTipo> listarTodasClassificacaoTipo();
 	

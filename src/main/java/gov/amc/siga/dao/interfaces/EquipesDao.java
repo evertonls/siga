@@ -10,14 +10,12 @@ public interface EquipesDao {
 	
 	void setDataSurce(DataSource ds);
 	
-	void salvarEquipe(String equipeCodigo, Long projetoId);
+	void salvarEquipe(Equipes equipes);
 	
-	void atualizarEquipe(String equipeCodigo, Long projetoId);
+	void atualizarEquipe(Equipes equipes);
 	
-	void deletarEquipe(String equipeCodig, Long projetoId);
+	void deletarEquipe(Equipes equipes);
 	
 	List<EquipesDao> listarTodasEquipes();
-	
-	Equipes listarTodasEquipesPorProjetoId(Long projetoId);
 
 }

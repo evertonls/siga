@@ -10,13 +10,11 @@ public interface EnderecoDao {
 
 	void setDataSurce(DataSource ds);
 	
-	void salvarEndereco(Long bairroId, String divisao, Long longradouroId, Long projetoId, String regional);
+	void salvarEndereco(Endereco endereco);
 	
-	void atualizarEndereco(Long longradouroId, Long projetoId);
+	void atualizarEndereco(Endereco endereco);
 	
-	void deletarEndereco(Long longradouroId, Long projetoId);
+	void deletarEndereco(Endereco endereco);
 	
 	List<EnderecoDao> listarTodosEnderecos();
-	
-	Endereco listarTodosEnderecosPorProjetoId(Long projetoId);
 }

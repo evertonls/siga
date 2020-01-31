@@ -10,11 +10,11 @@ public interface LongradouroDao {
 
 	void setDatasource(DataSource ds);
 
-	void salvarLongradouro(Long longradouroId, String longradouro, String tipo, String titulo, String jurisdicao);
+	void salvarLongradouro(Longradouro longradouro);
 
-	void atualizarLognradouro(Long longradouroId, String longradouro, String tipo, String titulo, String jurisdicao);
+	void atualizarLognradouro(Longradouro longradouro);
 
-	void deletarLongradouro(Long LongradouroId, String longradouro);
+	void deletarLongradouro(Longradouro longradouro);
 
 	List<Longradouro> listarTodosLongradouros();
 

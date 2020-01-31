@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.RowMapper;
 import gov.amc.siga.dao.extrator.DescricaoTipoResultSetExtractor;
 import gov.amc.siga.model.DescricaoTipo;
 
-public class DescricaoTipoMapper implements RowMapper<DescricaoTipo>{
+public class DescricoesTipoMapper implements RowMapper<DescricaoTipo>{
 
 	@Override
 	public DescricaoTipo mapRow(ResultSet rs, int rowNum) throws SQLException {

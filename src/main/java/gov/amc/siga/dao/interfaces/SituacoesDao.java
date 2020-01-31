@@ -10,13 +10,11 @@ public interface SituacoesDao {
 
 	void setDataSource(DataSource ds);
 	
-	void salvarSituacao(String situacaoCodigo, Long projetoId);
+	void salvarSituacao(Situacoes situacoes);
 	
-	void atualizadSituacao(String situacaoCodigo, Long projetoId);
+	void atualizadSituacao(Situacoes situacoes);
 	
-	void deletarSituacao(String situacaoCodigo);
+	void deletarSituacao(Situacoes situacoes);
 	
 	List<Situacoes> listarTodasSituacoes();
-	
-	Situacoes listarTodasSituacoesPorProjetoId();
 }

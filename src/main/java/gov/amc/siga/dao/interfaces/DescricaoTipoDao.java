@@ -10,11 +10,11 @@ public interface DescricaoTipoDao {
 
 	void setDataSource(DataSource ds);
 	
-	void salvarDescricaoTipo(String descricaoCodigo, String descricaoDescricao);
+	void salvarDescricaoTipo(DescricaoTipo descricaoTipo);
 	
-	void atualizarDescricaoTipo(String descricaoCodigo, String descricaoDescricao);
+	void atualizarDescricaoTipo(DescricaoTipo descricaoTipo);
 	
-	void deletarDescricaoTipo(String descricaoCodigo);
+	void deletarDescricaoTipo(DescricaoTipo descricaoTipo);
 	
 	List<DescricaoTipo> listarTodasDescricoesTipos();
 	

@@ -10,11 +10,11 @@ public interface IntervencaoTipoDao {
 
 	void setDataSurce(DataSource ds);
 	
-	void salvarIntervencaoTipo(String intervencaoCodigo, String intervencaoDescricao);
+	void salvarIntervencaoTipo(IntervencaoTipo intervencaoTipo);
 	
-	void atualizarIntervencaoTipo(String intervencaoCodigo, String intervencaoDescricao);
+	void atualizarIntervencaoTipo(IntervencaoTipo intervencaoTipo);
 	
-	void deletarIntervencaoTipo(String intervencaoCodigo);
+	void deletarIntervencaoTipo(IntervencaoTipo intervencaoTipo);
 	
 	List<IntervencaoTipo> listarTodasIntervencoes();
 	
