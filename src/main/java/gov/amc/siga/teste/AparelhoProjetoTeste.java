@@ -11,32 +11,28 @@ public class AparelhoProjetoTeste {
 
 	public static void main(String[] args) {
 
-		final String URL = "jdbc:postgresql://localhost/sigadb";
-		//final String URL = "jdbc:postgresql://pmfamcs34/sigadb";
-		final String USER = "siga_user";
-		final String DRIVER = "org.postgresql.Driver";
-		final String PASSWORD = "123456789";
-
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-		dataSource.setDriverClassName(DRIVER);
-		dataSource.setUrl(URL);
-		dataSource.setUsername(USER);
-		dataSource.setPassword(PASSWORD);
+		dataSource.setDriverClassName("org.postgresql.Driver");
+		dataSource.setUrl("jdbc:postgresql://pmfamcs34/sigadb");
+		//dataSource.setUrl("jdbc:postgresql://localhost/sigadb");
+		dataSource.setUsername("siga_user");
+		dataSource.setPassword("123456789");
 		
 		AparelhoProjetoDaoImplementacao aparelhamento = new AparelhoProjetoDaoImplementacao();
 		AparelhoProjeto aparelho = new AparelhoProjeto();
 		
-		aparelho.setAparelhamentoCodigo("SH-MAN");
-		aparelho.setQuantidade(10.0);
+		aparelho.setAparelhamentoCodigo("SV");
+		aparelho.setQuantidade(15.0);
 		aparelho.setProjetoId(1L);
-		aparelho.setAparelhamentoId(3L);
+		aparelho.setAparelhamentoId(2L);
+//		aparelho.setAparelhamentoCodigo("SH-MEC");
 		
 		aparelhamento.setDataSource(dataSource);
 		
 //		aparelhamento.salvarAparelhoProjeto(aparelho);
-//		aparelhamento.atualizarAparelhoProjeto(aparelho);
-		aparelhamento.deletarAparelhoProjeto(aparelho);
+		aparelhamento.atualizarAparelhoProjeto(aparelho);
+//		aparelhamento.deletarAparelhoProjeto(aparelho);
 		
 		List<AparelhoProjeto> listaAparelho = aparelhamento.listarTodosAparelhos();
 		

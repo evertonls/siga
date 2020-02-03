@@ -14,19 +14,29 @@ public class DescricaoTipoteste {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
 		dataSource.setDriverClassName("org.postgresql.Driver");
-		dataSource.setUrl("jdbc:postgresql://localhost/sigadb");
-//		dataSource.setUrl("jdbc:postgresql://pmfamcs34/sigadb");
+//		dataSource.setUrl("jdbc:postgresql://localhost/sigadb");
+		dataSource.setUrl("jdbc:postgresql://pmfamcs34/sigadb");
 		dataSource.setUsername("siga_user");
 		dataSource.setPassword("123456789");
 		
 		DescricaoTipoDaoImplementacao descricao = new DescricaoTipoDaoImplementacao();
+		DescricaoTipo descricaoTipo = new DescricaoTipo();
 		
 		descricao.setDataSource(dataSource);
 		
+		descricaoTipo.setDescricaoCodigo("Teste");
+		descricaoTipo.setDescricaoDescricao("testando atualizar");
+		descricaoTipo.setDescricaoId(8L);
+
+		
+//		descricao.salvarDescricaoTipo(descricaoTipo);
+//		descricao.atualizarDescricaoTipo(descricaoTipo);
+//		descricao.deletarDescricaoTipo(descricaoTipo);
+		
 		
 		List<DescricaoTipo> listar = descricao.listarTodasDescricoesTipos();		
-		for (DescricaoTipo descricaoTipo : listar) {
-			System.out.println(descricaoTipo.toString());
+		for (DescricaoTipo descricaoTipo2 : listar) {
+			System.out.println(descricaoTipo2.toString());
 		}
 		
 	}

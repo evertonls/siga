@@ -11,30 +11,25 @@ public class BairroTeste{
 
 	public static void main(String[] args) {
 
-		final String URL = "jdbc:postgresql://localhost/sigadb";
-		//final String URL = "jdbc:postgresql://pmfamcs34/sigadb";
-		final String USER = "siga_user";
-		final String DRIVER = "org.postgresql.Driver";
-		final String PASSWORD = "123456789";
-
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-		dataSource.setDriverClassName(DRIVER);
-		dataSource.setUrl(URL);
-		dataSource.setUsername(USER);
-		dataSource.setPassword(PASSWORD);
+		dataSource.setDriverClassName("org.postgresql.Driver");
+		dataSource.setUrl("jdbc:postgresql://pmfamcs34/sigadb");
+		//dataSource.setUrl("jdbc:postgresql://localhost/sigadb");
+		dataSource.setUsername("siga_user");
+		dataSource.setPassword("123456789");
 
 		BairroDaoImplementacao bairroDao = new BairroDaoImplementacao();
 		Bairro bairro = new Bairro();
 		
-		bairro.setBairro("Testando");
+		bairro.setBairro("Teste");
 		bairro.setBairroId(119L);
 		
 		bairroDao.setDataSource(dataSource);
 		
 //		bairroDao.salvarBairro(bairro);
 //		bairroDao.atualizarBairro(bairro);
-		bairroDao.deletarBairro(bairro);
+//		bairroDao.deletarBairro(bairro);
 		
 		List<Bairro> list = bairroDao.listarTodosBairros();
 		

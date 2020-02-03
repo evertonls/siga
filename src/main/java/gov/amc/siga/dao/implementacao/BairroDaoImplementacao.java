@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -16,56 +18,53 @@ import gov.amc.siga.model.Bairro;
 public class BairroDaoImplementacao implements BairroDao, Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private DataSource dataSource;
-
+	private JdbcTemplate template;
+	private Logger log = LoggerFactory.getLogger(getClass());
+	
 	@Override
 	public void setDataSource(DataSource ds) {
-		this.dataSource = ds;
+		this.template = new JdbcTemplate(ds);
 	}
 
 	@Override
 	public void salvarBairro(Bairro bairro) {
-		final String query = "INSERT INTO siga.bairros ( bairro ) VALUES( ? );";
-		JdbcTemplate template = new JdbcTemplate(dataSource);
+		final String query = "INSERT INTO siga.bairro ( bairro ) VALUES( ? );";
 		Object[] args = new Object[] { bairro.getBairro().toUpperCase() };
 		int out = template.update(query, args);
 		if (out != 0) {
-			System.out.println("Bairro salvo!");
+			log.info("Bairro salvo!");
 		} else {
-			System.out.println("Falha ao salvar o bairro!");
+			log.info("Falha ao salvar o bairro!");
 		}
 	}
 
 	@Override
 	public void atualizarBairro(Bairro bairro) {
-		final String query = "UPDATE siga.bairros SET bairro=? WHERE bairro_id= ?";
-		JdbcTemplate template = new JdbcTemplate(dataSource);
+		final String query = "UPDATE siga.bairro SET bairro=? WHERE bairro_id= ?";
 		Object[] args = new Object[] { bairro.getBairro().toUpperCase(), bairro.getBairroId() };
 		int out = template.update(query, args);
 		if (out != 0) {
-			System.out.println("Bairro atualizado!");
+			log.info("Bairro atualizado!");
 		} else {
-			System.out.println("Falha ao atualizar bairro!");
+			log.info("Falha ao atualizar bairro!");
 		}
 	}
 
 	@Override
 	public void deletarBairro(Bairro bairro) {
-		final String query = "DELETE FROM siga.bairros WHERE bairro_id= ?";
-		JdbcTemplate template = new JdbcTemplate(dataSource);
+		final String query = "DELETE FROM siga.bairro WHERE bairro_id= ?";
 		Object[] args = new Object[] { bairro.getBairroId() };
 		int out = template.update(query, args);
 		if (out != 0) {
-			System.out.println("Bairro deletado!!");
+			log.info("Bairro deletado!!");
 		} else {
-			System.out.println("Falha ao deletar bairro!");
+			log.info("Falha ao deletar bairro!");
 		}
 	}
 
 	@Override
 	public List<Bairro> listarTodosBairros() {
-		final String query = "SELECT bairro_id, bairro FROM siga.bairros";
-		JdbcTemplate template = new JdbcTemplate(dataSource);
+		final String query = "SELECT bairro_id, bairro FROM siga.bairro";
 		return template.query(query, new BairroMapper());
 	}
 
