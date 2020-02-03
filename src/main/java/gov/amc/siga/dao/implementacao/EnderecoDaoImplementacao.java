@@ -17,7 +17,6 @@ public class EnderecoDaoImplementacao implements EnderecoDao, Serializable {
 
 	@Override
 	public void setDataSurce(DataSource ds) {
-		// TODO Auto-generated method stub
 		
 	}
 
