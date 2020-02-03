@@ -12,7 +12,7 @@ public interface LongradouroDao {
 
 	void salvarLongradouro(Longradouro longradouro);
 
-	void atualizarLognradouro(Longradouro longradouro);
+	void atualizarLongradouro(Longradouro longradouro);
 
 	void deletarLongradouro(Longradouro longradouro);
 

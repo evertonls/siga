@@ -4,38 +4,30 @@ import java.util.List;
 
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-import gov.amc.siga.dao.implementacao.ClassificacoesDaoImplementacao;
-import gov.amc.siga.model.Classificacoes;
+import gov.amc.siga.dao.implementacao.ClassificacaoProjetoDaoImplementacao;
+import gov.amc.siga.model.ClassificacaoProjeto;
 
 public class ClassificacoesTeste {
 	
 	public static void main(String[] args) {
-		
-	
-	final String URL = "jdbc:postgresql://pmfamcs34/sigadb";
-	final String USER = "siga_user";
-	final String DRIVER = "org.postgresql.Driver";
-	final String PASSWORD = "123456789";
 
 	DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-	dataSource.setDriverClassName(DRIVER);
-	dataSource.setUrl(URL);
-	dataSource.setUsername(USER);
-	dataSource.setPassword(PASSWORD);
+	dataSource.setDriverClassName("org.postgresql.Driver");
+	dataSource.setUrl("jdbc:postgresql://localhost/sigadb");
+//	dataSource.setUrl("jdbc:postgresql://pmfamcs34/sigadb");
+	dataSource.setUsername("siga_user");
+	dataSource.setPassword("123456789");
 
-	ClassificacoesDaoImplementacao classificacao = new ClassificacoesDaoImplementacao();
+	ClassificacaoProjetoDaoImplementacao classificacao = new ClassificacaoProjetoDaoImplementacao();
 	
 	classificacao.setDataSource(dataSource);
 	
-//	classificacao.salvarClassificacao("CORREDOR", 1L);
-//	classificacao.atualizarClassificacao("ÁREA", 1L);
-	classificacao.deletarClassificacao("ÁREA", 1L);
-	classificacao.deletarClassificacao("CORREDOR", 1L);
 	
-	List<Classificacoes> list = classificacao.listarTodasClassificacoes();
 	
-	for (Classificacoes classificacoes : list) {
+	List<ClassificacaoProjeto> list = classificacao.listarTodasClassificacoes();
+	
+	for (ClassificacaoProjeto classificacoes : list) {
 		System.out.println(classificacoes.toString());
 	}
 	

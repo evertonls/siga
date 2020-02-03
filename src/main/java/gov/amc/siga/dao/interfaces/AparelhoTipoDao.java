@@ -8,13 +8,13 @@ import gov.amc.siga.model.AparelhoTipo;
 
 public interface AparelhoTipoDao {
 	
-	void setDataSource(DataSource dataSource);
+	void setDataSource(DataSource ds);
 
 	void salvarAparelhoTipo(AparelhoTipo aparelhoTipo);
-
+	
 	void atualizarAparelhoTipo(AparelhoTipo aparelhoTipo);
 
-	void deletarAparelhoTipo(AparelhoTipo aparlehoTipo);
+	void deletarAparelhoTipo(AparelhoTipo aparelhoTipo);
 			
 	List<AparelhoTipo> listarTodosAparelhosTipo();
 	

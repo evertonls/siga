@@ -8,15 +8,26 @@ import org.springframework.stereotype.Component;
 public class DescricaoTipo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	private Long descricaoId;
 	private String descricaoCodigo;
 	private String descricaoDescricao;
 
 	public DescricaoTipo() {
 	}
 
-	public DescricaoTipo(String descricaoCodigo, String descricaoDescricao) {
+	public DescricaoTipo(Long descricaoId, String descricaoCodigo, String descricaoDescricao) {
+		super();
+		this.descricaoId = descricaoId;
 		this.descricaoCodigo = descricaoCodigo;
 		this.descricaoDescricao = descricaoDescricao;
+	}
+
+	public Long getDescricaoId() {
+		return descricaoId;
+	}
+
+	public void setDescricaoId(Long descricaoId) {
+		this.descricaoId = descricaoId;
 	}
 
 	public String getDescricaoCodigo() {
@@ -37,7 +48,8 @@ public class DescricaoTipo implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Codigo: " + descricaoCodigo + ", Descricao: " + descricaoDescricao;
+		return "DescricaoTipo [descricaoId=" + descricaoId + ", descricaoCodigo=" + descricaoCodigo
+				+ ", descricaoDescricao=" + descricaoDescricao + "]";
 	}
 
 	@Override
@@ -46,6 +58,7 @@ public class DescricaoTipo implements Serializable {
 		int result = 1;
 		result = prime * result + ((descricaoCodigo == null) ? 0 : descricaoCodigo.hashCode());
 		result = prime * result + ((descricaoDescricao == null) ? 0 : descricaoDescricao.hashCode());
+		result = prime * result + ((descricaoId == null) ? 0 : descricaoId.hashCode());
 		return result;
 	}
 
@@ -68,7 +81,15 @@ public class DescricaoTipo implements Serializable {
 				return false;
 		} else if (!descricaoDescricao.equals(other.descricaoDescricao))
 			return false;
+		if (descricaoId == null) {
+			if (other.descricaoId != null)
+				return false;
+		} else if (!descricaoId.equals(other.descricaoId))
+			return false;
 		return true;
 	}
 
+	
+
+	
 }

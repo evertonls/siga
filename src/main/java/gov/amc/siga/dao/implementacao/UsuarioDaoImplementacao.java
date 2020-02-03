@@ -37,9 +37,9 @@ public class UsuarioDaoImplementacao implements UsuarioDao, Serializable {
 	private JdbcTemplate template;
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	private final String query = "SELECT u.usuario_id, u.usuario_nm, u.cpf_num, u.mat_num, u.email, u.senha, u.mail_warn, "
-			+ "p.autoriza_cod, u.setor_id, s.setor_cod, s.setor_desc  " + "FROM siga.usuarios u "
-			+ "LEFT JOIN siga.permissoes p ON u.usuario_id = p.usuario_id "
-			+ "LEFT JOIN siga.setores s ON u.setor_id = s.setor_id";
+			+ "p.autoriza_cod, u.setor_id, s.setor_cod, s.setor_desc  " + "FROM siga.usuario u "
+			+ "LEFT JOIN siga.permissao p ON u.usuario_id = p.usuario_id "
+			+ "LEFT JOIN siga.setor s ON u.setor_id = s.setor_id";
 
 	@Autowired
 	public UsuarioDaoImplementacao(DataSource ds) {
@@ -53,24 +53,24 @@ public class UsuarioDaoImplementacao implements UsuarioDao, Serializable {
 
 	@Override
 	public void updatePassword(String senha, String cpf) {
-		template.update("UPDATE siga.usuarios SET senha = ? WHERE cpf_num = ?", BCrypt.hashpw(senha, BCrypt.gensalt()),
+		template.update("UPDATE siga.usuario SET senha = ? WHERE cpf_num = ?", BCrypt.hashpw(senha, BCrypt.gensalt()),
 				cpf);
 	}
 
 	@Override
 	public void updateCodRecuperacaoToNull(String cpf) {
-		template.update("UPDATE usuarios SET recupera_cod = ? WHERE cpf_num = ?", null, cpf);
+		template.update("UPDATE usuario SET recupera_cod = ? WHERE cpf_num = ?", null, cpf);
 	}
 
 	@Override
 	public void gravaCodRecuperacao(String codigo, String email) {
-		final String sql = "UPDATE usuarios SET recupera_cod = ? WHERE email = ?";
+		final String sql = "UPDATE usuario SET recupera_cod = ? WHERE email = ?";
 		template.update(sql, codigo, email);
 	}
 
 	@Override
 	public String getCodRecuperacao(String cpf) {
-		return template.queryForObject("SELECT recupera_cod FROM usuarios WHERE cpf_num = ?", String.class, cpf);
+		return template.queryForObject("SELECT recupera_cod FROM usuario WHERE cpf_num = ?", String.class, cpf);
 	}
 
 	@Override
@@ -87,7 +87,7 @@ public class UsuarioDaoImplementacao implements UsuarioDao, Serializable {
 	 * contrato que esteja no prazo para renovação
 	 */
 	public List<String> getByEmailWarn() {
-		final String sql = "SELECT email FROM usuarios WHERE mail_warn = true";
+		final String sql = "SELECT email FROM usuario WHERE mail_warn = true";
 
 		return template.query(sql, new RowMapper<String>() {
 			public String mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -119,7 +119,7 @@ public class UsuarioDaoImplementacao implements UsuarioDao, Serializable {
 
 	public long persistUser(Usuario usuario) {
 		logger.info("Registrando o usuário: " + usuario.getEmail());
-		final String sql = "INSERT INTO usuarios (usuario_nm, cpf_num, mat_num, email, senha, setor_id, mail_warn) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		final String sql = "INSERT INTO usuario (usuario_nm, cpf_num, mat_num, email, senha, setor_id, mail_warn) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		PreparedStatementCreatorFactory pscFactory = new PreparedStatementCreatorFactory(sql, Types.VARCHAR,
 				Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.BIGINT, Types.BOOLEAN);

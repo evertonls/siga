@@ -8,16 +8,26 @@ import org.springframework.stereotype.Component;
 public class EquipeTipo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	private Long equipeTipoId;
 	private String equipeCodigo;
 	private String equipeDescricao;
 
 	public EquipeTipo() {
 	}
 
-	public EquipeTipo(String equipeCodigo, String equipeDescricao) {
+	public EquipeTipo(Long equipeTipoId, String equipeCodigo, String equipeDescricao) {
+		super();
+		this.equipeTipoId = equipeTipoId;
 		this.equipeCodigo = equipeCodigo;
 		this.equipeDescricao = equipeDescricao;
+	}
+
+	public Long getEquipeTipoId() {
+		return equipeTipoId;
+	}
+
+	public void setEquipeTipoId(Long equipeTipoId) {
+		this.equipeTipoId = equipeTipoId;
 	}
 
 	public String getEquipeCodigo() {
@@ -38,7 +48,8 @@ public class EquipeTipo implements Serializable {
 
 	@Override
 	public String toString() {
-		return "EquipeTipo [equipeCodigo=" + equipeCodigo + ", equipeDescricao=" + equipeDescricao + "]";
+		return "EquipeTipo [equipeTipoId=" + equipeTipoId + ", equipeCodigo=" + equipeCodigo + ", equipeDescricao="
+				+ equipeDescricao + "]";
 	}
 
 	@Override
@@ -47,6 +58,7 @@ public class EquipeTipo implements Serializable {
 		int result = 1;
 		result = prime * result + ((equipeCodigo == null) ? 0 : equipeCodigo.hashCode());
 		result = prime * result + ((equipeDescricao == null) ? 0 : equipeDescricao.hashCode());
+		result = prime * result + ((equipeTipoId == null) ? 0 : equipeTipoId.hashCode());
 		return result;
 	}
 
@@ -69,9 +81,12 @@ public class EquipeTipo implements Serializable {
 				return false;
 		} else if (!equipeDescricao.equals(other.equipeDescricao))
 			return false;
+		if (equipeTipoId == null) {
+			if (other.equipeTipoId != null)
+				return false;
+		} else if (!equipeTipoId.equals(other.equipeTipoId))
+			return false;
 		return true;
 	}
-	
-	
 
 }

@@ -16,10 +16,6 @@ import gov.amc.siga.model.Bairro;
 public class BairroDaoImplementacao implements BairroDao, Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private String sqlSalvarBairro = "INSERT INTO siga.bairros ( bairro ) VALUES( ? );";
-	private String sqlAtualizarBairro = "UPDATE siga.bairros SET bairro=? WHERE bairro_id= ?";
-	private String sqlDeletarBairro = "DELETE FROM siga.bairros WHERE bairro_id= ?";
-	private String sqlListarTodosBairros = "SELECT bairro_id, bairro FROM siga.bairros";
 	private DataSource dataSource;
 
 	@Override
@@ -28,26 +24,49 @@ public class BairroDaoImplementacao implements BairroDao, Serializable {
 	}
 
 	@Override
-	public void salvarBairro(String bairro) {
-		JdbcTemplate salvar = new JdbcTemplate(dataSource);
-		salvar.update(sqlSalvarBairro, new Object[] { bairro });
+	public void salvarBairro(Bairro bairro) {
+		final String query = "INSERT INTO siga.bairros ( bairro ) VALUES( ? );";
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		Object[] args = new Object[] { bairro.getBairro().toUpperCase() };
+		int out = template.update(query, args);
+		if (out != 0) {
+			System.out.println("Bairro salvo!");
+		} else {
+			System.out.println("Falha ao salvar o bairro!");
+		}
 	}
 
 	@Override
-	public void atualizarBairro(Long bairroId, String bairro) {
-		JdbcTemplate atualizar = new JdbcTemplate(dataSource);
-		atualizar.update(sqlAtualizarBairro, new Object[] { bairro, bairroId });
+	public void atualizarBairro(Bairro bairro) {
+		final String query = "UPDATE siga.bairros SET bairro=? WHERE bairro_id= ?";
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		Object[] args = new Object[] { bairro.getBairro().toUpperCase(), bairro.getBairroId() };
+		int out = template.update(query, args);
+		if (out != 0) {
+			System.out.println("Bairro atualizado!");
+		} else {
+			System.out.println("Falha ao atualizar bairro!");
+		}
 	}
 
 	@Override
-	public void deletarBairro(Long bairroId) {
-		JdbcTemplate deletar = new JdbcTemplate(dataSource);
-		deletar.update(sqlDeletarBairro, new Object[] { bairroId });
+	public void deletarBairro(Bairro bairro) {
+		final String query = "DELETE FROM siga.bairros WHERE bairro_id= ?";
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		Object[] args = new Object[] { bairro.getBairroId() };
+		int out = template.update(query, args);
+		if (out != 0) {
+			System.out.println("Bairro deletado!!");
+		} else {
+			System.out.println("Falha ao deletar bairro!");
+		}
 	}
 
 	@Override
 	public List<Bairro> listarTodosBairros() {
-		JdbcTemplate listar = new JdbcTemplate(dataSource);
-		return listar.query(sqlListarTodosBairros, new BairroMapper());
+		final String query = "SELECT bairro_id, bairro FROM siga.bairros";
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		return template.query(query, new BairroMapper());
 	}
+
 }

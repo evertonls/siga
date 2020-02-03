@@ -10,25 +10,19 @@ import gov.amc.siga.model.DescricaoTipo;
 public class DescricaoTipoteste {
 
 	public static void main(String[] args) {
-		final String URL = "jdbc:postgresql://pmfamcs34/sigadb";
-		final String USER = "siga_user";
-		final String DRIVER = "org.postgresql.Driver";
-		final String PASSWORD = "123456789";
 
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-		dataSource.setDriverClassName(DRIVER);
-		dataSource.setUrl(URL);
-		dataSource.setUsername(USER);
-		dataSource.setPassword(PASSWORD);
+		dataSource.setDriverClassName("org.postgresql.Driver");
+		dataSource.setUrl("jdbc:postgresql://localhost/sigadb");
+//		dataSource.setUrl("jdbc:postgresql://pmfamcs34/sigadb");
+		dataSource.setUsername("siga_user");
+		dataSource.setPassword("123456789");
 		
 		DescricaoTipoDaoImplementacao descricao = new DescricaoTipoDaoImplementacao();
 		
 		descricao.setDataSource(dataSource);
 		
-//		descricao.salvarDescricaoTipo("TESTE", "TESTANDO");
-//		descricao.atualizarDescricaoTipo("TESTE", "ATUALIZANDO");
-		descricao.deletarDescricaoTipo("TESTE");
 		
 		List<DescricaoTipo> listar = descricao.listarTodasDescricoesTipos();		
 		for (DescricaoTipo descricaoTipo : listar) {

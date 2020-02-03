@@ -17,7 +17,7 @@ public class SetorDaoImplementacao implements Serializable, SetorDao {
 
 	private static final long serialVersionUID = 1L;
 	private JdbcTemplate template;
-	private final String query = "SELECT setor_id, setor_cod, setor_desc FROM setores";
+	private final String query = "SELECT setor_id, setor_cod, setor_desc FROM setor";
 
 	public SetorDaoImplementacao(DataSource ds) {
 		this.template = new JdbcTemplate(ds);

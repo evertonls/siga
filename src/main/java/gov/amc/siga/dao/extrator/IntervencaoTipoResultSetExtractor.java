@@ -13,6 +13,7 @@ public class IntervencaoTipoResultSetExtractor implements ResultSetExtractor<Int
 	@Override
 	public IntervencaoTipo extractData(ResultSet rs) throws SQLException, DataAccessException {
 		IntervencaoTipo intervencaoTipo = new IntervencaoTipo();
+		intervencaoTipo.setIntervencaoTipoId(rs.getLong("intervencao_id"));
 		intervencaoTipo.setIntervencaoCodigo(rs.getString("intervencao_cod"));
 		intervencaoTipo.setIntervencaoDescricao(rs.getString("intervencao_desc"));
 		return intervencaoTipo;

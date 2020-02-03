@@ -30,7 +30,6 @@ public class ProjetoResultSetExtractor implements ResultSetExtractor<Projeto> {
 		projeto.setLocalRecape(rs.getString("local_recape"));
 		projeto.setIsRecapeExecutado(rs.getBoolean("is_execu_rec"));
 		projeto.setDataExecucaoRecape(rs.getDate("data_exe_rec").toLocalDate());
-
 		return projeto;
 	}
 

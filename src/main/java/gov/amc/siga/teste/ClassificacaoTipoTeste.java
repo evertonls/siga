@@ -10,30 +10,29 @@ import gov.amc.siga.model.ClassificacaoTipo;
 public class ClassificacaoTipoTeste {
 
 	public static void main(String[] args) {
-		final String URL = "jdbc:postgresql://pmfamcs34/sigadb";
-		final String USER = "siga_user";
-		final String DRIVER = "org.postgresql.Driver";
-		final String PASSWORD = "123456789";
 
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-		dataSource.setDriverClassName(DRIVER);
-		dataSource.setUrl(URL);
-		dataSource.setUsername(USER);
-		dataSource.setPassword(PASSWORD);
+		dataSource.setDriverClassName("org.postgresql.Driver");
+		dataSource.setUrl("jdbc:postgresql://localhost/sigadb");
+//		dataSource.setUrl("jdbc:postgresql://pmfamcs34/sigadb");
+		dataSource.setUsername("siga_user");
+		dataSource.setPassword("123456789");
 		
-		ClassificacaoTipoDaoImplemetacao classificacao = new ClassificacaoTipoDaoImplemetacao();
+		ClassificacaoTipo classificacao = new ClassificacaoTipo();
+		classificacao.setClassificacaoCodigo("teste");
+		classificacao.setClassificacaoDescricao("testando");
 		
-		classificacao.setDataSource(dataSource);
+		ClassificacaoTipoDaoImplemetacao classificacaoTipo = new ClassificacaoTipoDaoImplemetacao();
 		
-		//classificacao.salvarClassificacaoTipo("TESTE", "TESTANDO");
-		//classificacao.atualizarClassificacaoTipo("TESTE", "ATUALIZANDO");
-		//classificacao.deletarClassificacaoTipo("TESTE");
+		classificacaoTipo.setDataSource(dataSource);
+//		classificacaoTipo.salvarClassificacaoTipo(classificacao);
+		classificacaoTipo.deletarClassificacaoTipo(classificacao);
 		
-		List<ClassificacaoTipo> listar = classificacao.listarTodasClassificacaoTipo();
+		List<ClassificacaoTipo> listar = classificacaoTipo.listarTodasClassificacaoTipo();
 		
-		for (ClassificacaoTipo classificacaoTipo : listar) {
-			System.out.println(classificacaoTipo.toString());
+		for (ClassificacaoTipo classificacaoTipo2 : listar) {
+			System.out.println(classificacaoTipo2.toString());
 		}
 
 	}

@@ -29,7 +29,7 @@ public class AutorizacaoDaoImplementacao implements AutorizacaoDao, Serializable
 
 	@Override
 	public List<Autorizacao> getAutorizacoesFromUserId(Long id) {
-		String sqlRoles = "SELECT autoriza_cod, autoriza_desc FROM permissoes where usuario_id = ?";
+		String sqlRoles = "SELECT autoriza_cod, autoriza_desc FROM permissao where usuario_id = ?";
 		List<Autorizacao> roles = template.query(sqlRoles, this::mapRowPapel, id);
 
 		return roles;
@@ -37,8 +37,8 @@ public class AutorizacaoDaoImplementacao implements AutorizacaoDao, Serializable
 
 	@Override
 	public List<Autorizacao> getAutorizacoesFromUserCPF(String cpf) {
-		String sqlRoles = "SELECT autoriza_cod, autoriza_desc FROM permissoes "
-				+ "WHERE usuario_id = ( SELECT usuario_id FROM usuarios WHERE cpf_num = ?)";
+		String sqlRoles = "SELECT autoriza_cod, autoriza_desc FROM permissao "
+				+ "WHERE usuario_id = ( SELECT usuario_id FROM usuario WHERE cpf_num = ?)";
 
 		List<Autorizacao> roles = template.query(sqlRoles, this::mapRowPapel, cpf);
 
@@ -47,7 +47,7 @@ public class AutorizacaoDaoImplementacao implements AutorizacaoDao, Serializable
 
 	@Override
 	public List<Autorizacao> getAll() {
-		String sql = "SELECT * FROM autorizacoes";
+		String sql = "SELECT * FROM autorizacao";
 
 		List<Autorizacao> roles = template.query(sql, this::mapRowPapel);
 
@@ -56,7 +56,7 @@ public class AutorizacaoDaoImplementacao implements AutorizacaoDao, Serializable
 
 	@Override
 	public void persistRoles(Usuario usuario) {
-		final String sql = "INSERT INTO permissoes (usuario_id, autoriza_cod) VALUES (?, ?)";
+		final String sql = "INSERT INTO permissao (usuario_id, autoriza_cod) VALUES (?, ?)";
 
 		template.batchUpdate(sql, new BatchPreparedStatementSetter() {
 

@@ -13,6 +13,7 @@ public class EquipeTipoResultSetExtractor implements ResultSetExtractor<EquipeTi
 	@Override
 	public EquipeTipo extractData(ResultSet rs) throws SQLException, DataAccessException {
 		EquipeTipo equipeTipo = new EquipeTipo();
+		equipeTipo.setEquipeTipoId(rs.getLong("equipe_id"));
 		equipeTipo.setEquipeCodigo(rs.getString("equipe_cod"));
 		equipeTipo.setEquipeDescricao(rs.getString("equipe_desc"));
 		return equipeTipo;

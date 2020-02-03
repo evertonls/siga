@@ -16,39 +16,50 @@ import gov.amc.siga.model.AparelhoTipo;
 public class AparelhoTipoDaoImplementacao implements AparelhoTipoDao, Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private final String sqlListarTodos = "SELECT aparelho_cod, aparelho_desc FROM siga.aparelho_tipo";
-	private final String sqlDeletarAparelho = "DELETE FROM siga.aparelho_tipo WHERE aparelho_cod = ?";
-	private final String sqlAtualizarAparelho = "UPDATE siga.aparelho_tipo SET aparelho_desc = ? WHERE aparelho_cod = ?";
-	private final String sqlSalvarAparelho = "INSERT INTO siga.aparelho_tipo (aparelho_cod, aparelho_desc) VALUES (?, ?) ON CONFLICT (aparelho_cod) DO NOTHING";
 	private DataSource dataSource;
 
 	@Override
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
+	public void setDataSource(DataSource ds) {
+		this.dataSource = ds;
 	}
 
 	@Override
-	public void salvarAparelhoTipo(String aparelhoCodigo, String aparelhoDescricao) {
-		JdbcTemplate salvar = new JdbcTemplate(dataSource);
-		salvar.update(sqlSalvarAparelho, new Object[] { aparelhoCodigo, aparelhoDescricao });
+	public void salvarAparelhoTipo(AparelhoTipo aparelhoTipo) {
+		final String query = "INSERT INTO siga.aparelho_tipo (aparelho_cod, aparelho_desc) VALUES (?, ?) ON CONFLICT (aparelho_cod) DO NOTHING";
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		Object[] args = new Object[] { aparelhoTipo.getAparelhoCodigo().toUpperCase(), aparelhoTipo.getAparelhoDescricao().toUpperCase() };
+		int out = template.update(query, args);
+		if (out != 0) {
+			System.out.println("Tipo de aparelho salvo!");
+		} else {
+			System.out.println("Falha ao salvar tipo de aparelho");
+		}
+	}
+	
+	@Override
+	public void atualizarAparelhoTipo(AparelhoTipo aparelhoTipo) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	public void atualizarAparelhoTipo(String aparelhoCodigo, String aparelhoDescricao) {
-		JdbcTemplate atualizar = new JdbcTemplate(dataSource);
-		atualizar.update(sqlAtualizarAparelho, new Object[] { aparelhoDescricao, aparelhoCodigo });
-	}
-
-	@Override
-	public void deletarAparelhoTipo(String aparelhoCodigo) {
-		JdbcTemplate deletar = new JdbcTemplate(dataSource);
-		deletar.update(sqlDeletarAparelho, new Object[] { aparelhoCodigo });
+	public void deletarAparelhoTipo(AparelhoTipo aparelhoTipo) {
+		final String query = "DELETE FROM siga.aparelho_tipo WHERE aparelho_cod = ?";
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		Object[] args = new Object[] { aparelhoTipo.getAparelhoCodigo() };
+		int out = template.update(query, args);
+		if (out != 0) {
+			System.out.println("Tipo de aparelho deletado!");
+		} else {
+			System.out.println("Falha ao deletar tipo de aparelho!");
+		}
 	}
 
 	@Override
 	public List<AparelhoTipo> listarTodosAparelhosTipo() {
-		JdbcTemplate listar = new JdbcTemplate(dataSource);
-		return listar.query(sqlListarTodos, new AparelhoTipoMapper());
+		final String query = "SELECT aparelho_cod, aparelho_desc FROM siga.aparelho_tipo";
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		return template.query(query, new AparelhoTipoMapper());
 	}
 
 }

@@ -8,15 +8,26 @@ import org.springframework.stereotype.Component;
 public class IntervencaoTipo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	private Long intervencaoTipoId;
 	private String intervencaoCodigo;
 	private String intervencaoDescricao;
 
 	public IntervencaoTipo() {
 	}
 
-	public IntervencaoTipo(String intervencaoCodigo, String intervencaoDescricao) {
+	public IntervencaoTipo(Long intervencaoTipoId, String intervencaoCodigo, String intervencaoDescricao) {
+		super();
+		this.intervencaoTipoId = intervencaoTipoId;
 		this.intervencaoCodigo = intervencaoCodigo;
 		this.intervencaoDescricao = intervencaoDescricao;
+	}
+
+	public Long getIntervencaoTipoId() {
+		return intervencaoTipoId;
+	}
+
+	public void setIntervencaoTipoId(Long intervencaoTipoId) {
+		this.intervencaoTipoId = intervencaoTipoId;
 	}
 
 	public String getIntervencaoCodigo() {
@@ -37,7 +48,8 @@ public class IntervencaoTipo implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Código=" + intervencaoCodigo + ", Descricao: " + intervencaoDescricao;
+		return "IntervencaoTipo [intervencaoTipoId=" + intervencaoTipoId + ", intervencaoCodigo=" + intervencaoCodigo
+				+ ", intervencaoDescricao=" + intervencaoDescricao + "]";
 	}
 
 	@Override
@@ -46,6 +58,7 @@ public class IntervencaoTipo implements Serializable {
 		int result = 1;
 		result = prime * result + ((intervencaoCodigo == null) ? 0 : intervencaoCodigo.hashCode());
 		result = prime * result + ((intervencaoDescricao == null) ? 0 : intervencaoDescricao.hashCode());
+		result = prime * result + ((intervencaoTipoId == null) ? 0 : intervencaoTipoId.hashCode());
 		return result;
 	}
 
@@ -68,9 +81,12 @@ public class IntervencaoTipo implements Serializable {
 				return false;
 		} else if (!intervencaoDescricao.equals(other.intervencaoDescricao))
 			return false;
+		if (intervencaoTipoId == null) {
+			if (other.intervencaoTipoId != null)
+				return false;
+		} else if (!intervencaoTipoId.equals(other.intervencaoTipoId))
+			return false;
 		return true;
 	}
-	
-	
 
 }

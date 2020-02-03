@@ -10,8 +10,8 @@ import gov.amc.siga.model.AparelhoTipo;
 public class AparelhoTipoTeste {
 
 	public static void main(String[] args) {
-		//final String URL = "jdbc:postgresql://localhost/sigadb";
-		final String URL = "jdbc:postgresql://pmfamcs34/sigadb";
+		final String URL = "jdbc:postgresql://localhost/sigadb";
+		//final String URL = "jdbc:postgresql://pmfamcs34/sigadb";
 		final String USER = "siga_user";
 		final String DRIVER = "org.postgresql.Driver";
 		final String PASSWORD = "123456789";
@@ -24,14 +24,14 @@ public class AparelhoTipoTeste {
 		dataSource.setPassword(PASSWORD);
 		
 		AparelhoTipoDaoImplementacao aparelhoTipo = new AparelhoTipoDaoImplementacao();
+		AparelhoTipo aparelho = new AparelhoTipo();
+		
+		aparelho.setAparelhoCodigo("Teste");
+		aparelho.setAparelhoDescricao("Testando");
 		
 		aparelhoTipo.setDataSource(dataSource);
-		
-		//aparelhoTipo.salvarAparelhoTipo("TESTE", "Tentativa de teste");
-		
-		//aparelhoTipo.atualizarAparelhoTipo("TESTE", "segunda tentativa de teste");
-		
-		//aparelhoTipo.deletarAparelhoTipo("TESTE"); 
+		aparelhoTipo.deletarAparelhoTipo(aparelho);
+		aparelhoTipo.salvarAparelhoTipo(aparelho);
 		
 		List<AparelhoTipo> lista = aparelhoTipo.listarTodosAparelhosTipo();
 		

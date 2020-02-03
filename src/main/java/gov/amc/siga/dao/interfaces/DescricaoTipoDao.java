@@ -12,7 +12,7 @@ public interface DescricaoTipoDao {
 	
 	void salvarDescricaoTipo(DescricaoTipo descricaoTipo);
 	
-	void atualizarDescricaoTipo(DescricaoTipo descricaoTipo);
+	void atualizarDescricaoTipo(DescricaoTipo decricaoTipo);
 	
 	void deletarDescricaoTipo(DescricaoTipo descricaoTipo);
 	
