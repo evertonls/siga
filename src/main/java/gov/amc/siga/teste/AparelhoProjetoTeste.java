@@ -25,7 +25,6 @@ public class AparelhoProjetoTeste {
 		aparelho.setAparelhamentoCodigo("SV");
 		aparelho.setQuantidade(15.0);
 		aparelho.setProjetoId(1L);
-		aparelho.setAparelhamentoId(2L);
 //		aparelho.setAparelhamentoCodigo("SH-MEC");
 		
 		aparelhamento.setDataSource(dataSource);

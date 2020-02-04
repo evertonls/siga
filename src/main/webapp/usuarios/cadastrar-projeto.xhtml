@@ -28,9 +28,8 @@
 		<h:form>
 			<p:panel id="panel" header="Cadastro" style="margin-bottom:10px;">
 				<p:messages id="messages" />
-				<p:fieldset legend="Projeto" toggleable="true" toggleSpeed="500">
-
-					<h:panelGrid columns="6" cellpadding="2">
+				<p:fieldset legend="Projeto">
+					<h:panelGrid columns="8" cellpadding="4">
 						<h:outputLabel for="projeto" value="Numero Projeto:" />
 						<p:inputMask id="projeto" required="true" mask="00.00.003"
 							placeholder="00.00.000" />
@@ -47,53 +46,137 @@
 						<p:inputMask id="numeroContrato" required="true" mask="000/00"
 							placeholder="000/00" />
 
+						<p:outputLabel for="equipe" value="Equipe:" />
+						<p:autoComplete id="equipe" dropdown="true"
+							value="#{autoCompleteView.txt6}"
+							completeMethod="#{autoCompleteView.completeText}" />
 
-						<p:outputLabel for="descricao" value="Descrição" />
+
+						<p:outputLabel for="tipoProjeto" value="Tipo de Projeto:" />
+						<p:autoComplete id="tipoProjeto" dropdown="true"
+							value="#{autoCompleteView.txt6}"
+							completeMethod="#{autoCompleteView.completeText}" />
+
+
+						<p:outputLabel for="classificacao" value="Classificacao:" />
+						<p:autoComplete id="classificacao" dropdown="true"
+							value="#{autoCompleteView.txt6}"
+							completeMethod="#{autoCompleteView.completeText}" />
+
+
+
+						<p:outputLabel for="descricao" value="Descrição:" />
 						<p:autoComplete id="descricao" dropdown="true"
 							value="#{autoCompleteView.txt6}"
 							completeMethod="#{autoCompleteView.completeText}" />
 
 
+
 						<p:outputLabel for="dataPrevistaExecucao"
 							value="Data Prevista de execução:" />
 						<p:datePicker id="dataPrevistaExecucao"
-							value="#{calendarView.date5}" dateTemplate="dateTemplateFunc" />
+							value="#{calendarView.date5}" dateTemplate="dateTemplateFunc" showIcon="true"/>
+
+
+						<p:outputLabel for="projetoObra" value="Obra:" />
+						<p:autoComplete id="projetoObra" dropdown="true"
+							value="#{autoCompleteView.txt6}"
+							completeMethod="#{autoCompleteView.completeText}" />
+
+						<p:outputLabel for="prioridade" value="Prioridade:" />
+						<p:autoComplete id="prioridade" dropdown="true"
+							value="#{autoCompleteView.txt6}"
+							completeMethod="#{autoCompleteView.completeText}" />
+
+
+						<p:outputLabel for="motivo" value="Motivo:" />
+						<p:autoComplete id="motivo" dropdown="true"
+							value="#{autoCompleteView.txt6}"
+							completeMethod="#{autoCompleteView.completeText}" />
+
+						<p:outputLabel for="mesProjetoGCE" value="Mês Projeto GCE:" />
+						<p:datePicker id="mesProjetoGCE"
+							value="#{calendarView.date5}" dateTemplate="dateTemplateFunc" showIcon="true"/>
+
+						<p:outputLabel for="dataProjetoContratada"
+							value="Data Proj. Contratada:" />
+						<p:datePicker id="dataProjetoContratada"
+							value="#{calendarView.date5}" dateTemplate="dateTemplateFunc" showIcon="true"/>
+
+
+						<p:outputLabel for="situacao" value="Situação: " />
+						<p:autoComplete id="situacao" dropdown="true"
+							value="#{autoCompleteView.txt6}"
+							completeMethod="#{autoCompleteView.completeText}" />
+
+
+						<p:outputLabel for="dataInicioOperacao" value="Início Operação:" />
+						<p:datePicker id="dataInicioOperacao"
+							value="#{calendarView.date5}" dateTemplate="dateTemplateFunc" showIcon="true"/>
+
+						<p:outputLabel for="extensao" value="Extensão: " />
+						<p:inputText id="extensao"></p:inputText>
+
+						<!-- 
+							<p:outputLabel for="observacao" value="Observação: "></p:outputLabel>
+							<p:inputTextarea id="observacao" rows="10" cols="50" completeMethod="#{inputTextareaView.completeArea}" queryDelay="750" minQueryLength="4">
+						       <p:ajax event="itemSelect" listener="#{inputTextareaView.onSelect}" />
+						    </p:inputTextarea>
+							
+						 -->
+
+
 
 					</h:panelGrid>
 				</p:fieldset>
 
 				<br />
 
-				<p:fieldset legend="Endereço" toggleable="true" toggleSpeed="500">
+				<p:fieldset legend="Endereço">
+					<h:panelGrid columns="6" cellpadding="4">
 
+						<p:outputLabel for="bairro" value="Bairro: " />
+						<p:autoComplete id="bairro" dropdown="true"
+							value="#{autoCompleteView.txt6}"
+							completeMethod="#{autoCompleteView.completeText}" />
+
+						<p:outputLabel for="regional" value="Regional: " />
+						<p:autoComplete id="regional" dropdown="true"
+							value="#{autoCompleteView.txt6}"
+							completeMethod="#{autoCompleteView.completeText}" />
+
+						<p:outputLabel for="area" value="Área: " />
+						<p:autoComplete id="area" dropdown="true"
+							value="#{autoCompleteView.txt6}"
+							completeMethod="#{autoCompleteView.completeText}" />
+
+						<p:outputLabel for="longradouro" value="Longradouro: " />
+						<p:autoComplete id="longradouro" dropdown="true"
+							value="#{autoCompleteView.txt6}"
+							completeMethod="#{autoCompleteView.completeText}" />
+
+						<p:outputLabel for="trecho" value="Trecho: " />
+						<p:autoComplete id="trecho" dropdown="true"
+							value="#{autoCompleteView.txt6}"
+							completeMethod="#{autoCompleteView.completeText}" />
+
+
+						<p:outputLabel for="cruzamento" value="Cruzamento: " />
+						<p:autoComplete id="cruzamento" dropdown="true"
+							value="#{autoCompleteView.txt6}"
+							completeMethod="#{autoCompleteView.completeText}" />
+
+
+					</h:panelGrid>
 				</p:fieldset>
 
 				<br />
 
-				<p:fieldset legend="Intervençoes" toggleable="true"
-					toggleSpeed="500">
+				<p:fieldset legend="Intervençoes">
 
 				</p:fieldset>
 
 				<br />
-
-				<p:fieldset legend="Recape" toggleable="true" toggleSpeed="500">
-
-				</p:fieldset>
-
-				<br />
-				
-				<p:fieldset>
-				
-				  <h:dataTable value="#{cadastroBean.getAparelhos}" var="aparelho" cellpadding="15" border="1">
-				  	<f:facet name="header">Lista de Aparelhos</f:facet>
-				  	<h:column style="width:150px;">
-				  	<f:facet name="header">Codigo</f:facet>
-				  	<h:outputText value="#{aparelho.aparelhoCod}"></h:outputText>
-				  	</h:column>
-				  </h:dataTable>
-				
-				</p:fieldset>
 
 			</p:panel>
 

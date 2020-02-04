@@ -4,9 +4,7 @@ import java.io.Serializable;
 
 import javax.annotation.ManagedBean;
 import javax.faces.view.ViewScoped;
-import javax.inject.Named;
 
-@Named
 @ManagedBean
 @ViewScoped
 public class CadastroBean implements Serializable{

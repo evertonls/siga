@@ -26,7 +26,6 @@ public class ClassificacaoProjetoTeste {
 	
 	classificacaoProjeto.setClassificacaoCodigo("CICLOFAIXA");
 	classificacaoProjeto.setProjetoId(1L);
-	classificacaoProjeto.setClassificacaoId(3L);
 	
 //	classificacao.salvarClassificacaoProjeto(classificacaoProjeto);
 //	classificacao.atualizarClassificacaoProjeto(classificacaoProjeto);

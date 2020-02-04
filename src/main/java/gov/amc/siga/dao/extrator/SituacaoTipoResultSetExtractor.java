@@ -13,7 +13,6 @@ public class SituacaoTipoResultSetExtractor implements ResultSetExtractor<Situac
 	@Override
 	public SituacaoTipo extractData(ResultSet rs) throws SQLException, DataAccessException {
 		SituacaoTipo situacaoTipo = new SituacaoTipo();
-		situacaoTipo.setSituacaoTipoId(rs.getLong("situacao_id"));
 		situacaoTipo.setSituacaoCodigo(rs.getString("situacao_cod"));
 		situacaoTipo.setSituacaoDescricao(rs.getString("situacao_desc"));
 		return situacaoTipo;

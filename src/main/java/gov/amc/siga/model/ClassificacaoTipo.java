@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 public class ClassificacaoTipo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private Long classificacaoTipoId;
 	private String classificacaoCodigo;
 	private String classificacaoDescricao;
 
@@ -17,17 +16,8 @@ public class ClassificacaoTipo implements Serializable {
 
 	public ClassificacaoTipo(Long classificacaoTipoId, String classificacaoCodigo, String classificacaoDescricao) {
 		super();
-		this.classificacaoTipoId = classificacaoTipoId;
 		this.classificacaoCodigo = classificacaoCodigo;
 		this.classificacaoDescricao = classificacaoDescricao;
-	}
-
-	public Long getClassificacaoTipoId() {
-		return classificacaoTipoId;
-	}
-
-	public void setClassificacaoTipoId(Long classificacaoTipoId) {
-		this.classificacaoTipoId = classificacaoTipoId;
 	}
 
 	public String getClassificacaoCodigo() {
@@ -47,18 +37,11 @@ public class ClassificacaoTipo implements Serializable {
 	}
 
 	@Override
-	public String toString() {
-		return "ClassificacaoTipo [classificacaoTipoId=" + classificacaoTipoId + ", classificacaoCodigo="
-				+ classificacaoCodigo + ", classificacaoDescricao=" + classificacaoDescricao + "]";
-	}
-
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((classificacaoCodigo == null) ? 0 : classificacaoCodigo.hashCode());
 		result = prime * result + ((classificacaoDescricao == null) ? 0 : classificacaoDescricao.hashCode());
-		result = prime * result + ((classificacaoTipoId == null) ? 0 : classificacaoTipoId.hashCode());
 		return result;
 	}
 
@@ -80,11 +63,6 @@ public class ClassificacaoTipo implements Serializable {
 			if (other.classificacaoDescricao != null)
 				return false;
 		} else if (!classificacaoDescricao.equals(other.classificacaoDescricao))
-			return false;
-		if (classificacaoTipoId == null) {
-			if (other.classificacaoTipoId != null)
-				return false;
-		} else if (!classificacaoTipoId.equals(other.classificacaoTipoId))
 			return false;
 		return true;
 	}

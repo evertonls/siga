@@ -56,7 +56,7 @@ public class AparelhoProjetoDaoImplementacao implements AparelhoProjetoDao, Seri
 	public void deletarAparelhoProjeto(AparelhoProjeto aparelhamento) {
 		
 		final String query = "DELETE FROM siga.aparelho_projeto WHERE aparelho_id=?";
-		Object[] args = new Object[] { aparelhamento.getAparelhamentoId() };
+		Object[] args = new Object[] { aparelhamento.getAparelhamentoCodigo() };
 		int out = template.update(query, args);
 		if (out != 0) {
 			log.info("Aparelhamento Deletado!");

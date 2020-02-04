@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 public class AparelhoTipo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private Long aparelhoId;
 	private String aparelhoCodigo;
 	private String aparelhoDescricao;
 
@@ -17,17 +16,8 @@ public class AparelhoTipo implements Serializable {
 
 	public AparelhoTipo(Long aparelhoId, String aparelhoCodigo, String aparelhoDescricao) {
 		super();
-		this.aparelhoId = aparelhoId;
 		this.aparelhoCodigo = aparelhoCodigo;
 		this.aparelhoDescricao = aparelhoDescricao;
-	}
-
-	public Long getAparelhoId() {
-		return aparelhoId;
-	}
-
-	public void setAparelhoId(Long aparelhoId) {
-		this.aparelhoId = aparelhoId;
 	}
 
 	public String getAparelhoCodigo() {
@@ -47,18 +37,11 @@ public class AparelhoTipo implements Serializable {
 	}
 
 	@Override
-	public String toString() {
-		return "AparelhoTipo [aparelhoId=" + aparelhoId + ", aparelhoCodigo=" + aparelhoCodigo + ", aparelhoDescricao="
-				+ aparelhoDescricao + "]";
-	}
-
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((aparelhoCodigo == null) ? 0 : aparelhoCodigo.hashCode());
 		result = prime * result + ((aparelhoDescricao == null) ? 0 : aparelhoDescricao.hashCode());
-		result = prime * result + ((aparelhoId == null) ? 0 : aparelhoId.hashCode());
 		return result;
 	}
 
@@ -80,11 +63,6 @@ public class AparelhoTipo implements Serializable {
 			if (other.aparelhoDescricao != null)
 				return false;
 		} else if (!aparelhoDescricao.equals(other.aparelhoDescricao))
-			return false;
-		if (aparelhoId == null) {
-			if (other.aparelhoId != null)
-				return false;
-		} else if (!aparelhoId.equals(other.aparelhoId))
 			return false;
 		return true;
 	}

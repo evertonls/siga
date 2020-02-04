@@ -13,7 +13,6 @@ public class MotivoTipoResultSetExtractor implements ResultSetExtractor<MotivoTi
 	@Override
 	public MotivoTipo extractData(ResultSet rs) throws SQLException, DataAccessException {
 		MotivoTipo motivoTipo = new MotivoTipo();
-		motivoTipo.setMotivoTipoId(rs.getLong("motivo_id"));
 		motivoTipo.setMotivoCodigo(rs.getString("motivo_cod"));
 		motivoTipo.setMotivoDescricao(rs.getString("motivo_desc"));
 		return motivoTipo;

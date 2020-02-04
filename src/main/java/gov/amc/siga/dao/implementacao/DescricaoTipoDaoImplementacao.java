@@ -43,7 +43,7 @@ public class DescricaoTipoDaoImplementacao implements DescricaoTipoDao, Serializ
 
 	@Override
 	public void atualizarDescricaoTipo(DescricaoTipo descricaoTipo) {
-		Object[] args = new Object[] { descricaoTipo.getDescricaoCodigo(), descricaoTipo.getDescricaoDescricao(), descricaoTipo.getDescricaoId() };
+		Object[] args = new Object[] { descricaoTipo.getDescricaoCodigo(), descricaoTipo.getDescricaoDescricao(), descricaoTipo.getDescricaoCodigo() };
 		int out = template.update(atualizar, args);
 		if(out != 0) {
 			log.info("Tipo de descrição atualizada!");
@@ -54,7 +54,7 @@ public class DescricaoTipoDaoImplementacao implements DescricaoTipoDao, Serializ
 
 	@Override
 	public void deletarDescricaoTipo(DescricaoTipo descricaoTipo) {
-		Object[] args = new Object[] { descricaoTipo.getDescricaoId() };
+		Object[] args = new Object[] { descricaoTipo.getDescricaoCodigo() };
 		int out = template.update(deletar, args);
 		if(out != 0) {
 			log.info("Tipo de descrição deletada!");

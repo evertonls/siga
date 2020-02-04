@@ -22,6 +22,7 @@ public class Projeto implements Serializable {
 	private Boolean isRecape;
 	private Boolean isRecapeExecutado;
 	private String localRecape;
+	private Integer numeroOrdemServico;
 	private LocalDate dataCriacaoProjeto;
 	private LocalDate dataPrevista;
 	private LocalDate dataEquipe;
@@ -33,8 +34,8 @@ public class Projeto implements Serializable {
 
 	public Projeto(Long projetoId, Integer numeroProjeto, String prancha, String revisao, String contrato,
 			String obsevacao, String projetoObra, String prioridade, String ciRecape, Boolean isRecape,
-			Boolean isRecapeExecutado, String localRecape, LocalDate dataCriacaoProjeto, LocalDate dataPrevista,
-			LocalDate dataEquipe, LocalDate dataInicial, LocalDate dataExecucaoRecape) {
+			Boolean isRecapeExecutado, String localRecape, Integer numeroOrdemServico, LocalDate dataCriacaoProjeto,
+			LocalDate dataPrevista, LocalDate dataEquipe, LocalDate dataInicial, LocalDate dataExecucaoRecape) {
 		super();
 		this.projetoId = projetoId;
 		this.numeroProjeto = numeroProjeto;
@@ -48,6 +49,7 @@ public class Projeto implements Serializable {
 		this.isRecape = isRecape;
 		this.isRecapeExecutado = isRecapeExecutado;
 		this.localRecape = localRecape;
+		this.numeroOrdemServico = numeroOrdemServico;
 		this.dataCriacaoProjeto = dataCriacaoProjeto;
 		this.dataPrevista = dataPrevista;
 		this.dataEquipe = dataEquipe;
@@ -151,6 +153,14 @@ public class Projeto implements Serializable {
 		this.localRecape = localRecape;
 	}
 
+	public Integer getNumeroOrdemServico() {
+		return numeroOrdemServico;
+	}
+
+	public void setNumeroOrdemServico(Integer numeroOrdemServico) {
+		this.numeroOrdemServico = numeroOrdemServico;
+	}
+
 	public LocalDate getDataCriacaoProjeto() {
 		return dataCriacaoProjeto;
 	}
@@ -192,16 +202,6 @@ public class Projeto implements Serializable {
 	}
 
 	@Override
-	public String toString() {
-		return "Projeto" + "\n" + "[projetoId=" + projetoId + ", numeroProjeto=" + numeroProjeto + ", prancha=" + prancha
-				+ ", revisao=" + revisao + ", contrato=" + contrato + ", obsevacao=" + obsevacao + ", projetoObra="
-				+ projetoObra + ", prioridade=" + prioridade + ", ciRecape=" + ciRecape + ", isRecape=" + isRecape
-				+ ", isRecapeExecutado=" + isRecapeExecutado + ", localRecape=" + localRecape + ", dataCriacaoProjeto="
-				+ dataCriacaoProjeto + ", dataPrevista=" + dataPrevista + ", dataEquipe=" + dataEquipe
-				+ ", dataInicial=" + dataInicial + ", dataExecucaoRecape=" + dataExecucaoRecape + "]" + "\n";
-	}
-
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -215,6 +215,7 @@ public class Projeto implements Serializable {
 		result = prime * result + ((isRecape == null) ? 0 : isRecape.hashCode());
 		result = prime * result + ((isRecapeExecutado == null) ? 0 : isRecapeExecutado.hashCode());
 		result = prime * result + ((localRecape == null) ? 0 : localRecape.hashCode());
+		result = prime * result + ((numeroOrdemServico == null) ? 0 : numeroOrdemServico.hashCode());
 		result = prime * result + ((numeroProjeto == null) ? 0 : numeroProjeto.hashCode());
 		result = prime * result + ((obsevacao == null) ? 0 : obsevacao.hashCode());
 		result = prime * result + ((prancha == null) ? 0 : prancha.hashCode());
@@ -284,6 +285,11 @@ public class Projeto implements Serializable {
 				return false;
 		} else if (!localRecape.equals(other.localRecape))
 			return false;
+		if (numeroOrdemServico == null) {
+			if (other.numeroOrdemServico != null)
+				return false;
+		} else if (!numeroOrdemServico.equals(other.numeroOrdemServico))
+			return false;
 		if (numeroProjeto == null) {
 			if (other.numeroProjeto != null)
 				return false;
@@ -321,5 +327,7 @@ public class Projeto implements Serializable {
 			return false;
 		return true;
 	}
+
+	
 
 }

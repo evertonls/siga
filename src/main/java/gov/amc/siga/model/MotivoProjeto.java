@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 public class MotivoProjeto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private Long motivosId;
 	private Long projetoId;
 	private String motivoCodigo;
 
@@ -17,17 +16,8 @@ public class MotivoProjeto implements Serializable {
 
 	public MotivoProjeto(Long motivosId, Long projetoId, String motivoCodigo) {
 		super();
-		this.motivosId = motivosId;
 		this.projetoId = projetoId;
 		this.motivoCodigo = motivoCodigo;
-	}
-
-	public Long getMotivosId() {
-		return motivosId;
-	}
-
-	public void setMotivosId(Long motivosId) {
-		this.motivosId = motivosId;
 	}
 
 	public Long getProjetoId() {
@@ -46,17 +36,12 @@ public class MotivoProjeto implements Serializable {
 		this.motivoCodigo = motivoCodigo;
 	}
 
-	@Override
-	public String toString() {
-		return "Motivos [motivosId=" + motivosId + ", projetoId=" + projetoId + ", motivoCodigo=" + motivoCodigo + "]";
-	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((motivoCodigo == null) ? 0 : motivoCodigo.hashCode());
-		result = prime * result + ((motivosId == null) ? 0 : motivosId.hashCode());
 		result = prime * result + ((projetoId == null) ? 0 : projetoId.hashCode());
 		return result;
 	}
@@ -74,11 +59,6 @@ public class MotivoProjeto implements Serializable {
 			if (other.motivoCodigo != null)
 				return false;
 		} else if (!motivoCodigo.equals(other.motivoCodigo))
-			return false;
-		if (motivosId == null) {
-			if (other.motivosId != null)
-				return false;
-		} else if (!motivosId.equals(other.motivosId))
 			return false;
 		if (projetoId == null) {
 			if (other.projetoId != null)

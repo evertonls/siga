@@ -43,7 +43,7 @@ public class ClassificacaoProjetoDaoImplementacao implements ClassificacaoProjet
 	public void atualizarClassificacaoProjeto(ClassificacaoProjeto classificacoes) {
 		final String query = "UPDATE siga.classificacao_projeto SET classificacao_cod= ?, projeto_id= ? WHERE classificacao_id= ?;";
 		Object[] args = new Object[] { classificacoes.getClassificacaoCodigo(),
-				classificacoes.getProjetoId(), classificacoes.getClassificacaoId() };
+				classificacoes.getProjetoId(), classificacoes.getClassificacaoCodigo() };
 		int out = template.update(query, args);
 		if (out != 0) {
 			log.info("Classificacao salva!");
@@ -55,7 +55,7 @@ public class ClassificacaoProjetoDaoImplementacao implements ClassificacaoProjet
 	@Override
 	public void deletarClassificacaoProjeto(ClassificacaoProjeto classificacoes) {
 		final String query = "DELETE FROM siga.classificacao_projeto WHERE classificacao_id= ?";
-		Object[] args = new Object[] { classificacoes.getClassificacaoId() };
+		Object[] args = new Object[] { classificacoes.getClassificacaoCodigo() };
 		int out = template.update(query, args);
 		if (out != 0) {
 			log.info("Classificacao salva!");

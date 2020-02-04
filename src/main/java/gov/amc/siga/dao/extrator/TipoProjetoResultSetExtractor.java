@@ -13,7 +13,6 @@ public class TipoProjetoResultSetExtractor implements ResultSetExtractor<TipoPro
 	@Override
 	public TipoProjeto extractData(ResultSet rs) throws SQLException, DataAccessException {
 		TipoProjeto projetoTipificacoes = new TipoProjeto();
-		projetoTipificacoes.setProjetoTipificacoesId(rs.getLong("tipificacoes_id"));
 		projetoTipificacoes.setProjetoId(rs.getLong("projeto_id"));
 		projetoTipificacoes.setProjetoTipoCodigo(rs.getString("tipo_cod"));
 		return projetoTipificacoes;

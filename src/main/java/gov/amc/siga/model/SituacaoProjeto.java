@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 public class SituacaoProjeto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private Long situacoesId;
 	private String situacaoCodigo;
 	private Long projetoId;
 
@@ -17,17 +16,8 @@ public class SituacaoProjeto implements Serializable {
 
 	public SituacaoProjeto(Long situacoesId, String situacaoCodigo, Long projetoId) {
 		super();
-		this.situacoesId = situacoesId;
 		this.situacaoCodigo = situacaoCodigo;
 		this.projetoId = projetoId;
-	}
-
-	public Long getSituacoesId() {
-		return situacoesId;
-	}
-
-	public void setSituacoesId(Long situacoesId) {
-		this.situacoesId = situacoesId;
 	}
 
 	public String getSituacaoCodigo() {
@@ -46,11 +36,6 @@ public class SituacaoProjeto implements Serializable {
 		this.projetoId = projetoId;
 	}
 
-	@Override
-	public String toString() {
-		return "Situacoes [situacoesId=" + situacoesId + ", situacaoCodigo=" + situacaoCodigo + ", projetoId="
-				+ projetoId + "]";
-	}
 
 	@Override
 	public int hashCode() {
@@ -58,7 +43,6 @@ public class SituacaoProjeto implements Serializable {
 		int result = 1;
 		result = prime * result + ((projetoId == null) ? 0 : projetoId.hashCode());
 		result = prime * result + ((situacaoCodigo == null) ? 0 : situacaoCodigo.hashCode());
-		result = prime * result + ((situacoesId == null) ? 0 : situacoesId.hashCode());
 		return result;
 	}
 
@@ -80,11 +64,6 @@ public class SituacaoProjeto implements Serializable {
 			if (other.situacaoCodigo != null)
 				return false;
 		} else if (!situacaoCodigo.equals(other.situacaoCodigo))
-			return false;
-		if (situacoesId == null) {
-			if (other.situacoesId != null)
-				return false;
-		} else if (!situacoesId.equals(other.situacoesId))
 			return false;
 		return true;
 	}

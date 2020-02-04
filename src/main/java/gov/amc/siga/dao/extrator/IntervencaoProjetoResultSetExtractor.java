@@ -13,7 +13,6 @@ public class IntervencaoProjetoResultSetExtractor implements ResultSetExtractor<
 	@Override
 	public IntervencaoProjeto extractData(ResultSet rs) throws SQLException, DataAccessException {
 		IntervencaoProjeto intervencao = new IntervencaoProjeto();
-		intervencao.setIntervencoesId(rs.getLong("intervencoes_id"));
 		intervencao.setIntervencaoCodigo(rs.getString("intervencao_cod"));
 		intervencao.setProjetoId(rs.getLong("projeto_id"));
 		intervencao.setQuantidade(rs.getInt("quantidade"));

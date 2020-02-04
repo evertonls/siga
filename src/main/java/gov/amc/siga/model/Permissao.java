@@ -47,12 +47,6 @@ public class Permissao implements Serializable {
 	}
 
 	@Override
-	public String toString() {
-		return "Permissao [permissaoId=" + permissaoId + ", usuarioId=" + usuarioId + ", autorizaCod=" + autorizaCod
-				+ "]";
-	}
-
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;

@@ -14,7 +14,6 @@ public class OrdemServicoResultSetExtractor implements ResultSetExtractor<OrdemS
 	public OrdemServico extractData(ResultSet rs) throws SQLException, DataAccessException {
 		OrdemServico ordemServico = new OrdemServico();
 		ordemServico.setOrdemServicoId(rs.getLong("ordem_servico_id"));
-		ordemServico.setNumero(rs.getInt("numero"));
 		ordemServico.setMedicao(rs.getString("medicao"));
 		ordemServico.setProjetoId(rs.getLong("projeto_id"));
 		ordemServico.setObservacaoVistoria(rs.getString("observacao_vistoria"));

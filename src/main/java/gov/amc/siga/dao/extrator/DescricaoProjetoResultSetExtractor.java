@@ -13,7 +13,6 @@ public class DescricaoProjetoResultSetExtractor implements ResultSetExtractor<De
 	@Override
 	public DescricaoProjeto extractData(ResultSet rs) throws SQLException, DataAccessException {
 		DescricaoProjeto descricoes = new DescricaoProjeto();
-		descricoes.setDescricoesId(rs.getLong("descricoes_id"));
 		descricoes.setProjetoId(rs.getLong("projeto_id"));
 		descricoes.setDescricaoCodigo(rs.getString("descricao_cod"));
 		return descricoes;

@@ -26,7 +26,6 @@ public class DescricaoTipoteste {
 		
 		descricaoTipo.setDescricaoCodigo("Teste");
 		descricaoTipo.setDescricaoDescricao("testando atualizar");
-		descricaoTipo.setDescricaoId(8L);
 
 		
 //		descricao.salvarDescricaoTipo(descricaoTipo);

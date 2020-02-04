@@ -12,9 +12,9 @@ public class Autorizacao implements GrantedAuthority, Serializable {
 	private static final long serialVersionUID = 1L;
 	private String authority;
 	private String descricao;
-	
+
 	public Autorizacao() {
-		
+
 	}
 
 	public Autorizacao(String nome) {

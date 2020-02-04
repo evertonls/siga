@@ -68,12 +68,6 @@ public class Longradouro implements Serializable {
 	}
 
 	@Override
-	public String toString() {
-		return "Longradouro [longradouroId=" + longradouroId + ", longradouro=" + longradouro + ", tipo=" + tipo
-				+ ", titulo=" + titulo + ", jurisdicao=" + jurisdicao + "]";
-	}
-
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;

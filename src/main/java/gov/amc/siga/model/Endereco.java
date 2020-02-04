@@ -98,12 +98,6 @@ public class Endereco implements Serializable {
 		this.projetoId = projetoId;
 	}
 
-	@Override
-	public String toString() {
-		return "Endereco [enderecoId=" + enderecoId + ", longradouroId=" + longradouroId + ", longradouroCruzamento="
-				+ longradouroCruzamento + ", longradouroTrecho=" + longradouroTrecho + ", regional=" + regional
-				+ ", divisao=" + divisao + ", bairroId=" + bairroId + ", projetoId=" + projetoId + "]";
-	}
 
 	@Override
 	public int hashCode() {

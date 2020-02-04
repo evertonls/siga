@@ -13,7 +13,6 @@ public class MotivoProjetoResultSetExtractor implements ResultSetExtractor<Motiv
 	@Override
 	public MotivoProjeto extractData(ResultSet rs) throws SQLException, DataAccessException {
 		MotivoProjeto motivo = new MotivoProjeto();
-		motivo.setMotivosId(rs.getLong("motivo_id"));
 		motivo.setMotivoCodigo(rs.getString("motivo_cod"));
 		motivo.setProjetoId(rs.getLong("projeto_id"));
 		return motivo;

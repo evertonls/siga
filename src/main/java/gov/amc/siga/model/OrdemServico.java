@@ -10,7 +10,7 @@ public class OrdemServico implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long ordemServicoId;
-	private Integer numero;
+	private Integer numeroOrdemServico;
 	private String medicao;
 	private Long projetoId;
 	private String observacaoVistoria;
@@ -23,7 +23,7 @@ public class OrdemServico implements Serializable {
 			String observacao) {
 		super();
 		this.ordemServicoId = ordemServicoId;
-		this.numero = numero;
+		this.numeroOrdemServico = numero;
 		this.medicao = medicao;
 		this.projetoId = projetoId;
 		this.observacaoVistoria = observacaoVistoria;
@@ -38,12 +38,12 @@ public class OrdemServico implements Serializable {
 		this.ordemServicoId = ordemServicoId;
 	}
 
-	public Integer getNumero() {
-		return numero;
+	public Integer getnumeroOrdemServico() {
+		return numeroOrdemServico;
 	}
 
-	public void setNumero(Integer numero) {
-		this.numero = numero;
+	public void setnumeroOrdemServico(Integer numero) {
+		this.numeroOrdemServico = numero;
 	}
 
 	public String getMedicao() {
@@ -79,18 +79,11 @@ public class OrdemServico implements Serializable {
 	}
 
 	@Override
-	public String toString() {
-		return "OrdemServico [ordemServicoId=" + ordemServicoId + ", numero=" + numero + ", medicao=" + medicao
-				+ ", projetoId=" + projetoId + ", observacaoVistoria=" + observacaoVistoria + ", observacao="
-				+ observacao + "]";
-	}
-
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((medicao == null) ? 0 : medicao.hashCode());
-		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
+		result = prime * result + ((numeroOrdemServico == null) ? 0 : numeroOrdemServico.hashCode());
 		result = prime * result + ((observacao == null) ? 0 : observacao.hashCode());
 		result = prime * result + ((observacaoVistoria == null) ? 0 : observacaoVistoria.hashCode());
 		result = prime * result + ((ordemServicoId == null) ? 0 : ordemServicoId.hashCode());
@@ -112,10 +105,10 @@ public class OrdemServico implements Serializable {
 				return false;
 		} else if (!medicao.equals(other.medicao))
 			return false;
-		if (numero == null) {
-			if (other.numero != null)
+		if (numeroOrdemServico == null) {
+			if (other.numeroOrdemServico != null)
 				return false;
-		} else if (!numero.equals(other.numero))
+		} else if (!numeroOrdemServico.equals(other.numeroOrdemServico))
 			return false;
 		if (observacao == null) {
 			if (other.observacao != null)

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 public class ClassificacaoProjeto implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	private Long classificacaoId;
 	private String classificacaoCodigo;
 	private Long projetoId;
 	
@@ -16,17 +15,8 @@ public class ClassificacaoProjeto implements Serializable{
 
 	public ClassificacaoProjeto(Long classificacaoId, String classificacaoCodigo, Long projetoId) {
 		super();
-		this.classificacaoId = classificacaoId;
 		this.classificacaoCodigo = classificacaoCodigo;
 		this.projetoId = projetoId;
-	}
-
-	public Long getClassificacaoId() {
-		return classificacaoId;
-	}
-
-	public void setClassificacaoId(Long classificacaoId) {
-		this.classificacaoId = classificacaoId;
 	}
 
 	public String getClassificacaoCodigo() {
@@ -46,17 +36,10 @@ public class ClassificacaoProjeto implements Serializable{
 	}
 
 	@Override
-	public String toString() {
-		return "Classificacoes [classificacaoId=" + classificacaoId + ", classificacaoCodigo=" + classificacaoCodigo
-				+ ", projetoId=" + projetoId + "]";
-	}
-
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((classificacaoCodigo == null) ? 0 : classificacaoCodigo.hashCode());
-		result = prime * result + ((classificacaoId == null) ? 0 : classificacaoId.hashCode());
 		result = prime * result + ((projetoId == null) ? 0 : projetoId.hashCode());
 		return result;
 	}
@@ -74,11 +57,6 @@ public class ClassificacaoProjeto implements Serializable{
 			if (other.classificacaoCodigo != null)
 				return false;
 		} else if (!classificacaoCodigo.equals(other.classificacaoCodigo))
-			return false;
-		if (classificacaoId == null) {
-			if (other.classificacaoId != null)
-				return false;
-		} else if (!classificacaoId.equals(other.classificacaoId))
 			return false;
 		if (projetoId == null) {
 			if (other.projetoId != null)
