@@ -21,6 +21,11 @@ public class ClassificacaoTipoDaoImplemetacao implements ClassificacaoTipoDao, S
 	private JdbcTemplate template;
 	private Logger log = LoggerFactory.getLogger(getClass());
 
+	private final String salvar = "INSERT INTO siga.classificacao_tipo (classificacao_cod, classificacao_desc) VALUES( ?, ?)";
+	private final String atualizar = "UPDATE siga.classificacao_tipo SET classificacao_cod= ?, classificacao_desc= ? WHERE classificacao_cod= ?";
+	private final String deletar = "DELETE FROM siga.classificacao_tipo WHERE classificacao_cod= ?";
+	private final String listar = "SELECT  classificacao_cod, classificacao_desc FROM siga.classificacao_tipo";
+
 	@Override
 	public void setDataSource(DataSource ds) {
 		this.template = new JdbcTemplate(ds);
@@ -28,10 +33,9 @@ public class ClassificacaoTipoDaoImplemetacao implements ClassificacaoTipoDao, S
 
 	@Override
 	public void salvarClassificacaoTipo(ClassificacaoTipo classificacaoTipo) {
-		final String query = "INSERT INTO siga.classificacao_tipo (classificacao_cod, classificacao_desc) VALUES( ?, ?)";
 		Object[] args = new Object[] { classificacaoTipo.getClassificacaoCodigo().toUpperCase(),
 				classificacaoTipo.getClassificacaoDescricao().toUpperCase() };
-		int out = template.update(query, args);
+		int out = template.update(salvar, args);
 		if (out != 0) {
 			log.info("Tipo de classificação salva!");
 		} else {
@@ -41,10 +45,9 @@ public class ClassificacaoTipoDaoImplemetacao implements ClassificacaoTipoDao, S
 
 	@Override
 	public void atualizarClassificacaoTipo(ClassificacaoTipo classificacaoTipo) {
-		final String query = "UPDATE siga.classificacao_tipo SET classificacao_cod= ?, classificacao_desc= ? WHERE classificacao_id= ?";
 		Object[] args = new Object[] { classificacaoTipo.getClassificacaoCodigo().toUpperCase(),
 				classificacaoTipo.getClassificacaoDescricao().toUpperCase() };
-		int out = template.update(query, args);
+		int out = template.update(atualizar, args);
 		if(out != 0) {
 			log.info("Tipo de classificacao atualizada!");
 		}else {
@@ -54,9 +57,8 @@ public class ClassificacaoTipoDaoImplemetacao implements ClassificacaoTipoDao, S
 
 	@Override
 	public void deletarClassificacaoTipo(ClassificacaoTipo classificacaoTipo) {
-		final String query = "DELETE FROM siga.classificacao_tipo WHERE classificacao_cod= ?";
 		Object[] args = new Object[] { classificacaoTipo.getClassificacaoCodigo().toUpperCase() };
-		int out = template.update(query, args);
+		int out = template.update(deletar, args);
 		if (out != 0) {
 			log.info("Tipo de classificação deletada!");
 		} else {
@@ -66,8 +68,7 @@ public class ClassificacaoTipoDaoImplemetacao implements ClassificacaoTipoDao, S
 
 	@Override
 	public List<ClassificacaoTipo> listarTodasClassificacaoTipo() {
-		final String query = "SELECT classificacao_id, classificacao_cod, classificacao_desc FROM siga.classificacao_tipo";
-		return template.query(query, new ClassificacaoTipoMapper());
+		return template.query(listar, new ClassificacaoTipoMapper());
 	}
 
 }

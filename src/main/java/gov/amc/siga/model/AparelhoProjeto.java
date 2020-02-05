@@ -9,16 +9,16 @@ public class AparelhoProjeto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Long projetoId;
-	private String aparelhamentoCodigo;
+	private String aparelhoCodigo;
 	private Double quantidade;
 
 	public AparelhoProjeto() {
 	}
 
-	public AparelhoProjeto(Long aparelhamentoId, Long projetoId, String aparelhamentoCodigo, Double quantidade) {
+	public AparelhoProjeto(String aparelhamentoCodigo, Long projetoId, Double quantidade) {
 		super();
 		this.projetoId = projetoId;
-		this.aparelhamentoCodigo = aparelhamentoCodigo;
+		this.aparelhoCodigo = aparelhamentoCodigo;
 		this.quantidade = quantidade;
 	}
 
@@ -30,12 +30,12 @@ public class AparelhoProjeto implements Serializable {
 		this.projetoId = projetoId;
 	}
 
-	public String getAparelhamentoCodigo() {
-		return aparelhamentoCodigo;
+	public String getAparelhoCodigo() {
+		return aparelhoCodigo;
 	}
 
-	public void setAparelhamentoCodigo(String aparelhamentoCodigo) {
-		this.aparelhamentoCodigo = aparelhamentoCodigo;
+	public void setAparelhoCodigo(String aparelhamentoCodigo) {
+		this.aparelhoCodigo = aparelhamentoCodigo;
 	}
 
 	public Double getQuantidade() {
@@ -50,7 +50,7 @@ public class AparelhoProjeto implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((aparelhamentoCodigo == null) ? 0 : aparelhamentoCodigo.hashCode());
+		result = prime * result + ((aparelhoCodigo == null) ? 0 : aparelhoCodigo.hashCode());
 		result = prime * result + ((projetoId == null) ? 0 : projetoId.hashCode());
 		result = prime * result + ((quantidade == null) ? 0 : quantidade.hashCode());
 		return result;
@@ -65,10 +65,10 @@ public class AparelhoProjeto implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		AparelhoProjeto other = (AparelhoProjeto) obj;
-		if (aparelhamentoCodigo == null) {
-			if (other.aparelhamentoCodigo != null)
+		if (aparelhoCodigo == null) {
+			if (other.aparelhoCodigo != null)
 				return false;
-		} else if (!aparelhamentoCodigo.equals(other.aparelhamentoCodigo))
+		} else if (!aparelhoCodigo.equals(other.aparelhoCodigo))
 			return false;
 		if (projetoId == null) {
 			if (other.projetoId != null)

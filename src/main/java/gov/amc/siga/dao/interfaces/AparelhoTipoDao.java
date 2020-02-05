@@ -12,7 +12,9 @@ public interface AparelhoTipoDao {
 
 	void salvarAparelhoTipo(AparelhoTipo aparelhoTipo);
 	
-	void atualizarAparelhoTipo(AparelhoTipo aparelhoTipo);
+	void atualizarCodigoAparelhoTipo(AparelhoTipo aparelhoTipo);
+	
+	void atualizarDescricaoAparelhoTipo(AparelhoTipo aparelhoTipo);
 
 	void deletarAparelhoTipo(AparelhoTipo aparelhoTipo);
 			

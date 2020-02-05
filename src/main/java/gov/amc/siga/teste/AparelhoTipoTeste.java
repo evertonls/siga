@@ -20,18 +20,20 @@ public class AparelhoTipoTeste {
 		
 		AparelhoTipoDaoImplementacao aparelhoTipo = new AparelhoTipoDaoImplementacao();
 		AparelhoTipo aparelho = new AparelhoTipo();
+		AparelhoTipo aparelho2 = new AparelhoTipo();
 		
 		aparelho.setAparelhoCodigo("Teste");
 		aparelho.setAparelhoDescricao("Testando");
+
 //		
-		aparelhoTipo.setDataSource(dataSource);
+//		aparelhoTipo.setDataSource(dataSource);
 //		aparelhoTipo.deletarAparelhoTipo(aparelho);
-		aparelhoTipo.salvarAparelhoTipo(aparelho);
+//		aparelhoTipo.salvarAparelhoTipo(aparelho);
 		
 		List<AparelhoTipo> lista = aparelhoTipo.listarTodosAparelhosTipo();
 		
 		for (AparelhoTipo aparelhoTipo2 : lista) {
-			System.out.println(aparelhoTipo2.toString());
+			System.out.println("Aparleho codigo: " + aparelhoTipo2.getAparelhoCodigo() + " - Aparelho descricao: " + aparelhoTipo2.getAparelhoDescricao());
 		}
 
 	}

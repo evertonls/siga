@@ -14,7 +14,7 @@ public class AparelhoTipo implements Serializable {
 	public AparelhoTipo() {
 	}
 
-	public AparelhoTipo(Long aparelhoId, String aparelhoCodigo, String aparelhoDescricao) {
+	public AparelhoTipo(String aparelhoCodigo, String aparelhoDescricao) {
 		super();
 		this.aparelhoCodigo = aparelhoCodigo;
 		this.aparelhoDescricao = aparelhoDescricao;

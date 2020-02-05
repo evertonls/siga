@@ -12,7 +12,9 @@ public interface EquipeTipoDao {
 	
 	void salvarEquipeTipo(EquipeTipo equipeTipo);
 	
-	void atualizarEquipeTipo(EquipeTipo equipeTipo);
+	void atualizarCodigoEquipeTipo(EquipeTipo equipeTipo);
+	
+	void atualizarDescricaoEquipeTipo(EquipeTipo equipeTipo);
 	
 	void deletarEquipeCodigo(EquipeTipo equipeTipo);
 	
