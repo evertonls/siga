@@ -14,7 +14,7 @@ public class ProjetoTipo implements Serializable {
 	public ProjetoTipo() {
 	}
 
-	public ProjetoTipo(Long projetoTipoId, String projetoTipoCodigo, String projetoTipoDescricao) {
+	public ProjetoTipo(String projetoTipoCodigo, String projetoTipoDescricao) {
 		super();
 		this.projetoTipoCodigo = projetoTipoCodigo;
 		this.projetoTipoDescricao = projetoTipoDescricao;

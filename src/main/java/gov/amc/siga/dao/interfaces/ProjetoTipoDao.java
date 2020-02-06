@@ -12,7 +12,9 @@ public interface ProjetoTipoDao {
 	
 	void salvarProjetoTipo(ProjetoTipo projetoTipo);
 	
-	void atualizarProjetoTipo(ProjetoTipo projetoTipo);
+	void atualizarProjetoTipoCodigo(ProjetoTipo projetoTipo);
+	
+	void atualizarProjetoTipoDescricao(ProjetoTipo projetoTipo);
 	
 	void deletarProjetoTipo(ProjetoTipo projetoTipo);
 	

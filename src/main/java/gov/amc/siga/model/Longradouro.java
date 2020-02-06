@@ -14,17 +14,22 @@ public class Longradouro implements Serializable {
 	private String tipo;
 	private String titulo;
 	private String jurisdicao;
+	private String trecho;
+	private String cruzamento;
 
 	public Longradouro() {
 	}
 
-	public Longradouro(Long longradouroId, String longradouro, String tipo, String titulo, String jurisdicao) {
+	public Longradouro(Long longradouroId, String longradouro, String tipo, String titulo, String jurisdicao,
+			String trecho, String cruzamento) {
 		super();
 		this.longradouroId = longradouroId;
 		this.longradouro = longradouro;
 		this.tipo = tipo;
 		this.titulo = titulo;
 		this.jurisdicao = jurisdicao;
+		this.trecho = trecho;
+		this.cruzamento = cruzamento;
 	}
 
 	public Long getLongradouroId() {
@@ -67,15 +72,33 @@ public class Longradouro implements Serializable {
 		this.jurisdicao = jurisdicao;
 	}
 
+	public String getTrecho() {
+		return trecho;
+	}
+
+	public void setTrecho(String trecho) {
+		this.trecho = trecho;
+	}
+
+	public String getCruzamento() {
+		return cruzamento;
+	}
+
+	public void setCruzamento(String cruzamento) {
+		this.cruzamento = cruzamento;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((cruzamento == null) ? 0 : cruzamento.hashCode());
 		result = prime * result + ((jurisdicao == null) ? 0 : jurisdicao.hashCode());
 		result = prime * result + ((longradouro == null) ? 0 : longradouro.hashCode());
 		result = prime * result + ((longradouroId == null) ? 0 : longradouroId.hashCode());
 		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
 		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
+		result = prime * result + ((trecho == null) ? 0 : trecho.hashCode());
 		return result;
 	}
 
@@ -88,6 +111,11 @@ public class Longradouro implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Longradouro other = (Longradouro) obj;
+		if (cruzamento == null) {
+			if (other.cruzamento != null)
+				return false;
+		} else if (!cruzamento.equals(other.cruzamento))
+			return false;
 		if (jurisdicao == null) {
 			if (other.jurisdicao != null)
 				return false;
@@ -112,6 +140,11 @@ public class Longradouro implements Serializable {
 			if (other.titulo != null)
 				return false;
 		} else if (!titulo.equals(other.titulo))
+			return false;
+		if (trecho == null) {
+			if (other.trecho != null)
+				return false;
+		} else if (!trecho.equals(other.trecho))
 			return false;
 		return true;
 	}

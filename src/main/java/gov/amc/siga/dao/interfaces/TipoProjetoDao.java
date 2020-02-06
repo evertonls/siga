@@ -10,12 +10,14 @@ public interface TipoProjetoDao {
 
 	void setDataSource(DataSource ds);
 
-	void salvarTipoProjeto(TipoProjeto projetoTipificacoes);
+	void salvarTipoProjeto(TipoProjeto tipoProjeto);
 
-	void atualizarTipoProjeto(TipoProjeto projetoTipificacoes);
+	void atualizarTipoProjetoCodigo(TipoProjeto tipoProjeto);
+	
+	void atualizarTipoProjetoDescricao(TipoProjeto tipoProjeto);
 
-	void deletarTipoProjeto(TipoProjeto projetoTipificacoes);
+	void deletarTipoProjeto(TipoProjeto tipoProjeto);
 
-	List<TipoProjeto> listarTodosProjetosTipificacoes();
+	List<TipoProjeto> listarTodosProjetosTiposs();
 
 }

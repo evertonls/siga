@@ -1,6 +1,7 @@
 package gov.amc.siga.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import org.springframework.stereotype.Component;
 
@@ -14,7 +15,7 @@ public class EquipeTipo implements Serializable {
 	public EquipeTipo() {
 	}
 
-	public EquipeTipo(Long equipeTipoId, String equipeCodigo, String equipeDescricao) {
+	public EquipeTipo(String equipeCodigo, String equipeDescricao) {
 		super();
 		this.equipeCodigo = equipeCodigo;
 		this.equipeDescricao = equipeDescricao;
@@ -36,36 +37,22 @@ public class EquipeTipo implements Serializable {
 		this.equipeDescricao = equipeDescricao;
 	}
 
-
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((equipeCodigo == null) ? 0 : equipeCodigo.hashCode());
-		result = prime * result + ((equipeDescricao == null) ? 0 : equipeDescricao.hashCode());
-		return result;
+		return Objects.hash(equipeCodigo);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (obj == this)
 			return true;
-		if (obj == null)
+
+		if (!(obj instanceof EquipeTipo))
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		EquipeTipo other = (EquipeTipo) obj;
-		if (equipeCodigo == null) {
-			if (other.equipeCodigo != null)
-				return false;
-		} else if (!equipeCodigo.equals(other.equipeCodigo))
-			return false;
-		if (equipeDescricao == null) {
-			if (other.equipeDescricao != null)
-				return false;
-		} else if (!equipeDescricao.equals(other.equipeDescricao))
-			return false;
-		return true;
+
+		EquipeTipo et = (EquipeTipo) obj;
+
+		return Objects.equals(equipeCodigo, et.equipeCodigo);
 	}
 
 }
