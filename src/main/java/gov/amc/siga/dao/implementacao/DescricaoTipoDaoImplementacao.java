@@ -3,14 +3,11 @@ package gov.amc.siga.dao.implementacao;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.sql.DataSource;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import gov.amc.siga.dao.interfaces.DescricaoTipoDao;
-import gov.amc.siga.dao.mapper.DescricaoTipoMapper;
 import gov.amc.siga.model.DescricaoTipo;
 
 public class DescricaoTipoDaoImplementacao implements DescricaoTipoDao, Serializable {
@@ -25,10 +22,6 @@ public class DescricaoTipoDaoImplementacao implements DescricaoTipoDao, Serializ
 	private JdbcTemplate template;
 	private Logger log = LoggerFactory.getLogger(getClass());
 
-	@Override
-	public void setDataSource(DataSource ds) {
-		this.template = new JdbcTemplate(ds);
-	}
 
 	@Override
 	public void salvarDescricaoTipo(DescricaoTipo descricaoTipo) {
@@ -65,7 +58,9 @@ public class DescricaoTipoDaoImplementacao implements DescricaoTipoDao, Serializ
 
 	@Override
 	public List<DescricaoTipo> listarTodasDescricoesTipos() {
-		return template.query(listar, new DescricaoTipoMapper());
+		// TODO implementar lista de descriçoes
+		return null;
 	}
+	
 
 }

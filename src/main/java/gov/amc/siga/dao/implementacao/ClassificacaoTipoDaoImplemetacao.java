@@ -3,15 +3,12 @@ package gov.amc.siga.dao.implementacao;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.sql.DataSource;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import gov.amc.siga.dao.interfaces.ClassificacaoTipoDao;
-import gov.amc.siga.dao.mapper.ClassificacaoTipoMapper;
 import gov.amc.siga.model.ClassificacaoTipo;
 
 @Repository
@@ -26,9 +23,8 @@ public class ClassificacaoTipoDaoImplemetacao implements ClassificacaoTipoDao, S
 	private final String deletar = "DELETE FROM siga.classificacao_tipo WHERE classificacao_cod= ?";
 	private final String listar = "SELECT  classificacao_cod, classificacao_desc FROM siga.classificacao_tipo";
 
-	@Override
-	public void setDataSource(DataSource ds) {
-		this.template = new JdbcTemplate(ds);
+	public ClassificacaoTipoDaoImplemetacao() {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -36,11 +32,7 @@ public class ClassificacaoTipoDaoImplemetacao implements ClassificacaoTipoDao, S
 		Object[] args = new Object[] { classificacaoTipo.getClassificacaoCodigo().toUpperCase(),
 				classificacaoTipo.getClassificacaoDescricao().toUpperCase() };
 		int out = template.update(salvar, args);
-		if (out != 0) {
-			log.info("Tipo de classificação salva!");
-		} else {
-			log.info("Falha ao salvar o tipo de classificação");
-		}
+
 	}
 
 	@Override
@@ -68,7 +60,8 @@ public class ClassificacaoTipoDaoImplemetacao implements ClassificacaoTipoDao, S
 
 	@Override
 	public List<ClassificacaoTipo> listarTodasClassificacaoTipo() {
-		return template.query(listar, new ClassificacaoTipoMapper());
+		// TODO Auto-generated constructor stub
+		return null;
 	}
 
 }
