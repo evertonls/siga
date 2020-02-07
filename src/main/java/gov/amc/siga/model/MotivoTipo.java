@@ -15,7 +15,7 @@ public class MotivoTipo implements Serializable {
 	public MotivoTipo() {
 	}
 
-	public MotivoTipo(Long motivoTipoId, String motivoCodigo, String motivoDescricao) {
+	public MotivoTipo(String motivoCodigo, String motivoDescricao) {
 		super();
 		this.motivoCodigo = motivoCodigo;
 		this.motivoDescricao = motivoDescricao;

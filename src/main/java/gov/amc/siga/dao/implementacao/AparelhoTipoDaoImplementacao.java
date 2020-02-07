@@ -22,7 +22,7 @@ public class AparelhoTipoDaoImplementacao implements AparelhoTipoDao, Serializab
 	private JdbcTemplate template;
 	private Logger log = LoggerFactory.getLogger(getClass());
 
-	private final String listar = "SELECT aparelho_cod, aparelho_desc FROM siga.aparelho_tipo";
+	private static final String QUERY = "SELECT aparelho_cod, aparelho_desc FROM siga.aparelho_tipo";
 
 	public AparelhoTipoDaoImplementacao(DataSource ds) {
 		this.template = new JdbcTemplate(ds);
@@ -32,9 +32,8 @@ public class AparelhoTipoDaoImplementacao implements AparelhoTipoDao, Serializab
 	public void salvarAparelhoTipo(AparelhoTipo aparelhoTipo) {
 		log.info("Salvando novo tipo de aparelho. " + aparelhoTipo.getAparelhoCodigo());
 		final String salvar = "INSERT INTO siga.aparelho_tipo (aparelho_cod, aparelho_desc) VALUES (?, ?)";
-		template.update(salvar, aparelhoTipo.getAparelhoCodigo(),
-				aparelhoTipo.getAparelhoDescricao());
-		}
+		template.update(salvar, aparelhoTipo.getAparelhoCodigo(), aparelhoTipo.getAparelhoDescricao());
+	}
 
 	@Override
 	public void atualizarCodigoAparelhoTipo(AparelhoTipo aparelhoTipo) {
@@ -42,7 +41,7 @@ public class AparelhoTipoDaoImplementacao implements AparelhoTipoDao, Serializab
 		final String atualizarCodigo = "UPDATE siga.aparelho_tipo SET aparelho_cod=? WHERE aparelho_cod=?";
 		template.update(atualizarCodigo, aparelhoTipo.getAparelhoCodigo());
 	}
-	
+
 	@Override
 	public void atualizarDescricaoAparelhoTipo(AparelhoTipo aparelhoTipo) {
 		log.info("Atualizando descrição.");
@@ -59,9 +58,9 @@ public class AparelhoTipoDaoImplementacao implements AparelhoTipoDao, Serializab
 
 	@Override
 	public List<AparelhoTipo> listarTodosAparelhosTipo() {
-		return template.query(listar, this::aparelhoMapRow);
+		return template.query(QUERY, this::aparelhoMapRow);
 	}
-	
+
 	private AparelhoTipo aparelhoMapRow(ResultSet rs, int numRow) throws SQLException {
 		return new AparelhoTipo(rs.getString("aparelho_cod"), rs.getString("aparelho_desc"));
 	}

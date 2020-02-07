@@ -15,7 +15,7 @@ public class DescricaoTipo implements Serializable {
 	public DescricaoTipo() {
 	}
 
-	public DescricaoTipo(Long descricaoId, String descricaoCodigo, String descricaoDescricao) {
+	public DescricaoTipo(String descricaoCodigo, String descricaoDescricao) {
 		super();
 		this.descricaoCodigo = descricaoCodigo;
 		this.descricaoDescricao = descricaoDescricao;

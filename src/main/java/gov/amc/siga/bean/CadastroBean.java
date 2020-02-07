@@ -23,6 +23,13 @@ public class CadastroBean implements Serializable {
 	private List<EquipeTipo> listaEquipes;
 	private EquipeTipo eqSelecionada;
 
+	@Autowired
+	public CadastroBean(EquipeTipoDao equipeTipoDao) {
+		super();
+		this.equipeTipoDao = equipeTipoDao;
+
+	}
+
 	public List<EquipeTipo> getListaEquipes() {
 		return listaEquipes;
 	}
@@ -37,12 +44,6 @@ public class CadastroBean implements Serializable {
 
 	public void setEqSelecionada(EquipeTipo eqSelecionada) {
 		this.eqSelecionada = eqSelecionada;
-	}
-
-	@Autowired
-	public CadastroBean(EquipeTipoDao equipeTipoDao) {
-		super();
-		this.equipeTipoDao = equipeTipoDao;
 	}
 
 	@PostConstruct

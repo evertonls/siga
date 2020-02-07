@@ -12,19 +12,25 @@ public class Endereco implements Serializable {
 
 	private Long enderecoId;
 	private Bairro bairro;
+	private Projeto projeto;
 	private String regional;
 	private String divisao;
 
 	public Endereco() {
 	}
+	
+	
 
-	public Endereco(Long enderecoId, Bairro bairro, String regional, String divisao) {
+	public Endereco(Long enderecoId, Bairro bairro, Projeto projeto, String regional, String divisao) {
 		super();
 		this.enderecoId = enderecoId;
 		this.bairro = bairro;
+		this.projeto = projeto;
 		this.regional = regional;
 		this.divisao = divisao;
 	}
+
+
 
 	public String getRegional() {
 		return regional;
@@ -46,10 +52,19 @@ public class Endereco implements Serializable {
 		return bairro;
 	}
 
+	public Projeto getProjeto() {
+		return projeto;
+	}
+
+	public void setProjeto(Projeto projeto) {
+		this.projeto = projeto;
+	}
+	
 	public void setBairro(Bairro bairro) {
 		this.bairro = bairro;
 	}
-
+	
+	
 	public String getDivisao() {
 		return divisao;
 	}

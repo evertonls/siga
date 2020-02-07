@@ -22,45 +22,44 @@ public class EquipeTipoDaoImplementacao implements EquipeTipoDao, Serializable {
 	private JdbcTemplate template;
 	private Logger log = LoggerFactory.getLogger(getClass());
 
-	private final String listar = "SELECT equipe_cod, equipe_desc FROM siga.equipe_tipo";
+	private static final String QUERY = "SELECT equipe_cod, equipe_desc FROM siga.equipe_tipo";
 	
 	
 	public EquipeTipoDaoImplementacao(DataSource ds) {
 		this.template = new JdbcTemplate(ds);
-	
 	}
 
 	@Override
 	public void salvarEquipeTipo(EquipeTipo equipeTipo) {
 		log.info("Salvando novo tipo de equipe. " + equipeTipo.getEquipeCodigo());
-		final String query = "INSERT INTO siga.equipe_tipo (equipe_cod, equipe_desc) VALUES(?, ?)";
-		template.update(query, equipeTipo.getEquipeCodigo(), equipeTipo.getEquipeDescricao());
+		final String sql = "INSERT INTO siga.equipe_tipo (equipe_cod, equipe_desc) VALUES(?, ?)";
+		template.update(sql, equipeTipo.getEquipeCodigo(), equipeTipo.getEquipeDescricao());
 	}
 
 	@Override
 	public void atualizarCodigoEquipeTipo(EquipeTipo equipeTipo) {
 		log.info("Atualizando codigo de equipe..." + equipeTipo.getEquipeCodigo());
-		final String query = "UPDATE siga.equipe_tipo SET equipe_cod=? WHERE equipe_cod=?";
-		template.update(query, equipeTipo.getEquipeCodigo(), equipeTipo.getEquipeCodigo());
+		final String sql = "UPDATE siga.equipe_tipo SET equipe_cod=? WHERE equipe_cod=?";
+		template.update(sql, equipeTipo.getEquipeCodigo(), equipeTipo.getEquipeCodigo());
 	}
 
 	@Override
 	public void atualizarDescricaoEquipeTipo(EquipeTipo equipeTipo) {
 		log.info("Atualizando descrição de equipe..." + equipeTipo.getEquipeDescricao());
-		final String query = "UPDATE siga.equipe_tipo SET equipe_desc=? WHERE equipe_cod=?";
-		template.update(query, equipeTipo.getEquipeDescricao(), equipeTipo.getEquipeCodigo());
+		final String sql = "UPDATE siga.equipe_tipo SET equipe_desc=? WHERE equipe_cod=?";
+		template.update(sql, equipeTipo.getEquipeDescricao(), equipeTipo.getEquipeCodigo());
 	}
 
 	@Override
 	public void deletarEquipeCodigo(EquipeTipo equipeTipo) {
 		log.info("Deletando tipo de equipe..." + equipeTipo.getEquipeCodigo());
-		final String query = "DELETE FROM siga.equipe_tipo WHERE equipe_cod=?";
-		template.update(query, equipeTipo.getEquipeCodigo());
+		final String sql = "DELETE FROM siga.equipe_tipo WHERE equipe_cod=?";
+		template.update(sql, equipeTipo.getEquipeCodigo());
 	}
 
 	@Override
 	public List<EquipeTipo> listarTodasEquipesTipo() {
-		return template.query(listar, this::equipeTipoMapRow);
+		return template.query(QUERY, this::equipeTipoMapRow);
 	}
 
 	private EquipeTipo equipeTipoMapRow(ResultSet rs, int numRow) throws SQLException {
