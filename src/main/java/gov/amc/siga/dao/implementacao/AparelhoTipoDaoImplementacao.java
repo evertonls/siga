@@ -24,8 +24,7 @@ public class AparelhoTipoDaoImplementacao implements AparelhoTipoDao, Serializab
 
 	private final String listar = "SELECT aparelho_cod, aparelho_desc FROM siga.aparelho_tipo";
 
-	@Override
-	public void setDataSource(DataSource ds) {
+	public AparelhoTipoDaoImplementacao(DataSource ds) {
 		this.template = new JdbcTemplate(ds);
 	}
 

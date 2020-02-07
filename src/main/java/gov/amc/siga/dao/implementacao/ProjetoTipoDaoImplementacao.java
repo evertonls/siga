@@ -5,8 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.sql.DataSource;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,11 +18,6 @@ public class ProjetoTipoDaoImplementacao implements ProjetoTipoDao, Serializable
 	private JdbcTemplate template;
 	private Logger log = LoggerFactory.getLogger(getClass());
 	private static final String QUERY = "SELECT tipo_cod, tipo_desc FROM siga.projeto_tipo";
-	
-	@Override
-	public void setDataSource(DataSource ds) {
-		this.template = new JdbcTemplate(ds);
-	}
 
 	@Override
 	public void salvarProjetoTipo(ProjetoTipo projetoTipo) {
@@ -34,14 +27,14 @@ public class ProjetoTipoDaoImplementacao implements ProjetoTipoDao, Serializable
 	}
 
 	@Override
-	public void atualizarProjetoTipoCodigo(ProjetoTipo projetoTipo) {
+	public void atualizarCodigoProjetoTipo(ProjetoTipo projetoTipo) {
 		log.info("Atualizando codigo..." + projetoTipo.getProjetoTipoCodigo());
 		final String sql = "UPDATE siga.projeto_tipo SET tipo_cod=? WHERE tipo_cod=?";
 		template.update(sql, projetoTipo.getProjetoTipoCodigo(), projetoTipo.getProjetoTipoCodigo());
 	}
 
 	@Override
-	public void atualizarProjetoTipoDescricao(ProjetoTipo projetoTipo) {
+	public void atualizarDescricaoProjetoTipo(ProjetoTipo projetoTipo) {
 		log.info("Atualizando descricção... " + projetoTipo.getProjetoTipoDescricao());
 		final String sql = "UPDATE siga.projeto_tipo SET tipo_desc=? WHERE tipo_cod=?";
 		template.update(sql, projetoTipo.getProjetoTipoDescricao(), projetoTipo.getProjetoTipoCodigo());

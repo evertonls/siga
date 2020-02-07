@@ -28,6 +28,8 @@ public class Projeto implements Serializable {
 	private LocalDate dataEquipe;
 	private LocalDate dataInicial;
 	private LocalDate dataExecucaoRecape;
+	
+	
 
 	public Projeto() {
 	}
@@ -327,7 +329,5 @@ public class Projeto implements Serializable {
 			return false;
 		return true;
 	}
-
-	
 
 }

@@ -1,6 +1,7 @@
 package gov.amc.siga.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import org.springframework.stereotype.Component;
 
@@ -9,10 +10,10 @@ public class OrdemServico implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	private Long projetoId;
 	private Long ordemServicoId;
 	private Integer numeroOrdemServico;
 	private String medicao;
-	private Long projetoId;
 	private String observacaoVistoria;
 	private String observacao;
 
@@ -80,57 +81,19 @@ public class OrdemServico implements Serializable {
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((medicao == null) ? 0 : medicao.hashCode());
-		result = prime * result + ((numeroOrdemServico == null) ? 0 : numeroOrdemServico.hashCode());
-		result = prime * result + ((observacao == null) ? 0 : observacao.hashCode());
-		result = prime * result + ((observacaoVistoria == null) ? 0 : observacaoVistoria.hashCode());
-		result = prime * result + ((ordemServicoId == null) ? 0 : ordemServicoId.hashCode());
-		result = prime * result + ((projetoId == null) ? 0 : projetoId.hashCode());
-		return result;
+		return Objects.hash(ordemServicoId);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if(this == obj)
 			return true;
-		if (obj == null)
+		if( !( obj instanceof OrdemServico))
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		OrdemServico other = (OrdemServico) obj;
-		if (medicao == null) {
-			if (other.medicao != null)
-				return false;
-		} else if (!medicao.equals(other.medicao))
-			return false;
-		if (numeroOrdemServico == null) {
-			if (other.numeroOrdemServico != null)
-				return false;
-		} else if (!numeroOrdemServico.equals(other.numeroOrdemServico))
-			return false;
-		if (observacao == null) {
-			if (other.observacao != null)
-				return false;
-		} else if (!observacao.equals(other.observacao))
-			return false;
-		if (observacaoVistoria == null) {
-			if (other.observacaoVistoria != null)
-				return false;
-		} else if (!observacaoVistoria.equals(other.observacaoVistoria))
-			return false;
-		if (ordemServicoId == null) {
-			if (other.ordemServicoId != null)
-				return false;
-		} else if (!ordemServicoId.equals(other.ordemServicoId))
-			return false;
-		if (projetoId == null) {
-			if (other.projetoId != null)
-				return false;
-		} else if (!projetoId.equals(other.projetoId))
-			return false;
-		return true;
+		
+		OrdemServico os = (OrdemServico) obj;
+		
+		return Objects.equals(ordemServicoId, os.getOrdemServicoId());
 	}
 
 }

@@ -11,7 +11,7 @@ import org.hibernate.validator.constraints.Length;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Setor implements  Comparable<Setor>, Serializable{
+public class Setor implements Comparable<Setor>, Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Long id;
@@ -35,8 +35,8 @@ public class Setor implements  Comparable<Setor>, Serializable{
 		this.id = id;
 		this.codigo = codigo;
 	}
-		
-	public Setor (String codigo) {
+
+	public Setor(String codigo) {
 		this.codigo = codigo;
 	}
 
@@ -74,15 +74,15 @@ public class Setor implements  Comparable<Setor>, Serializable{
 
 		if (obj == this)
 			return true;
-		
-		if(!(obj instanceof Setor))
+
+		if (!(obj instanceof Setor))
 			return false;
-		
+
 		Setor s = (Setor) obj;
-		
+
 		return Objects.equals(this.getCodigo(), s.getCodigo());
 	}
-	
+
 	@Override
 	public int compareTo(Setor o) {
 		Collator brcollator = Collator.getInstance(new Locale("pt", "BR"));
@@ -94,12 +94,4 @@ public class Setor implements  Comparable<Setor>, Serializable{
 		}
 	}
 
-	@Override
-	public String toString() {
-		return "Setor id: " + id + ", codigo: " + codigo + ", descricao: " + descricao;
-	}
-	
-
-
 }
-

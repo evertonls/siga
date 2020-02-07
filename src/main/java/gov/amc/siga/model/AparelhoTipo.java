@@ -1,6 +1,7 @@
 package gov.amc.siga.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import org.springframework.stereotype.Component;
 
@@ -38,33 +39,21 @@ public class AparelhoTipo implements Serializable {
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((aparelhoCodigo == null) ? 0 : aparelhoCodigo.hashCode());
-		result = prime * result + ((aparelhoDescricao == null) ? 0 : aparelhoDescricao.hashCode());
-		return result;
+		return Objects.hash(aparelhoCodigo);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
+		
+		if( !(obj instanceof AparelhoTipo))
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		AparelhoTipo other = (AparelhoTipo) obj;
-		if (aparelhoCodigo == null) {
-			if (other.aparelhoCodigo != null)
-				return false;
-		} else if (!aparelhoCodigo.equals(other.aparelhoCodigo))
-			return false;
-		if (aparelhoDescricao == null) {
-			if (other.aparelhoDescricao != null)
-				return false;
-		} else if (!aparelhoDescricao.equals(other.aparelhoDescricao))
-			return false;
-		return true;
+		
+		AparelhoTipo at = (AparelhoTipo) obj;
+		
+		return Objects.equals(aparelhoCodigo, at.getAparelhoCodigo());
+		
 	}
 
 }

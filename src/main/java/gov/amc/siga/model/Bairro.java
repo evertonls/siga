@@ -1,6 +1,7 @@
 package gov.amc.siga.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import org.springframework.stereotype.Component;
 
@@ -16,7 +17,7 @@ public class Bairro implements Serializable {
 
 	public Bairro() {
 	}
-
+	
 	public Bairro(Long bairroId, String bairro) {
 		this.bairroId = bairroId;
 		this.bairro = bairro;
@@ -73,51 +74,20 @@ public class Bairro implements Serializable {
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((bairro == null) ? 0 : bairro.hashCode());
-		result = prime * result + ((bairroId == null) ? 0 : bairroId.hashCode());
-		result = prime * result + ((cruzamento == null) ? 0 : cruzamento.hashCode());
-		result = prime * result + ((longradouro == null) ? 0 : longradouro.hashCode());
-		result = prime * result + ((trecho == null) ? 0 : trecho.hashCode());
-		return result;
+		return Objects.hash(bairro);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (obj == this)
 			return true;
-		if (obj == null)
+
+		if (!(obj instanceof Bairro))
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Bairro other = (Bairro) obj;
-		if (bairro == null) {
-			if (other.bairro != null)
-				return false;
-		} else if (!bairro.equals(other.bairro))
-			return false;
-		if (bairroId == null) {
-			if (other.bairroId != null)
-				return false;
-		} else if (!bairroId.equals(other.bairroId))
-			return false;
-		if (cruzamento == null) {
-			if (other.cruzamento != null)
-				return false;
-		} else if (!cruzamento.equals(other.cruzamento))
-			return false;
-		if (longradouro == null) {
-			if (other.longradouro != null)
-				return false;
-		} else if (!longradouro.equals(other.longradouro))
-			return false;
-		if (trecho == null) {
-			if (other.trecho != null)
-				return false;
-		} else if (!trecho.equals(other.trecho))
-			return false;
-		return true;
+
+		Bairro b = (Bairro) obj;
+
+		return Objects.equals(bairro, b.getBairro());
 	}
 
 }

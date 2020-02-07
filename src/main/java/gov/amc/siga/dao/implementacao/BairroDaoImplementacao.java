@@ -24,8 +24,7 @@ public class BairroDaoImplementacao implements BairroDao, Serializable {
 
 	private final String query = "SELECT bairro_id, bairro FROM siga.bairro";
 
-	@Override
-	public void setDataSource(DataSource ds) {
+	public BairroDaoImplementacao(DataSource ds) {
 		this.template = new JdbcTemplate(ds);
 	}
 

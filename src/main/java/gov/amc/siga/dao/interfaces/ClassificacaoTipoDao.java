@@ -7,11 +7,13 @@ import gov.amc.siga.model.ClassificacaoTipo;
 public interface ClassificacaoTipoDao {
 
 	void salvarClassificacaoTipo(ClassificacaoTipo classificacaoTipo);
-	
-	void atualizarClassificacaoTipo(ClassificacaoTipo classificacaoTipo);
-	
+
+	void atualizarCodigoClassificacaoTipo(ClassificacaoTipo classificacaoTipo);
+
+	void atualizarDescricaoClassificacaoTipo(ClassificacaoTipo classificacaoTipo);
+
 	void deletarClassificacaoTipo(ClassificacaoTipo classificacaoTipo);
-	
+
 	List<ClassificacaoTipo> listarTodasClassificacaoTipo();
-	
+
 }

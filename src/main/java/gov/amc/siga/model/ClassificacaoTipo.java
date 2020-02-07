@@ -1,6 +1,7 @@
 package gov.amc.siga.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import org.springframework.stereotype.Component;
 
@@ -14,7 +15,7 @@ public class ClassificacaoTipo implements Serializable {
 	public ClassificacaoTipo() {
 	}
 
-	public ClassificacaoTipo(Long classificacaoTipoId, String classificacaoCodigo, String classificacaoDescricao) {
+	public ClassificacaoTipo(String classificacaoCodigo, String classificacaoDescricao) {
 		super();
 		this.classificacaoCodigo = classificacaoCodigo;
 		this.classificacaoDescricao = classificacaoDescricao;
@@ -38,35 +39,19 @@ public class ClassificacaoTipo implements Serializable {
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((classificacaoCodigo == null) ? 0 : classificacaoCodigo.hashCode());
-		result = prime * result + ((classificacaoDescricao == null) ? 0 : classificacaoDescricao.hashCode());
-		return result;
+		return Objects.hash(classificacaoCodigo);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
+		if (!(obj instanceof ClassificacaoTipo))
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		ClassificacaoTipo other = (ClassificacaoTipo) obj;
-		if (classificacaoCodigo == null) {
-			if (other.classificacaoCodigo != null)
-				return false;
-		} else if (!classificacaoCodigo.equals(other.classificacaoCodigo))
-			return false;
-		if (classificacaoDescricao == null) {
-			if (other.classificacaoDescricao != null)
-				return false;
-		} else if (!classificacaoDescricao.equals(other.classificacaoDescricao))
-			return false;
-		return true;
-	}
 
-	
+		ClassificacaoTipo c = (ClassificacaoTipo) obj;
+
+		return Objects.equals(classificacaoCodigo, c.getClassificacaoCodigo());
+	}
 
 }

@@ -8,7 +8,9 @@ public interface DescricaoTipoDao {
 
 	void salvarDescricaoTipo(DescricaoTipo descricaoTipo);
 	
-	void atualizarDescricaoTipo(DescricaoTipo decricaoTipo);
+	void atualizarCodigoDescricaoTipo(DescricaoTipo decricaoTipo);
+	
+	void atualizarDescricaoDescricaoTipo(DescricaoTipo descricaoTipo);
 	
 	void deletarDescricaoTipo(DescricaoTipo descricaoTipo);
 	

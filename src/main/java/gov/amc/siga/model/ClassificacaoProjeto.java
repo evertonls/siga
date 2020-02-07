@@ -5,26 +5,19 @@ import java.io.Serializable;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ClassificacaoProjeto implements Serializable{
+public class ClassificacaoProjeto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private String classificacaoCodigo;
 	private Long projetoId;
-	
-	public ClassificacaoProjeto() {	}
+	private ClassificacaoTipo classificacaoTipo;
 
-	public ClassificacaoProjeto(Long classificacaoId, String classificacaoCodigo, Long projetoId) {
+	public ClassificacaoProjeto() {
+	}
+
+	public ClassificacaoProjeto(Long projetoId, ClassificacaoTipo classificacaoTipo) {
 		super();
-		this.classificacaoCodigo = classificacaoCodigo;
 		this.projetoId = projetoId;
-	}
-
-	public String getClassificacaoCodigo() {
-		return classificacaoCodigo;
-	}
-
-	public void setClassificacaoCodigo(String classificacaoCodigo) {
-		this.classificacaoCodigo = classificacaoCodigo;
+		this.classificacaoTipo = classificacaoTipo;
 	}
 
 	public Long getProjetoId() {
@@ -35,37 +28,12 @@ public class ClassificacaoProjeto implements Serializable{
 		this.projetoId = projetoId;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((classificacaoCodigo == null) ? 0 : classificacaoCodigo.hashCode());
-		result = prime * result + ((projetoId == null) ? 0 : projetoId.hashCode());
-		return result;
+	public ClassificacaoTipo getClassificacaoTipo() {
+		return classificacaoTipo;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		ClassificacaoProjeto other = (ClassificacaoProjeto) obj;
-		if (classificacaoCodigo == null) {
-			if (other.classificacaoCodigo != null)
-				return false;
-		} else if (!classificacaoCodigo.equals(other.classificacaoCodigo))
-			return false;
-		if (projetoId == null) {
-			if (other.projetoId != null)
-				return false;
-		} else if (!projetoId.equals(other.projetoId))
-			return false;
-		return true;
+	public void setClassificacaoTipo(ClassificacaoTipo classificacaoTipo) {
+		this.classificacaoTipo = classificacaoTipo;
 	}
 
-	
-		
 }

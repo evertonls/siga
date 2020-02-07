@@ -52,7 +52,7 @@ public class EquipeTipo implements Serializable {
 
 		EquipeTipo et = (EquipeTipo) obj;
 
-		return Objects.equals(equipeCodigo, et.equipeCodigo);
+		return Objects.equals(equipeCodigo, et.getEquipeCodigo());
 	}
 
 }

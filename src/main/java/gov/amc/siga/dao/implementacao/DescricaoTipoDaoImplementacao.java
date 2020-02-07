@@ -22,7 +22,7 @@ public class DescricaoTipoDaoImplementacao implements DescricaoTipoDao, Serializ
 	private JdbcTemplate template;
 	private Logger log = LoggerFactory.getLogger(getClass());
 
-
+	
 	@Override
 	public void salvarDescricaoTipo(DescricaoTipo descricaoTipo) {
 		Object[] args = new Object[] { descricaoTipo.getDescricaoCodigo(), descricaoTipo.getDescricaoDescricao() };
@@ -35,7 +35,7 @@ public class DescricaoTipoDaoImplementacao implements DescricaoTipoDao, Serializ
 	}
 
 	@Override
-	public void atualizarDescricaoTipo(DescricaoTipo descricaoTipo) {
+	public void atualizarCodigoDescricaoTipo(DescricaoTipo descricaoTipo) {
 		Object[] args = new Object[] { descricaoTipo.getDescricaoCodigo(), descricaoTipo.getDescricaoDescricao(), descricaoTipo.getDescricaoCodigo() };
 		int out = template.update(atualizar, args);
 		if(out != 0) {
@@ -43,6 +43,12 @@ public class DescricaoTipoDaoImplementacao implements DescricaoTipoDao, Serializ
 		}else {
 			log.info("Falha ao atualizar tipo de descrição");
 		}
+	}
+	
+	@Override
+	public void atualizarDescricaoDescricaoTipo(DescricaoTipo decricaoTipo) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override

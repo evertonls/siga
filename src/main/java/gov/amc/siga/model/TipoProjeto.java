@@ -8,24 +8,16 @@ import org.springframework.stereotype.Component;
 public class TipoProjeto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private String projetoTipoCodigo;
 	private Long projetoId;
+	private ProjetoTipo projetoTipo;
 
 	public TipoProjeto() {
 	}
 
-	public TipoProjeto(Long projetoTipificacoesId, String projetoTipoCodigo, Long projetoId) {
+	public TipoProjeto(Long projetoId, ProjetoTipo projetoTipo) {
 		super();
-		this.projetoTipoCodigo = projetoTipoCodigo;
 		this.projetoId = projetoId;
-	}
-
-	public String getProjetoTipoCodigo() {
-		return projetoTipoCodigo;
-	}
-
-	public void setProjetoTipoCodigo(String projetoTipoCodigo) {
-		this.projetoTipoCodigo = projetoTipoCodigo;
+		this.projetoTipo = projetoTipo;
 	}
 
 	public Long getProjetoId() {
@@ -36,36 +28,12 @@ public class TipoProjeto implements Serializable {
 		this.projetoId = projetoId;
 	}
 
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((projetoId == null) ? 0 : projetoId.hashCode());
-		result = prime * result + ((projetoTipoCodigo == null) ? 0 : projetoTipoCodigo.hashCode());
-		return result;
+	public ProjetoTipo getProjetoTipo() {
+		return projetoTipo;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		TipoProjeto other = (TipoProjeto) obj;
-		if (projetoId == null) {
-			if (other.projetoId != null)
-				return false;
-		} else if (!projetoId.equals(other.projetoId))
-			return false;
-		if (projetoTipoCodigo == null) {
-			if (other.projetoTipoCodigo != null)
-				return false;
-		} else if (!projetoTipoCodigo.equals(other.projetoTipoCodigo))
-			return false;
-		return true;
+	public void setProjetoTipo(ProjetoTipo projetoTipo) {
+		this.projetoTipo = projetoTipo;
 	}
 
 }
