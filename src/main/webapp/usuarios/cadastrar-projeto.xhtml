@@ -12,176 +12,159 @@
 
 <ui:composition template="/WEB-INF/templates/_siteTemplate.xhtml">
 	<ui:define name="title">SIGA</ui:define>
+	<h:outputScript library="js" name="funcoes.js" />
+	<h:outputStylesheet library="css" name="default.css" />
+	<ui:define name="extraCss">
+		<link href="#{request.contextPath}/css/cadastroProjeto.css"
+			rel="stylesheet" />
+	</ui:define>
 	<ui:define name="content">
 
-		<ui:insert name="extraCss" />
-		<ui:insert name="extraJS" />
 
-		<h:outputScript library="js" name="cadastrar-projeto.js" />
+		<h:form id="formProjeto">
+			<p:messages id="messages" />
+			<p:panelGrid columns="3" layout="grid" class="ui-g"
+				columnClasses="p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4, p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4"
+				styleClass="customPanelGrid" contentStyleClass="ui-fluid">
 
-		<link href="#{request.contextPath}/css/cadastrar-projeto.css"
-			rel="stylesheet" type="text/css" media="screen" />
-		<script type="text/javascript"
-			src="#{request.contextPath}/js/cadastrar-projeto.js"></script>
+				<p:panelGrid columns="2">
+					<h:outputLabel for="projeto" value="Numero Projeto:" />
+					<p:inputMask id="projeto" required="true" mask="00.00.003"
+						placeholder="00.00.000" />
 
+					<p:outputLabel for="prancha" value="Prancha:" />
+					<p:inputMask id="prancha" required="true" mask="00/00"
+						placeholder="00/00" />
 
-		<h:form>
-			<p:panel id="panel" header="Cadastro" style="margin-bottom:10px;">
-				<p:messages id="messages" />
-				<p:fieldset legend="Projeto">
-					<h:panelGrid columns="8" cellpadding="4">
-						<h:outputLabel for="projeto" value="Numero Projeto:" />
-						<p:inputMask id="projeto" required="true" mask="00.00.003"
-							placeholder="00.00.000" />
+					<p:outputLabel for="revisao" value="Revisao:" />
+					<p:inputMask id="revisao" required="true" mask="R00"
+						placeholder="R00" />
 
-						<p:outputLabel for="prancha" value="Prancha:" />
-						<p:inputMask id="prancha" required="true" mask="00/00"
-							placeholder="00/00" />
+					<p:outputLabel for="numeroContrato" value="Nº Contrato:" />
+					<p:inputMask id="numeroContrato" required="true" mask="000/00"
+						placeholder="000/00" />
+				</p:panelGrid>
 
-						<p:outputLabel for="revisao" value="Revisao:" />
-						<p:inputMask id="revisao" required="true" mask="R00"
-							placeholder="R00" />
-
-						<p:outputLabel for="numeroContrato" value="Nº Contrato:" />
-						<p:inputMask id="numeroContrato" required="true" mask="000/00"
-							placeholder="000/00" />
-
-						<p:outputLabel for="equipes" value="Equipes: " />
-						<p:selectOneMenu id="equipes" value="#{cadastroBean.eqSelecionada}">
-						
-							<f:selectItem itemLabel="Selecione uma equipe" itemValue="" />
-							<f:selectItems value="#{cadastroBean.listaEquipes}" var="equipe"
-										itemLabel="#{equipe.equipeCodigo}" itemValue="#{equipe}"/>
-										
+				<p:panelGrid columns="2">
+					<p:outputLabel for="equipes" value="Equipes: " />
+					<p:selectOneMenu id="equipes" value="#{cadastroBean.eqSelecionada}">
+						<f:selectItem itemLabel="Selecione uma equipe" itemValue="" />
+						<f:selectItems value="#{cadastroBean.listaEquipes}" var="equipe"
+							itemLabel="#{equipe.equipeCodigo}" itemValue="#{equipe}" />
 								#{e.equipeCodigo} - #{e.equipeDescricao}
+					</p:selectOneMenu>
 
-						
-						</p:selectOneMenu>			
+					<p:outputLabel for="classificacao" value="Classificacao:" />
+					<p:selectOneMenu id="classificacao">
+						<f:selectItem itemLabel="Selecione uma classificação" itemValue="" />
+					</p:selectOneMenu>
 
-						<p:outputLabel for="classificacao" value="Classificacao:" />
-						<p:autoComplete id="classificacao" dropdown="true"
-							value="#{autoCompleteView.txt6}"
-							completeMethod="#{autoCompleteView.completeText}" />
+					<p:outputLabel for="descricao" value="Descrição:" />
+					<p:selectOneMenu id="descricao">
+						<f:selectItem itemLabel="Selecine uma descrição" itemValue="" />
+						<f:selectItems></f:selectItems>
+					</p:selectOneMenu>
 
+					<p:outputLabel for="dataPrevistaExecucao"
+						value="Data Prevista de execução:" />
+					<p:datePicker id="dataPrevistaExecucao"
+						value="#{calendarView.date5}" dateTemplate="dateTemplateFunc"
+						showIcon="true" />
+				</p:panelGrid>
 
+				<p:panelGrid columns="2">
+					<p:outputLabel for="projetoObra" value="Obra:" />
+					<p:autoComplete id="projetoObra" dropdown="true"
+						value="#{autoCompleteView.txt6}"
+						completeMethod="#{autoCompleteView.completeText}" />
 
-						<p:outputLabel for="descricao" value="Descrição:" />
-						<p:autoComplete id="descricao" dropdown="true"
-							value="#{autoCompleteView.txt6}"
-							completeMethod="#{autoCompleteView.completeText}" />
+					<p:outputLabel for="prioridade" value="Prioridade:" />
+					<p:autoComplete id="prioridade" dropdown="true"
+						value="#{autoCompleteView.txt6}"
+						completeMethod="#{autoCompleteView.completeText}" />
 
+					<p:outputLabel for="motivo" value="Motivo:" />
+					<p:autoComplete id="motivo" dropdown="true"
+						value="#{autoCompleteView.txt6}"
+						completeMethod="#{autoCompleteView.completeText}" />
 
+					<p:outputLabel for="mesProjetoGCE" value="Mês Projeto GCE:" />
+					<p:datePicker id="mesProjetoGCE" value="#{calendarView.date5}"
+						dateTemplate="dateTemplateFunc" showIcon="true" />
+				</p:panelGrid>
 
-						<p:outputLabel for="dataPrevistaExecucao"
-							value="Data Prevista de execução:" />
-						<p:datePicker id="dataPrevistaExecucao"
-							value="#{calendarView.date5}" dateTemplate="dateTemplateFunc" showIcon="true"/>
+				<p:panelGrid columns="2">
+					<p:outputLabel for="dataProjetoContratada"
+						value="Data Proj. Contratada:" />
+					<p:datePicker id="dataProjetoContratada"
+						value="#{calendarView.date5}" dateTemplate="dateTemplateFunc"
+						showIcon="true" />
 
-
-						<p:outputLabel for="projetoObra" value="Obra:" />
-						<p:autoComplete id="projetoObra" dropdown="true"
-							value="#{autoCompleteView.txt6}"
-							completeMethod="#{autoCompleteView.completeText}" />
-
-						<p:outputLabel for="prioridade" value="Prioridade:" />
-						<p:autoComplete id="prioridade" dropdown="true"
-							value="#{autoCompleteView.txt6}"
-							completeMethod="#{autoCompleteView.completeText}" />
-
-
-						<p:outputLabel for="motivo" value="Motivo:" />
-						<p:autoComplete id="motivo" dropdown="true"
-							value="#{autoCompleteView.txt6}"
-							completeMethod="#{autoCompleteView.completeText}" />
-
-						<p:outputLabel for="mesProjetoGCE" value="Mês Projeto GCE:" />
-						<p:datePicker id="mesProjetoGCE"
-							value="#{calendarView.date5}" dateTemplate="dateTemplateFunc" showIcon="true"/>
-
-						<p:outputLabel for="dataProjetoContratada"
-							value="Data Proj. Contratada:" />
-						<p:datePicker id="dataProjetoContratada"
-							value="#{calendarView.date5}" dateTemplate="dateTemplateFunc" showIcon="true"/>
-
-
-						<p:outputLabel for="situacao" value="Situação: " />
-						<p:autoComplete id="situacao" dropdown="true"
-							value="#{autoCompleteView.txt6}"
-							completeMethod="#{autoCompleteView.completeText}" />
+					<p:outputLabel for="situacao" value="Situação: " />
+					<p:autoComplete id="situacao" dropdown="true"
+						value="#{autoCompleteView.txt6}"
+						completeMethod="#{autoCompleteView.completeText}" />
 
 
-						<p:outputLabel for="dataInicioOperacao" value="Início Operação:" />
-						<p:datePicker id="dataInicioOperacao"
-							value="#{calendarView.date5}" dateTemplate="dateTemplateFunc" showIcon="true"/>
+					<p:outputLabel for="dataInicioOperacao" value="Início Operação:" />
+					<p:datePicker id="dataInicioOperacao" value="#{calendarView.date5}"
+						dateTemplate="dateTemplateFunc" showIcon="true" />
 
-						<p:outputLabel for="extensao" value="Extensão: " />
-						<p:inputText id="extensao"></p:inputText>
-
-						<!-- 
-						
-							<p:outputLabel for="observacao" value="Observação: "></p:outputLabel>
-							<p:inputTextarea id="observacao" rows="10" cols="50" completeMethod="#{inputTextareaView.completeArea}" queryDelay="750" minQueryLength="4">
-						       <p:ajax event="itemSelect" listener="#{inputTextareaView.onSelect}" />
-						    </p:inputTextarea>
-							
-						 -->
+					<p:outputLabel for="extensao" value="Extensão: " />
+					<p:inputText id="extensao"></p:inputText>
+				</p:panelGrid>
 
 
+				<p:panelGrid columns="4">
+					<p:outputLabel for="bairro" value="Bairro: " />
+					<p:selectOneMenu id="bairro">
+						<f:selectItem></f:selectItem>
+						<f:selectItems></f:selectItems>
+					</p:selectOneMenu>
 
-					</h:panelGrid>
-				</p:fieldset>
+					<p:outputLabel for="regional" value="Regional: " />
+					<p:selectOneMenu id="regional">
+						<f:selectItem></f:selectItem>
+						<f:selectItems></f:selectItems>
+					</p:selectOneMenu>
 
-				<br />
+					<p:outputLabel for="area" value="Área: " />
+					<p:selectOneMenu id="area">
+						<f:selectItem></f:selectItem>
+						<f:selectItems></f:selectItems>
+					</p:selectOneMenu>
 
-				<p:fieldset legend="Endereço">
-					<h:panelGrid columns="6" cellpadding="4">
+					<p:outputLabel for="longradouro" value="Longradouro: " />
+					<p:selectOneMenu id="longradouro">
+						<f:selectItem></f:selectItem>
+						<f:selectItems></f:selectItems>
+					</p:selectOneMenu>
 
-						<p:outputLabel for="bairro" value="Bairro: " />
-						<p:autoComplete id="bairro" dropdown="true"
-							value="#{autoCompleteView.txt6}"
-							completeMethod="#{autoCompleteView.completeText}" />
+					<p:outputLabel for="trecho" value="Trecho: " />
+					<p:selectOneMenu id="trecho">
+						<f:selectItem></f:selectItem>
+						<f:selectItems></f:selectItems>
+					</p:selectOneMenu>
 
-						<p:outputLabel for="regional" value="Regional: " />
-						<p:autoComplete id="regional" dropdown="true"
-							value="#{autoCompleteView.txt6}"
-							completeMethod="#{autoCompleteView.completeText}" />
+					<p:outputLabel for="cruzamento" value="Cruzamento: " />
+					<p:selectOneMenu id="cruzamento">
+						<f:selectItem></f:selectItem>
+						<f:selectItems></f:selectItems>
+					</p:selectOneMenu>
+				</p:panelGrid>
 
-						<p:outputLabel for="area" value="Área: " />
-						<p:autoComplete id="area" dropdown="true"
-							value="#{autoCompleteView.txt6}"
-							completeMethod="#{autoCompleteView.completeText}" />
+				<p:panelGrid columns="3">
+					<p:outputLabel for="observacao" value="Observação: "></p:outputLabel>
+					<p:inputTextarea id="observacao" rows="6" cols="30"
+						completeMethod="#{inputTextareaView.completeArea}"
+						queryDelay="750" minQueryLength="4">
+						<p:ajax event="itemSelect"
+							listener="#{inputTextareaView.onSelect}" />
+					</p:inputTextarea>
+				</p:panelGrid>
 
-						<p:outputLabel for="longradouro" value="Longradouro: " />
-						<p:autoComplete id="longradouro" dropdown="true"
-							value="#{autoCompleteView.txt6}"
-							completeMethod="#{autoCompleteView.completeText}" />
-
-						<p:outputLabel for="trecho" value="Trecho: " />
-						<p:autoComplete id="trecho" dropdown="true"
-							value="#{autoCompleteView.txt6}"
-							completeMethod="#{autoCompleteView.completeText}" />
-
-
-						<p:outputLabel for="cruzamento" value="Cruzamento: " />
-						<p:autoComplete id="cruzamento" dropdown="true"
-							value="#{autoCompleteView.txt6}"
-							completeMethod="#{autoCompleteView.completeText}" />
-
-
-					</h:panelGrid>
-				</p:fieldset>
-
-				<br />
-
-				<p:fieldset legend="Intervençoes">
-
-				</p:fieldset>
-
-				<br />
-
-			</p:panel>
-
-			<p:commandButton value="Submit" update="panel" />
+			</p:panelGrid>
+			<p:commandButton value="Submit" />
 		</h:form>
 	</ui:define>
 </ui:composition>

@@ -1,7 +1,3 @@
-/**
- * by Berkson.soares funções em geral
- */
-
 PrimeFaces.locales['pt'] = {
 	closeText : 'Fechar',
 	prevText : 'Anterior',
@@ -32,7 +28,6 @@ PrimeFaces.locales['pt'] = {
 	day : 'Dia',
 	allDayText : 'Todo Dia'
 };
-
 
 function maiuscula() {
 	this.value = this.value.toUpperCase();
@@ -88,36 +83,36 @@ function mascaraData() {
 			// se o próximo caractere (.charAt(2)) não for uma / e não for vazio
 			if ((nchar != '/') && (nchar != '')) {
 				let tst1 = this.value.substring(0, (i) + 1); // tst1 recebe
-																// os dois
-																// primeiros
-																// caracteres de
-																// input
+				// os dois
+				// primeiros
+				// caracteres de
+				// input
 				let tst2;
 				if (nchar.search(expr) != 0) // se o (.charAt(2)) não for um
-												// número
+					// número
 					tst2 = this.value.substring(i + 2, pass.length); // tst2
-																		// recebe
-																		// a
-																		// substring
-																		// do
-																		// próximo
-																		// caractere
-																		// até o
-																		// final
+				// recebe
+				// a
+				// substring
+				// do
+				// próximo
+				// caractere
+				// até o
+				// final
 				else
 					tst2 = this.value.substring(i + 1, pass.length); // tst2
-																		// recebe
-																		// a
-																		// substring
-																		// incluindo
-																		// o
-																		// (.charAt(2))
-																		// até o
-																		// final
+				// recebe
+				// a
+				// substring
+				// incluindo
+				// o
+				// (.charAt(2))
+				// até o
+				// final
 
 				this.value = tst1 + '/' + tst2; // insere a barra na posição
-												// (.charAt(2)) e depois o
-												// restante da substring
+				// (.charAt(2)) e depois o
+				// restante da substring
 			}
 			// resolvido até o terceiro caractere ex: 23/1..
 		}
@@ -126,8 +121,8 @@ function mascaraData() {
 			// se o caractere (.charAt(4)) não for um número
 			if (lchar.search(expr) != 0) {
 				let tst1 = this.value.substring(0, (i)); // adiciona até o
-															// (.charAt(3)) a
-															// variável tst1
+				// (.charAt(3)) a
+				// variável tst1
 				this.value = tst1; // atribui ao campo
 				continue;
 			}
@@ -149,8 +144,8 @@ function mascaraData() {
 			// se não for um número
 			if (lchar.search(expr) != 0) {
 				let tst1 = this.value.substring(0, (i)); // adiciona até o
-															// (.charAt(5)) a
-															// variável tst1
+				// (.charAt(5)) a
+				// variável tst1
 				this.value = tst1; // atribui ao campo
 			}
 		}
@@ -158,24 +153,33 @@ function mascaraData() {
 	// se o comprimento for maior que 10
 	if (pass.length > 10)
 		this.value = this.value.substring(0, 10); // atribui ao campo os
-													// carcteres da posição 0 a
-													// 9
+	// carcteres da posição 0 a
+	// 9
 	return true;
 }
 
-/* Variável com Função global que dita o comportamento da máscara de telefone*/
+/* Variável com Função global que dita o comportamento da máscara de telefone */
 
 var telMaskBehavior = function(val) {
-		return val.replace(/\D/g, '').length === 11 ? '(00)00000-0000' : '(00)0000-00009';
-	},
-		opcoes = {
-			onKeyPress: function(val, e, field, options) {
-				field.mask(comportamento.apply({}, arguments), options);
-			}
-		};
-		
+	return val.replace(/\D/g, '').length === 11 ? '(00)00000-0000'
+			: '(00)0000-00009';
+}, opcoes = {
+	onKeyPress : function(val, e, field, options) {
+		field.mask(comportamento.apply({}, arguments), options);
+	}
+};
+
 function onlyNumbers() {
-	if(/[^\d]+$/.test(this.value)){
-		this.value = "";	
+	if (/[^\d]+$/.test(this.value)) {
+		this.value = "";
 	}
 }
+
+// <![CDATA[
+function dateTemplateFunc(date) {
+	return '<span style="background-color:'
+			+ ((date.day < 32 && date.day > 0) ? '#81C784' : 'inherit')
+			+ ';border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">'
+			+ date.day + '</span>';
+}
+// ]]>

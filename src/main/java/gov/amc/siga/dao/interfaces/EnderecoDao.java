@@ -12,5 +12,5 @@ public interface EnderecoDao {
 	
 	void deletarEndereco(Endereco endereco);
 	
-	List<EnderecoDao> listarTodosEnderecos();
+	List<Endereco> listarTodosEnderecos();
 }

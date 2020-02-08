@@ -14,6 +14,6 @@ public interface MotivoTipoDao {
 	
 	void deletarMotivoTipo(MotivoTipo motivoTipo);
 	
-	List<MotivoTipoDao> listarTodosMotivosTipos();
+	List<MotivoTipo> listarTodosMotivosTipos();
 	
 }

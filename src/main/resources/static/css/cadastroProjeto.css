@@ -1,0 +1,163 @@
+@charset "ISO-8859-1";
+
+* {
+	box-sizing: border-box;
+}
+
+
+textarea {
+	resize: none;
+}
+.panelGridCadContrato {
+	position: relative;
+	margin-top: 4%;
+	width: 100%;
+	margin-left: 0;
+	margin-right: 0;
+	align-content: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+#formProjeto\:blockui {
+	border-radius: 50%;
+	height: 6.25rem;
+	width: 6.25rem;
+	padding: 0;
+	margin: 0;
+}
+
+img#formProjeto\:loading {
+	border-radius: 50%;
+	width: 100%;
+}
+
+div#formProjeto\:pnl_content{
+	background-color: white;
+}
+
+#formProjeto\:cancelar {
+	background: red;
+	border: 1px solid red;
+	width: 50%;
+}
+
+#formProjeto\:salvar {
+	width: 50%;
+}
+
+#formProjeto\:cancelar:hover {
+	background: #f44336;
+	border: 1px solid #f44336;
+}
+
+.fifty-percent {
+	width: 50%;
+}
+
+.right-alignment{
+	text-align: right;
+}
+
+.top-alignment {
+     vertical-align: top;
+}
+
+div.ui-g {
+	background-color: white;
+	
+}
+
+.centeredText {
+	text-align: center
+}
+
+.input {
+	width: 96%;
+}
+
+body .ui-panelgrid .ui-panelgrid-cell {
+	background-color: white;
+}
+/* 
+html {
+	background-color: gray;
+	background-image: url("../imagens/background.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+} */
+
+.bolderText {
+	font-weight: bolder;
+}
+
+.container {
+	position: relative;
+}
+
+.ui-selectlistbox-listcontainer {
+	border: 1px solid lightgray !important;
+}
+
+#formProjeto\:divisao4 {
+	width: 100%;
+}
+
+div#formProjeto\:pnl{
+		background-color: white;
+		margin-left: 2%;
+		margin-right: 2%;
+		width: 96%;
+}
+
+@media only screen and (max-width: 600px) {
+	.panelGridCadContrato {
+		position: relative;
+		margin-top: 6%;
+		width: 90%;
+		margin-left: 5%;
+		margin-right: 5%;
+		align-content: center;
+	}
+	#formContrato\:cancelar {
+		background: red;
+		border: 1px solid red;
+		width: 100%;
+		left: 0;
+	}
+	#formContrato\:salvar {
+		width: 100%;
+	}
+	
+}
+
+@media only screen and (max-width: 800px) {
+	.panelGridCadContrato {
+		position: relative;
+		margin-top: 6%;
+		width: 90%;
+		margin-left: 5%;
+		margin-right: 5%;
+		align-content: center;
+	}
+
+	.fifty-percent {
+		width: 50%;
+	}
+}
+@media only screen and (max-width: 1024px) {
+	.panelGridCadContrato {
+		position: relative;
+		margin-top: 6%;
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+		align-content: center;
+	}
+	
+
+	.fifty-percent {
+		width: 50%;
+	}
+}

@@ -56,19 +56,13 @@ public class EnderecoDaoImplementacao implements EnderecoDao, Serializable {
 	}
 
 	@Override
-	public List<EnderecoDao> listarTodosEnderecos() {
-//		return template.query(QUERY, this::enderecoMapRow);
-		return null;
+	public List<Endereco> listarTodosEnderecos() {
+		return template.query(QUERY, this::enderecoMapRow);
 	}
 
-//	private Endereco enderecoMapRow(ResultSet rs, int numRow) throws SQLException {
-//	
-//		
-//		return endereco;
-//		
-//		return new Endereco(rs.getLong("endereco_id"), rs.getLong("Longradouro_id"), rs.getLong("Longr_cruz"),
-//				rs.getLong("longr_trech"), rs.getString("regional"), rs.getString("divisao"), rs.getLong("bairro_id"),
-//				rs.getLong("projeto_id"));
-//	}
+	private Endereco enderecoMapRow(ResultSet rs, int numRow) throws SQLException {
+		
+		return null;
+	}
 
 }

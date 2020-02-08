@@ -19,9 +19,10 @@ import gov.amc.siga.model.DescricaoTipo;
 public class DescricaoTipoDaoImplementacao implements DescricaoTipoDao, Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private static final String QUERY = "SELECT descricao_cod, descricao_desc FROM siga.descricao_tipo";
 	private JdbcTemplate template;
 	private Logger log = LoggerFactory.getLogger(getClass());
+
+	private static final String QUERY = "SELECT descricao_cod, descricao_desc FROM siga.descricao_tipo";
 
 	public DescricaoTipoDaoImplementacao(DataSource ds) {
 		this.template = new JdbcTemplate(ds);

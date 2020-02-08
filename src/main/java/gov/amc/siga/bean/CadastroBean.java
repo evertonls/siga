@@ -17,8 +17,7 @@ import gov.amc.siga.model.EquipeTipo;
 @Scope(value = "view")
 public class CadastroBean implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-
+	private static final long serialVersionUID = 1L;	
 	private EquipeTipoDao equipeTipoDao;
 	private List<EquipeTipo> listaEquipes;
 	private EquipeTipo eqSelecionada;
