@@ -10,21 +10,21 @@ public class OrdemServico implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Long projetoId;
 	private Long ordemServicoId;
-	private Integer numeroOrdemServico;
+	private Long numeroOrdemServico;
 	private String medicao;
+	private Long projetoId;
 	private String observacaoVistoria;
 	private String observacao;
 
 	public OrdemServico() {
 	}
 
-	public OrdemServico(Long ordemServicoId, Integer numero, String medicao, Long projetoId, String observacaoVistoria,
-			String observacao) {
+	public OrdemServico(Long ordemServicoId, Long numeroOrdemServico, String medicao, Long projetoId,
+			String observacaoVistoria, String observacao) {
 		super();
 		this.ordemServicoId = ordemServicoId;
-		this.numeroOrdemServico = numero;
+		this.numeroOrdemServico = numeroOrdemServico;
 		this.medicao = medicao;
 		this.projetoId = projetoId;
 		this.observacaoVistoria = observacaoVistoria;
@@ -39,12 +39,12 @@ public class OrdemServico implements Serializable {
 		this.ordemServicoId = ordemServicoId;
 	}
 
-	public Integer getnumeroOrdemServico() {
+	public Long getNumeroOrdemServico() {
 		return numeroOrdemServico;
 	}
 
-	public void setnumeroOrdemServico(Integer numero) {
-		this.numeroOrdemServico = numero;
+	public void setNumeroOrdemServico(Long numeroOrdemServico) {
+		this.numeroOrdemServico = numeroOrdemServico;
 	}
 
 	public String getMedicao() {
@@ -86,13 +86,13 @@ public class OrdemServico implements Serializable {
 
 	@Override
 	public boolean equals(Object obj) {
-		if(this == obj)
+		if (this == obj)
 			return true;
-		if( !( obj instanceof OrdemServico))
+		if (!(obj instanceof OrdemServico))
 			return false;
-		
+
 		OrdemServico os = (OrdemServico) obj;
-		
+
 		return Objects.equals(ordemServicoId, os.getOrdemServicoId());
 	}
 

@@ -32,20 +32,17 @@ public class EnderecoDaoImplementacao implements EnderecoDao, Serializable {
 	public void salvarEndereco(Endereco endereco) {
 		log.info("Salvando endereço...");
 		final String sql = "INSERT INTO siga.endereco (longradouro_id, longr_cruz, longr_trecho, regional, divisao, bairro_id, projeto_id) VALUES(?, ?, ?, ?, ?, ?, ?)";
-		template.update(sql, endereco.getBairro().getLongradouro().getLongradouroId(),
-				endereco.getBairro().getCruzamento().getLongradouroId(),
-				endereco.getBairro().getTrecho().getLongradouroId(), endereco.getRegional(), endereco.getDivisao(),
-				endereco.getBairro().getBairroId(), endereco.getProjeto().getProjetoId());
+		template.update(sql, endereco.getLongradouro(), endereco.getCruzamento(), endereco.getTrecho(),
+				endereco.getRegional(), endereco.getDivisao(), endereco.getBairroId(), endereco.getProjetoId());
 	}
 
 	@Override
 	public void atualizarEndereco(Endereco endereco) {
 		log.info("Atualizando cruzamento... ");
 		final String sql = "UPDATE siga.endereco SET longradouro_id=?, longr_cruz=?, longr_trecho=?, regional=?, divisao=?, bairro_id=?, projeto_id=? WHERE endereco_id=?";
-		template.update(sql, endereco.getBairro().getLongradouro().getLongradouroId(),
-				endereco.getBairro().getCruzamento().getLongradouroId(),
-				endereco.getBairro().getTrecho().getLongradouroId(), endereco.getRegional(), endereco.getDivisao(),
-				endereco.getBairro().getBairroId(), endereco.getProjeto().getProjetoId(), endereco.getEnderecoId());
+		template.update(sql, endereco.getLongradouro(), endereco.getCruzamento(), endereco.getTrecho(),
+				endereco.getRegional(), endereco.getDivisao(), endereco.getBairroId(), endereco.getProjetoId(),
+				endereco.getEnderecoId());
 	}
 
 	@Override
@@ -61,8 +58,9 @@ public class EnderecoDaoImplementacao implements EnderecoDao, Serializable {
 	}
 
 	private Endereco enderecoMapRow(ResultSet rs, int numRow) throws SQLException {
-		
-		return null;
+		return new Endereco(rs.getLong("endereco_id"), rs.getLong("longradouro_id"), rs.getLong("longr_cruz"),
+				rs.getLong("longr_trecho"), rs.getString("regional"), rs.getString("divisao"), rs.getLong("bairro_id"),
+				rs.getLong("projeto_id"));
 	}
 
 }

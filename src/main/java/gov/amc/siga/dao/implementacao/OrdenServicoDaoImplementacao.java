@@ -1,7 +1,11 @@
 package gov.amc.siga.dao.implementacao;
 
 import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
+
+import javax.sql.DataSource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,34 +19,45 @@ public class OrdenServicoDaoImplementacao implements OrdemServicoDao, Serializab
 	private static final long serialVersionUID = 1L;
 	private JdbcTemplate template;
 	private Logger log = LoggerFactory.getLogger(getClass());
-	private static final String QUERY = "";
-	
-	public OrdenServicoDaoImplementacao() {
-		// TODO Auto-generated constructor stub
+
+	private static final String QUERY = "SELECT ordem_servico_id, numero_ordem_servico, medicao, projeto_id, obervacao_vistoria, observavao FROM siga.ordemservico";
+
+	public OrdenServicoDaoImplementacao(DataSource ds) {
+		this.template = new JdbcTemplate(ds);
 	}
-	
+
 	@Override
 	public void salvarOrdemServico(OrdemServico ordemServico) {
-		// TODO Auto-generated method stub
-
+		log.info("");
+		final String sql = "INSERT INTO siga.ordemservico (numero_ordem_servico, medicao, projeto_id, obervacao_vistoria, observavao) VALUES(?, ?, ?, ?, ?)";
+		template.update(sql, ordemServico.getNumeroOrdemServico(), ordemServico.getMedicao(),
+				ordemServico.getProjetoId(), ordemServico.getObservacaoVistoria(), ordemServico.getObservacao());
 	}
 
 	@Override
 	public void atualizarOrdemServico(OrdemServico ordemServico) {
-		// TODO Auto-generated method stub
-
+		log.info("");
+		final String sql = "UPDATE siga.ordemservico SET ordem_servico_id=?, medicao=?, projeto_id=?, obervacao_vistoria=?, observavao=? WHERE ordem_servico_id=?";
+		template.update(sql, ordemServico.getOrdemServicoId(), ordemServico.getMedicao(), ordemServico.getProjetoId(),
+				ordemServico.getObservacaoVistoria(), ordemServico.getObservacao(), ordemServico.getOrdemServicoId());
 	}
 
 	@Override
 	public void deletarOrdemServico(OrdemServico ordemServico) {
-		// TODO Auto-generated method stub
-
+		log.info("");
+		final String sql = "DELETE FROM siga.ordemservico WHERE ordem_servico_id=?";
+		template.update(sql, ordemServico.getOrdemServicoId());
 	}
 
 	@Override
 	public List<OrdemServico> listarTodasOrdensServico() {
-		// TODO Auto-generated method stub
-		return null;
+		return template.query(QUERY, this::ordemServicoRowMap);
+	}
+
+	private OrdemServico ordemServicoRowMap(ResultSet rs, int numRow) throws SQLException {
+		return new OrdemServico(rs.getLong("ordem_servico_id"), rs.getLong("numero_ordem_servico"),
+				rs.getString("medicao"), rs.getLong("projeto_id"), rs.getString("observacao_vistoria"),
+				rs.getString("observacao"));
 	}
 
 }

@@ -15,7 +15,7 @@ public class IntervencaoTipo implements Serializable {
 	public IntervencaoTipo() {
 	}
 
-	public IntervencaoTipo(Long intervencaoTipoId, String intervencaoCodigo, String intervencaoDescricao) {
+	public IntervencaoTipo(String intervencaoCodigo, String intervencaoDescricao) {
 		super();
 		this.intervencaoCodigo = intervencaoCodigo;
 		this.intervencaoDescricao = intervencaoDescricao;

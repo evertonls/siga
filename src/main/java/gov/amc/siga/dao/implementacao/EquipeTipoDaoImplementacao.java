@@ -23,8 +23,7 @@ public class EquipeTipoDaoImplementacao implements EquipeTipoDao, Serializable {
 	private Logger log = LoggerFactory.getLogger(getClass());
 
 	private static final String QUERY = "SELECT equipe_cod, equipe_desc FROM siga.equipe_tipo";
-	
-	
+
 	public EquipeTipoDaoImplementacao(DataSource ds) {
 		this.template = new JdbcTemplate(ds);
 	}

@@ -22,7 +22,7 @@ public class ClassificacaoTipoDaoImplemetacao implements ClassificacaoTipoDao, S
 	private JdbcTemplate template;
 	private Logger log = LoggerFactory.getLogger(getClass());
 
-	private final String listar = "SELECT  classificacao_cod, classificacao_desc FROM siga.classificacao_tipo";
+	private static final String listar = "SELECT  classificacao_cod, classificacao_desc FROM siga.classificacao_tipo";
 
 	public ClassificacaoTipoDaoImplemetacao(DataSource ds) {
 		this.template = new JdbcTemplate(ds);

@@ -22,7 +22,7 @@ public class BairroDaoImplementacao implements BairroDao, Serializable {
 	private JdbcTemplate template;
 	private Logger log = LoggerFactory.getLogger(getClass());
 
-	private final String query = "SELECT bairro_id, bairro FROM siga.bairro";
+	private static final String query = "SELECT bairro_id, bairro FROM siga.bairro";
 
 	public BairroDaoImplementacao(DataSource ds) {
 		this.template = new JdbcTemplate(ds);

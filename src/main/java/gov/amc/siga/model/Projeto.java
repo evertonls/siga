@@ -2,6 +2,7 @@ package gov.amc.siga.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Objects;
 
 import org.springframework.stereotype.Component;
 
@@ -15,48 +16,46 @@ public class Projeto implements Serializable {
 	private String prancha;
 	private String revisao;
 	private String contrato;
+	private LocalDate dataCriacaoProjeto;
 	private String obsevacao;
 	private String projetoObra;
 	private String prioridade;
-	private String ciRecape;
-	private Boolean isRecape;
-	private Boolean isRecapeExecutado;
-	private String localRecape;
-	private Integer numeroOrdemServico;
-	private LocalDate dataCriacaoProjeto;
 	private LocalDate dataPrevista;
 	private LocalDate dataEquipe;
 	private LocalDate dataInicial;
+	private Boolean isRecape;
+	private String ciRecape;
+	private String localRecape;
+	private Boolean isRecapeExecutado;
 	private LocalDate dataExecucaoRecape;
-	
-	
+	private String equipe;
 
 	public Projeto() {
 	}
 
 	public Projeto(Long projetoId, Integer numeroProjeto, String prancha, String revisao, String contrato,
-			String obsevacao, String projetoObra, String prioridade, String ciRecape, Boolean isRecape,
-			Boolean isRecapeExecutado, String localRecape, Integer numeroOrdemServico, LocalDate dataCriacaoProjeto,
-			LocalDate dataPrevista, LocalDate dataEquipe, LocalDate dataInicial, LocalDate dataExecucaoRecape) {
+			LocalDate dataCriacaoProjeto, String obsevacao, String projetoObra, String prioridade,
+			LocalDate dataPrevista, LocalDate dataEquipe, LocalDate dataInicial, Boolean isRecape, String ciRecape,
+			String localRecape, Boolean isRecapeExecutado, LocalDate dataExecucaoRecape, String equipe) {
 		super();
 		this.projetoId = projetoId;
 		this.numeroProjeto = numeroProjeto;
 		this.prancha = prancha;
 		this.revisao = revisao;
 		this.contrato = contrato;
+		this.dataCriacaoProjeto = dataCriacaoProjeto;
 		this.obsevacao = obsevacao;
 		this.projetoObra = projetoObra;
 		this.prioridade = prioridade;
-		this.ciRecape = ciRecape;
-		this.isRecape = isRecape;
-		this.isRecapeExecutado = isRecapeExecutado;
-		this.localRecape = localRecape;
-		this.numeroOrdemServico = numeroOrdemServico;
-		this.dataCriacaoProjeto = dataCriacaoProjeto;
 		this.dataPrevista = dataPrevista;
 		this.dataEquipe = dataEquipe;
 		this.dataInicial = dataInicial;
+		this.isRecape = isRecape;
+		this.ciRecape = ciRecape;
+		this.localRecape = localRecape;
+		this.isRecapeExecutado = isRecapeExecutado;
 		this.dataExecucaoRecape = dataExecucaoRecape;
+		this.equipe = equipe;
 	}
 
 	public Long getProjetoId() {
@@ -99,6 +98,14 @@ public class Projeto implements Serializable {
 		this.contrato = contrato;
 	}
 
+	public LocalDate getDataCriacaoProjeto() {
+		return dataCriacaoProjeto;
+	}
+
+	public void setDataCriacaoProjeto(LocalDate dataCriacaoProjeto) {
+		this.dataCriacaoProjeto = dataCriacaoProjeto;
+	}
+
 	public String getObsevacao() {
 		return obsevacao;
 	}
@@ -121,54 +128,6 @@ public class Projeto implements Serializable {
 
 	public void setPrioridade(String prioridade) {
 		this.prioridade = prioridade;
-	}
-
-	public String getCiRecape() {
-		return ciRecape;
-	}
-
-	public void setCiRecape(String ciRecape) {
-		this.ciRecape = ciRecape;
-	}
-
-	public Boolean getIsRecape() {
-		return isRecape;
-	}
-
-	public void setIsRecape(Boolean isRecape) {
-		this.isRecape = isRecape;
-	}
-
-	public Boolean getIsRecapeExecutado() {
-		return isRecapeExecutado;
-	}
-
-	public void setIsRecapeExecutado(Boolean isRecapeExecutado) {
-		this.isRecapeExecutado = isRecapeExecutado;
-	}
-
-	public String getLocalRecape() {
-		return localRecape;
-	}
-
-	public void setLocalRecape(String localRecape) {
-		this.localRecape = localRecape;
-	}
-
-	public Integer getNumeroOrdemServico() {
-		return numeroOrdemServico;
-	}
-
-	public void setNumeroOrdemServico(Integer numeroOrdemServico) {
-		this.numeroOrdemServico = numeroOrdemServico;
-	}
-
-	public LocalDate getDataCriacaoProjeto() {
-		return dataCriacaoProjeto;
-	}
-
-	public void setDataCriacaoProjeto(LocalDate dataCriacaoProjeto) {
-		this.dataCriacaoProjeto = dataCriacaoProjeto;
 	}
 
 	public LocalDate getDataPrevista() {
@@ -195,6 +154,38 @@ public class Projeto implements Serializable {
 		this.dataInicial = dataInicial;
 	}
 
+	public Boolean getIsRecape() {
+		return isRecape;
+	}
+
+	public void setIsRecape(Boolean isRecape) {
+		this.isRecape = isRecape;
+	}
+
+	public String getCiRecape() {
+		return ciRecape;
+	}
+
+	public void setCiRecape(String ciRecape) {
+		this.ciRecape = ciRecape;
+	}
+
+	public String getLocalRecape() {
+		return localRecape;
+	}
+
+	public void setLocalRecape(String localRecape) {
+		this.localRecape = localRecape;
+	}
+
+	public Boolean getIsRecapeExecutado() {
+		return isRecapeExecutado;
+	}
+
+	public void setIsRecapeExecutado(Boolean isRecapeExecutado) {
+		this.isRecapeExecutado = isRecapeExecutado;
+	}
+
 	public LocalDate getDataExecucaoRecape() {
 		return dataExecucaoRecape;
 	}
@@ -203,131 +194,30 @@ public class Projeto implements Serializable {
 		this.dataExecucaoRecape = dataExecucaoRecape;
 	}
 
+	public String getEquipe() {
+		return equipe;
+	}
+
+	public void setEquipe(String equipe) {
+		this.equipe = equipe;
+	}
+
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((ciRecape == null) ? 0 : ciRecape.hashCode());
-		result = prime * result + ((contrato == null) ? 0 : contrato.hashCode());
-		result = prime * result + ((dataCriacaoProjeto == null) ? 0 : dataCriacaoProjeto.hashCode());
-		result = prime * result + ((dataEquipe == null) ? 0 : dataEquipe.hashCode());
-		result = prime * result + ((dataExecucaoRecape == null) ? 0 : dataExecucaoRecape.hashCode());
-		result = prime * result + ((dataInicial == null) ? 0 : dataInicial.hashCode());
-		result = prime * result + ((dataPrevista == null) ? 0 : dataPrevista.hashCode());
-		result = prime * result + ((isRecape == null) ? 0 : isRecape.hashCode());
-		result = prime * result + ((isRecapeExecutado == null) ? 0 : isRecapeExecutado.hashCode());
-		result = prime * result + ((localRecape == null) ? 0 : localRecape.hashCode());
-		result = prime * result + ((numeroOrdemServico == null) ? 0 : numeroOrdemServico.hashCode());
-		result = prime * result + ((numeroProjeto == null) ? 0 : numeroProjeto.hashCode());
-		result = prime * result + ((obsevacao == null) ? 0 : obsevacao.hashCode());
-		result = prime * result + ((prancha == null) ? 0 : prancha.hashCode());
-		result = prime * result + ((prioridade == null) ? 0 : prioridade.hashCode());
-		result = prime * result + ((projetoId == null) ? 0 : projetoId.hashCode());
-		result = prime * result + ((projetoObra == null) ? 0 : projetoObra.hashCode());
-		result = prime * result + ((revisao == null) ? 0 : revisao.hashCode());
-		return result;
+		return Objects.hash(projetoId);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
+		if (!(obj instanceof Projeto))
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Projeto other = (Projeto) obj;
-		if (ciRecape == null) {
-			if (other.ciRecape != null)
-				return false;
-		} else if (!ciRecape.equals(other.ciRecape))
-			return false;
-		if (contrato == null) {
-			if (other.contrato != null)
-				return false;
-		} else if (!contrato.equals(other.contrato))
-			return false;
-		if (dataCriacaoProjeto == null) {
-			if (other.dataCriacaoProjeto != null)
-				return false;
-		} else if (!dataCriacaoProjeto.equals(other.dataCriacaoProjeto))
-			return false;
-		if (dataEquipe == null) {
-			if (other.dataEquipe != null)
-				return false;
-		} else if (!dataEquipe.equals(other.dataEquipe))
-			return false;
-		if (dataExecucaoRecape == null) {
-			if (other.dataExecucaoRecape != null)
-				return false;
-		} else if (!dataExecucaoRecape.equals(other.dataExecucaoRecape))
-			return false;
-		if (dataInicial == null) {
-			if (other.dataInicial != null)
-				return false;
-		} else if (!dataInicial.equals(other.dataInicial))
-			return false;
-		if (dataPrevista == null) {
-			if (other.dataPrevista != null)
-				return false;
-		} else if (!dataPrevista.equals(other.dataPrevista))
-			return false;
-		if (isRecape == null) {
-			if (other.isRecape != null)
-				return false;
-		} else if (!isRecape.equals(other.isRecape))
-			return false;
-		if (isRecapeExecutado == null) {
-			if (other.isRecapeExecutado != null)
-				return false;
-		} else if (!isRecapeExecutado.equals(other.isRecapeExecutado))
-			return false;
-		if (localRecape == null) {
-			if (other.localRecape != null)
-				return false;
-		} else if (!localRecape.equals(other.localRecape))
-			return false;
-		if (numeroOrdemServico == null) {
-			if (other.numeroOrdemServico != null)
-				return false;
-		} else if (!numeroOrdemServico.equals(other.numeroOrdemServico))
-			return false;
-		if (numeroProjeto == null) {
-			if (other.numeroProjeto != null)
-				return false;
-		} else if (!numeroProjeto.equals(other.numeroProjeto))
-			return false;
-		if (obsevacao == null) {
-			if (other.obsevacao != null)
-				return false;
-		} else if (!obsevacao.equals(other.obsevacao))
-			return false;
-		if (prancha == null) {
-			if (other.prancha != null)
-				return false;
-		} else if (!prancha.equals(other.prancha))
-			return false;
-		if (prioridade == null) {
-			if (other.prioridade != null)
-				return false;
-		} else if (!prioridade.equals(other.prioridade))
-			return false;
-		if (projetoId == null) {
-			if (other.projetoId != null)
-				return false;
-		} else if (!projetoId.equals(other.projetoId))
-			return false;
-		if (projetoObra == null) {
-			if (other.projetoObra != null)
-				return false;
-		} else if (!projetoObra.equals(other.projetoObra))
-			return false;
-		if (revisao == null) {
-			if (other.revisao != null)
-				return false;
-		} else if (!revisao.equals(other.revisao))
-			return false;
-		return true;
+
+		Projeto p = (Projeto) obj;
+
+		return Objects.equals(projetoId, p.getProjetoId());
+
 	}
 
 }

@@ -11,29 +11,28 @@ public class Endereco implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long enderecoId;
-	private Bairro bairro;
-	private Projeto projeto;
+	private Long longradouro;
+	private Long cruzamento;
+	private Long trecho;
 	private String regional;
 	private String divisao;
+	private Long bairroId;
+	private Long projetoId;
 
 	public Endereco() {
-	}	
+	}
 
-	public Endereco(Long enderecoId, Bairro bairro, Projeto projeto, String regional, String divisao) {
+	public Endereco(Long enderecoId, Long longradouro, Long cruzamento, Long trecho, String regional, String divisao,
+			Long bairroId, Long projetoId) {
 		super();
 		this.enderecoId = enderecoId;
-		this.bairro = bairro;
-		this.projeto = projeto;
+		this.longradouro = longradouro;
+		this.cruzamento = cruzamento;
+		this.trecho = trecho;
 		this.regional = regional;
 		this.divisao = divisao;
-	}
-
-	public String getRegional() {
-		return regional;
-	}
-
-	public void setRegional(String regional) {
-		this.regional = regional;
+		this.bairroId = bairroId;
+		this.projetoId = projetoId;
 	}
 
 	public Long getEnderecoId() {
@@ -44,20 +43,36 @@ public class Endereco implements Serializable {
 		this.enderecoId = enderecoId;
 	}
 
-	public Bairro getBairro() {
-		return bairro;
+	public Long getLongradouro() {
+		return longradouro;
 	}
 
-	public Projeto getProjeto() {
-		return projeto;
+	public void setLongradouro(Long longradouro) {
+		this.longradouro = longradouro;
 	}
 
-	public void setProjeto(Projeto projeto) {
-		this.projeto = projeto;
+	public Long getCruzamento() {
+		return cruzamento;
 	}
 
-	public void setBairro(Bairro bairro) {
-		this.bairro = bairro;
+	public void setCruzamento(Long cruzamento) {
+		this.cruzamento = cruzamento;
+	}
+
+	public Long getTrecho() {
+		return trecho;
+	}
+
+	public void setTrecho(Long trecho) {
+		this.trecho = trecho;
+	}
+
+	public String getRegional() {
+		return regional;
+	}
+
+	public void setRegional(String regional) {
+		this.regional = regional;
 	}
 
 	public String getDivisao() {
@@ -66,6 +81,22 @@ public class Endereco implements Serializable {
 
 	public void setDivisao(String divisao) {
 		this.divisao = divisao;
+	}
+
+	public Long getBairroId() {
+		return bairroId;
+	}
+
+	public void setBairroId(Long bairroId) {
+		this.bairroId = bairroId;
+	}
+
+	public Long getProjetoId() {
+		return projetoId;
+	}
+
+	public void setProjetoId(Long projetoId) {
+		this.projetoId = projetoId;
 	}
 
 	@Override
