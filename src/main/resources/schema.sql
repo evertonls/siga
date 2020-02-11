@@ -75,6 +75,23 @@ CREATE TABLE IF NOT EXISTS AUTORIZACAO (
 CONSTRAINT AUTORI_COD PRIMARY KEY (AUTORIZA_COD) );
 COMMENT ON TABLE AUTORIZACAO IS 'RELAÇÃO DAS AUTORIZAÇÕES QUE PODEM SER ATRIBUÍDOS PARA UM USUÁRIO';
 
+CREATE TABLE IF NOT EXISTS USUARIO (
+    USUARIO_ID BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY,
+    USUARIO_NM VARCHAR(255) NOT NULL,
+    CPF_NUM VARCHAR(11) NOT NULL,
+    MAT_NUM VARCHAR(20) NULL,
+    SETOR_ID BIGINT NOT NULL,
+    EMAIL VARCHAR(255) NOT NULL,
+    SENHA VARCHAR(255) NOT NULL,
+    MAIL_WARN BOOLEAN DEFAULT FALSE,
+    RECUPERA_COD VARCHAR(255) NULL,
+    CONSTRAINT USUA_ID PRIMARY KEY (USUARIO_ID),
+    CONSTRAINT USUA_SETO_ID FOREIGN KEY (SETOR_ID) REFERENCES SETOR(SETOR_ID),
+    CONSTRAINT USUA_EMAIL UNIQUE (EMAIL),
+    CONSTRAINT USUA_CPF UNIQUE (CPF_NUM) );
+
+COMMENT ON TABLE USUARIO IS 'RELAÇÃO DOS USUARIOS';
+
 CREATE TABLE IF NOT EXISTS PROJETO (
     PROJETO_ID BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY,
     NUMERO INTEGER NOT NULL UNIQUE,
@@ -94,6 +111,9 @@ CREATE TABLE IF NOT EXISTS PROJETO (
     IS_EXECU_REC BOOLEAN NULL,
     DATA_EXE_REC DATE NULL,
     EQUIPE_COD VARCHAR(100) NOT NULL,
+    USUARIO_ID BIGINT NOT NULL,
+    
+    CONSTRAINT USUA_ID FOREIGN KEY (USUARIO_ID) REFERENCES USUARIO (USUARIO_ID),
     CONSTRAINT EQUIP_COD FOREIGN KEY (EQUIPE_COD) REFERENCES EQUIPE_TIPO (EQUIPE_COD),
     CONSTRAINT PROJ_ID PRIMARY KEY (PROJETO_ID) );
    
@@ -178,23 +198,6 @@ CREATE TABLE IF NOT EXISTS ENDERECO (
     CONSTRAINT ENDE_PROJ_ID FOREIGN KEY (PROJETO_ID) REFERENCES PROJETO (PROJETO_ID) );
 COMMENT ON TABLE ENDERECO IS 'TABELA COM ENDERECOS DE CADA PROJETO.';
 
-CREATE TABLE IF NOT EXISTS USUARIO (
-    USUARIO_ID BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY,
-    USUARIO_NM VARCHAR(255) NOT NULL,
-    CPF_NUM VARCHAR(11) NOT NULL,
-    MAT_NUM VARCHAR(20) NULL,
-    SETOR_ID BIGINT NOT NULL,
-    EMAIL VARCHAR(255) NOT NULL,
-    SENHA VARCHAR(255) NOT NULL,
-    MAIL_WARN BOOLEAN DEFAULT FALSE,
-    RECUPERA_COD VARCHAR(255) NULL,
-    CONSTRAINT USUA_ID PRIMARY KEY (USUARIO_ID),
-    CONSTRAINT USUA_SETO_ID FOREIGN KEY (SETOR_ID) REFERENCES SETOR(SETOR_ID),
-    CONSTRAINT USUA_EMAIL UNIQUE (EMAIL),
-    CONSTRAINT USUA_CPF UNIQUE (CPF_NUM) );
-
-COMMENT ON TABLE USUARIO IS 'RELAÇÃO DOS USUARIOS';
-
 CREATE TABLE IF NOT EXISTS PERMISSAO (
     PERMISSAO_ID BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY,
     USUARIO_ID BIGINT NOT NULL,
@@ -204,6 +207,61 @@ CREATE TABLE IF NOT EXISTS PERMISSAO (
     CONSTRAINT PERMI_AUTORI_CODE FOREIGN KEY (AUTORIZA_COD) REFERENCES AUTORIZACAO(AUTORIZA_COD),
     CONSTRAINT PERMI_ID_CODE UNIQUE(USUARIO_ID, AUTORIZA_COD) );
 COMMENT ON TABLE PERMISSAO IS 'RELAÇÃO DE PERMISSÕES DE CADA USUARIO';
+
+
+CREATE OR REPLACE VIEW projetos AS
+SELECT
+	p.projeto_id, p.numero, p.prancha, p.revisao, p.contrato, p.data_cria_proj, p.observacao,
+	p.proj_obra, p.prioridade, p.data_prevista, p.data_equipe, p.data_inicial, p.is_recape, p.ci_recape, 
+	p.local_recape, p.is_execu_rec, p.data_exe_rec, p.equipe_cod, os.medicao, os.numero_ordem_servico, os.obervacao_vistoria, os.observavao,
+	cp.classificacao_cod, dp.descricao_cod, sp.situacao_cod, mp.motivo_cod, ap.aparelho_cod, ap.quantidade AS apar_qtd, ip.intervencao_cod, ip.quantidade AS inter_qtd,
+	tp.tipo_cod, b.bairro, l.longradouro, l.jurisdicao, l.tipo, l.titulo, lc.longradouro AS cruzamento, lc.jurisdicao AS cruz_juris, lc.tipo AS cruz_tipo, lc.titulo AS cuz_titulo,
+	lt.longradouro AS trecho, lt.jurisdicao AS trech_jursi, lt.tipo AS trech_tipo, lt.titulo AS trech_titulo, e.regional, e.divisao, u.usuario_nm
+FROM projeto p
+LEFT JOIN ordemservico os ON  os.projeto_id = p.projeto_id
+LEFT JOIN classificacao_projeto cp ON cp.projeto_id = p.projeto_id
+LEFT JOIN descricao_projeto dp ON dp.projeto_id = p.projeto_id
+LEFT JOIN situacao_projeto sp ON sp.projeto_id = p.projeto_id
+LEFT JOIN motivo_projeto mp ON mp.projeto_id = p.projeto_id
+LEFT JOIN aparelho_projeto ap ON ap.projeto_id = p.projeto_id
+LEFT JOIN intervencao_projeto ip ON ip.projeto_id = p.projeto_id
+LEFT JOIN tipo_projeto tp ON tp.projeto_id = p.projeto_id
+LEFT JOIN endereco e ON e.projeto_id = p.projeto_id
+LEFT JOIN bairro b ON b.bairro_id = e.bairro_id
+LEFT JOIN longradouro l ON l.longradouro_id = e.longradouro_id
+LEFT JOIN longradouro lc ON lc.longradouro_id = e.longr_cruz
+LEFT JOIN longradouro lt ON lt.longradouro_id = e.longr_trecho
+LEFT JOIN usuario u ON u.usuario_id = p.usuario_id;
+COMMENT ON VIEW siga.projetos IS 'view com todos os detalhes do projeto';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
