@@ -7,25 +7,18 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:pe="http://primefaces.org/ui/extensions"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-
-<head></head>
-
 <ui:composition template="/WEB-INF/templates/_siteTemplate.xhtml">
 	<ui:define name="title">SIGA</ui:define>
 	<h:outputScript library="js" name="funcoes.js" />
-	<h:outputStylesheet library="css" name="default.css" />
 	<ui:define name="extraCss">
 		<link href="#{request.contextPath}/css/cadastroProjeto.css"
 			rel="stylesheet" />
 	</ui:define>
 	<ui:define name="content">
-
-
-		<h:form id="formProjeto">
+		<h:form styleClass="formCadastroProjeto">
 			<p:messages id="messages" />
-			<p:panelGrid columns="3" layout="grid" class="ui-g"
-				columnClasses="p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4, p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4"
-				styleClass="customPanelGrid" contentStyleClass="ui-fluid">
+			<p:panelGrid columns="2" layout="grid"
+				styleClass="panelGridCadastroProjeto">
 
 				<p:panelGrid columns="2">
 					<h:outputLabel for="projeto" value="Numero Projeto:" />
@@ -56,7 +49,8 @@
 					<p:outputLabel for="classificacao" value="Classificação:" />
 					<p:selectOneMenu id="classificacao">
 						<f:selectItem itemLabel="Selecione uma classificação" itemValue="" />
-						<f:selectItems value="#{cadastroBean.listaClassificacoes}" var="classificacao"
+						<f:selectItems value="#{cadastroBean.listaClassificacoes}"
+							var="classificacao"
 							itemLabel="#{classificacao.classificacaoCodigo}"
 							itemValue="#{classificacao}" />
 					</p:selectOneMenu>
@@ -115,8 +109,9 @@
 					<p:outputLabel for="situacao" value="Situação: " />
 					<p:selectOneMenu id="situacao">
 						<f:selectItem itemLabel="Selecione uma situacao" itemValue="" />
-						<f:selectItems value="#{cadastroBean.listaSituacoes}" var="situacao"
-							itemLabel="#{situacao.situacaoCodigo}" itemValue="#{situacao}" />
+						<f:selectItems value="#{cadastroBean.listaSituacoes}"
+							var="situacao" itemLabel="#{situacao.situacaoCodigo}"
+							itemValue="#{situacao}" />
 					</p:selectOneMenu>
 
 
@@ -134,25 +129,34 @@
 					<p:selectOneMenu id="bairro">
 						<f:selectItem itemLabel="Selecione o bairro" itemValue="" />
 						<f:selectItems value="#{castroBean.listaBairros}" var="bairro"
-							itemLabel="#{bairro.bairro}" itemValue="#{bairro}"/>
+							itemLabel="#{bairro.bairro}" itemValue="#{bairro}" />
 					</p:selectOneMenu>
 
 					<p:outputLabel for="regional" value="Regional: " />
 					<p:selectOneMenu id="regional">
-						<f:selectItem></f:selectItem>
-						<f:selectItems></f:selectItems>
+						<f:selectItem itemLabel="Selecione uma regional" itemValue="" />
+						<f:selectItem itemLabel="SER I" itemValue="SER I" />
+						<f:selectItem itemLabel="SER II" itemValue="SER II" />
+						<f:selectItem itemLabel="SER III" itemValue="SER III" />
+						<f:selectItem itemLabel="SER IV" itemValue="SER IV" />
+						<f:selectItem itemLabel="SER V" itemValue="SER V" />
+						<f:selectItem itemLabel="SER VI" itemValue="SER VI" />
 					</p:selectOneMenu>
 
 					<p:outputLabel for="area" value="Área: " />
 					<p:selectOneMenu id="area">
-						<f:selectItem></f:selectItem>
-						<f:selectItems></f:selectItems>
+						<f:selectItem itemLabel="Selecione uma área" itemValue="" />
+						<f:selectItem itemLabel="Área 1" itemValue="AREA 1" />
+						<f:selectItem itemLabel="Área 2" itemValue="AREA 2" />
+						<f:selectItem itemLabel="Área 3" itemValue="AREA 3" />
 					</p:selectOneMenu>
 
 					<p:outputLabel for="longradouro" value="Longradouro: " />
 					<p:selectOneMenu id="longradouro">
-						<f:selectItem></f:selectItem>
-						<f:selectItems></f:selectItems>
+						<f:selectItem itemLabel="Selecione um longradouro" itemValue="" />
+						<f:selectItems value="#{cadastroBean.listaLongradouros}"
+							var="longradouro" itemLabel="longradouro.longradouro"
+							itemValue="#{longradouro}" />
 					</p:selectOneMenu>
 
 					<p:outputLabel for="trecho" value="Trecho: " />
@@ -178,8 +182,8 @@
 					</p:inputTextarea>
 				</p:panelGrid>
 
+				<p:commandButton value="Salvar" />
 			</p:panelGrid>
-			<p:commandButton value="Submit" />
 		</h:form>
 	</ui:define>
 </ui:composition>
