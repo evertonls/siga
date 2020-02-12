@@ -12,8 +12,8 @@ public class Endereco implements Serializable {
 
 	private Long enderecoId;
 	private Long longradouro;
-	private Long cruzamento;
-	private Long trecho;
+	private Long longradouroCruzamento;
+	private Long longradouroTrecho;
 	private String regional;
 	private String divisao;
 	private Long bairroId;
@@ -22,13 +22,13 @@ public class Endereco implements Serializable {
 	public Endereco() {
 	}
 
-	public Endereco(Long enderecoId, Long longradouro, Long cruzamento, Long trecho, String regional, String divisao,
-			Long bairroId, Long projetoId) {
+	public Endereco(Long enderecoId, Long longradouro, Long longradouroCruzamento, Long longradouroTrecho,
+			String regional, String divisao, Long bairroId, Long projetoId) {
 		super();
 		this.enderecoId = enderecoId;
 		this.longradouro = longradouro;
-		this.cruzamento = cruzamento;
-		this.trecho = trecho;
+		this.longradouroCruzamento = longradouroCruzamento;
+		this.longradouroTrecho = longradouroTrecho;
 		this.regional = regional;
 		this.divisao = divisao;
 		this.bairroId = bairroId;
@@ -51,20 +51,20 @@ public class Endereco implements Serializable {
 		this.longradouro = longradouro;
 	}
 
-	public Long getCruzamento() {
-		return cruzamento;
+	public Long getLongradouroCruzamento() {
+		return longradouroCruzamento;
 	}
 
-	public void setCruzamento(Long cruzamento) {
-		this.cruzamento = cruzamento;
+	public void setLongradouroCruzamento(Long longradouroCruzamento) {
+		this.longradouroCruzamento = longradouroCruzamento;
 	}
 
-	public Long getTrecho() {
-		return trecho;
+	public Long getLongradouroTrecho() {
+		return longradouroTrecho;
 	}
 
-	public void setTrecho(Long trecho) {
-		this.trecho = trecho;
+	public void setLongradouroTrecho(Long longradouroTrecho) {
+		this.longradouroTrecho = longradouroTrecho;
 	}
 
 	public String getRegional() {

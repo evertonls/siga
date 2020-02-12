@@ -89,7 +89,6 @@ CREATE TABLE IF NOT EXISTS USUARIO (
     CONSTRAINT USUA_SETO_ID FOREIGN KEY (SETOR_ID) REFERENCES SETOR(SETOR_ID),
     CONSTRAINT USUA_EMAIL UNIQUE (EMAIL),
     CONSTRAINT USUA_CPF UNIQUE (CPF_NUM) );
-
 COMMENT ON TABLE USUARIO IS 'RELAÇÃO DOS USUARIOS';
 
 CREATE TABLE IF NOT EXISTS PROJETO (
@@ -124,8 +123,8 @@ CREATE TABLE IF NOT EXISTS ORDEMSERVICO (
     NUMERO_ORDEM_SERVICO INTEGER NOT NULL UNIQUE,
     MEDICAO VARCHAR(255) NOT NULL,
     PROJETO_ID BIGINT NOT NULL,
-    OBERVACAO_VISTORIA VARCHAR(255),
-    OBSERVAVAO VARCHAR(255),
+    OBSERVACAO_VISTORIA VARCHAR(255),
+    OBSERVACAO VARCHAR(255),
     CONSTRAINT ORD_SERVICO PRIMARY KEY (ORDEM_SERVICO_ID),
     CONSTRAINT ORD_PROJ_ID FOREIGN KEY (PROJETO_ID) REFERENCES PROJETO (PROJETO_ID) );
 COMMENT ON TABLE ORDEMSERVICO IS 'TABELA COM AS ORDENS DE SERVICO DOS PROJETOS';
@@ -208,12 +207,11 @@ CREATE TABLE IF NOT EXISTS PERMISSAO (
     CONSTRAINT PERMI_ID_CODE UNIQUE(USUARIO_ID, AUTORIZA_COD) );
 COMMENT ON TABLE PERMISSAO IS 'RELAÇÃO DE PERMISSÕES DE CADA USUARIO';
 
-
 CREATE OR REPLACE VIEW projetos AS
 SELECT
 	p.projeto_id, p.numero, p.prancha, p.revisao, p.contrato, p.data_cria_proj, p.observacao,
 	p.proj_obra, p.prioridade, p.data_prevista, p.data_equipe, p.data_inicial, p.is_recape, p.ci_recape, 
-	p.local_recape, p.is_execu_rec, p.data_exe_rec, p.equipe_cod, os.medicao, os.numero_ordem_servico, os.obervacao_vistoria, os.observavao,
+	p.local_recape, p.is_execu_rec, p.data_exe_rec, p.equipe_cod, os.medicao, os.numero_ordem_servico, os.observacao_vistoria, os.observacao AS Obs_OS,
 	cp.classificacao_cod, dp.descricao_cod, sp.situacao_cod, mp.motivo_cod, ap.aparelho_cod, ap.quantidade AS apar_qtd, ip.intervencao_cod, ip.quantidade AS inter_qtd,
 	tp.tipo_cod, b.bairro, l.longradouro, l.jurisdicao, l.tipo, l.titulo, lc.longradouro AS cruzamento, lc.jurisdicao AS cruz_juris, lc.tipo AS cruz_tipo, lc.titulo AS cuz_titulo,
 	lt.longradouro AS trecho, lt.jurisdicao AS trech_jursi, lt.tipo AS trech_tipo, lt.titulo AS trech_titulo, e.regional, e.divisao, u.usuario_nm

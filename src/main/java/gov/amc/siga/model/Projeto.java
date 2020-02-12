@@ -28,7 +28,18 @@ public class Projeto implements Serializable {
 	private String localRecape;
 	private Boolean isRecapeExecutado;
 	private LocalDate dataExecucaoRecape;
-	private String equipe;
+
+	private AparelhoTipo aparelhoTipo;
+	private ClassificacaoTipo classificacaoTipo;
+	private DescricaoTipo descricaoTipo;
+	private Endereco endereco;
+	private EquipeTipo equipeTipo;
+	private IntervencaoTipo intervencaoTipo;
+	private MotivoTipo motivoTipo;
+	private OrdemServico ordemServico;
+	private Permissao permissao;
+	private SituacaoTipo situacaoTipo;
+	private Usuario usuario;
 
 	public Projeto() {
 	}
@@ -36,7 +47,7 @@ public class Projeto implements Serializable {
 	public Projeto(Long projetoId, Integer numeroProjeto, String prancha, String revisao, String contrato,
 			LocalDate dataCriacaoProjeto, String obsevacao, String projetoObra, String prioridade,
 			LocalDate dataPrevista, LocalDate dataEquipe, LocalDate dataInicial, Boolean isRecape, String ciRecape,
-			String localRecape, Boolean isRecapeExecutado, LocalDate dataExecucaoRecape, String equipe) {
+			String localRecape, Boolean isRecapeExecutado, LocalDate dataExecucaoRecape) {
 		super();
 		this.projetoId = projetoId;
 		this.numeroProjeto = numeroProjeto;
@@ -55,7 +66,45 @@ public class Projeto implements Serializable {
 		this.localRecape = localRecape;
 		this.isRecapeExecutado = isRecapeExecutado;
 		this.dataExecucaoRecape = dataExecucaoRecape;
-		this.equipe = equipe;
+
+	}
+
+	public Projeto(Long projetoId, Integer numeroProjeto, String prancha, String revisao, String contrato,
+			LocalDate dataCriacaoProjeto, String obsevacao, String projetoObra, String prioridade,
+			LocalDate dataPrevista, LocalDate dataEquipe, LocalDate dataInicial, Boolean isRecape, String ciRecape,
+			String localRecape, Boolean isRecapeExecutado, LocalDate dataExecucaoRecape, AparelhoTipo aparelhoTipo,
+			ClassificacaoTipo classificacaoTipo, DescricaoTipo descricaoTipo, Endereco endereco, EquipeTipo equipeTipo,
+			IntervencaoTipo intervencaoTipo, MotivoTipo motivoTipo, OrdemServico ordemServico, Permissao permissao,
+			SituacaoTipo situacaoTipo, Usuario usuario) {
+		super();
+		this.projetoId = projetoId;
+		this.numeroProjeto = numeroProjeto;
+		this.prancha = prancha;
+		this.revisao = revisao;
+		this.contrato = contrato;
+		this.dataCriacaoProjeto = dataCriacaoProjeto;
+		this.obsevacao = obsevacao;
+		this.projetoObra = projetoObra;
+		this.prioridade = prioridade;
+		this.dataPrevista = dataPrevista;
+		this.dataEquipe = dataEquipe;
+		this.dataInicial = dataInicial;
+		this.isRecape = isRecape;
+		this.ciRecape = ciRecape;
+		this.localRecape = localRecape;
+		this.isRecapeExecutado = isRecapeExecutado;
+		this.dataExecucaoRecape = dataExecucaoRecape;
+		this.aparelhoTipo = aparelhoTipo;
+		this.classificacaoTipo = classificacaoTipo;
+		this.descricaoTipo = descricaoTipo;
+		this.endereco = endereco;
+		this.equipeTipo = equipeTipo;
+		this.intervencaoTipo = intervencaoTipo;
+		this.motivoTipo = motivoTipo;
+		this.ordemServico = ordemServico;
+		this.permissao = permissao;
+		this.situacaoTipo = situacaoTipo;
+		this.usuario = usuario;
 	}
 
 	public Long getProjetoId() {
@@ -194,12 +243,92 @@ public class Projeto implements Serializable {
 		this.dataExecucaoRecape = dataExecucaoRecape;
 	}
 
-	public String getEquipe() {
-		return equipe;
+	public AparelhoTipo getAparelhoTipo() {
+		return aparelhoTipo;
 	}
 
-	public void setEquipe(String equipe) {
-		this.equipe = equipe;
+	public void setAparelhoTipo(AparelhoTipo aparelhoTipo) {
+		this.aparelhoTipo = aparelhoTipo;
+	}
+
+	public ClassificacaoTipo getClassificacaoTipo() {
+		return classificacaoTipo;
+	}
+
+	public void setClassificacaoTipo(ClassificacaoTipo classificacaoTipo) {
+		this.classificacaoTipo = classificacaoTipo;
+	}
+
+	public DescricaoTipo getDescricaoTipo() {
+		return descricaoTipo;
+	}
+
+	public void setDescricaoTipo(DescricaoTipo descricaoTipo) {
+		this.descricaoTipo = descricaoTipo;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public EquipeTipo getEquipeTipo() {
+		return equipeTipo;
+	}
+
+	public void setEquipeTipo(EquipeTipo equipeTipo) {
+		this.equipeTipo = equipeTipo;
+	}
+
+	public IntervencaoTipo getIntervencaoTipo() {
+		return intervencaoTipo;
+	}
+
+	public void setIntervencaoTipo(IntervencaoTipo intervencaoTipo) {
+		this.intervencaoTipo = intervencaoTipo;
+	}
+
+	public MotivoTipo getMotivoTipo() {
+		return motivoTipo;
+	}
+
+	public void setMotivoTipo(MotivoTipo motivoTipo) {
+		this.motivoTipo = motivoTipo;
+	}
+
+	public OrdemServico getOrdemServico() {
+		return ordemServico;
+	}
+
+	public void setOrdemServico(OrdemServico ordemServico) {
+		this.ordemServico = ordemServico;
+	}
+
+	public Permissao getPermissao() {
+		return permissao;
+	}
+
+	public void setPermissao(Permissao permissao) {
+		this.permissao = permissao;
+	}
+
+	public SituacaoTipo getSituacaoTipo() {
+		return situacaoTipo;
+	}
+
+	public void setSituacaoTipo(SituacaoTipo situacaoTipo) {
+		this.situacaoTipo = situacaoTipo;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	@Override

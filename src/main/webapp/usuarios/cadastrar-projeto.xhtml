@@ -46,23 +46,27 @@
 				</p:panelGrid>
 
 				<p:panelGrid columns="2">
-					<p:outputLabel for="equipes" value="Equipes: " />
-					<p:selectOneMenu id="equipes" value="#{cadastroBean.eqSelecionada}">
+					<p:outputLabel for="equipes" value="Equipe: " />
+					<p:selectOneMenu id="equipes" value="#{cadastroBean.projeto}">
 						<f:selectItem itemLabel="Selecione uma equipe" itemValue="" />
 						<f:selectItems value="#{cadastroBean.listaEquipes}" var="equipe"
 							itemLabel="#{equipe.equipeCodigo}" itemValue="#{equipe}" />
-								#{e.equipeCodigo} - #{e.equipeDescricao}
 					</p:selectOneMenu>
 
-					<p:outputLabel for="classificacao" value="Classificacao:" />
+					<p:outputLabel for="classificacao" value="Classificação:" />
 					<p:selectOneMenu id="classificacao">
 						<f:selectItem itemLabel="Selecione uma classificação" itemValue="" />
+						<f:selectItems value="#{cadastroBean.listaClassificacoes}" var="classificacao"
+							itemLabel="#{classificacao.classificacaoCodigo}"
+							itemValue="#{classificacao}" />
 					</p:selectOneMenu>
 
 					<p:outputLabel for="descricao" value="Descrição:" />
 					<p:selectOneMenu id="descricao">
-						<f:selectItem itemLabel="Selecine uma descrição" itemValue="" />
-						<f:selectItems></f:selectItems>
+						<f:selectItem itemLabel="Selecione uma descrição" itemValue="" />
+						<f:selectItems value="#{cadastroBean.listaDescricoes}"
+							var="descricao" itemLabel="#{descricao.descricaoCodigo}"
+							itemValue="#{descricao}" />
 					</p:selectOneMenu>
 
 					<p:outputLabel for="dataPrevistaExecucao"
@@ -73,20 +77,28 @@
 				</p:panelGrid>
 
 				<p:panelGrid columns="2">
-					<p:outputLabel for="projetoObra" value="Obra:" />
-					<p:autoComplete id="projetoObra" dropdown="true"
-						value="#{autoCompleteView.txt6}"
-						completeMethod="#{autoCompleteView.completeText}" />
+
+					<p:outputLabel for="projObra" value="Obra" />
+					<p:selectOneMenu id="projObra">
+						<f:selectItem itemLabel="Selecione tipo de obra" itemValue="" />
+						<f:selectItem itemLabel="Pré-Obra" itemValue="pre-obra" />
+						<f:selectItem itemLabel="Pós-Obra" itemValue="pos-obra" />
+					</p:selectOneMenu>
 
 					<p:outputLabel for="prioridade" value="Prioridade:" />
-					<p:autoComplete id="prioridade" dropdown="true"
-						value="#{autoCompleteView.txt6}"
-						completeMethod="#{autoCompleteView.completeText}" />
+					<p:selectOneMenu id="prioridade">
+						<f:selectItem itemLabel="Selecione qual prioridade" itemValue="" />
+						<f:selectItem itemLabel="Alta" itemValue="ALTA" />
+						<f:selectItem itemLabel="Média" itemValue="MEDIA" />
+						<f:selectItem itemLabel="Baixa" itemValue="BAIXA" />
+					</p:selectOneMenu>
 
 					<p:outputLabel for="motivo" value="Motivo:" />
-					<p:autoComplete id="motivo" dropdown="true"
-						value="#{autoCompleteView.txt6}"
-						completeMethod="#{autoCompleteView.completeText}" />
+					<p:selectOneMenu id="motivo">
+						<f:selectItem itemLabel="Selecione um motivo" itemValue="" />
+						<f:selectItems value="#{cadastroBean.listaMotivos}" var="motivo"
+							itemLabel="#{motivo.motivoCodigo}" itemValue="#{motivo}" />
+					</p:selectOneMenu>
 
 					<p:outputLabel for="mesProjetoGCE" value="Mês Projeto GCE:" />
 					<p:datePicker id="mesProjetoGCE" value="#{calendarView.date5}"
@@ -101,9 +113,11 @@
 						showIcon="true" />
 
 					<p:outputLabel for="situacao" value="Situação: " />
-					<p:autoComplete id="situacao" dropdown="true"
-						value="#{autoCompleteView.txt6}"
-						completeMethod="#{autoCompleteView.completeText}" />
+					<p:selectOneMenu id="situacao">
+						<f:selectItem itemLabel="Selecione uma situacao" itemValue="" />
+						<f:selectItems value="#{cadastroBean.listaSituacoes}" var="situacao"
+							itemLabel="#{situacao.situacaoCodigo}" itemValue="#{situacao}" />
+					</p:selectOneMenu>
 
 
 					<p:outputLabel for="dataInicioOperacao" value="Início Operação:" />
@@ -118,8 +132,9 @@
 				<p:panelGrid columns="4">
 					<p:outputLabel for="bairro" value="Bairro: " />
 					<p:selectOneMenu id="bairro">
-						<f:selectItem></f:selectItem>
-						<f:selectItems></f:selectItems>
+						<f:selectItem itemLabel="Selecione o bairro" itemValue="" />
+						<f:selectItems value="#{castroBean.listaBairros}" var="bairro"
+							itemLabel="#{bairro.bairro}" itemValue="#{bairro}"/>
 					</p:selectOneMenu>
 
 					<p:outputLabel for="regional" value="Regional: " />

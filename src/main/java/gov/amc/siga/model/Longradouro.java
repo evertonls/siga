@@ -18,6 +18,10 @@ public class Longradouro implements Serializable {
 
 	public Longradouro() {
 	}
+	
+	public Longradouro(Long longradouroId) {
+		
+	}
 
 	public Longradouro(Long longradouroId, String longradouro, String tipo, String titulo, String jurisdicao) {
 		super();
