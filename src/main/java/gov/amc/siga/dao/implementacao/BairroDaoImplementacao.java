@@ -22,7 +22,7 @@ public class BairroDaoImplementacao implements BairroDao, Serializable {
 	private JdbcTemplate template;
 	private Logger log = LoggerFactory.getLogger(getClass());
 
-	private static final String query = "SELECT bairro_id, bairro FROM siga.bairro";
+	private static final String QUERY = "SELECT bairro_id, bairro FROM siga.bairro";
 
 	public BairroDaoImplementacao(DataSource ds) {
 		this.template = new JdbcTemplate(ds);
@@ -51,7 +51,7 @@ public class BairroDaoImplementacao implements BairroDao, Serializable {
 
 	@Override
 	public List<Bairro> listarTodosBairros() {
-		return template.query(query, this::bairroMapRow);
+		return template.query(QUERY, this::bairroMapRow);
 	}
 	
 	private Bairro bairroMapRow(ResultSet rs, int numRow) throws SQLException {

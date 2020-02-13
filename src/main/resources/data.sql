@@ -195,15 +195,16 @@ INSERT INTO USUARIO (USUARIO_NM, CPF_NUM, SETOR_ID, EMAIL, SENHA, MAIL_WARN) VAL
 '$2y$10$xwLQcPepVnEUAl.63lTfxuexyd0pswcoxi9HuY2ao7WX.PiKQWHQ.', TRUE)
 ON CONFLICT (CPF_NUM) DO NOTHING;
 
-COPY bairro(bairro_id, bairro) 
-FROM '/home/junior/workspace/CSVs/TBairro_201912061051 - TBairro_201912061051.csv' DELIMITER ',' CSV HEADER;
+--COPY bairro(bairro_id, bairro) 
+--FROM '/home/junior/workspace/CSVs/TBairro_201912061051 - TBairro_201912061051.csv' DELIMITER ',' CSV HEADER;
 
+--COPY bairro(bairro_id, bairo)
+--FROM '/home/desenvolvimento/Projeto-Siga/CSVs/TBairro_201912061051.csv' DELIMITER ',' CSV HEADER;
 
 INSERT INTO PERMISSAO (USUARIO_ID, AUTORIZA_COD) VALUES
 ((SELECT USUARIO_ID FROM USUARIO WHERE USUARIO_NM = 'ADMIN') , 'ROLE_ADMIN')
 ON CONFLICT (USUARIO_ID, AUTORIZA_COD) DO NOTHING;
 
-   
    
    
    

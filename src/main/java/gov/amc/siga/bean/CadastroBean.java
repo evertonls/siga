@@ -71,7 +71,8 @@ public class CadastroBean implements Serializable {
 
 	@Autowired
 	public CadastroBean(ClassificacaoTipoDao classificacaoTipoDao, EquipeTipoDao equipeTipoDao,
-			DescricaoTipoDao descricaoTipoDao, MotivoTipoDao motivoTipoDao, SituacaoTipoDao situacaoTipoDao, BairroDao bairroDao) {
+			DescricaoTipoDao descricaoTipoDao, MotivoTipoDao motivoTipoDao, SituacaoTipoDao situacaoTipoDao,
+			BairroDao bairroDao, LongradouroDao longradouroDao) {
 		super();
 		this.equipeTipoDao = equipeTipoDao;
 		this.classificacaoTipoDao = classificacaoTipoDao;
@@ -79,6 +80,7 @@ public class CadastroBean implements Serializable {
 		this.motivoTipoDao = motivoTipoDao;
 		this.situacaoTipoDao = situacaoTipoDao;
 		this.bairroDao = bairroDao;
+		this.longradouroDao = longradouroDao;
 	}
 
 	@PostConstruct
@@ -97,9 +99,12 @@ public class CadastroBean implements Serializable {
 
 		this.listaSituacoes = new ArrayList<SituacaoTipo>();
 		this.listaSituacoes = this.situacaoTipoDao.listarTodasSituacoesTipos();
-		
+
 		this.listaBairros = new ArrayList<Bairro>();
 		this.listaBairros = this.bairroDao.listarTodosBairros();
+		
+		this.listaLongradouros = new ArrayList<Longradouro>();
+		this.listaLongradouros = this.longradouroDao.listarTodosLongradouros();
 	}
 
 	public AparelhoTipoDao getAparelhoTipoDao() {
@@ -302,23 +307,3 @@ public class CadastroBean implements Serializable {
 		this.listaTiposProjeto = listaTiposProjeto;
 	}
 }
-
-//	public CadastroBean(AparelhoTipoDao aparelhoTipoDao, BairroDao bairroDao, ClassificacaoTipoDao classificacaoTipoDao,
-//			DescricaoTipoDao descricaoTipoDao, EnderecoDao enderecoDao, EquipeTipoDao equipeTipoDao,
-//			IntervencaoTipoDao intervencaoTipoDao, LongradouroDao longradouroDao, MotivoTipoDao motivoTipoDao,
-//			OrdemServicoDao ordemServicoDao, ProjetoTipoDao projetoTipoDao, SituacaoTipoDao situacaoTipoDao) {
-//		super();
-//		this.aparelhoTipoDao = aparelhoTipoDao;
-//		this.bairroDao = bairroDao;
-//		this.classificacaoTipoDao = classificacaoTipoDao;
-//		this.descricaoTipoDao = descricaoTipoDao;
-//		this.enderecoDao = enderecoDao;
-//		this.equipeTipoDao = equipeTipoDao;
-//		this.intervencaoTipoDao = intervencaoTipoDao;
-//		this.longradouroDao = longradouroDao;
-//		this.motivoTipoDao = motivoTipoDao;
-//		this.ordemServicoDao = ordemServicoDao;
-//		this.projetoTipoDao = projetoTipoDao;
-//		this.situacaoTipoDao = situacaoTipoDao;
-//	}
-//	

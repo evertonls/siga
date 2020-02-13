@@ -18,8 +18,8 @@ public class SpringJdbcConfiguration {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
 		dataSource.setDriverClassName("org.postgresql.Driver");
-		dataSource.setUrl("jdbc:postgresql://localhost/sigadb");
-//		dataSource.setUrl("jdbc:postgresql://pmfamcs34/sigadb");
+//		dataSource.setUrl("jdbc:postgresql://localhost/sigadb");
+		dataSource.setUrl("jdbc:postgresql://pmfamcs34/sigadb");
 		dataSource.setUsername("siga_user");
 		dataSource.setPassword("123456789");
 

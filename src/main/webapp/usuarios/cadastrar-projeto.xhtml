@@ -111,9 +111,7 @@
 					<p:outputLabel for="situacao" value="Situação: " />
 					<p:selectOneMenu id="situacao">
 						<f:selectItem itemLabel="Selecione uma situacao" itemValue="" />
-						<f:selectItems value="#{cadastroBean.listaSituacoes}"
-							var="situacao" itemLabel="#{situacao.situacaoCodigo}"
-							itemValue="#{situacao}" />
+						<f:selectItems value="#{cadastroBean.listaSituacoes}" var="situacao" itemLabel="#{situacao.situacaoCodigo}" itemValue="#{situacao}" />
 					</p:selectOneMenu>
 
 
@@ -126,12 +124,17 @@
 				</p:panelGrid>
 
 
-				<p:panelGrid columns="4">
+				<p:panelGrid columns="2">
 					<p:outputLabel for="bairro" value="Bairro: " />
 					<p:selectOneMenu id="bairro">
 						<f:selectItem itemLabel="Selecione o bairro" itemValue="" />
-						<f:selectItems value="#{castroBean.listaBairros}" var="bairro"
-							itemLabel="#{bairro.bairro}" itemValue="#{bairro}" />
+						<f:selectItems value="#{cadastroBean.listaBairros}" var="bairrO" itemLabel="#{bairrO.bairro}" itemValue="#{bairrO}" />
+					</p:selectOneMenu>
+
+					<p:outputLabel for="longr" value="Longradouro:" />
+					<p:selectOneMenu id="longr">
+						<f:selectItem itemLabel="Selecione um longradouro" itemValue="" />
+						<f:selectItems value="#{cadastroBean.listaLongradouros}" var="longrad" itemLabel="#{longrad.longradouro}" itemValue="#{longrad}" />
 					</p:selectOneMenu>
 
 					<p:outputLabel for="regional" value="Regional: " />
@@ -145,6 +148,12 @@
 						<f:selectItem itemLabel="SER VI" itemValue="SER VI" />
 					</p:selectOneMenu>
 
+					<p:outputLabel for="trecho" value="Trecho:" />
+					<p:selectOneMenu id="trecho">
+						<f:selectItem itemLabel="Selecione um trecho" itemValue="" />
+						<f:selectItems value="#{cadastroBean.listaLongradouros}" var="trecho" itemLabel="#{trecho.longradouro}" itemValue="#{trecho}" />
+					</p:selectOneMenu>
+
 					<p:outputLabel for="area" value="Área: " />
 					<p:selectOneMenu id="area">
 						<f:selectItem itemLabel="Selecione uma área" itemValue="" />
@@ -153,28 +162,16 @@
 						<f:selectItem itemLabel="Área 3" itemValue="AREA 3" />
 					</p:selectOneMenu>
 
-					<p:outputLabel for="longradouro" value="Longradouro: " />
-					<p:selectOneMenu id="longradouro">
-						<f:selectItem itemLabel="Selecione um longradouro" itemValue="" />
-						<f:selectItems value="#{cadastroBean.listaLongradouros}"
-							var="longradouro" itemLabel="longradouro.longradouro"
-							itemValue="#{longradouro}" />
-					</p:selectOneMenu>
 
-					<p:outputLabel for="trecho" value="Trecho: " />
-					<p:selectOneMenu id="trecho">
-						<f:selectItem></f:selectItem>
-						<f:selectItems></f:selectItems>
-					</p:selectOneMenu>
 
-					<p:outputLabel for="cruzamento" value="Cruzamento: " />
+					<p:outputLabel for="cruzamento" value="Cruzamento:" />
 					<p:selectOneMenu id="cruzamento">
-						<f:selectItem></f:selectItem>
-						<f:selectItems></f:selectItems>
+						<f:selectItem itemLabel="Selecione um cruzamento" itemValue="" />
+						<f:selectItems value="#{cadastroBean.listaLongradouros}" var="cruzamento" itemLabel="#{cruzamento.longradouro}" itemValue="#{cruzamento}" />
 					</p:selectOneMenu>
 				</p:panelGrid>
 
-				<p:panelGrid columns="3">
+				<p:panelGrid columns="2">
 					<p:outputLabel for="observacao" value="Observação: "></p:outputLabel>
 					<p:inputTextarea id="observacao" rows="6" cols="30"
 						completeMethod="#{inputTextareaView.completeArea}"
