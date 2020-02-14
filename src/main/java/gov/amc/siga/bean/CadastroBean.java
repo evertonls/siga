@@ -42,6 +42,7 @@ public class CadastroBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private AparelhoTipoDao aparelhoTipoDao;
+	
 	private BairroDao bairroDao;
 	private ClassificacaoTipoDao classificacaoTipoDao;
 	private DescricaoTipoDao descricaoTipoDao;
