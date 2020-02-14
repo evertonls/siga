@@ -11,7 +11,6 @@ public class AparelhoProjeto implements Serializable {
 	private Long projetoId;
 	private AparelhoTipo aparelhoTipo;
 	private Double quantidade;
-	private String teste;
 
 	public AparelhoProjeto() {
 	}
