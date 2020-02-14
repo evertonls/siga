@@ -69,6 +69,7 @@ public class CadastroBean implements Serializable {
 	private List<OrdemServico> listaOrdensServicos;
 	private List<SituacaoTipo> listaSituacoes;
 	private List<ProjetoTipo> listaTiposProjeto;
+	
 
 	@Autowired
 	public CadastroBean(ClassificacaoTipoDao classificacaoTipoDao, EquipeTipoDao equipeTipoDao,
