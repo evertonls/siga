@@ -53,6 +53,7 @@ public class CadastroBean implements Serializable {
 	private OrdemServicoDao ordemServicoDao;
 	private ProjetoTipoDao projetoTipoDao;
 	private SituacaoTipoDao situacaoTipoDao;
+	
 
 	private Projeto projeto;
 
